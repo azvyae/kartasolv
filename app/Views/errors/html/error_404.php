@@ -24,7 +24,7 @@
     <div class="d-flex h-100 flex-column text-center text-light bg-dark min-vh-100">
         <div class="d-flex w-100 h-100 p-3 mx-auto flex-column my-auto">
             <main class="container">
-                <h1 class="position-relative">Aplikasi Karang Taruna Sarijadi Sedang Dalam Pengembangan</h1>
+                <h1 class="position-relative">Error 404 | Aplikasi Karang Taruna Sarijadi Sedang Dalam Pengembangan</h1>
                 <p class="lead position-relative">Maaf ya, aplikasinya lagi dalam pengembangan, tunggu beberapa waktu lagi!</p>
                 <p class="lead position-relative">
 
