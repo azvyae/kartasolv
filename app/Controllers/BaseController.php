@@ -46,6 +46,9 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
+        if (!$this->request->isSecure()) {
+            $this->forceHTTPS();
+        }
 
         // E.g.: $this->session = \Config\Services::session();
     }
