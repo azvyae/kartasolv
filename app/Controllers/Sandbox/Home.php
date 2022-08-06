@@ -6,8 +6,9 @@ use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
-    public function getIndex()
+    public function index($string = '')
     {
-        echo base_url();
+        echo APPPATH . 'Helpers/security_helper.php';
+        echo '<br>';
     }
 }

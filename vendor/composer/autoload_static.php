@@ -41,6 +41,10 @@ class ComposerStaticInit412711ab9e175175115e42def35284e8
         array (
             'Kint\\' => 5,
         ),
+        'H' => 
+        array (
+            'Hashids\\' => 8,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -60,8 +64,8 @@ class ComposerStaticInit412711ab9e175175115e42def35284e8
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -94,6 +98,10 @@ class ComposerStaticInit412711ab9e175175115e42def35284e8
         'Kint\\' => 
         array (
             0 => __DIR__ . '/..' . '/kint-php/kint/src',
+        ),
+        'Hashids\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hashids/hashids/src',
         ),
         'Faker\\' => 
         array (

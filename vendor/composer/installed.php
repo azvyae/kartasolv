@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'v4.2.1',
-        'version' => '4.2.1.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '5f0e4c5fd272a6f8ff2363d75c33bd181544a772',
         'name' => 'codeigniter4/appstarter',
         'dev' => true,
     ),
     'versions' => array(
         'codeigniter4/appstarter' => array(
-            'pretty_version' => 'v4.2.1',
-            'version' => '4.2.1.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '5f0e4c5fd272a6f8ff2363d75c33bd181544a772',
             'dev_requirement' => false,
         ),
         'codeigniter4/framework' => array(
@@ -45,6 +45,15 @@
             'aliases' => array(),
             'reference' => '37f751c67a5372d4e26353bd9384bc03744ec77b',
             'dev_requirement' => true,
+        ),
+        'hashids/hashids' => array(
+            'pretty_version' => '4.1.0',
+            'version' => '4.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../hashids/hashids',
+            'aliases' => array(),
+            'reference' => '8cab111f78e0bd9c76953b082919fc9e251761be',
+            'dev_requirement' => false,
         ),
         'kint-php/kint' => array(
             'pretty_version' => '4.1.3',

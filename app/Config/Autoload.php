@@ -65,7 +65,8 @@ class Autoload extends AutoloadConfig
      * @var array<string, string>
      */
     public $classmap = [
-        'RouteCollection' => APPPATH . 'Libraries/RouteCollection.php'
+        'RouteCollection' => APPPATH . 'Libraries/RouteCollection.php',
+        'DatabaseManager' => APPPATH . 'Libraries/DatabaseManager.php'
     ];
 
     /**
@@ -85,5 +86,8 @@ class Autoload extends AutoloadConfig
      *
      * @var array<int, string>
      */
-    public $files = [];
+    public $files = [
+        APPPATH . 'Helpers/security_helper.php',
+        APPPATH . 'Helpers/string_helper.php',
+    ];
 }

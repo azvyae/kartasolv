@@ -50,6 +50,6 @@ abstract class BaseController extends Controller
             $this->forceHTTPS();
         }
 
-        // E.g.: $this->session = \Config\Services::session();
+        $this->session = session();
     }
 }

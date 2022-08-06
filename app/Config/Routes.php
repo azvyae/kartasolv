@@ -25,7 +25,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -35,10 +35,30 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/data', 'Data::index');
-$routes->post('/data', 'Data::index');
-$routes->put('/data', 'Data::index');
-$routes->delete('/data/(:any)', 'Data::index/$1');
+$routes->get('/', 'Home::index');
+$routes->get('/sandbox', 'Sandbox\Home::index');
+$routes->get('/sandbox/(:any)', 'Sandbox\Home::index/$1');
+$routes->get('/sejarah', 'Home::history');
+$routes->get('/hubungi-kami', 'Home::contactUs');
+$routes->get('/masuk', 'Auth::login');
+$routes->get('/keluar', 'Auth::logout');
+$routes->get('/lupa-kata-sandi', 'Auth::forgetPassword');
+$routes->get('/atur-ulang-kata-sandi', 'Auth::resetPassword');
+
+$routes->group('konten', static function ($routes) {
+    $routes->get('sejarah', 'Content\History::index');
+    $routes->get('profil-karang-taruna', 'Content\OrganizationProfile::index');
+    $routes->group('profil-karang-taruna', static function ($routes) {
+        $routes->get('info-utama', 'Content\OrganizationProfile::mainInfo');
+        $routes->get('kegiatan-kami', 'Content\OrganizationProfile::ourActivities');
+        $routes->get('pengurus', 'Content\OrganizationProfile::members');
+        $routes->get('pengurus/(:any)', 'Content\OrganizationProfile::memberCRUD/$1');
+        $routes->get('tambah-pengurus', 'Content\OrganizationProfile::memberCRUD');
+    });
+});
+
+$routes->get('dasbor', 'User\Home::index');
+$routes->get('profil', 'User\Profile::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

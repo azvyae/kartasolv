@@ -4,8 +4,17 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function getIndex()
+    public function index()
     {
         return view('errors/html/under_construction');
+    }
+    public function history()
+    {
+        return 'history';
+    }
+
+    public function contactUs()
+    {
+        return 'contact-us';
     }
 }

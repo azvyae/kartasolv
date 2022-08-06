@@ -9,7 +9,7 @@
     <meta name="application-name" content="Karang Taruna Kelurahan Sarijadi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?= base_url('img/ngajomantara.ico') ?>" type="image/x-icon">
-    <title>Karang Taruna Kelurahan Sarijadi - 404</title>
+    <title>Karang Taruna Kelurahan Sarijadi - 403</title>
     <link rel="stylesheet" href="<?= base_url('css/style.css'); ?>/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -24,8 +24,8 @@
     <div class="d-flex h-100 flex-column text-center text-light bg-dark min-vh-100">
         <div class="d-flex w-100 h-100 p-3 mx-auto flex-column my-auto">
             <main class="container">
-                <h1 class="position-relative">Error 404 | Halaman Tidak Ditemukan</h1>
-                <p class="lead position-relative">Maaf ya, halaman yang kamu cari tidak ditemukan!</p>
+                <h1 class="position-relative">Error 403 | Forbidden</h1>
+                <p class="lead position-relative">Maaf ya, kamu dilarang mengakses halaman ini!</p>
                 <p class="lead position-relative">
 
                 </p>
