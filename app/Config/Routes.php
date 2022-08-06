@@ -52,8 +52,8 @@ $routes->group('konten', static function ($routes) {
         $routes->get('info-utama', 'Content\OrganizationProfile::mainInfo');
         $routes->get('kegiatan-kami', 'Content\OrganizationProfile::ourActivities');
         $routes->get('pengurus', 'Content\OrganizationProfile::members');
-        $routes->get('pengurus/(:any)', 'Content\OrganizationProfile::memberCRUD/$1');
-        $routes->get('tambah-pengurus', 'Content\OrganizationProfile::memberCRUD');
+        $routes->get('pengurus/(:any)', 'Content\OrganizationProfile::memberCrud/$1');
+        $routes->get('tambah-pengurus', 'Content\OrganizationProfile::memberCrud');
     });
 });
 

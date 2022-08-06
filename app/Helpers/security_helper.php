@@ -105,9 +105,8 @@ function decode($data, $type = '')
     $decoded = $hashids->decode($data);
     if (count($decoded) > 1) {
         return $decoded;
-    } else {
-        return $decoded[0] ?? NULL;
     }
+    return $decoded[0] ?? NULL;
 }
 
 function show404()

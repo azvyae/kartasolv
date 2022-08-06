@@ -40,18 +40,7 @@ class OrganizationProfile extends BaseController
                 'title' => 'Ubah Data Pengurus',
                 'member' => $member
             ];
-
-            return $this->memberUpdate($id);
         }
         return view('content/organization_profile/member_crud', $data);
-    }
-
-    private function memberUpdate($id)
-    {
-    }
-
-    private function memberCreate()
-    {
-        echo 'Tambah Data Pengurus';
     }
 }
