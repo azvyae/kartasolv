@@ -34,7 +34,7 @@ class OrganizationProfile extends BaseController
             $id = decode($id, 'members');
             $member = $memberModel->getMember($id);
             if (!$member) {
-                show404();
+                return show404();
             }
             $data = [
                 'title' => 'Ubah Data Pengurus',

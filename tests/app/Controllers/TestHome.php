@@ -22,7 +22,7 @@ class TestHome extends CIUnitTestCase
 
     public function testIndex()
     {
-        $result = $this->call('get', "");
+        $result = $this->call('get', "/");
         $result->assertOK();
         $result->assertSee('Karang Taruna Ngajomantara', 'h1');
         $result->assertSee('Visi & Misi', 'h2');

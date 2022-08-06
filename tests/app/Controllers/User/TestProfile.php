@@ -18,6 +18,7 @@ class TestProfile extends CIUnitTestCase
         $sessionData = [
             'user' => objectify([
                 'userId' => 1,
+                'roleId' => 1,
                 'roleString' => 'admin',
                 'roleName' => 'Administrator',
             ])

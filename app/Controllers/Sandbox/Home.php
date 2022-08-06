@@ -8,12 +8,26 @@ class Home extends BaseController
 {
     public function index($string = '')
     {
-        $reset = date('Y-m-d H:i:s');
-        $numeric = strtotime($reset);
-        echo "$reset is $numeric<br>";
-        $encoded = encode($numeric, 'test');
-        echo "Encoded: $encoded<br>";
-        $decoded = decode($encoded, 'test');
-        echo "Decoded: $decoded";
+        echo "OK";
+    }
+
+    public function login()
+    {
+        $session = session();
+        $sessionData = [
+            'user' => objectify([
+                'userId' => 1,
+                'roleId' => 1,
+                'roleString' => 'admin',
+                'roleName' => 'Administrator',
+            ])
+        ];
+
+        $session->set($sessionData);
+    }
+
+    public function logout()
+    {
+        session_destroy();
     }
 }

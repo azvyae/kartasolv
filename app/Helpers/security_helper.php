@@ -22,9 +22,9 @@ function checkAuth($data = null)
             $roleAccessModel = model('App\Models\RoleAccessModel');
             $isGranted = $roleAccessModel->getRoleAccessId($roleId, $thisMenu) !== NULL;
         }
-
+        // dd($roleId, $thisMenu);
         if ($session->user) {
-            if ($controllerName === 'Auth' && $router->methodName() !== 'getLogout') {
+            if ($controllerName === 'Auth' && $router->methodName() !== 'logout') {
                 return redirect()->to(base_url('dasbor'));
             }
             if (!$isGranted) {

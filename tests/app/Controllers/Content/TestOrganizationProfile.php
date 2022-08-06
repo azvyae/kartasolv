@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Content;
 
+use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
@@ -18,6 +21,7 @@ class TestOrganizationProfile extends CIUnitTestCase
         $sessionData = [
             'user' => objectify([
                 'userId' => 1,
+                'roleId' => 1,
                 'roleString' => 'admin',
                 'roleName' => 'Administrator',
             ])
@@ -29,7 +33,9 @@ class TestOrganizationProfile extends CIUnitTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        session_destroy();
+        if (checkAuth('all')) {
+            session_destroy();
+        }
     }
 
     public function testIndex()
@@ -100,10 +106,11 @@ class TestOrganizationProfile extends CIUnitTestCase
     }
     public function testMemberUpdateNotFound()
     {
+        $this->expectException(PageNotFoundException::class);
         $id = 'not-found';
         $result = $this->call('get', "konten/profil-karang-taruna/pengurus/$id");
         $result->assertOK();
-        $result->assertSessionHas('message', 'Data Pengurus Tidak Ditemukan!');
-        $result->assertRedirectTo(base_url('konten/profil-karang-taruna/pengurus'));
+
+        // $result->expectExceptionMessage('Page Not Found');
     }
 }

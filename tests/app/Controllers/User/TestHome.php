@@ -18,6 +18,7 @@ class TestHome extends CIUnitTestCase
         $sessionData = [
             'user' => objectify([
                 'userId' => 1,
+                'roleId' => 1,
                 'roleString' => 'admin',
                 'roleName' => 'Administrator',
             ])
@@ -34,10 +35,10 @@ class TestHome extends CIUnitTestCase
 
     public function testIndex()
     {
-        $roleString = checkAuth('roleString');
+        $roleName = checkAuth('roleName');
         $result = $this->call('get', 'dasbor');
         $result->assertOK();
-        $result->assertSee("Dasbor $roleString", 'h1');
+        $result->assertSee("Dasbor $roleName", 'h1');
         $result->assertSee("Data PMKS", 'strong');
         $result->assertSee("Data PSKS", 'strong');
         $result->assertSee("Pengurus Aktif", 'strong');

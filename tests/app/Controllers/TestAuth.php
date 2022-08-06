@@ -10,11 +10,18 @@ class TestAuth extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
-    protected $builder, $db, $uuid, $attempt;
+    protected $builder, $db, $uuid, $attempt, $sessionData;
     protected function setUp(): void
     {
         parent::setUp();
-        session_destroy();
+        $this->sessionData = [
+            'user' => objectify([
+                'userId' => 1,
+                'roleId' => 1,
+                'roleString' => 'admin',
+                'roleName' => 'Administrator',
+            ])
+        ];
     }
 
     protected function tearDown(): void
@@ -30,10 +37,16 @@ class TestAuth extends CIUnitTestCase
         $result->assertSeeElement('input[name=user_email]');
         $result->assertSeeElement('input[name=user_password]');
     }
+    public function testAfterLoggedIn()
+    {
+        $result = $this->withSession($this->sessionData)->call('get', "masuk");
+        $result->assertOK();
+        $result->assertRedirectTo(base_url('dasbor'));
+    }
 
     public function testLogout()
     {
-        $result = $this->call('get', "keluar");
+        $result = $this->withSession($this->sessionData)->call('get', "keluar");
         $result->assertOK();
         $result->assertRedirectTo(base_url('masuk'));
     }
@@ -58,7 +71,7 @@ class TestAuth extends CIUnitTestCase
 
     public function testResetPassword()
     {
-        $result = $this->call('get', "atur-ulang-kata-sandi", ['for' => $this->for, 'attempt' => $this->attempt]);
+        $result = $this->call('get', "atur-ulang-kata-sandi", ['uuid' => $this->uuid, 'attempt' => $this->attempt]);
         $result->assertOK();
         $result->assertSee('Atur Ulang Kata Sandi', 'h1');
         $result->assertSeeElement('input[name=user_password]');
