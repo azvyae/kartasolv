@@ -13,12 +13,11 @@ class TestOrganizationProfile extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
-
+    protected $sessionData;
     protected function setUp(): void
     {
         parent::setUp();
-        $session = session();
-        $sessionData = [
+        $this->sessionData = [
             'user' => objectify([
                 'userId' => 1,
                 'roleId' => 1,
@@ -26,21 +25,16 @@ class TestOrganizationProfile extends CIUnitTestCase
                 'roleName' => 'Administrator',
             ])
         ];
-
-        $session->set($sessionData);
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-        if (checkAuth('all')) {
-            session_destroy();
-        }
     }
 
     public function testIndex()
     {
-        $result = $this->call('get', 'konten/profil-karang-taruna');
+        $result = $this->withSession($this->sessionData)->call('get', 'konten/profil-karang-taruna');
         $result->assertOK();
         $result->assertSee('Pengaturan Profil Karta', 'h1');
         $result->assertSee('Ubah Informasi Utama');
@@ -49,7 +43,7 @@ class TestOrganizationProfile extends CIUnitTestCase
     }
     public function testMainInfo()
     {
-        $result = $this->call('get', 'konten/profil-karang-taruna/info-utama');
+        $result = $this->withSession($this->sessionData)->call('get', 'konten/profil-karang-taruna/info-utama');
         $result->assertOK();
         $result->assertSee('Ubah Informasi Utama', 'h1');
         $result->assertSeeElement('input[name=landing_title]');
@@ -62,7 +56,7 @@ class TestOrganizationProfile extends CIUnitTestCase
     }
     public function testOurActivities()
     {
-        $result = $this->call('get', 'konten/profil-karang-taruna/kegiatan-kami');
+        $result = $this->withSession($this->sessionData)->call('get', 'konten/profil-karang-taruna/kegiatan-kami');
         $result->assertOK();
         $result->assertSee('Ubah Kegiatan Kami', 'h1');
         $result->assertSeeElement('input[name=title_a]');
@@ -78,14 +72,14 @@ class TestOrganizationProfile extends CIUnitTestCase
 
     public function testMembers()
     {
-        $result = $this->call('get', 'konten/profil-karang-taruna/pengurus');
+        $result = $this->withSession($this->sessionData)->call('get', 'konten/profil-karang-taruna/pengurus');
         $result->assertOK();
         $result->assertSee('Data Pengurus', 'h1');
         $result->assertSeeElement('table');
     }
     public function testMemberCreate()
     {
-        $result = $this->call('get', "konten/profil-karang-taruna/tambah-pengurus");
+        $result = $this->withSession($this->sessionData)->call('get', "konten/profil-karang-taruna/tambah-pengurus");
         $result->assertOK();
         $result->assertSee('Tambah Data Pengurus', 'h1');
         $result->assertSeeElement('input[name=member_name]');
@@ -96,7 +90,7 @@ class TestOrganizationProfile extends CIUnitTestCase
     public function testMemberUpdateFound()
     {
         $id = encode('1', 'members');
-        $result = $this->call('get', "konten/profil-karang-taruna/pengurus/$id");
+        $result = $this->withSession($this->sessionData)->call('get', "konten/profil-karang-taruna/pengurus/$id");
         $result->assertOK();
         $result->assertSee('Ubah Data Pengurus', 'h1');
         $result->assertSeeElement('input[name=member_name]');
@@ -108,7 +102,7 @@ class TestOrganizationProfile extends CIUnitTestCase
     {
         $this->expectException(PageNotFoundException::class);
         $id = 'not-found';
-        $result = $this->call('get', "konten/profil-karang-taruna/pengurus/$id");
+        $result = $this->withSession($this->sessionData)->call('get', "konten/profil-karang-taruna/pengurus/$id");
         $result->assertOK();
 
         // $result->expectExceptionMessage('Page Not Found');

@@ -10,12 +10,11 @@ class TestHistory extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
-
+    protected $sessionData;
     protected function setUp(): void
     {
         parent::setUp();
-        $session = session();
-        $sessionData = [
+        $this->sessionData = [
             'user' => objectify([
                 'userId' => 1,
                 'roleId' => 1,
@@ -23,19 +22,16 @@ class TestHistory extends CIUnitTestCase
                 'roleName' => 'Administrator',
             ])
         ];
-
-        $session->set($sessionData);
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-        session_destroy();
     }
 
     public function testIndex()
     {
-        $result = $this->call('get', 'konten/sejarah');
+        $result = $this->withSession($this->sessionData)->call('get', 'konten/sejarah');
         $result->assertOK();
         $result->assertSee('Pengaturan Sejarah', 'h1');
         $result->assertSeeElement('input[name=title_a]');

@@ -10,12 +10,11 @@ class TestHome extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
-
+    protected $sessionData;
     protected function setUp(): void
     {
         parent::setUp();
-        $session = session();
-        $sessionData = [
+        $this->sessionData = [
             'user' => objectify([
                 'userId' => 1,
                 'roleId' => 1,
@@ -23,20 +22,17 @@ class TestHome extends CIUnitTestCase
                 'roleName' => 'Administrator',
             ])
         ];
-
-        $session->set($sessionData);
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-        session_destroy();
     }
 
     public function testIndex()
     {
         $roleName = checkAuth('roleName');
-        $result = $this->call('get', 'dasbor');
+        $result = $this->withSession($this->sessionData)->call('get', 'dasbor');
         $result->assertOK();
         $result->assertSee("Dasbor $roleName", 'h1');
         $result->assertSee("Data PMKS", 'strong');

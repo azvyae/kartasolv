@@ -10,12 +10,11 @@ class TestProfile extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
-
+    protected $sessionData;
     protected function setUp(): void
     {
         parent::setUp();
-        $session = session();
-        $sessionData = [
+        $this->sessionData = [
             'user' => objectify([
                 'userId' => 1,
                 'roleId' => 1,
@@ -23,19 +22,16 @@ class TestProfile extends CIUnitTestCase
                 'roleName' => 'Administrator',
             ])
         ];
-
-        $session->set($sessionData);
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-        session_destroy();
     }
 
     public function testIndex()
     {
-        $result = $this->call('get', 'profil');
+        $result = $this->withSession($this->sessionData)->call('get', 'profil');
         $result->assertOK();
         $result->assertSee("Ubah Akun/Profil", 'h1');
         $result->assertSeeElement('input[name=user_name]');
