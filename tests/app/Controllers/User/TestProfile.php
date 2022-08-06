@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Controllers\Users;
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
