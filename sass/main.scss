@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "creato-display";
+  src: url("../fonts/creato-display.woff2"), url("../fonts/creato-display.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+$font-family-sans-serif: "creato-display";
+$primary: #213751;
+$secondary: #4b5563;
+$success: #019267;
+$info: #f3373f;
+$warning: #ffe15d;
+$danger: #a6d1e6;
+$light: #e6e6e6;
+$dark: #191d21;
+
+// import bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
