@@ -37,6 +37,7 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/sandbox', 'Sandbox\Home::index');
+$routes->post('/sandbox', 'Sandbox\Home::index');
 $routes->get('/sandbox/login', 'Sandbox\Home::login');
 $routes->get('/sandbox/logout', 'Sandbox\Home::logout');
 $routes->get('/sandbox/(:any)', 'Sandbox\Home::index/$1');

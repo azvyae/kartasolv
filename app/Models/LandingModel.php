@@ -17,4 +17,8 @@ class LandingModel extends Model
     {
         return $this->select(['cta_text', 'cta_url'])->find(1);
     }
+    public function getLandingInfo()
+    {
+        return $this->find(1);
+    }
 }

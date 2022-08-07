@@ -13,6 +13,11 @@ class MembersModel extends Model
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
 
+    public function getAllMembers()
+    {
+        return $this->where('member_active', 1)->orderBy('member_type, member_id', 'asc')->findAll();
+    }
+
     public function getMember($memberId)
     {
         $where = [

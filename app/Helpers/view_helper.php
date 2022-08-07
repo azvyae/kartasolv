@@ -20,3 +20,15 @@ function getCallToAction()
     }
     return false;
 }
+
+function getMissions($data)
+{
+    $points = explode('<br/>', $data);
+    return array_map(function ($e) {
+        [$m, $d] = explode('[', $e);
+        return [
+            'mission' => $m,
+            'desc' => str_replace(']', '', $d)
+        ];
+    }, $points);
+}
