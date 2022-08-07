@@ -1,7 +1,4 @@
-<?php
-$data = 'slogin';
-?>
-<nav class="navbar fw-semibold px-3 navbar-expand-lg shadow-sm fixed-top">
+<nav class="navbar fw-semibold px-3 bg-white navbar-expand-lg shadow-sm fixed-top">
     <div class="container-md ">
         <a href="<?= base_url(); ?>" class="navbar-brand me-5">
             <img src="<?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="48" height="48">
