@@ -1,14 +1,47 @@
 @font-face {
   font-family: "creato-display";
-  src: url("../fonts/creato-display.woff2"), url("../fonts/creato-display.woff");
+  src: url("../fonts/creatodisplay-regular-webfont.woff2"), url("../fonts/creatodisplay-regular-webfont.woff");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "creato-display";
+  src: url("../fonts/creatodisplay-regularitalic-webfont.woff2"), url("../fonts/creatodisplay-regularitalic-webfont.woff");
+  font-style: italic;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "creato-display";
+  src: url("../fonts/creatodisplay-medium-webfont.woff2"), url("../fonts/creatodisplay-medium-webfont.woff");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "creato-display";
+  src: url("../fonts/creatodisplay-mediumitalic-webfont.woff2"), url("../fonts/creatodisplay-mediumitalic-webfont.woff");
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "creato-display";
+  src: url("../fonts/creatodisplay-bold-webfont.woff2"), url("../fonts/creatodisplay-bold-webfont.woff");
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: "creato-display";
+  src: url("../fonts/creatodisplay-bolditalic-webfont.woff2"), url("../fonts/creatodisplay-bolditalic-webfont.woff");
+  font-style: italic;
+  font-weight: bold;
 }
 $font-family-sans-serif: "creato-display";
+$font-weight-semibold: 500;
 $primary: #213751;
 $secondary: #4b5563;
 $success: #019267;
-$info: #f3373f;
+$danger: #f3373f;
 $warning: #ffe15d;
-$danger: #a6d1e6;
+$info: #a6d1e6;
 $light: #e6e6e6;
 $dark: #191d21;
 
