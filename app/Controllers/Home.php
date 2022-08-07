@@ -6,7 +6,10 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('errors/html/under_construction');
+        $data = [
+            'title' => 'Karang Taruna Ngajomanatara Kelurahan Sarijadi'
+        ];
+        return view('home/index', $data);
     }
     public function history()
     {
