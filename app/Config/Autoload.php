@@ -89,5 +89,6 @@ class Autoload extends AutoloadConfig
     public $files = [
         APPPATH . 'Helpers/security_helper.php',
         APPPATH . 'Helpers/string_helper.php',
+        APPPATH . 'Helpers/view_helper.php',
     ];
 }

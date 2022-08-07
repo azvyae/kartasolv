@@ -8,7 +8,7 @@ class Home extends BaseController
 {
     public function index($string = '')
     {
-        echo "OK";
+        dd(isSamePage('Sandbox\Home::index'));
     }
 
     public function login()
