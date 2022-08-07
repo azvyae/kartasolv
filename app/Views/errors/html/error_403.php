@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>" type="image/x-icon">
     <title>Karang Taruna Kelurahan Sarijadi - 403</title>
-    <link rel="stylesheet" href="<?= base_url('css/style.css'); ?>/">
+    <link rel="stylesheet" href="<?= base_url('css/error.page.css'); ?>/">
     <link href="<?= base_url('css/main.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- Poppins -->
