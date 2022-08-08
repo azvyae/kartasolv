@@ -7,6 +7,7 @@ use CodeIgniter\Validation\CreditCardRules;
 use CodeIgniter\Validation\FileRules;
 use CodeIgniter\Validation\FormatRules;
 use CodeIgniter\Validation\Rules;
+use Config\CustomRules;
 
 class Validation extends BaseConfig
 {
@@ -25,6 +26,7 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
+        CustomRules::class
     ];
 
     /**
@@ -52,9 +54,9 @@ class Validation extends BaseConfig
         ],
         'g-recaptcha-response' => [
             'label' => 'reCaptcha',
-            'rules' => 'required|verifyRecaptcha',
+            'rules' => 'required|verify_recaptcha',
             'errors' => [
-                'verifyRecaptcha' => 'Gagal verifikasi reCaptcha google!'
+                'verify_recaptcha' => 'Gagal verifikasi reCaptcha google!'
             ]
         ]
     ];

@@ -15,7 +15,7 @@
                         <?= csrf_field(); ?>
                         <?= getFlash('message'); ?>
                         <div class="form-floating has-validation">
-                            <input value="<?= old('user_email'); ?>" name="user_email" type="email" id="email" class="form-control <?= setInvalid('user_email'); ?>" placeholder="Email" aria-label="Email">
+                            <input required value="<?= old('user_email'); ?>" name="user_email" type="email" id="email" class="form-control <?= setInvalid('user_email'); ?>" placeholder="Email" aria-label="Email">
                             <label for="email">Email</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('user_email'); ?>
@@ -25,8 +25,8 @@
                 </div>
                 <div class="row mb-1">
                     <div class="col-md-4 mx-auto">
-                        <div class="form-floating">
-                            <input type="password" id="password" name="user_password" class="form-control <?= setInvalid('user_password'); ?>" placeholder="Kata Sandi" aria-label="Kata Sandi">
+                        <div class="form-floating has-validation">
+                            <input required minlength="6" type="password" id="password" name="user_password" class="form-control <?= setInvalid('user_password'); ?>" placeholder="Kata Sandi" aria-label="Kata Sandi">
                             <label for="password">Kata Sandi</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('user_password'); ?>
@@ -36,8 +36,8 @@
 
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-4 mx-auto">
-                        <span class="text-muted  small">Situs ini dilindungi oleh reCAPTCHA dan berlaku
+                    <div class="col-md-4 mx-auto ">
+                        <span class="text-muted  <?= setInvalid('g-recaptcha-response'); ?> small">Situs ini dilindungi oleh reCAPTCHA dan berlaku
                             <a class="text-decoration-none" href="https://policies.google.com/privacy">Kebijakan Privasi</a> dan
                             <a class="text-decoration-none" href="https://policies.google.com/terms">Persyaratan Layanan</a> Google.
                         </span>
@@ -45,7 +45,6 @@
                             <?= showInvalidFeedback('g-recaptcha-response'); ?>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="row mb-3">
@@ -66,7 +65,10 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     function onSubmit(token) {
-        document.getElementById("loginForm").submit();
+        form = document.getElementById("loginForm")
+        if (form.reportValidity()) {
+            form.submit();
+        }
     }
 </script>
 <?= $this->endSection(); ?>
