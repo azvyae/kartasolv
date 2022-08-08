@@ -86,7 +86,7 @@ class Request extends Message implements MessageInterface, RequestInterface
      *
      * @param bool $upper Whether to return in upper or lower case.
      *
-     * The $upper functionality will be removed and this will revert to its PSR-7 equivalent
+     * @deprecated The $upper functionality will be removed and this will revert to its PSR-7 equivalent
      *
      * @codeCoverageIgnore
      */

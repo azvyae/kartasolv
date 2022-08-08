@@ -60,4 +60,37 @@ class Validation extends BaseConfig
             ]
         ]
     ];
+    public $forgetPassword = [
+        'user_email' => [
+            'label' => 'Email',
+            'rules' => 'required|valid_email',
+        ],
+        'g-recaptcha-response' => [
+            'label' => 'reCaptcha',
+            'rules' => 'required|verify_recaptcha',
+            'errors' => [
+                'verify_recaptcha' => 'Gagal verifikasi reCaptcha google!'
+            ]
+        ]
+    ];
+    public $resetPassword = [
+        'user_password' => [
+            'label' => 'Kata Sandi',
+            'rules' => 'required|min_length[6]',
+        ],
+        'password_verify' => [
+            'label' => 'Verifikasi Kata Sandi',
+            'rules' => 'required|matches[user_password]',
+            'errors' => [
+                'matches'  => 'Kata Sandi Harus Sama!'
+            ]
+        ],
+        'g-recaptcha-response' => [
+            'label' => 'reCaptcha',
+            'rules' => 'required|verify_recaptcha',
+            'errors' => [
+                'verify_recaptcha' => 'Gagal verifikasi reCaptcha google!'
+            ]
+        ]
+    ];
 }

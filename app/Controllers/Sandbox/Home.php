@@ -8,42 +8,41 @@ class Home extends BaseController
 {
     public function index($string = '')
     {
-        helper('form');
-        $data = explode('<br />', nl2br($this->request->getPost('data')));
-        $data = array_map(function ($e) {
-            if (trim($e)) {
-                [$mission, $desc] = explode('(', $e);
-                if ($mission && $desc) {
-                    return trim($mission) . '[' . str_replace(')', ']', $desc);
-                }
-            }
-            return null;
-        }, $data);
-        $data = array_filter($data);
-        $data = implode('<br/>', $data);
-        $ale = [];
-        d($data);
-        if ($data) {
-            $ale = [
-                'sk' => str_ireplace('<br/>', "\r\n\r\n", str_replace(['[', ']'], [' (', ')'], $data))
-            ];
-        }
-        return view('sandbox/home/index', $ale);
+        helper('date');
+        $data = [
+            'name' => 'Yousef',
+            'link' => 'https://google.com'
+        ];
+        return view('layout/email/reset_password', $data);
+        $date = date('Y-m-d H:i:s', strtotime('+15 minutes', now()));
+        dd();
+        $config = [
+            'protocol' => 'smtp',
+            'SMTPHost' => 'mail.kartasarijadi.com',
+            'SMTPUser' => 'no-reply@kartasarijadi.com',
+            'SMTPPass' => getenv('app.emailpass'),
+            'SMTPPort' => '587',
+            'mailType' => 'html',
+        ];
+        $email = \Config\Services::email($config);
+        $email->setFrom('no-reply@kartasarijadi.com', 'NoReply - Karang Taruna Sarijadi');
+        $email->setTo('erstevn@gmail.com');
+
+        $email->setSubject('Verifikasi Proses Atur Ulang Kata Sandi');
+
+        $email->setMessage();
+        return $email->send();
+        // return view('sandbox/home/index');
     }
+
 
     public function login()
     {
-        $session = session();
-        $sessionData = [
-            'user' => objectify([
-                'userId' => 1,
-                'roleId' => 1,
-                'roleString' => 'admin',
-                'roleName' => 'Administrator',
-            ])
+        $data = [
+            'name' => 'Yousef',
+            'link' => 'https://google.com'
         ];
-
-        $session->set($sessionData);
+        return view('layout/email/reset_password', $data);
     }
 
     public function logout()

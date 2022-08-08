@@ -47,7 +47,9 @@ $routes->get('/masuk', 'Auth::login');
 $routes->post('/masuk', 'Auth::login');
 $routes->get('/keluar', 'Auth::logout');
 $routes->get('/lupa-kata-sandi', 'Auth::forgetPassword');
+$routes->post('/lupa-kata-sandi', 'Auth::forgetPassword');
 $routes->get('/atur-ulang-kata-sandi', 'Auth::resetPassword');
+$routes->post('/atur-ulang-kata-sandi', 'Auth::resetPassword');
 
 $routes->group('konten', static function ($routes) {
     $routes->get('sejarah', 'Content\History::index');

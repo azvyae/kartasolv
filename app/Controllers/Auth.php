@@ -12,7 +12,7 @@ class Auth extends BaseController
     }
     public function login()
     {
-        if ($this->request->getMethod() !== 'post') {
+        if (!$this->request->getPost()) {
             $data = [
                 'title' => 'Masuk | Karta Sarijadi',
             ];
@@ -73,17 +73,111 @@ class Auth extends BaseController
 
     public function forgetPassword()
     {
-        $data = [
-            'title' => 'Lupa Kata Sandi | Karta Sarijadi'
+        if (!$this->request->getPost()) {
+            $data = [
+                'title' => 'Lupa Kata Sandi | Karta Sarijadi'
+            ];
+            return view('auth/forget_password', $data);
+        } else if (!$this->validate('forgetPassword')) {
+            return redirect()->to(base_url('lupa-kata-sandi'))->withInput();
+        }
+        $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
+        if ($user = $this->usersModel->getUserFromEmail($email)) {
+            $time = date('Y-m-d H:i:s', strtotime('+15 minutes', time()));
+            $updateData = [
+                'user_id' => $user->user_id,
+                'user_reset_attempt' => $time
+            ];
+            if ($this->usersModel->save($updateData)) {
+                $config = [
+                    'protocol' => 'smtp',
+                    'SMTPHost' => 'mail.kartasarijadi.com',
+                    'SMTPUser' => 'no-reply@kartasarijadi.com',
+                    'SMTPPass' => getenv('app.emailpass'),
+                    'SMTPPort' => '587',
+                    'mailType' => 'html',
+                ];
+                $email = \Config\Services::email($config);
+                $email->setFrom('no-reply@kartasarijadi.com', 'No Reply - Karang Taruna Sarijadi');
+                $email->setTo($user->user_email);
+
+                $email->setSubject('Verifikasi Proses Atur Ulang Kata Sandi');
+                $uuid = encode($user->user_id, 'reset-pass');
+                $attempt = encode(strtotime($time), 'reset-pass');
+                $data = [
+                    'name' => $user->user_name,
+                    'link' => base_url("atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt")
+                ];
+                $email->setMessage(view('layout/email/reset_password', $data));
+                if ($email->send()) {
+                    $flash = [
+                        'message' => 'Silakan cek emailmu untuk melanjutkan.',
+                        'type' => 'success'
+                    ];
+                    setFlash($flash);
+                    return redirect()->to(base_url('masuk'));
+                }
+            }
+
+            $flash = [
+                'message' => 'Email yang kamu masukkan tidak ditemukan!',
+                'type' => 'success'
+            ];
+            setFlash($flash);
+            return redirect()->to(base_url('lupa-kata-sandi'));
+        }
+        $flash = [
+            'message' => 'Email yang kamu tulis tidak ditemukan!',
+            'type' => 'danger'
         ];
-        return view('auth/forget_password', $data);
+        setFlash($flash);
+        return redirect()->to(base_url('lupa-kata-sandi'))->withInput();
     }
 
     public function resetPassword()
     {
-        $data = [
-            'title' => 'Atur Ulang Kata Sandi | Karta Sarijadi'
-        ];
-        return view('auth/reset_password', $data);
+        $uuid = decode($this->request->getGet('uuid'), 'reset-pass');
+        $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'reset-pass'));
+        if ($uuid && $attempt) {
+            if ($user = $this->usersModel->getUserFromValidationAttempt($uuid, $attempt)) {
+                if ($user->user_reset_attempt <= date('Y-m-d H:i:s') or $user->user_reset_attempt !== $attempt) {
+                    $flash = [
+                        'message' => 'Link tidak valid/kadaluarsa.',
+                        'type' => 'warning'
+                    ];
+                    setFlash($flash);
+                    return redirect()->to(base_url('lupa-kata-sandi'));
+                }
+                if (!$this->request->getPost()) {
+                    $data = [
+                        'title' => 'Atur Ulang Kata Sandi | Karta Sarijadi'
+                    ];
+                    return view('auth/reset_password', $data);
+                } else if (!$this->validate('resetPassword')) {
+                    return redirect()->to(base_url('atur-ulang-kata-sandi?uuid=' . $this->request->getGet('uuid') . '&attempt=' . $this->request->getGet('attempt')))->withInput();
+                }
+
+                $data = [
+                    'user_id' => $user->user_id,
+                    'user_password' => kartaPasswordHash($this->request->getPost('user_password')),
+                    'user_reset_attempt' => null
+                ];
+                if ($this->usersModel->save($data)) {
+                    $flash = [
+                        'message' => 'Berhasil mengubah kata sandi.',
+                        'type' => 'success'
+                    ];
+                    setFlash($flash);
+                    return redirect()->to(base_url('masuk'));
+                }
+                $flash = [
+                    'message' => 'Gagal mengubah kata sandi.',
+                    'type' => 'danger'
+                ];
+                setFlash($flash);
+                return redirect()->to(base_url('atur-ulang-kata-sandi?uuid=' . $this->request->getGet('uuid') . '&attempt=' . $this->request->getGet('attempt')))->withInput();
+            }
+        }
+        return redirect()->to(base_url('lupa-kata-sandi'));
     }
 }

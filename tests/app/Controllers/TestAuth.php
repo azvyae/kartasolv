@@ -59,9 +59,9 @@ class TestAuth extends CIUnitTestCase
         $result->assertSeeElement('input[name=user_email]');
         $this->db = \Config\Database::connect();
         $this->builder = $this->db->table('users');
-        $date = strtotime('+30 minutes', date('Y-m-d H:i:s'));
+        $date = date('Y-m-d H:i:s', strtotime('+15 minutes', now()));
         $updateData = [
-            'user_reset_password' => $date
+            'user_reset_attempt' => $date
         ];
         $this->uuid = encode(1, 'userId');
         $this->uuid = encode($date, 'ResetPassword');
@@ -71,7 +71,7 @@ class TestAuth extends CIUnitTestCase
 
     public function testResetPassword()
     {
-        $result = $this->call('get', "atur-ulang-kata-sandi", ['uuid' => $this->uuid, 'attempt' => $this->attempt]);
+        $result = $this->call('get', "atur-ulang-kata-sandi/$this->uuid/$this->attempt");
         $result->assertOK();
         $result->assertSee('Atur Ulang Kata Sandi', 'h1');
         $result->assertSeeElement('input[name=user_password]');

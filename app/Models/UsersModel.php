@@ -17,4 +17,12 @@ class UsersModel extends Model
     {
         return $this->join('roles', 'roles.role_id = users.role_id')->where('user_email', $email)->get()->getRow();
     }
+
+    public function getUserFromValidationAttempt($user_id)
+    {
+        return $this->where(
+            'user_id',
+            $user_id
+        )->get()->getRow();
+    }
 }
