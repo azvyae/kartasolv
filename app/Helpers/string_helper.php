@@ -21,54 +21,11 @@ function getFlash($key)
 {
 
     $session = session();
-    $result = '';
-
-    switch ($session->getFlashdata('type')) {
-        case 'success':
-            $result = '<div x-data="{ alert: true }" x-show="alert" class="alert bg-teal-400 text-white relative w-full">
-                <div class="mr-5"
-                x-transition:enter="transition-all ease-out top-0 duration-300"
-                x-transition:enter-start="transform opacity-0 -top-40 scale-50"
-                x-transition:enter-end="transform opacity-100 scale-100"
-                x-transition:leave="transition-all ease-in top-0 duration-300"
-                x-transition:leave-start="transform opacity-100"
-                x-transition:leave-end="transform-all opacity-0 -top-40">
-                ' . $session->getFlashdata($key) . '</div>
-                <button type="button" class="absolute inset-y-0 right-0 mr-4 -mt-1 font-bold text-xl" @click="alert = ! alert">&times</button>
-            </div>';
-            break;
-
-        case 'warning':
-            $result = '<div x-data="{ alert: true }" x-show="alert" class="alert bg-orange-300 text-white relative w-full">
-                <div class="mr-5"
-                x-transition:enter="transition-all ease-out top-0 duration-300"
-                x-transition:enter-start="transform opacity-0 -top-40 scale-50"
-                x-transition:enter-end="transform opacity-100 scale-100"
-                x-transition:leave="transition-all ease-in top-0 duration-300"
-                x-transition:leave-start="transform opacity-100"
-                x-transition:leave-end="transform-all opacity-0 -top-40">
-                ' . $session->getFlashdata($key) . '</div>
-                <button type="button" class="absolute inset-y-0 right-0 mr-4 -mt-1 font-bold text-xl" @click="alert = ! alert">&times</button>
-            </div>';
-            break;
-
-        case 'danger':
-            $result = '<div x-data="{ alert: true }" x-show="alert" class="alert bg-rose-500 text-white relative w-full">
-                <div class="mr-5"
-                x-transition:enter="transition-all ease-out top-0 duration-300"
-                x-transition:enter-start="transform opacity-0 -top-40 scale-50"
-                x-transition:enter-end="transform opacity-100 scale-100"
-                x-transition:leave="transition-all ease-in top-0 duration-300"
-                x-transition:leave-start="transform opacity-100"
-                x-transition:leave-end="transform-all opacity-0 -top-40">
-                ' . $session->getFlashdata($key) . '</div>
-                <button type="button" class="absolute inset-y-0 right-0 mr-4 -mt-1 font-bold text-xl" @click="alert = ! alert">&times</button>
-            </div>';
-            break;
-
-        default:
-            $result = $session->getFlashdata($key);
-            break;
+    $type = $session->getFlashdata('type');
+    $allowedType = ['success', 'warning', 'danger', 'info'];
+    if (in_array($type, $allowedType)) {
+        return "<div class='alert alert-{$type} alert-dismissible fade show' role='alert'>" . $session->getFlashdata($key) . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    } else {
+        return $session->getFlashdata($key);
     }
-    return $result;
 }

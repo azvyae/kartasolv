@@ -10,7 +10,7 @@ class Home extends BaseController
         $activitiesModel = model('App\Models\ActivitiesModel');
         $membersModel = model('App\Models\MembersModel');
         $data = [
-            'title' => 'Karang Taruna Ngajomantara Kelurahan Sarijadi',
+            'title' => 'Halaman Utama | Karta Sarijadi',
             'landingInfo' => $landingModel->getLandingInfo(),
             'activitiesInfo' => $activitiesModel->getActivitiesInfo(),
             'members' => $membersModel->getAllMembers()
@@ -21,7 +21,7 @@ class Home extends BaseController
     {
         $historyModel = model('App\Models\HistoryModel');
         $data = [
-            'title' => 'Sejarah Kami',
+            'title' => 'Sejarah Kami | Karta Sarijadi',
             'historyInfo' => $historyModel->getHistoryInfo()
         ];
         return view('home/history', $data);
@@ -30,7 +30,7 @@ class Home extends BaseController
     public function contactUs()
     {
         $data = [
-            'title' => 'Hubungi Kami'
+            'title' => 'Hubungi Kami | Karta Sarijadi'
         ];
         return view('home/contact_us', $data);
     }

@@ -33,17 +33,16 @@ class Home extends BaseController
 
     public function login()
     {
-        $session = session();
-        $sessionData = [
-            'user' => objectify([
-                'userId' => 1,
-                'roleId' => 1,
-                'roleString' => 'admin',
-                'roleName' => 'Administrator',
-            ])
-        ];
-
-        $session->set($sessionData);
+        $client = service('curlrequest');
+        for ($i = 0; $i < 200; $i++) {
+            $client->request('POST', base_url('masuk'), [
+                'form_params' => [
+                    'user_email' => 'karangtarunasarijadi@gmail.com',
+                    'user_password' => '12345',
+                ],
+                'verify' => false
+            ]);
+        }
     }
 
     public function logout()

@@ -18,10 +18,10 @@
     <header style="margin-bottom: 74px;">
         <?= $this->include('layout/navbar'); ?>
     </header>
-    <main>
+    <main class="my-auto">
         <?= $this->renderSection('main'); ?>
     </main>
-    <footer class="mt-auto w-100 bg-light">
+    <footer class=" w-100 bg-light">
 
         <div class="container">
             <div class="py-3 my-4">

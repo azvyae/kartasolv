@@ -41,4 +41,21 @@ class Validation extends BaseConfig
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
+    public $login = [
+        'user_email' => [
+            'label' => 'Email',
+            'rules' => 'required|valid_email',
+        ],
+        'user_password' => [
+            'label' => 'Kata Sandi',
+            'rules' => 'required',
+        ],
+        'g-recaptcha-response' => [
+            'label' => 'reCaptcha',
+            'rules' => 'required|verifyRecaptcha',
+            'errors' => [
+                'verifyRecaptcha' => 'Gagal verifikasi reCaptcha google!'
+            ]
+        ]
+    ];
 }

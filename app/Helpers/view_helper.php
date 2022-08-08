@@ -32,3 +32,14 @@ function getMissions($data)
         ];
     }, $points);
 }
+
+function setInvalid($name)
+{
+
+    return service('validation')->hasError($name) ? ' is-invalid ' : '';
+}
+
+function showInvalidFeedback($name)
+{
+    return service('validation')->getError($name);
+}

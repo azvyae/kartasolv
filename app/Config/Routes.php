@@ -44,6 +44,7 @@ $routes->get('/sandbox/(:any)', 'Sandbox\Home::index/$1');
 $routes->get('/sejarah', 'Home::history');
 $routes->get('/hubungi-kami', 'Home::contactUs');
 $routes->get('/masuk', 'Auth::login');
+$routes->post('/masuk', 'Auth::login');
 $routes->get('/keluar', 'Auth::logout');
 $routes->get('/lupa-kata-sandi', 'Auth::forgetPassword');
 $routes->get('/atur-ulang-kata-sandi', 'Auth::resetPassword');
