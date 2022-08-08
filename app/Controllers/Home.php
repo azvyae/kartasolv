@@ -19,11 +19,19 @@ class Home extends BaseController
     }
     public function history()
     {
-        return 'history';
+        $historyModel = model('App\Models\HistoryModel');
+        $data = [
+            'title' => 'Sejarah Kami',
+            'historyInfo' => $historyModel->getHistoryInfo()
+        ];
+        return view('home/history', $data);
     }
 
     public function contactUs()
     {
-        return 'contact-us';
+        $data = [
+            'title' => 'Hubungi Kami'
+        ];
+        return view('home/contact_us', $data);
     }
 }

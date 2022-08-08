@@ -2,14 +2,14 @@
 <?= $this->section('main'); ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <!-- HERO -->
-<div class="bg-secondary text-light">
+<div class="bg-warning text-dark">
     <div class="container col-xxl-8 px-4 py-md-5 py-2  ">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="mx-auto col-10 col-sm-8 col-lg-6">
                 <img src="<?= $members[0]->member_image; ?>" class="rounded d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="400" loading="lazy">
             </div>
             <div class="col-lg-6 text-md-start text-center">
-                <h1 class="display-5 fw-bold lh-1 mb-3"><?= $landingInfo->landing_title; ?></h1>
+                <h1 class="display-4 fw-bold lh-1 mb-3"><?= $landingInfo->landing_title; ?></h1>
                 <p class="lead"><?= $landingInfo->landing_tagline; ?></p>
                 <?php if ($callToAction = getCalltoAction()) : ?>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
@@ -24,8 +24,8 @@
 <div class="bg-white text-dark">
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row text-center">
-            <h2 class="fs-1 fw-bold">Visi & Misi</h2>
-            <p class="col-md-6 mx-auto"><?= $landingInfo->vision; ?></p>
+            <h2 class="display-4 fw-bold">Visi & Misi</h2>
+            <p class="col-md-8 fs-6 mx-auto"><?= $landingInfo->vision; ?></p>
         </div>
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 mx-auto col-sm-8 col-lg-6">
@@ -49,8 +49,8 @@
 <div class="bg-info text-primary text-center shadow-lg">
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row">
-            <h2 class="fs-1 fw-bold">Kegiatan Kami</h2>
-            <p class="col-md-6 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum id rerum suscipit sint saepe consequuntur eveniet eaque sed dolores maiores. Esse soluta nemo natus quos suscipit dolores laborum tempore eaque.</p>
+            <h2 class="display-4 fw-bold">Kegiatan Kami</h2>
+            <p class="col-md-8 fs-6 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum id rerum suscipit sint saepe consequuntur eveniet eaque sed dolores maiores. Esse soluta nemo natus quos suscipit dolores laborum tempore eaque.</p>
         </div>
         <div class="row flex-lg-row align-items-center g-5 mt-md-2 py-3">
             <div class="col-10 mx-auto col-sm-8 col-lg-6">
@@ -88,8 +88,8 @@
 <div class="bg-white text-dark">
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row text-center">
-            <h2 class="fs-1 fw-bold">Siapa Kami</h2>
-            <p class="col-md-6 mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis et ipsam, hic pariatur excepturi aspernatur repellat facilis optio dolores unde doloremque alias necessitatibus nemo beatae perferendis, consequuntur earum culpa vel.</p>
+            <h2 class="display-4 fw-bold">Siapa Kami</h2>
+            <p class="col-md-8 fs-6 mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis et ipsam, hic pariatur excepturi aspernatur repellat facilis optio dolores unde doloremque alias necessitatibus nemo beatae perferendis, consequuntur earum culpa vel.</p>
         </div>
         <div class="row flex-lg-row align-items-center g-5 py-lg-5 py-2">
             <div class="swiper ">
