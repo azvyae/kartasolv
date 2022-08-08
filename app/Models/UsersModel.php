@@ -9,20 +9,12 @@ class UsersModel extends Model
     protected $table = 'users';
     protected $primaryKey = 'user_id';
     protected $useTimestamps = 'true';
-    protected $allowedFields = ['role_id', 'user_name', 'user_email', 'user_passsword', 'user_temp_mail', 'user_last_login'];
+    protected $allowedFields = ['role_id', 'user_name', 'user_email', 'user_password', 'user_temp_mail', 'user_reset_attempt', 'user_last_login'];
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
 
-    public function getAllMembers()
+    public function getUserFromEmail($email)
     {
-        return $this->where('member_active', 1)->orderBy('member_type, member_id', 'asc')->findAll();
-    }
-
-    public function getMember($memberId)
-    {
-        $where = [
-            'member_id' => $memberId
-        ];
-        return $this->where($where)->get()->getRow();
+        return $this->join('roles', 'roles.role_id = users.role_id')->where('user_email', $email)->get()->getRow();
     }
 }

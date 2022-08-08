@@ -1,6 +1,5 @@
 <?php
 
-use Config\Services;
 use Hashids\Hashids;
 
 function checkAuth($data = null)
@@ -23,7 +22,6 @@ function checkAuth($data = null)
             $roleAccessModel = model('App\Models\RoleAccessModel');
             $isGranted = $roleAccessModel->getRoleAccessId($roleId, $thisMenu) !== NULL;
         }
-        // dd($roleId, $thisMenu);
         if ($session->user) {
             if ($controllerName === 'Auth' && $router->methodName() !== 'logout') {
                 return redirect()->to(base_url('dasbor'));
@@ -38,7 +36,7 @@ function checkAuth($data = null)
             }
         } else if (!$isGranted) {
             $flash = [
-                'message' => 'Masuk untuk masuk ke halaman!',
+                'message' => 'Masuk untuk akses ke halaman!',
                 'type' => 'danger'
             ];
             setFlash($flash);
@@ -118,4 +116,14 @@ function show404()
 function getCaptchaSitekey()
 {
     return getenv('recaptcha.sitekey');
+}
+
+function kartaPasswordHash(String $password)
+{
+    return password_hash($password, PASSWORD_ARGON2I, ['cost' => 10]) . strlen($password);
+}
+
+function kartaPasswordVerify(String $password, String $hash)
+{
+    return password_verify($password, substr($hash, 0, strlen($hash) - strlen((string)strlen($password))));
 }

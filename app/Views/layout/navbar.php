@@ -41,11 +41,11 @@
                                 </svg>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Profil</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url('profil'); ?>">Profil</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Keluar</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url('keluar'); ?>">Keluar</a></li>
                             </ul>
                         </li>
                     <?php else : ?>

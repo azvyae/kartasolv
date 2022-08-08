@@ -19,6 +19,6 @@ class LandingModel extends Model
     }
     public function getLandingInfo()
     {
-        return $this->find(1);
+        return $this->where('id', 1, true)->get()->getRow();
     }
 }
