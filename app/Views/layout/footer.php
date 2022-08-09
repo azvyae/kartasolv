@@ -1,6 +1,6 @@
 <footer class=" w-100 bg-light">
     <div class="container">
-        <div class="py-3 my-4">
+        <div class="pt-4 pb-3 mt-auto">
             <div class="d-flex pb-1 mb-1 justify-content-around align-items-center">
                 <a href="<?= base_url(); ?>" ">
                         <img src=" <?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="24" height="24">

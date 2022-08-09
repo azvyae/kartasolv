@@ -44,6 +44,23 @@ $warning: #ffe15d;
 $info: #a6d1e6;
 $light: #f9fafb;
 $dark: #191d21;
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+.grecaptcha-badge {
+  visibility: hidden;
+}
+.scrolloff {
+  pointer-events: none;
+}
+// Example: Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
+@include media-breakpoint-up(lg) {
+  .sidebar-nav {
+    width: 20%;
+    height: calc(100vh - 64px);
+    background-color: #ececec;
+  }
+}
 
 // import bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
