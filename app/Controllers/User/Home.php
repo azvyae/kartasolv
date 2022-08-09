@@ -8,6 +8,10 @@ class Home extends BaseController
 {
     public function index()
     {
-        return 'dashboard';
+        $data = [
+            'title' => 'Dasbor | Karta Sarijadi',
+            'sidebar' => true
+        ];
+        return view('user/home/index', $data);
     }
 }

@@ -10,7 +10,7 @@ class TestAuth extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
-    protected $builder, $db, $uuid, $attempt, $sessionData;
+    protected $sessionData;
     protected function setUp(): void
     {
         parent::setUp();
@@ -57,29 +57,27 @@ class TestAuth extends CIUnitTestCase
         $result->assertOK();
         $result->assertSee('Lupa Kata Sandi', 'h1');
         $result->assertSeeElement('input[name=user_email]');
-        $this->db = \Config\Database::connect();
-        $this->builder = $this->db->table('users');
-        $date = date('Y-m-d H:i:s', strtotime('+15 minutes', now()));
-        $updateData = [
-            'user_reset_attempt' => $date
-        ];
-        $this->uuid = encode(1, 'userId');
-        $this->uuid = encode($date, 'ResetPassword');
-        $this->builder->where('user_id', 1);
-        $this->builder->update($updateData);
     }
 
     public function testResetPassword()
     {
-        $result = $this->call('get', "atur-ulang-kata-sandi/$this->uuid/$this->attempt");
+        $db = \Config\Database::connect();
+        $builder = $db->table('users');
+        $date = date('Y-m-d H:i:s', strtotime('+15 minutes', time()));
+        $updateData = [
+            'user_reset_attempt' => $date
+        ];
+        $builder->update($updateData, ['user_id' => 1]);
+        $uuid = encode(1, 'resetPassword');
+        $attempt = encode(strtotime($date), 'resetPassword');
+        $result = $this->call('get', "atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt");
         $result->assertOK();
         $result->assertSee('Atur Ulang Kata Sandi', 'h1');
         $result->assertSeeElement('input[name=user_password]');
-        $result->assertSeeElement('input[name=verify_user_password]');
+        $result->assertSeeElement('input[name=password_verify]');
         $updateData = [
-            'user_reset_password' => null
+            'user_reset_attempt' => null
         ];
-        $this->builder->where('user_id', 1);
-        $this->builder->update($updateData);
+        // $builder->update($updateData, ['user_id' => 1]);
     }
 }

@@ -2,8 +2,24 @@
 
 function isSamePage($pageToCheck)
 {
+    helper('url');
+    return ($pageToCheck === uri_string()) ? ' active ' : '';
+}
+
+function getSidebarMenu()
+{
+    $roleId = checkAuth('roleId');
+    $roleAccessModel = model('App\Models\RoleAccessModel');
+    return $roleAccessModel->getPageByRole($roleId);
+}
+
+function isSameController(mixed $controllerToCheck)
+{
     $router = service('router');
-    return $pageToCheck === str_replace("\App\Controllers\\", '', $router->controllerName()) . '::' . $router->methodName();
+    if (is_array($controllerToCheck)) {
+        return in_array(str_replace("\App\Controllers\\", '', $router->controllerName()), $controllerToCheck);
+    }
+    return $controllerToCheck === str_replace("\App\Controllers\\", '', $router->controllerName());
 }
 
 function getCallToAction()

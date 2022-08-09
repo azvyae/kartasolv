@@ -1,39 +1,51 @@
 <nav class="navbar fw-semibold px-3 bg-white navbar-expand-lg shadow-sm fixed-top">
-    <div class="container-md ">
-        <a href="<?= base_url(); ?>" class="navbar-brand me-5">
-            <img src="<?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="48" height="48">
-        </a>
+    <div class="container-fluid col-11">
+        <div class="me-5">
+            <a href="<?= base_url(); ?>" class="navbar-brand">
+                <img src="<?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="48" height="48">
+            </a>
+            <?php if (!isSameController(['Home', 'Auth'])) : ?>
+                <button type="button" id="sidebarCollapse" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offCanvasSidebar" aria-controls="offCanvasSidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-layout-sidebar-inset" viewBox="0 0 16 16">
+                        <path d="M14 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+                        <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
+                    </svg>
+                </button>
+            <?php endif ?>
+        </div>
+
+
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
+        <div class="offcanvas offcanvas-end" style="width: 280px;" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header border-bottom">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
                     <img src="<?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="48" height="48">
-                    Navigasi
+                    <span class="ms-2">Navigasi</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
             </div>
-            <div class="offcanvas-body align-items-center justify-content-between">
-                <ul class="navbar-nav flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link me-3 <?php if (isSamePage('Home::index')) : ?>active<?php endif ?>" href="<?= base_url(); ?>">Beranda</a>
+            <div class="offcanvas-body  align-items-center justify-content-between">
+                <ul class="navbar-nav  flex-grow-1 text-end pe-3">
+                    <li class="nav-item  py-2 py-md-0">
+                        <a class="nav-link px-3 <?= isSamePage('/') ?>" href="<?= base_url(); ?>">Beranda</a>
                     </li>
                     <?php if (checkAuth('userId')) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link me-3 <?php if (isSamePage('User\Home::index')) : ?>active<?php endif ?>" href="<?= base_url('dasbor'); ?>">Dasbor</a>
+                        <li class="nav-item py-2 py-md-0">
+                            <a class="nav-link px-3 <?= isSamePage('dasbor') ?>" href="<?= base_url('dasbor'); ?>">Dasbor</a>
                         </li>
                     <?php endif ?>
-                    <li class="nav-item">
-                        <a class="nav-link me-3 <?php if (isSamePage('Home::history')) : ?>active<?php endif ?>" href="<?= base_url('sejarah'); ?>">Sejarah</a>
+                    <li class="nav-item py-2 py-md-0">
+                        <a class="nav-link px-3 <?= isSamePage('sejarah') ?>" href="<?= base_url('sejarah'); ?>">Sejarah</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-3 <?php if (isSamePage('Home::contactUs')) : ?>active<?php endif ?>" href="<?= base_url('hubungi-kami'); ?>">Hubungi Kami</a>
+                    <li class="nav-item py-2 py-md-0">
+                        <a class="nav-link px-3 <?= isSamePage('hubungi-kami') ?>" href="<?= base_url('hubungi-kami'); ?>">Hubungi Kami</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav d-flex ">
+                <ul class="navbar-nav text-end">
                     <?php if (checkAuth('userId')) : ?>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown py-2 py-md-0 px-3">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi text-secondary bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />

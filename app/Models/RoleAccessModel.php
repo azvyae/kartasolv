@@ -15,11 +15,31 @@ class RoleAccessModel extends Model
 
     public function getRoleAccessId($roleId, $menuId)
     {
-        // dd($roleId, $menuId);
         $where = [
             'role_id' => $roleId,
             'menu_id' => $menuId
         ];
         return $this->where($where)->first();
+    }
+
+    public function getPageByRole($roleId)
+    {
+        return $this
+            ->join(
+                'menu',
+                'menu.menu_id = role_access.menu_id',
+
+
+            )
+            ->join(
+                'pages',
+                'menu.menu_id = pages.menu_id',
+
+            )
+            ->where([
+                'role_id' => $roleId
+            ])
+            ->orderBy('pages.page_id', 'asc')
+            ->get()->getResult();
     }
 }

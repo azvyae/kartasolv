@@ -55,7 +55,8 @@ class Auth extends BaseController
         ];
         $data = [
             'user_id' => $user->user_id,
-            'user_last_login' => date('Y-m-d H:i:s')
+            'user_last_login' => date('Y-m-d H:i:s'),
+            'user_reset_attempt' => null
         ];
         $this->usersModel->save($data);
         $session->set($sessionData);
@@ -83,6 +84,20 @@ class Auth extends BaseController
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
         if ($user = $this->usersModel->getUserFromEmail($email)) {
+            if ($last = strtotime($user->user_reset_attempt)) {
+                $now = strtotime(date('Y-m-d H:i:s'));
+                $selisih = $last - $now;
+                if (date('i:s', $selisih) > '10:00') {
+                    $flash = [
+                        'message' => 'Kamu baru saja melakukan permintaan atur ulang kata sandi, tunggu 5 menit lagi.',
+                        'type' => 'warning'
+                    ];
+                    setFlash($flash);
+                    return redirect()->to(base_url('lupa-kata-sandi'));
+                }
+            }
+
+
             $time = date('Y-m-d H:i:s', strtotime('+15 minutes', time()));
             $updateData = [
                 'user_id' => $user->user_id,
@@ -102,8 +117,8 @@ class Auth extends BaseController
                 $email->setTo($user->user_email);
 
                 $email->setSubject('Verifikasi Proses Atur Ulang Kata Sandi');
-                $uuid = encode($user->user_id, 'reset-pass');
-                $attempt = encode(strtotime($time), 'reset-pass');
+                $uuid = encode($user->user_id, 'resetPassword');
+                $attempt = encode(strtotime($time), 'resetPassword');
                 $data = [
                     'name' => $user->user_name,
                     'link' => base_url("atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt")
@@ -136,8 +151,8 @@ class Auth extends BaseController
 
     public function resetPassword()
     {
-        $uuid = decode($this->request->getGet('uuid'), 'reset-pass');
-        $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'reset-pass'));
+        $uuid = decode($this->request->getGet('uuid'), 'resetPassword');
+        $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'resetPassword'));
         if ($uuid && $attempt) {
             if ($user = $this->usersModel->getUserFromValidationAttempt($uuid, $attempt)) {
                 if ($user->user_reset_attempt <= date('Y-m-d H:i:s') or $user->user_reset_attempt !== $attempt) {

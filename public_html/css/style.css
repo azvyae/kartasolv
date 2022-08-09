@@ -1,3 +1,6 @@
 .grecaptcha-badge {
   visibility: hidden;
 }
+.scrolloff {
+  pointer-events: none;
+}

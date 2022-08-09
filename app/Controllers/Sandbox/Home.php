@@ -9,6 +9,12 @@ class Home extends BaseController
     public function index($string = '')
     {
         helper('date');
+        $last = strtotime('2022-08-09 08:15:37');
+        $now = strtotime(date('Y-m-d H:i:s'));
+        $selisih = $last - $now;
+        d(date('i:s', $selisih));
+        dd(date('i:s', $selisih) < '13:20');
+
         $data = [
             'name' => 'Yousef',
             'link' => 'https://google.com'
