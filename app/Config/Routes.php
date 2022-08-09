@@ -36,13 +36,16 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/sejarah', 'Home::history');
+$routes->get('/hubungi-kami', 'Home::contactUs');
+
 $routes->get('/sandbox', 'Sandbox\Home::index');
 $routes->post('/sandbox', 'Sandbox\Home::index');
 $routes->get('/sandbox/login', 'Sandbox\Home::login');
 $routes->get('/sandbox/logout', 'Sandbox\Home::logout');
+$routes->get('/sandbox/phpinfo', 'Sandbox\Home::phpinfo');
 $routes->get('/sandbox/(:any)', 'Sandbox\Home::index/$1');
-$routes->get('/sejarah', 'Home::history');
-$routes->get('/hubungi-kami', 'Home::contactUs');
+
 $routes->get('/masuk', 'Auth::login');
 $routes->post('/masuk', 'Auth::login');
 $routes->get('/keluar', 'Auth::logout');
@@ -50,6 +53,7 @@ $routes->get('/lupa-kata-sandi', 'Auth::forgetPassword');
 $routes->post('/lupa-kata-sandi', 'Auth::forgetPassword');
 $routes->get('/atur-ulang-kata-sandi', 'Auth::resetPassword');
 $routes->post('/atur-ulang-kata-sandi', 'Auth::resetPassword');
+$routes->get('verifikasi', 'Auth::verifyEmail');
 
 $routes->group('konten', static function ($routes) {
     $routes->get('sejarah', 'Content\History::index');
@@ -65,6 +69,7 @@ $routes->group('konten', static function ($routes) {
 
 $routes->get('dasbor', 'User\Home::index');
 $routes->get('profil', 'User\Profile::index');
+$routes->post('profil', 'User\Profile::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

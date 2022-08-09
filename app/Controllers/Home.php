@@ -6,9 +6,9 @@ class Home extends BaseController
 {
     public function index()
     {
-        $landingModel = model('App\Models\LandingModel');
-        $activitiesModel = model('App\Models\ActivitiesModel');
-        $membersModel = model('App\Models\MembersModel');
+        $landingModel = model('LandingModel');
+        $activitiesModel = model('ActivitiesModel');
+        $membersModel = model('MembersModel');
         $data = [
             'title' => 'Halaman Utama | Karta Sarijadi',
             'landingInfo' => $landingModel->getLandingInfo(),
@@ -19,7 +19,7 @@ class Home extends BaseController
     }
     public function history()
     {
-        $historyModel = model('App\Models\HistoryModel');
+        $historyModel = model('HistoryModel');
         $data = [
             'title' => 'Sejarah Kami | Karta Sarijadi',
             'historyInfo' => $historyModel->getHistoryInfo()

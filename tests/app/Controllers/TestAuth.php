@@ -73,7 +73,7 @@ class TestAuth extends CIUnitTestCase
         $result = $this->call('get', "atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt");
         $result->assertOK();
         $result->assertSee('Atur Ulang Kata Sandi', 'h1');
-        $result->assertSeeElement('input[name=user_password]');
+        $result->assertSeeElement('input[name=user_new_password]');
         $result->assertSeeElement('input[name=password_verify]');
         $updateData = [
             'user_reset_attempt' => null

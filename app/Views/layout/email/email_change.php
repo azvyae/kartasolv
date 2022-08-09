@@ -7,7 +7,7 @@
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="telephone=no" name="format-detection">
-    <title>Verifikasi Proses Atur Ulang Kata Sandi</title>
+    <title>Verifikasi Emailmu!</title>
     <!--[if (mso 16)]>
 <style type="text/css">
 a {text-decoration: none;}
@@ -615,7 +615,11 @@ a {text-decoration: none;}
                                                             </tr>
                                                             <tr style="border-collapse:collapse">
                                                                 <td align="center" class="es-m-txt-c" style="padding:0;Margin:0;padding-top:10px;padding-bottom:20px">
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#213751;font-size:14px">Kamu baru saja mencoba untuk mengatur ulang kata sandi! Silakan klik link berikut ini untuk melanjutkan proses perubahan kata sandi. Link di bawah ini akan berlaku selama 15 menit ke depan.</p>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#213751;font-size:14px">Kamu baru saja mencoba untuk melakukan perubahan email dari:</p>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#213751;font-size:14px"><i><?= $oldEmail; ?></i></p><br>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#213751;font-size:14px">Menjadi:</p>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#213751;font-size:14px"><i><?= $newEmail; ?></i></p><br>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#213751;font-size:14px">Silakan klik link berikut ini untuk melanjutkan proses perubahan email. Link di bawah ini akan berlaku selama 30 menit ke depan.</p>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -626,16 +630,28 @@ a {text-decoration: none;}
                                                         <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                             <tr style="border-collapse:collapse">
                                                                 <td align="center" style="padding:0;Margin:0;padding-top:30px">
-                                                                    <!--[if mso]><a href="<?= $link; ?>" target="_blank" hidden>
-<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="<?= $link; ?>"
-style="height:46px; v-text-anchor:middle; width:223px" arcsize="26%" strokecolor="#0081ff" strokeweight="2px" fillcolor="#213751">
+                                                                    <!--[if mso]><a href="<?= $link; ?>&cancel=true" target="_blank" hidden>
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="<?= $link; ?>&cancel=true"
+style="height:46px; v-text-anchor:middle; width:223px" arcsize="26%" strokecolor="#F3373F" strokeweight="2px" fillcolor="#FFE15D">
 <w:anchorlock></w:anchorlock>
-<center style='color:#ffffff; font-family:arial, "helvetica neue", helvetica, sans-serif; font-size:14px; font-weight:700; line-height:14px; mso-text-raise:1px'>Atur Ulang Kata Sandi</center>
+<center style='color:#F3373F; font-family:arial, "helvetica neue", helvetica, sans-serif; font-size:14px; font-weight:700; line-height:14px; mso-text-raise:1px'>Batalkan Perubahan Email</center>
 </v:roundrect></a>
 <![endif]-->
-                                                                    <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#0081FF;background:#213751;border-width:2px;display:inline-block;border-radius:12px;width:auto;letter-spacing:0.5px;mso-hide:all"><a href="<?= $link; ?>" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:14px;border-style:solid;border-color:#213751;border-width:15px 30px 15px 30px;display:inline-block;background:#213751;border-radius:12px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:bold;font-style:normal;line-height:17px;width:auto;text-align:center">Atur Ulang Kata Sandi</a></span>
+                                                                    <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#F3373F;background:#FFE15D;border-width:2px;display:inline-block;border-radius:12px;width:auto;letter-spacing:0.5px;mso-hide:all"><a href="<?= $link; ?>&cancel=true" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#F3373F;font-size:14px;border-style:solid;border-color:#FFE15D;border-width:15px 30px 15px 30px;display:inline-block;background:#FFE15D;border-radius:12px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:bold;font-style:normal;line-height:17px;width:auto;text-align:center">Batalkan Perubahan Email</a></span>
                                                                     <!--<![endif]-->
                                                                 </td>
+                                                                <td align="center" style="padding:0;Margin:0;padding-top:30px">
+                                                                    <!--[if mso]><a href="<?= $link; ?>" target="_blank" hidden>
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="<?= $link; ?>"
+style="height:46px; v-text-anchor:middle; width:223px" arcsize="26%" strokecolor="#F3373F" strokeweight="2px" fillcolor="#213751">
+<w:anchorlock></w:anchorlock>
+<center style='color:#ffffff; font-family:arial, "helvetica neue", helvetica, sans-serif; font-size:14px; font-weight:700; line-height:14px; mso-text-raise:1px'>Verifikasi Email</center>
+</v:roundrect></a>
+<![endif]-->
+                                                                    <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#0081FF;background:#213751;border-width:2px;display:inline-block;border-radius:12px;width:auto;letter-spacing:0.5px;mso-hide:all"><a href="<?= $link; ?>" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:14px;border-style:solid;border-color:#213751;border-width:15px 30px 15px 30px;display:inline-block;background:#213751;border-radius:12px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:bold;font-style:normal;line-height:17px;width:auto;text-align:center">Verifikasi Email</a></span>
+                                                                    <!--<![endif]-->
+                                                                </td>
+
                                                             </tr>
                                                         </table>
                                                     </td>

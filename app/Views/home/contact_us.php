@@ -27,7 +27,7 @@
                     <div class="row mb-3">
                         <div class="col">
                             <div class="form-floating">
-                                <input type="text" id="nama" class="form-control" placeholder="Nama" aria-label="Nama">
+                                <input type="text" name="message_name" id="nama" class="form-control" placeholder="Nama" aria-label="Nama">
                                 <label for="nama">Nama</label>
                             </div>
                         </div>
@@ -36,14 +36,14 @@
                     <div class="row mb-3">
                         <div class="col">
                             <div class="form-floating">
-                                <input type="text" id="noWhatsapp" class="form-control" placeholder="No Whatsapp" aria-label="No Whatsapp">
+                                <input type="text" name="message_whatsapp" id="noWhatsapp" class="form-control" placeholder="No Whatsapp" aria-label="No Whatsapp">
                                 <label for="noWhatsapp">No Whatsapp</label>
                             </div>
 
                         </div>
                         <div class="col">
                             <div class="form-floating">
-                                <select class="form-select" id="jenisPesan" aria-label="Jenis Pesan">
+                                <select name="message_type" class="form-select" id="jenisPesan" aria-label="Jenis Pesan">
                                     <option value="" selected>Pilih</option>
                                     <option value="kritik_saran">Kritik & Saran</option>
                                     <option value="laporan_aduan">Laporan/Aduan</option>
@@ -55,7 +55,7 @@
                     <div class="row mb-3">
                         <div class="col">
                             <div class="form-floating">
-                                <textarea style="height: 200px;" class="form-control" placeholder="Tulis pesan di sini" id="pesan"></textarea>
+                                <textarea name="message_text" style="height: 200px;" class="form-control" placeholder="Tulis pesan di sini" id="pesan"></textarea>
                                 <label for="pesan">Pesan</label>
                             </div>
                         </div>

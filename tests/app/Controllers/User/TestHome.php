@@ -35,8 +35,8 @@ class TestHome extends CIUnitTestCase
         $result = $this->withSession($this->sessionData)->call('get', 'dasbor');
         $result->assertOK();
         $result->assertSee("Dasbor $roleName", 'h1');
-        $result->assertSee("Data PMKS", 'strong');
-        $result->assertSee("Data PSKS", 'strong');
-        $result->assertSee("Pengurus Aktif", 'strong');
+        $result->assertSee("Data PMKS", 'h2');
+        $result->assertSee("Data PSKS", 'h2');
+        $result->assertSee("Pengurus Aktif", 'h2');
     }
 }

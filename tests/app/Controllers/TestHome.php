@@ -42,10 +42,10 @@ class TestHome extends CIUnitTestCase
         $result = $this->call('get', "hubungi-kami");
         $result->assertOK();
         $result->assertSee('Hubungi Kami', 'h1');
-        $result->assertSeeElement('input[name=name]');
-        $result->assertSeeElement('input[name=whatsapp]');
+        $result->assertSeeElement('input[name=message_name]');
+        $result->assertSeeElement('input[name=message_whatsapp]');
         $result->assertSeeElement('select[name=message_type]');
-        $result->assertSeeElement('textarea[name=message]');
+        $result->assertSeeElement('textarea[name=message_text]');
         $result->assertSeeElement('footer');
     }
 }

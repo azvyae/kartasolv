@@ -135,6 +135,16 @@ class Controller
      */
     protected function validate($rules, array $messages = []): bool
     {
+        if (strpos($rules, '|') !== false) {
+            $result = [];
+            $result = array_map(function ($e) {
+                return $this->validate($e);
+            }, explode('|', $rules));
+            if (in_array(FALSE, $result)) {
+                return FALSE;
+            }
+            return TRUE;
+        }
         $this->setValidator($rules, $messages);
 
         return $this->validator->withRequest($this->request)->run();
@@ -168,12 +178,12 @@ class Controller
 
             // If the rule wasn't found in the \Config\Validation, we
             // should throw an exception so the developer can find it.
-            if (! isset($validation->{$rules})) {
+            if (!isset($validation->{$rules})) {
                 throw ValidationException::forRuleNotFound($rules);
             }
 
             // If no error message is defined, use the error message in the Config\Validation file
-            if (! $messages) {
+            if (!$messages) {
                 $errorName = $rules . '_errors';
                 $messages  = $validation->{$errorName} ?? [];
             }

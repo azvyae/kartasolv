@@ -35,10 +35,9 @@ class TestProfile extends CIUnitTestCase
         $result->assertOK();
         $result->assertSee("Ubah Akun/Profil", 'h1');
         $result->assertSeeElement('input[name=user_name]');
-        $result->assertSeeElement('input[name=user_image]');
         $result->assertSeeElement('input[name=user_email]');
-        $result->assertSeeElement('input[name=user_old_password]');
+        $result->assertSeeElement('input[name=user_password]');
         $result->assertSeeElement('input[name=user_new_password]');
-        $result->assertSeeElement('input[name=user_verify_password]');
+        $result->assertSeeElement('input[name=password_verify]');
     }
 }

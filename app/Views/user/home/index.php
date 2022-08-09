@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-4">
                 <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/members.webp'); ?>" alt="Anggota">
-                <h2><a class="link-primary text-decoration-none" href="<?= base_url('konten/profil-karang-taruna/pengurus'); ?>"><?= countTable('members'); ?> Anggota Aktif</a></h2>
+                <h2><a class="link-primary text-decoration-none" href="<?= base_url('konten/profil-karang-taruna/pengurus'); ?>"><?= countTable('members'); ?> Pengurus Aktif</a></h2>
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam pariatur at sint quaerat praesentium libero aliquid sit ipsa eos, possimus corporis molestias blanditiis et quas, placeat aliquam accusantium eaque delectus.</p>
             </div>

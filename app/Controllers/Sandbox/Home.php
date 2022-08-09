@@ -8,12 +8,7 @@ class Home extends BaseController
 {
     public function index($string = '')
     {
-        helper('date');
-        $last = strtotime('2022-08-09 08:15:37');
-        $now = strtotime(date('Y-m-d H:i:s'));
-        $selisih = $last - $now;
-        d(date('i:s', $selisih));
-        dd(date('i:s', $selisih) < '13:20');
+        dd(FALSE && TRUE && TRUE);
 
         $data = [
             'name' => 'Yousef',
@@ -41,14 +36,21 @@ class Home extends BaseController
         // return view('sandbox/home/index');
     }
 
+    public function phpinfo()
+    {
+        phpinfo();
+    }
+
 
     public function login()
     {
         $data = [
             'name' => 'Yousef',
-            'link' => 'https://google.com'
+            'link' => 'https://google.com/',
+            'oldEmail' => 'wanda@gmail.com',
+            'newEmail' => 'supersaiyan@gmail.com'
         ];
-        return view('layout/email/reset_password', $data);
+        return view('layout/email/email_change', $data);
     }
 
     public function logout()

@@ -13,7 +13,7 @@ function getSidebarMenu()
     return $roleAccessModel->getPageByRole($roleId);
 }
 
-function isSameController(mixed $controllerToCheck)
+function isSameController($controllerToCheck)
 {
     $router = service('router');
     if (is_array($controllerToCheck)) {

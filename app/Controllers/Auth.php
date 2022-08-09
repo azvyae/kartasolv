@@ -8,7 +8,7 @@ class Auth extends BaseController
     private $usersModel;
     public function __construct()
     {
-        $this->usersModel = model('App\Models\UsersModel');
+        $this->usersModel = model('UsersModel');
     }
     public function login()
     {
@@ -17,7 +17,7 @@ class Auth extends BaseController
                 'title' => 'Masuk | Karta Sarijadi',
             ];
             return view('auth/login', $data);
-        } else if (!$this->validate('login')) {
+        } else if (!$this->validate('userEmail|userPassword|gRecaptcha')) {
             return redirect()->to(base_url('masuk'))->withInput();
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
@@ -79,7 +79,7 @@ class Auth extends BaseController
                 'title' => 'Lupa Kata Sandi | Karta Sarijadi'
             ];
             return view('auth/forget_password', $data);
-        } else if (!$this->validate('forgetPassword')) {
+        } else if (!$this->validate('userEmail|gRecaptcha')) {
             return redirect()->to(base_url('lupa-kata-sandi'))->withInput();
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
@@ -154,7 +154,7 @@ class Auth extends BaseController
         $uuid = decode($this->request->getGet('uuid'), 'resetPassword');
         $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'resetPassword'));
         if ($uuid && $attempt) {
-            if ($user = $this->usersModel->getUserFromValidationAttempt($uuid, $attempt)) {
+            if ($user = $this->usersModel->getUser($uuid)) {
                 if ($user->user_reset_attempt <= date('Y-m-d H:i:s') or $user->user_reset_attempt !== $attempt) {
                     $flash = [
                         'message' => 'Link tidak valid/kadaluarsa.',
@@ -168,13 +168,13 @@ class Auth extends BaseController
                         'title' => 'Atur Ulang Kata Sandi | Karta Sarijadi'
                     ];
                     return view('auth/reset_password', $data);
-                } else if (!$this->validate('resetPassword')) {
+                } else if (!$this->validate('userNewPassword|passwordVerify|gRecaptcha')) {
                     return redirect()->to(base_url('atur-ulang-kata-sandi?uuid=' . $this->request->getGet('uuid') . '&attempt=' . $this->request->getGet('attempt')))->withInput();
                 }
 
                 $data = [
                     'user_id' => $user->user_id,
-                    'user_password' => kartaPasswordHash($this->request->getPost('user_password')),
+                    'user_password' => kartaPasswordHash($this->request->getPost('user_new_password')),
                     'user_reset_attempt' => null
                 ];
                 if ($this->usersModel->save($data)) {
@@ -194,5 +194,63 @@ class Auth extends BaseController
             }
         }
         return redirect()->to(base_url('lupa-kata-sandi'));
+    }
+
+    public function verifyEmail()
+    {
+        $uuid = decode($this->request->getGet('uuid'), 'changeEmail');
+        $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'changeEmail'));
+        $cancel = (bool) $this->request->getGet('cancel');
+
+        if ($uuid && $attempt) {
+            $user = $this->usersModel->getUser($uuid);
+            if ($user) {
+                if ($user->user_change_mail <= date('Y-m-d H:i:s') or $user->user_change_mail !== $attempt) {
+                    $flash = [
+                        'message' => 'Link tidak valid/kadaluarsa.',
+                        'type' => 'warning'
+                    ];
+                    setFlash($flash);
+                } else {
+                    $data = [
+                        'user_id' => $user->user_id,
+                        'user_email' => $user->user_temp_mail,
+                        'user_change_mail' => null,
+                        'user_temp_mail' => null
+                    ];
+                    if ($this->usersModel->save($data)) {
+                        $flash = [
+                            'message' => 'Berhasil mengubah email.',
+                            'type' => 'success'
+                        ];
+                        setFlash($flash);
+                    }
+                }
+            } else {
+                $flash = [
+                    'message' => 'Pengguna tidak ditemukan.',
+                    'type' => 'danger'
+                ];
+                setFlash($flash);
+            }
+            if ($cancel) {
+                $data = [
+                    'user_id' => $user->user_id,
+                    'user_change_mail' => null,
+                    'user_temp_mail' => null
+                ];
+                if ($this->usersModel->save($data)) {
+                    $flash = [
+                        'message' => 'Berhasil membatalkan perubahan email.',
+                        'type' => 'success'
+                    ];
+                    setFlash($flash);
+                }
+            }
+        }
+        if (checkAuth('userId')) {
+            return redirect()->to(base_url('profil'));
+        }
+        return redirect()->to(base_url('masuk'));
     }
 }

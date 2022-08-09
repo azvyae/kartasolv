@@ -16,10 +16,10 @@
                         <?= csrf_field(); ?>
                         <?= getFlash('message'); ?>
                         <div class="form-floating has-validation">
-                            <input onkeyup="clearInput();" required minlength="6" type="password" id="password" name="user_password" class="form-control <?= setInvalid('user_password'); ?>" placeholder="Kata Sandi Baru" aria-label="Kata Sandi Baru">
+                            <input onkeyup="clearInput();" required minlength="6" type="password" id="user_new_password" name="user_new_password" class="form-control <?= setInvalid('user_new_password'); ?>" placeholder="Kata Sandi Baru" aria-label="Kata Sandi Baru">
                             <label for="password">Kata Sandi Baru</label>
                             <div class="invalid-feedback">
-                                <?= showInvalidFeedback('user_password'); ?>
+                                <?= showInvalidFeedback('user_new_password'); ?>
                             </div>
                         </div>
                     </div>
@@ -61,21 +61,21 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     var check = function() {
-        if (document.getElementById('password').value ==
+        if (document.getElementById('user_new_password').value ==
             document.getElementById('password_verify').value) {
-            document.getElementById('password').classList.remove("is-invalid");
+            document.getElementById('user_new_password').classList.remove("is-invalid");
             document.getElementById('password_verify').classList.remove("is-invalid");
             document.getElementById('verify-message').innerHTML = '';
             return true
         } else {
-            document.getElementById('password').classList.add("is-invalid");
+            document.getElementById('user_new_password').classList.add("is-invalid");
             document.getElementById('password_verify').classList.add("is-invalid");
             document.getElementById('verify-message').innerHTML = 'Kata Sandi Harus Sama!';
             return false
         }
     }
     var clearInput = function() {
-        document.getElementById('password').classList.remove("is-invalid");
+        document.getElementById('user_new_password').classList.remove("is-invalid");
         document.getElementById('password_verify').classList.remove("is-invalid");
         document.getElementById('verify-message').innerHTML = '';
     }

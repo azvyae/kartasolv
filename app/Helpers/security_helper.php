@@ -23,7 +23,7 @@ function checkAuth($data = null)
             $isGranted = $roleAccessModel->getRoleAccessId($roleId, $thisMenu) !== NULL;
         }
         if ($session->user) {
-            if ($controllerName === 'Auth' && $router->methodName() !== 'logout') {
+            if ($controllerName === 'Auth' && $router->methodName() !== 'logout' && $router->methodName() !== 'verifyEmail') {
                 return redirect()->to(base_url('dasbor'));
             }
             if (!$isGranted) {

@@ -9,7 +9,7 @@ class UsersModel extends Model
     protected $table = 'users';
     protected $primaryKey = 'user_id';
     protected $useTimestamps = 'true';
-    protected $allowedFields = ['role_id', 'user_name', 'user_email', 'user_password', 'user_temp_mail', 'user_reset_attempt', 'user_last_login'];
+    protected $allowedFields = ['role_id', 'user_name', 'user_email', 'user_password', 'user_temp_mail', 'user_change_mail', 'user_reset_attempt', 'user_last_login'];
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
 
@@ -18,7 +18,7 @@ class UsersModel extends Model
         return $this->join('roles', 'roles.role_id = users.role_id')->where('user_email', $email)->get()->getRow();
     }
 
-    public function getUserFromValidationAttempt($user_id)
+    public function getUser($user_id)
     {
         return $this->where(
             'user_id',

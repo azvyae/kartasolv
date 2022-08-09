@@ -1,5 +1,7 @@
 <?php
 
+use CodeIgniter\Controller;
+
 function objectify($data)
 {
     return json_decode(json_encode($data));
