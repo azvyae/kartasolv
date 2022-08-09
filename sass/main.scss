@@ -53,12 +53,16 @@ $dark: #191d21;
 .scrolloff {
   pointer-events: none;
 }
+.top-navbar {
+  min-height: 64px;
+}
 // Example: Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
 @include media-breakpoint-up(lg) {
   .sidebar-nav {
     width: 20%;
     height: calc(100vh - 64px);
     background-color: #ececec;
+    z-index: 1 !important;
   }
 }
 

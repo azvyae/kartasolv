@@ -8,9 +8,10 @@ class Home extends BaseController
 {
     public function index()
     {
+        $roleName = checkAuth('roleName');
         $data = [
-            'title' => 'Dasbor | Karta Sarijadi',
-            'sidebar' => true
+            'title' => "Dasbor $roleName | Karta Sarijadi",
+            'sidebar' => true,
         ];
         return view('user/home/index', $data);
     }

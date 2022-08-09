@@ -1,64 +1,27 @@
 <?= $this->extend('layout/main_template'); ?>
 <?= $this->section('main'); ?>
-<div id="kirim-pesan" class="bg-white h-100 align-self-center text-dark">
-    <div class="container col-xxl-8 px-4 py-md-5 py-2 ">
-        <div class="row flex-lg-row align-items-center g-5 py-3">
-            <div class=" text-center">
-                <h1 class="display-4 fw-bold lh-1 mb-3">Masuk</h1>
-            </div>
-
+<div id="kirim-pesan" class="bg-white mt-lg-0 ms-lg-4 mt-3 h-100 text-dark">
+    <div class="container-fluid col-lg-12 px-4 py-md-5 py-2 ">
+        <div class="text-lg-start text-center mb-5 border-bottom ">
+            <h1 class="display-4 fw-bold lh-1 mb-3">Dasbor <?= checkAuth('roleName'); ?></h1>
         </div>
-        <div class="row flex-lg-row align-items-center g-5 pb-4">
-            <form action="<?= base_url('masuk'); ?>" id="loginForm" method="post">
-                <div class="row mb-3">
-                    <div class="col-md-4 mx-auto">
-                        <?= csrf_field(); ?>
-                        <?= getFlash('message'); ?>
-                        <div class="form-floating has-validation">
-                            <input required value="<?= old('user_email'); ?>" name="user_email" type="email" id="email" class="form-control <?= setInvalid('user_email'); ?>" placeholder="Email" aria-label="Email">
-                            <label for="email">Email</label>
-                            <div class="invalid-feedback">
-                                <?= showInvalidFeedback('user_email'); ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-md-4 mx-auto">
-                        <div class="form-floating has-validation">
-                            <input required minlength="6" type="password" id="password" name="user_password" class="form-control <?= setInvalid('user_password'); ?>" placeholder="Kata Sandi" aria-label="Kata Sandi">
-                            <label for="password">Kata Sandi</label>
-                            <div class="invalid-feedback">
-                                <?= showInvalidFeedback('user_password'); ?>
-                            </div>
-                        </div>
-                    </div>
+        <div class="row g-5 text-center py-3">
+            <div class="col-md-4">
+                <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/pmks.webp'); ?>" alt="PMKS">
+                <h2><a class="link-primary text-decoration-none" href="<?= base_url('data/pmks'); ?>"><?= countTable('pmks'); ?> Data PMKS</a></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam pariatur at sint quaerat praesentium libero aliquid sit ipsa eos, possimus corporis molestias blanditiis et quas, placeat aliquam accusantium eaque delectus.</p>
+            </div>
+            <div class="col-md-4">
+                <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/psks.webp'); ?>" alt="PSKS">
+                <h2><a class="link-primary text-decoration-none" href="<?= base_url('data/psks'); ?>"><?= countTable('pmks'); ?> Data PSKS</a></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam pariatur at sint quaerat praesentium libero aliquid sit ipsa eos, possimus corporis molestias blanditiis et quas, placeat aliquam accusantium eaque delectus.</p>
+            </div>
+            <div class="col-md-4">
+                <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/members.webp'); ?>" alt="Anggota">
+                <h2><a class="link-primary text-decoration-none" href="<?= base_url('konten/profil-karang-taruna/pengurus'); ?>"><?= countTable('members'); ?> Anggota Aktif</a></h2>
 
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-4 mx-auto ">
-                        <span class="text-muted  <?= setInvalid('g-recaptcha-response'); ?> small">Situs ini dilindungi oleh reCAPTCHA dan berlaku
-                            <a class="text-decoration-none" href="https://policies.google.com/privacy">Kebijakan Privasi</a> dan
-                            <a class="text-decoration-none" href="https://policies.google.com/terms">Persyaratan Layanan</a> Google.
-                        </span>
-                        <div class="invalid-feedback">
-                            <?= showInvalidFeedback('g-recaptcha-response'); ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-4 mx-auto">
-                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='submit' class="btn g-recaptcha btn-primary w-100">Masuk</button>
-
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-4 mx-auto text-center">
-                        <a href="<?= base_url('lupa-kata-sandi'); ?>" class="text-decoration-none">Lupa Kata Sandi</a>
-                    </div>
-                </div>
-            </form>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam pariatur at sint quaerat praesentium libero aliquid sit ipsa eos, possimus corporis molestias blanditiis et quas, placeat aliquam accusantium eaque delectus.</p>
+            </div>
         </div>
     </div>
 </div>

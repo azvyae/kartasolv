@@ -1,23 +1,12 @@
-<nav class="navbar fw-semibold px-3 bg-white navbar-expand-lg shadow-sm fixed-top">
+<nav class="navbar top-navbar fw-semibold px-3 bg-white navbar-expand-lg shadow-sm fixed-top">
     <div class="container-fluid col-11">
         <div class="me-5">
             <a href="<?= base_url(); ?>" class="navbar-brand">
-                <img src="<?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="48" height="48">
+                <img class="me-3  d-none d-md-inline" src="<?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="48" height="48">
+                <img class="me-3 d-inline d-md-none" src="<?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="32" height="32">
+                <span class="d-inline fs-5 d-md-none">Karta Ngajomantara</span>
             </a>
-            <?php if (!isSameController(['Home', 'Auth'])) : ?>
-                <button type="button" id="sidebarCollapse" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offCanvasSidebar" aria-controls="offCanvasSidebar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-layout-sidebar-inset" viewBox="0 0 16 16">
-                        <path d="M14 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
-                        <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
-                    </svg>
-                </button>
-            <?php endif ?>
         </div>
-
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="offcanvas offcanvas-end" style="width: 280px;" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header border-bottom">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
@@ -70,5 +59,24 @@
                 </ul>
             </div>
         </div>
+    </div>
+</nav>
+<nav class="navbar fw-semibold px-3 bg-white navbar-expand-lg shadow-sm d-sm-block d-md-none  fixed-bottom">
+    <div class="container-fluid col-11">
+        <div class="me-5">
+            <?php if (!isSameController(['Home', 'Auth'])) : ?>
+                <button type="button" id="sidebarCollapse" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offCanvasSidebar" aria-controls="offCanvasSidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-layout-sidebar-inset" viewBox="0 0 16 16">
+                        <path d="M14 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+                        <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
+                    </svg>
+                </button>
+            <?php endif ?>
+        </div>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 </nav>

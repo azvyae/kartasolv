@@ -8,6 +8,10 @@ class Profile extends BaseController
 {
     public function index()
     {
-        return 'ubah-profil';
+        $data = [
+            'title' => "Ubah Akun/Profil | Karta Sarijadi",
+            'sidebar' => true,
+        ];
+        return view('user/profile/index', $data);
     }
 }
