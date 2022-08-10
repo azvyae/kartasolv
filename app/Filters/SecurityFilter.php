@@ -12,7 +12,7 @@ class SecurityFilter implements FilterInterface
     {
         return checkAuth();
         if (strpos(service('router')->controllerName(), "\App\Controllers\Sandbox") !== FALSE && getenv('CI_ENVIRONMENT') === 'production') {
-            return redirect()->to(base_url());
+            return redirect()->to('/');
         }
     }
 

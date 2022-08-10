@@ -1,6 +1,5 @@
 <?php
 
-use CodeIgniter\Controller;
 
 function objectify($data)
 {
@@ -30,4 +29,16 @@ function getFlash($key)
     } else {
         return $session->getFlashdata($key);
     }
+}
+
+
+function setInvalid($name)
+{
+
+    return service('validation')->hasError($name) ? ' is-invalid ' : '';
+}
+
+function showInvalidFeedback($name)
+{
+    return service('validation')->getError($name);
 }

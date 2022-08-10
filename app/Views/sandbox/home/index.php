@@ -9,6 +9,9 @@ Lorem 4 (There are many variations of passages of Lorem Ipsum available, but the
 ?>
 
 <form method="POST" action="">
+    <?= csrf_field(); ?>
     <textarea name="data" id="ss" cols="30" rows="10"><?= $yourushiki; ?></textarea>
-    <button type="submit">submit</button>
+    <button type="submit" name="_method" value="DELETE">hapus</button>
+    <button type="submit" name="_method" value="PUT">update</button>
+    <button type="submit" name="_method" value="POST">submit</button>
 </form>

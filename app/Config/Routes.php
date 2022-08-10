@@ -37,39 +37,48 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/sejarah', 'Home::history');
-$routes->get('/hubungi-kami', 'Home::contactUs');
 
+$routes->get('/hubungi-kami', 'Home::contactUs');
 $routes->get('/sandbox', 'Sandbox\Home::index');
 $routes->post('/sandbox', 'Sandbox\Home::index');
+$routes->delete('/sandbox', 'Sandbox\Home::index');
+$routes->put('/sandbox', 'Sandbox\Home::index');
+
 $routes->get('/sandbox/login', 'Sandbox\Home::login');
-$routes->get('/sandbox/logout', 'Sandbox\Home::logout');
+$routes->delete('/sandbox/logout', 'Sandbox\Home::logout');
 $routes->get('/sandbox/phpinfo', 'Sandbox\Home::phpinfo');
 $routes->get('/sandbox/(:any)', 'Sandbox\Home::index/$1');
 
-$routes->get('/masuk', 'Auth::login');
-$routes->post('/masuk', 'Auth::login');
-$routes->get('/keluar', 'Auth::logout');
+$routes->get('/masuk', 'Auth::index');
+$routes->post('/masuk', 'Auth::index');
+$routes->delete('/keluar', 'Auth::index');
 $routes->get('/lupa-kata-sandi', 'Auth::forgetPassword');
 $routes->post('/lupa-kata-sandi', 'Auth::forgetPassword');
 $routes->get('/atur-ulang-kata-sandi', 'Auth::resetPassword');
-$routes->post('/atur-ulang-kata-sandi', 'Auth::resetPassword');
+$routes->put('/atur-ulang-kata-sandi', 'Auth::resetPassword');
 $routes->get('verifikasi', 'Auth::verifyEmail');
 
 $routes->group('konten', static function ($routes) {
     $routes->get('sejarah', 'Content\History::index');
+    $routes->put('sejarah', 'Content\History::index');
     $routes->get('profil-karang-taruna', 'Content\OrganizationProfile::index');
     $routes->group('profil-karang-taruna', static function ($routes) {
         $routes->get('info-utama', 'Content\OrganizationProfile::mainInfo');
+        $routes->put('info-utama', 'Content\OrganizationProfile::mainInfo');
         $routes->get('kegiatan-kami', 'Content\OrganizationProfile::ourActivities');
+        $routes->put('kegiatan-kami', 'Content\OrganizationProfile::ourActivities');
         $routes->get('pengurus', 'Content\OrganizationProfile::members');
-        $routes->get('pengurus/(:any)', 'Content\OrganizationProfile::memberCrud/$1');
         $routes->get('tambah-pengurus', 'Content\OrganizationProfile::memberCrud');
+        $routes->post('tambah-pengurus', 'Content\OrganizationProfile::memberCrud');
+        $routes->get('pengurus/(:any)', 'Content\OrganizationProfile::memberCrud/$1');
+        $routes->put('pengurus/(:any)', 'Content\OrganizationProfile::memberCrud/$1');
+        $routes->delete('pengurus/(:any)', 'Content\OrganizationProfile::memberCrud/$1');
     });
 });
 
 $routes->get('dasbor', 'User\Home::index');
 $routes->get('profil', 'User\Profile::index');
-$routes->post('profil', 'User\Profile::index');
+$routes->put('profil', 'User\Profile::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -77,6 +77,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 ">
+                        <input type="hidden" name="_method" value="PUT">
                         <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='submit' class="btn py-2 g-recaptcha btn-primary w-100">Simpan</button>
 
                     </div>

@@ -28,8 +28,6 @@ class RoleAccessModel extends Model
             ->join(
                 'menu',
                 'menu.menu_id = role_access.menu_id',
-
-
             )
             ->join(
                 'pages',

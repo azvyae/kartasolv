@@ -5,33 +5,42 @@ namespace App\Controllers;
 
 class Auth extends BaseController
 {
-    private $usersModel;
+    private $um;
     public function __construct()
     {
-        $this->usersModel = model('UsersModel');
+        $this->um = new \App\Models\UsersModel();
     }
-    public function login()
+
+    public function index()
     {
-        if (!$this->request->getPost()) {
-            $data = [
-                'title' => 'Masuk | Karta Sarijadi',
-            ];
-            return view('auth/login', $data);
-        } else if (!$this->validate('userEmail|userPassword|gRecaptcha')) {
-            return redirect()->to(base_url('masuk'))->withInput();
+        if (getMethod('post')) {
+            return $this->_login();
+        } else if (getMethod('delete')) {
+            return $this->_logout();
+        }
+        $data = [
+            'title' => 'Masuk | Karta Sarijadi',
+        ];
+        return view('auth/index', $data);
+    }
+
+    private function _login()
+    {
+        if (!$this->validate('userEmail|userPassword|gRecaptcha')) {
+            return redirect()->to('masuk')->withInput();
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
         $pass = $this->request->getPost('user_password');
-        if ($user = $this->usersModel->getUserFromEmail($email)) {
+        if ($user = $this->um->getFromEmail($email)) {
             if (kartaPasswordVerify($pass, $user->user_password)) {
-                return $this->setSession($user);
+                return $this->_setSession($user);
             } else if (md5($pass) === $user->user_password) {
-                $new_data = [
+                $data = [
                     'user_id' => $user->user_id,
                     'user_password' => kartaPasswordHash($pass)
                 ];
-                $this->usersModel->save($new_data);
-                return $this->setSession($user);
+                $this->um->save($data);
+                return $this->_setSession($user);
             }
         }
         $flash = [
@@ -39,51 +48,36 @@ class Auth extends BaseController
             'type' => 'danger'
         ];
         setFlash($flash);
-        return redirect()->to(base_url('masuk'))->withInput();
+        return redirect()->to('masuk')->withInput();
     }
 
-    private function setSession($user)
-    {
-        $session = session();
-        $sessionData = [
-            'user' => objectify([
-                'userId' => $user->user_id,
-                'roleId' => $user->role_id,
-                'roleString' => $user->role_string,
-                'roleName' => $user->role_name,
-            ])
-        ];
-        $data = [
-            'user_id' => $user->user_id,
-            'user_last_login' => date('Y-m-d H:i:s'),
-            'user_reset_attempt' => null
-        ];
-        $this->usersModel->save($data);
-        $session->set($sessionData);
-        return redirect()->to(base_url('dasbor'));
-    }
-
-    public function logout()
+    private function _logout()
     {
         if (!isset($_SESSION))
             session_start();
         if (session_status() === PHP_SESSION_ACTIVE)
             session_destroy();
-        return redirect()->to(base_url('masuk'));
+        return redirect()->to('masuk');
     }
 
     public function forgetPassword()
     {
-        if (!$this->request->getPost()) {
-            $data = [
-                'title' => 'Lupa Kata Sandi | Karta Sarijadi'
-            ];
-            return view('auth/forget_password', $data);
-        } else if (!$this->validate('userEmail|gRecaptcha')) {
-            return redirect()->to(base_url('lupa-kata-sandi'))->withInput();
+        if (getMethod('post')) {
+            $this->_forgetPassword();
+        }
+        $data = [
+            'title' => 'Lupa Kata Sandi | Karta Sarijadi'
+        ];
+        return view('auth/forget_password', $data);
+    }
+
+    private function _forgetPassword()
+    {
+        if (!$this->validate('userEmail|gRecaptcha')) {
+            return redirect()->to('lupa-kata-sandi')->withInput();
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
-        if ($user = $this->usersModel->getUserFromEmail($email)) {
+        if ($user = $this->um->getFromEmail($email)) {
             if ($last = strtotime($user->user_reset_attempt)) {
                 $now = strtotime(date('Y-m-d H:i:s'));
                 $selisih = $last - $now;
@@ -93,45 +87,21 @@ class Auth extends BaseController
                         'type' => 'warning'
                     ];
                     setFlash($flash);
-                    return redirect()->to(base_url('lupa-kata-sandi'));
+                    return redirect()->to('lupa-kata-sandi');
                 }
             }
-
-
             $time = date('Y-m-d H:i:s', strtotime('+15 minutes', time()));
             $updateData = [
                 'user_id' => $user->user_id,
                 'user_reset_attempt' => $time
             ];
-            if ($this->usersModel->save($updateData)) {
-                $config = [
-                    'protocol' => 'smtp',
-                    'SMTPHost' => 'mail.kartasarijadi.com',
-                    'SMTPUser' => 'no-reply@kartasarijadi.com',
-                    'SMTPPass' => getenv('app.emailpass'),
-                    'SMTPPort' => '587',
-                    'mailType' => 'html',
+            if ($this->um->save($updateData) && $this->_verifyPassword($user, $time)) {
+                $flash = [
+                    'message' => 'Silakan cek emailmu untuk melanjutkan.',
+                    'type' => 'success'
                 ];
-                $email = \Config\Services::email($config);
-                $email->setFrom('no-reply@kartasarijadi.com', 'No Reply - Karang Taruna Sarijadi');
-                $email->setTo($user->user_email);
-
-                $email->setSubject('Verifikasi Proses Atur Ulang Kata Sandi');
-                $uuid = encode($user->user_id, 'resetPassword');
-                $attempt = encode(strtotime($time), 'resetPassword');
-                $data = [
-                    'name' => $user->user_name,
-                    'link' => base_url("atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt")
-                ];
-                $email->setMessage(view('layout/email/reset_password', $data));
-                if ($email->send()) {
-                    $flash = [
-                        'message' => 'Silakan cek emailmu untuk melanjutkan.',
-                        'type' => 'success'
-                    ];
-                    setFlash($flash);
-                    return redirect()->to(base_url('masuk'));
-                }
+                setFlash($flash);
+                return redirect()->to('masuk');
             }
 
             $flash = [
@@ -139,14 +109,14 @@ class Auth extends BaseController
                 'type' => 'success'
             ];
             setFlash($flash);
-            return redirect()->to(base_url('lupa-kata-sandi'));
+            return redirect()->to('lupa-kata-sandi');
         }
         $flash = [
             'message' => 'Email yang kamu tulis tidak ditemukan!',
             'type' => 'danger'
         ];
         setFlash($flash);
-        return redirect()->to(base_url('lupa-kata-sandi'))->withInput();
+        return redirect()->to('lupa-kata-sandi')->withInput();
     }
 
     public function resetPassword()
@@ -154,46 +124,60 @@ class Auth extends BaseController
         $uuid = decode($this->request->getGet('uuid'), 'resetPassword');
         $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'resetPassword'));
         if ($uuid && $attempt) {
-            if ($user = $this->usersModel->getUser($uuid)) {
+            if ($user = $this->um->find($uuid, true)) {
                 if ($user->user_reset_attempt <= date('Y-m-d H:i:s') or $user->user_reset_attempt !== $attempt) {
                     $flash = [
                         'message' => 'Link tidak valid/kadaluarsa.',
                         'type' => 'warning'
                     ];
                     setFlash($flash);
-                    return redirect()->to(base_url('lupa-kata-sandi'));
+                    return redirect()->to('lupa-kata-sandi');
                 }
-                if (!$this->request->getPost()) {
-                    $data = [
-                        'title' => 'Atur Ulang Kata Sandi | Karta Sarijadi'
-                    ];
-                    return view('auth/reset_password', $data);
-                } else if (!$this->validate('userNewPassword|passwordVerify|gRecaptcha')) {
-                    return redirect()->to(base_url('atur-ulang-kata-sandi?uuid=' . $this->request->getGet('uuid') . '&attempt=' . $this->request->getGet('attempt')))->withInput();
+                if (getMethod('put')) {
+                    $this->_resetPassword($uuid);
                 }
-
                 $data = [
-                    'user_id' => $user->user_id,
-                    'user_password' => kartaPasswordHash($this->request->getPost('user_new_password')),
-                    'user_reset_attempt' => null
+                    'title' => 'Atur Ulang Kata Sandi | Karta Sarijadi'
                 ];
-                if ($this->usersModel->save($data)) {
-                    $flash = [
-                        'message' => 'Berhasil mengubah kata sandi.',
-                        'type' => 'success'
-                    ];
-                    setFlash($flash);
-                    return redirect()->to(base_url('masuk'));
-                }
-                $flash = [
-                    'message' => 'Gagal mengubah kata sandi.',
-                    'type' => 'danger'
-                ];
-                setFlash($flash);
-                return redirect()->to(base_url('atur-ulang-kata-sandi?uuid=' . $this->request->getGet('uuid') . '&attempt=' . $this->request->getGet('attempt')))->withInput();
+                return view('auth/reset_password', $data);
             }
+            $flash = [
+                'message' => 'Pengguna tidak ditemukan.',
+                'type' => 'danger'
+            ];
+            setFlash($flash);
         }
-        return redirect()->to(base_url('lupa-kata-sandi'));
+        return redirect()->to('lupa-kata-sandi');
+    }
+
+    private function _resetPassword($uuid)
+    {
+        $user = $this->um->find($uuid, true);
+        $rawUUID = $this->request->getGet('uuid');
+        $rawAttempt = $this->request->getGet('attempt');
+        if (!$this->validate('userNewPassword|passwordVerify|gRecaptcha')) {
+            return redirect()->to("atur-ulang-kata-sandi?uuid=$rawUUID&attempt=$rawAttempt")->withInput();
+        }
+
+        $data = [
+            'user_id' => $user->user_id,
+            'user_password' => kartaPasswordHash($this->request->getPost('user_new_password')),
+            'user_reset_attempt' => null
+        ];
+        if ($this->um->save($data)) {
+            $flash = [
+                'message' => 'Berhasil mengubah kata sandi.',
+                'type' => 'success'
+            ];
+            setFlash($flash);
+            return redirect()->to('masuk');
+        }
+        $flash = [
+            'message' => 'Gagal mengubah kata sandi.',
+            'type' => 'danger'
+        ];
+        setFlash($flash);
+        return redirect()->to("atur-ulang-kata-sandi?uuid=$rawUUID&attempt=$rawAttempt")->withInput();
     }
 
     public function verifyEmail()
@@ -203,7 +187,7 @@ class Auth extends BaseController
         $cancel = (bool) $this->request->getGet('cancel');
 
         if ($uuid && $attempt) {
-            $user = $this->usersModel->getUser($uuid);
+            $user = $this->um->find($uuid, true);
             if ($user) {
                 if ($user->user_change_mail <= date('Y-m-d H:i:s') or $user->user_change_mail !== $attempt) {
                     $flash = [
@@ -218,7 +202,7 @@ class Auth extends BaseController
                         'user_change_mail' => null,
                         'user_temp_mail' => null
                     ];
-                    if ($this->usersModel->save($data)) {
+                    if ($this->um->save($data)) {
                         $flash = [
                             'message' => 'Berhasil mengubah email.',
                             'type' => 'success'
@@ -239,7 +223,7 @@ class Auth extends BaseController
                     'user_change_mail' => null,
                     'user_temp_mail' => null
                 ];
-                if ($this->usersModel->save($data)) {
+                if ($this->um->save($data)) {
                     $flash = [
                         'message' => 'Berhasil membatalkan perubahan email.',
                         'type' => 'success'
@@ -249,8 +233,54 @@ class Auth extends BaseController
             }
         }
         if (checkAuth('userId')) {
-            return redirect()->to(base_url('profil'));
+            return redirect()->to('profil');
         }
-        return redirect()->to(base_url('masuk'));
+        return redirect()->to('masuk');
+    }
+
+    private function _verifyPassword($user, $time)
+    {
+        $config = [
+            'protocol' => 'smtp',
+            'SMTPHost' => 'mail.kartasarijadi.com',
+            'SMTPUser' => 'no-reply@kartasarijadi.com',
+            'SMTPPass' => getenv('app.emailpass'),
+            'SMTPPort' => '587',
+            'mailType' => 'html',
+        ];
+        $email = \Config\Services::email($config);
+        $email->setFrom('no-reply@kartasarijadi.com', 'No Reply - Karang Taruna Sarijadi');
+        $email->setTo($user->user_email);
+
+        $email->setSubject('Verifikasi Proses Atur Ulang Kata Sandi');
+        $uuid = encode($user->user_id, 'resetPassword');
+        $attempt = encode(strtotime($time), 'resetPassword');
+        $data = [
+            'name' => $user->user_name,
+            'link' => base_url("atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt")
+        ];
+        $email->setMessage(view('layout/email/reset_password', $data));
+        return $email->send();
+    }
+
+    private function _setSession($user)
+    {
+        $session = session();
+        $sessionData = [
+            'user' => objectify([
+                'userId' => $user->user_id,
+                'roleId' => $user->role_id,
+                'roleString' => $user->role_string,
+                'roleName' => $user->role_name,
+            ])
+        ];
+        $data = [
+            'user_id' => $user->user_id,
+            'user_last_login' => date('Y-m-d H:i:s'),
+            'user_reset_attempt' => null
+        ];
+        $this->um->save($data);
+        $session->set($sessionData);
+        return redirect()->to('dasbor');
     }
 }

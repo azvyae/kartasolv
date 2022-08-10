@@ -9,8 +9,8 @@ function isSamePage($pageToCheck)
 function getSidebarMenu()
 {
     $roleId = checkAuth('roleId');
-    $roleAccessModel = model('App\Models\RoleAccessModel');
-    return $roleAccessModel->getPageByRole($roleId);
+    $ram = new \App\Models\RoleAccessModel();
+    return $ram->getPageByRole($roleId);
 }
 
 function isSameController($controllerToCheck)
@@ -24,8 +24,8 @@ function isSameController($controllerToCheck)
 
 function getCallToAction()
 {
-    $landingModel = model('App\Models\LandingModel');
-    $data = $landingModel->getCallToAction();
+    $lm = new \App\Models\LandingModel();
+    $data = $lm->getCallToAction();
     if ($data->cta_text && $data->cta_url) {
         if (parse_url($data->cta_url)['host'] === parse_url(base_url())['host']) {
             $data->target = '_self';
@@ -47,15 +47,4 @@ function getMissions($data)
             'desc' => str_replace(']', '', $d)
         ];
     }, $points);
-}
-
-function setInvalid($name)
-{
-
-    return service('validation')->hasError($name) ? ' is-invalid ' : '';
-}
-
-function showInvalidFeedback($name)
-{
-    return service('validation')->getError($name);
 }

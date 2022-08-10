@@ -57,7 +57,9 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="<?= base_url('keluar'); ?>">Keluar</a></li>
+                                <li>
+                                    <form action="<?= base_url('keluar'); ?>" method="post"><?= csrf_field(); ?><button class="dropdown-item" type="submit" name="_method" value="DELETE">Keluar</button></form>
+                                </li>
                             </ul>
                         </li>
                     <?php else : ?>

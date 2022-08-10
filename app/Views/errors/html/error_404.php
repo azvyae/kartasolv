@@ -9,7 +9,7 @@
     <meta name="application-name" content="Karang Taruna Kelurahan Sarijadi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>" type="image/x-icon">
-    <title>Karang Taruna Kelurahan Sarijadi - 404</title>
+    <title>Error 404 | Karta Sarijadi</title>
     <link rel="stylesheet" href="<?= base_url('css/error.page.css'); ?>/">
     <link href="<?= base_url('css/main.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -21,7 +21,7 @@
 
 <body class="d-flex flex-column bd-highlight h-100 w-100">
     <div id="particles-js"></div>
-    <div class="d-flex h-100 flex-column text-center text-light bg-primary min-vh-100">
+    <div class="d-flex h-100 flex-column text-center text-light bg-gradient bg-primary min-vh-100">
         <div class="d-flex w-100 h-100 p-3 mx-auto flex-column my-auto">
             <main class="container">
                 <h1 class="position-relative fw-bold">Error 404 | Halaman Tidak Ditemukan</h1>

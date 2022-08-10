@@ -23,9 +23,4 @@ class HistoryModel extends Model
     ];
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
-
-    public function getHistoryInfo()
-    {
-        return $this->find(1);
-    }
 }

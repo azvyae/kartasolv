@@ -22,9 +22,4 @@ class ActivitiesModel extends Model
     ];
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
-
-    public function getActivitiesInfo()
-    {
-        return $this->find(1);
-    }
 }

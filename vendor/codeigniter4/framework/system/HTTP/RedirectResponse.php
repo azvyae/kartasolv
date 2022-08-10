@@ -34,7 +34,7 @@ class RedirectResponse extends Response
         // If it appears to be a relative URL, then convert to full URL
         // for better security.
         if (strpos($uri, 'http') !== 0) {
-            $uri = site_url($uri);
+            $uri = base_url($uri);
         }
 
         return $this->redirect($uri, $method, $code);
@@ -52,7 +52,7 @@ class RedirectResponse extends Response
     {
         $route = Services::routes()->reverseRoute($route, ...$params);
 
-        if (! $route) {
+        if (!$route) {
             throw HTTPException::forInvalidRedirectRoute($route);
         }
 

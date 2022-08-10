@@ -50,8 +50,8 @@
 
                 <div class="row mb-3">
                     <div class="col-md-4 mx-auto">
+                        <input type="hidden" name="_method" value="PUT">
                         <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='submit' class="btn g-recaptcha btn-primary w-100">Simpan</button>
-
                     </div>
                 </div>
             </form>

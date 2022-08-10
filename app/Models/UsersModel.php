@@ -13,16 +13,8 @@ class UsersModel extends Model
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
 
-    public function getUserFromEmail($email)
+    public function getFromEmail($email)
     {
         return $this->join('roles', 'roles.role_id = users.role_id')->where('user_email', $email)->get()->getRow();
-    }
-
-    public function getUser($user_id)
-    {
-        return $this->where(
-            'user_id',
-            $user_id
-        )->get()->getRow();
     }
 }

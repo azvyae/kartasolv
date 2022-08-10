@@ -24,7 +24,7 @@ function checkAuth($data = null)
         }
         if ($session->user) {
             if ($controllerName === 'Auth' && $router->methodName() !== 'logout' && $router->methodName() !== 'verifyEmail') {
-                return redirect()->to(base_url('dasbor'));
+                return redirect()->to('dasbor');
             }
             if (!$isGranted) {
                 $flash = [
@@ -32,7 +32,7 @@ function checkAuth($data = null)
                     'type' => 'danger'
                 ];
                 setFlash($flash);
-                return redirect()->to(base_url('dasbor'));
+                return redirect()->to('dasbor');
             }
         } else if (!$isGranted) {
             $flash = [
@@ -40,7 +40,7 @@ function checkAuth($data = null)
                 'type' => 'danger'
             ];
             setFlash($flash);
-            return redirect()->to(base_url('masuk'));
+            return redirect()->to('masuk');
         }
     }
     return null;
@@ -126,4 +126,9 @@ function kartaPasswordHash(String $password)
 function kartaPasswordVerify(String $password, String $hash)
 {
     return password_verify($password, substr($hash, 0, strlen($hash) - strlen((string)strlen($password))));
+}
+
+function getMethod($method)
+{
+    return service('request')->getMethod() === $method;
 }

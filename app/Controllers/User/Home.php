@@ -8,7 +8,6 @@ class Home extends BaseController
 {
     public function index()
     {
-
         $roleName = checkAuth('roleName');
         $data = [
             'title' => "Dasbor $roleName | Karta Sarijadi",
