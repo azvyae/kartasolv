@@ -10,7 +10,6 @@
                 <?= csrf_field(); ?>
                 <?= getFlash('message'); ?>
                 <h2>Perubahan Info Dasar</h2>
-                <?php d(service('request')->getPost()) ?>
                 <div class="row ">
                     <!-- Modal -->
                     <div class="modal fade" id="image_a_modal" tabindex="-1" aria-labelledby="image_a_modal" aria-hidden="true">
@@ -21,8 +20,9 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <img id='preview_image_a' class='w-100 rounded' src="<?= old('image_a', $gbr->image_a); ?>">
+                                    <img id='preview_image_a' class='w-100 rounded' src="<?= old('image_a', $gbr->image_a ?? ''); ?>">
                                 </div>
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
                                 </div>
@@ -32,7 +32,7 @@
                     <div class="col-md-12 mb-3">
                         <label for="image_a">Gambar</label>
                         <div class="input-group has-validation">
-                            <input onchange="previewImage(this)" value="<?= old('image_a', $gbr->image_a); ?>" name="image_a" type="file" id="image_a" class="form-control <?= setInvalid('image_a'); ?>" placeholder="Gambar Utama di Landing" aria-label="Gambar Utama di Landing">
+                            <input onchange="previewImage(this)" name="image_a[]" multiple type="file" id="image_a" class="form-control <?= setInvalid('image_a'); ?>" placeholder="Gambar Utama di Landing" aria-label="Gambar Utama di Landing">
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('cta_url'); ?>
                             </div>
@@ -56,7 +56,10 @@
 
                     </div>
                 </div>
+                <div class="row">
+                    <?php d($debug) ?>
 
+                </div>
             </form>
         </div>
     </div>

@@ -30,6 +30,8 @@ use InvalidArgumentException;
  * - Message body
  *
  * @mixin RedirectResponse
+ * @method MessageTrait setHeader(string $name, $value): self
+ * 
  */
 interface ResponseInterface
 {

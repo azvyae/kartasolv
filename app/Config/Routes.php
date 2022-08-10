@@ -41,6 +41,7 @@ $routes->get('hubungi-kami', 'Home::contactUs');
 $routes->get('dasbor', 'User\Home::index');
 $routes->get('phpinfo', 'Sandbox\Home::phpinfo');
 $routes->get('verifikasi', 'Auth::verifyEmail');
+$routes->get('gambar-privat', 'User\Home::loadImage');
 $routes->delete('keluar', 'Auth::index');
 
 $routes->group('masuk', static function ($routes) {
