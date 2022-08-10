@@ -46,7 +46,8 @@ class TestAuth extends CIUnitTestCase
 
     public function testLogout()
     {
-        $result = $this->withSession($this->sessionData)->call('get', "keluar");
+
+        $result = $this->withSession($this->sessionData)->call('delete', "keluar", [csrf_token() => csrf_hash()]);
         $result->assertOK();
         $result->assertRedirectTo(base_url('masuk'));
     }

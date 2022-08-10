@@ -79,7 +79,7 @@ class TestOrganizationProfile extends CIUnitTestCase
     }
     public function testMemberCreate()
     {
-        $result = $this->withSession($this->sessionData)->call('get', "konten/profil-karang-taruna/tambah-pengurus");
+        $result = $this->withSession($this->sessionData)->call('get', "konten/profil-karang-taruna/pengurus/tambah");
         $result->assertOK();
         $result->assertSee('Tambah Data Pengurus', 'h1');
         $result->assertSeeElement('input[name=member_name]');

@@ -16,7 +16,7 @@ class Profile extends BaseController
         if (getMethod('put')) {
             return $this->_updateProfile();
         }
-        $user = $this->um->find(3, true);
+        $user = $this->um->find(checkAuth('userId'), true);
         if (!$user) {
             return redirect()->to('dasbor');
         }

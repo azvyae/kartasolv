@@ -23,7 +23,7 @@ class OrganizationProfile extends BaseController
     }
     public function mainInfo()
     {
-        if ($this->request->getPost()) {
+        if (getMethod('put')) {
             return $this->_updateMainInfo();
         }
         $data = [
@@ -35,7 +35,7 @@ class OrganizationProfile extends BaseController
     }
     private function _updateMainInfo()
     {
-        # validation here
+        dd($this->request->getPost());
     }
     public function ourActivities()
     {
@@ -70,9 +70,9 @@ class OrganizationProfile extends BaseController
         ];
         $this->request->getPost();
         if ($id) {
-            $memberModel = model('App\Models\MembersModel');
+            $mm = new \App\Models\MembersModel();
             $id = decode($id, 'members');
-            $member = $memberModel->getMember($id);
+            $member = $mm->find($id, true);
             if (!$member) {
                 return show404();
             }

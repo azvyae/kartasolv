@@ -8,10 +8,15 @@
     <link href="<?= base_url('css/main.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('css/style.css'); ?>" rel="stylesheet">
     <meta name="description" content="Sebagai organisasi sosial kepemudaan, Karang Taruna Ngajomantara Kelurahan Sarijadi merupakan wadah pembinaan dan pengembangan serta pemberdayaan dalam upaya mengembangkan kegiatan ekonomi produktif dengan pendayagunaan semua potensi yang tersedia di lingkungan baik sumber daya manusia maupun sumber daya alam yang telah ada untuk meningkatkan kesejahteraan sosial. Karang taruna melakukan kegiatan kegiatan pengembangan potensi dengan harapan tercapainya masyarakat yang yang baik dan tepat sasaran sesuai kebutuhan masyarakat.">
-    <meta name="keywords" content="karang taruna, ngajomantara, kelurahan sarijadi, pelayanan sosial, <?= $title; ?>">
+    <meta name="keywords" content="karang taruna, ngajomantara, kelurahan sarijadi, pelayanan sosial, <?= $title ?? 'Karta Sarijadi'; ?>">
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('favicon.ico'); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title><?= $title; ?></title>
+    <title><?= $title ?? 'Karta Sarijadi'; ?></title>
+    <script>
+        const baseUrl = (string = '') => {
+            return "<?= base_url(); ?>" + string;
+        }
+    </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">

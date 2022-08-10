@@ -1,5 +1,15 @@
 <?php
 
+function removeProtocol($url)
+{
+    $disallowed = array('http://', 'https://');
+    foreach ($disallowed as $d) {
+        if (strpos($url, $d) === 0) {
+            return str_replace($d, '', $url);
+        }
+    }
+    return $url;
+}
 
 function objectify($data)
 {
@@ -29,6 +39,16 @@ function getFlash($key)
     } else {
         return $session->getFlashdata($key);
     }
+}
+
+function parseMission($string)
+{
+    $mission = objectify(getMissions($string));
+    $txt = '';
+    foreach ($mission as $m) {
+        $txt .= "-$m->mission ($m->desc)\n";
+    }
+    return $txt;
 }
 
 

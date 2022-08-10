@@ -23,7 +23,7 @@ function checkAuth($data = null)
             $isGranted = $roleAccessModel->getRoleAccessId($roleId, $thisMenu) !== NULL;
         }
         if ($session->user) {
-            if ($controllerName === 'Auth' && $router->methodName() !== 'logout' && $router->methodName() !== 'verifyEmail') {
+            if ($controllerName === 'Auth' && !isExcluded(getMethod() . '::' . $router->methodName())) {
                 return redirect()->to('dasbor');
             }
             if (!$isGranted) {
@@ -44,6 +44,14 @@ function checkAuth($data = null)
         }
     }
     return null;
+}
+
+function isExcluded($str)
+{
+    return in_array($str, [
+        'delete::index',
+        'get::verifyEmail'
+    ]);
 }
 
 function filterOutput($data)
@@ -128,7 +136,10 @@ function kartaPasswordVerify(String $password, String $hash)
     return password_verify($password, substr($hash, 0, strlen($hash) - strlen((string)strlen($password))));
 }
 
-function getMethod($method)
+function getMethod($method = null)
 {
+    if (!$method) {
+        return service('request')->getMethod();
+    }
     return service('request')->getMethod() === $method;
 }

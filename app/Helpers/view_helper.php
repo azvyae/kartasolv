@@ -37,6 +37,9 @@ function getCallToAction()
     return false;
 }
 
+/**
+ * @return array
+ */
 function getMissions($data)
 {
     $points = explode('<br/>', $data);
