@@ -32,21 +32,26 @@
                     <li class="nav-item  py-2 py-md-0">
                         <a class="nav-link px-3 <?= isSamePage('/') ?>" href="<?= base_url(); ?>">Beranda</a>
                     </li>
-                    <?php if (checkAuth('userId')) : ?>
-                        <li class="nav-item py-2 py-md-0">
-                            <a class="nav-link px-3 <?= isSamePage('dasbor') ?>" href="<?= base_url('dasbor'); ?>">Dasbor</a>
-                        </li>
-                    <?php endif ?>
                     <li class="nav-item py-2 py-md-0">
                         <a class="nav-link px-3 <?= isSamePage('sejarah') ?>" href="<?= base_url('sejarah'); ?>">Sejarah</a>
                     </li>
                     <li class="nav-item py-2 py-md-0">
                         <a class="nav-link px-3 <?= isSamePage('hubungi-kami') ?>" href="<?= base_url('hubungi-kami'); ?>">Hubungi Kami</a>
                     </li>
+                    <?php if (checkAuth('userId')) : ?>
+                        <li class="nav-item py-2 py-md-0">
+                            <a class="nav-link px-3 <?= isSamePage('dasbor') ?>" href="<?= base_url('dasbor'); ?>">Dasbor</a>
+                        </li>
+                    <?php endif ?>
                 </ul>
-                <ul class="navbar-nav text-end">
+
+                <ul class="navbar-nav pe-3 text-end align-items-lg-center">
 
                     <?php if (checkAuth('userId')) : ?>
+                        <li class="nav-item py-2 py-md-0 px-3">
+
+                            <span class="text-secondary"> Halo, <?= getUserName(); ?></span>
+                        </li>
                         <li class="nav-item dropdown py-2 py-md-0 px-3">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi text-secondary bi-person-circle" viewBox="0 0 16 16">
@@ -55,7 +60,9 @@
                                 </svg>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?= base_url('profil'); ?>">Profil</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= base_url('profil'); ?>">Profil</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

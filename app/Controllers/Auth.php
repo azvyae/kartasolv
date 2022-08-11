@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use Config\Services;
-
 class Auth extends BaseController
 {
     private $um;

@@ -12,15 +12,59 @@ class HistoryModel extends Model
     protected $useTimestamps = 'true';
     protected $allowedFields = [
         'title_a',
-        'subtitle_a',
+        'desc_a',
         'title_b',
-        'subtitle_b',
+        'desc_b',
         'title_c',
-        'subtitle_c',
+        'desc_c',
         'title_d',
-        'subtitle_d',
+        'desc_d',
         'image_a',
         'image_b',
+    ];
+    protected $beforeUpdate = ['setModifiedBy'];
+    protected $validationRules = [
+        'title_a' => [
+            'label' => 'Nama Kegiatan 1',
+            'rules' => 'required|max_length[64]|string',
+        ],
+        'desc_a' => [
+            'label' => 'Deskripsi Kegiatan 1',
+            'rules' => 'required|max_length[512]|string',
+        ],
+        'title_b' => [
+            'label' => 'Nama Kegiatan 2',
+            'rules' => 'required|max_length[64]|string',
+        ],
+        'desc_b' => [
+            'label' => 'Deskripsi Kegiatan 2',
+            'rules' => 'required|max_length[512]|string',
+        ],
+        'title_c' => [
+            'label' => 'Nama Kegiatan 3',
+            'rules' => 'required|max_length[64]|string',
+        ],
+        'desc_c' => [
+            'label' => 'Deskripsi Kegiatan 3',
+            'rules' => 'required|max_length[512]|string',
+        ],
+        'title_d' => [
+            'label' => 'Nama Kegiatan 3',
+            'rules' => 'required|max_length[64]|string',
+        ],
+        'desc_d' => [
+            'label' => 'Deskripsi Kegiatan 3',
+            'rules' => 'required|max_length[512]|string',
+        ],
+        'image_a' => [
+            'label' => 'Gambar 1',
+            'rules' => 'is_image[image_a]|ext_in[image_a,png,jpg,jpeg,webp]|uploaded[image_a]',
+        ],
+        'image_b' => [
+            'label' => 'Gambar 2',
+            'rules' => 'is_image[image_b]|ext_in[image_b,png,jpg,jpeg,webp]|uploaded[image_b]',
+        ],
+
     ];
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;

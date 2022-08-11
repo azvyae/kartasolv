@@ -33,15 +33,15 @@ class TestHistory extends CIUnitTestCase
     {
         $result = $this->withSession($this->sessionData)->call('get', 'konten/sejarah');
         $result->assertOK();
-        $result->assertSee('Pengaturan Sejarah', 'h1');
+        $result->assertSee('Ubah Info Sejarah', 'h1');
         $result->assertSeeElement('input[name=title_a]');
-        $result->assertSeeElement('input[name=subtitle_a]');
+        $result->assertSeeElement('input[name=desc_a]');
         $result->assertSeeElement('input[name=title_b]');
-        $result->assertSeeElement('input[name=subtitle_b]');
+        $result->assertSeeElement('input[name=desc_b]');
         $result->assertSeeElement('input[name=title_c]');
-        $result->assertSeeElement('input[name=subtitle_c]');
+        $result->assertSeeElement('input[name=desc_c]');
         $result->assertSeeElement('input[name=title_d]');
-        $result->assertSeeElement('input[name=subtitle_d]');
+        $result->assertSeeElement('input[name=desc_d]');
         $result->assertSeeElement('input[name=image_a]');
         $result->assertSeeElement('input[name=image_b]');
     }

@@ -37,6 +37,12 @@ function getCallToAction()
     return false;
 }
 
+function getUserName()
+{
+    $um = new \App\Models\UsersModel;
+    return $um->select('user_name')->find(checkAuth('userId'), true)->user_name;
+}
+
 /**
  * @return array
  */

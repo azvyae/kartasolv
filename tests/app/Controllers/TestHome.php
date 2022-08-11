@@ -24,11 +24,13 @@ class TestHome extends CIUnitTestCase
     {
         $result = $this->call('get', "/");
         $result->assertOK();
-        $result->assertSee('Karang Taruna Ngajomantara', 'h1');
+        $result->assertSeeElement('header');
+        $result->assertSeeElement('main');
         $result->assertSee('Visi & Misi', 'h2');
         $result->assertSee('Kegiatan Kami', 'h2');
         $result->assertSee('Siapa Kami', 'h2');
         $result->assertSeeElement('footer');
+        $result->getActualOutputForAssertion();
     }
     public function testHistory()
     {

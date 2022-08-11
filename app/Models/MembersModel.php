@@ -13,6 +13,9 @@ class MembersModel extends Model
     protected $allowedFields = ['member_name', 'member_position', 'member_type', 'member_active', 'member_image'];
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
+    protected $beforeInsert = ['setCreatedBy'];
+    protected $beforeUpdate = ['setModifiedBy'];
+    protected $beforeDelete = ['setModifiedBy'];
 
     public function getMembers()
     {

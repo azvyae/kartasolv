@@ -70,8 +70,7 @@ class OrganizationProfile extends BaseController
         /**
          * Image upload handler
          */
-        $savedImageName = explode('/', $this->lm->find(1, true)->landing_image);
-        $savedImageName = end($savedImageName);
+        $savedImagePath = '';
         if ($img->getSize() > 0) {
             $imageUploader = new ImageUploader;
             $opt = [
@@ -80,11 +79,13 @@ class OrganizationProfile extends BaseController
                 'name' => 'landing_image',
             ];
             if ($path = $imageUploader->upload($opt)) {
+                $savedImageName = explode('/', $this->lm->find(1, true)->landing_image);
+                $savedImageName = end($savedImageName);
                 $updateData += [
                     'landing_image' => base_url($path)
                 ];
+                $savedImagePath = ROOTPATH . 'public_html/uploads/' . $opt['upload_path'] . "/$savedImageName";
             }
-            $savedImagePath = ROOTPATH . 'public_html/uploads/' . $opt['upload_path'] . "/$savedImageName";
         }
 
         /**
@@ -103,7 +104,7 @@ class OrganizationProfile extends BaseController
                 'type' => 'success'
             ];
             setFlash($flash);
-            if ($savedImagePath ?? false) {
+            if ($savedImagePath) {
                 if (file_exists($savedImagePath)) {
                     unlink($savedImagePath);
                 }
@@ -119,19 +120,88 @@ class OrganizationProfile extends BaseController
     }
     public function ourActivities()
     {
-        if ($this->request->getPost()) {
+        if (getMethod('put')) {
             return $this->_updateOurActivities();
         }
         $data = [
             'title' => "Ubah Kegiatan Kami | Karta Sarijadi",
             'sidebar' => true,
+            'activities' => $this->am->find(1, true)
         ];
         return view('content/organization_profile/our_activities', $data);
     }
 
     private function _updateOurActivities()
     {
-        # validation here
+        $rules = $this->am->getValidationRules(['except' => ['image_a', 'image_b', 'image_c']]);
+        $images = $this->request->getFiles();
+        $postData = $this->request->getPost();
+        foreach ($images as $field => $img) {
+            if ($img->getSize() > 0) {
+                $rules += $this->am->getValidationRules(['only' => [$field]]);
+            } else {
+                unset($images[$field]);
+            }
+        }
+        if (!$this->validate($rules)) {
+            return redirect()->to('konten/profil-karang-taruna/kegiatan-kami')->withInput();
+        }
+        /**
+         * Base update data
+         */
+        $updateData = [
+            'id' => 1,
+            'title_a' => $postData['title_a'],
+            'desc_a' => $postData['desc_a'],
+            'title_b' => $postData['title_b'],
+            'desc_b' => $postData['desc_b'],
+            'title_c' => $postData['title_c'],
+            'desc_c' => $postData['desc_c'],
+        ];
+
+        /**
+         * Image upload handler
+         */
+        $savedImagePaths = [];
+        foreach ($images as $field => $img) {
+            if ($img->getSize() > 0) {
+                $imageUploader = new ImageUploader;
+                $opt = [
+                    'upload_path' => 'activities',
+                    'max_size' => 300,
+                    'name' => $field,
+                ];
+                if ($path = $imageUploader->upload($opt)) {
+                    $savedImageName = explode('/', $this->am->find(1, true)->$field);
+                    $savedImageName = end($savedImageName);
+                    $updateData += [
+                        $field => base_url($path)
+                    ];
+                    $savedImagePath = ROOTPATH . 'public_html/uploads/' . $opt['upload_path'] . "/$savedImageName";
+                    array_push($savedImagePaths, $savedImagePath);
+                }
+            }
+        }
+
+        if ($this->am->skipValidation(true)->save($updateData)) {
+            $flash = [
+                'message' => 'Kegiatan berhasil diperbarui.',
+                'type' => 'success'
+            ];
+            setFlash($flash);
+            foreach ($savedImagePaths as $path) {
+                if (file_exists($path)) {
+                    unlink($path);
+                }
+            }
+            return redirect()->to('konten/profil-karang-taruna/kegiatan-kami');
+        }
+        $flash = [
+            'message' => 'Kegiatan gagal diperbarui.',
+            'type' => 'danger'
+        ];
+        setFlash($flash);
+        return redirect()->to('konten/profil-karang-taruna/kegiatan-kami')->withInput();
     }
 
     public function members()

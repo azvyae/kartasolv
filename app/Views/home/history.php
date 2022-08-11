@@ -6,7 +6,7 @@
         <div class="row text-center">
             <div class="col-md-6 mx-auto">
                 <h1 class="fw-bold mb-3 display-3"><?= $historyInfo->title_a; ?></h1>
-                <p class=" fs-5"><?= $historyInfo->subtitle_a; ?></p>
+                <p class=" fs-5"><?= $historyInfo->desc_a; ?></p>
             </div>
 
         </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-6 text-md-start text-center">
                 <h2 class="fw-bold lh-1 mb-3"><?= $historyInfo->title_b; ?></h2>
-                <p class="lead"><?= $historyInfo->subtitle_b; ?></p>
+                <p class="lead"><?= $historyInfo->desc_b; ?></p>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-lg-6 text-md-start text-center">
                 <h2 class=" fw-bold lh-1 mb-3"><?= $historyInfo->title_c; ?></h2>
-                <p class="lead"><?= $historyInfo->subtitle_c; ?></p>
+                <p class="lead"><?= $historyInfo->desc_c; ?></p>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row text-center">
             <h3 class="fs-1 fw-bold display-5"><?= $historyInfo->title_d; ?></h3>
-            <p class="col-md-6 mx-auto"><?= $historyInfo->subtitle_d; ?></p>
+            <p class="col-md-6 mx-auto"><?= $historyInfo->desc_d; ?></p>
         </div>
     </div>
 </div>
