@@ -3,6 +3,7 @@
 namespace App\Controllers\Content;
 
 use App\Controllers\BaseController;
+use App\Libraries\ImageUploader;
 
 class OrganizationProfile extends BaseController
 {
@@ -35,7 +36,87 @@ class OrganizationProfile extends BaseController
     }
     private function _updateMainInfo()
     {
-        dd($this->request->getPost());
+        $oldData = $this->lm->find(1, true);
+        $rules = $this->lm->getValidationRules(['except' => ['landing_image']]);
+        if (($img = $this->request->getFile('landing_image'))->getSize() > 0) {
+            $rules += $this->lm->getValidationRules();
+        }
+        if (!$this->validate($rules)) {
+            return redirect()->to('konten/profil-karang-taruna/info-utama')->withInput();
+        }
+        $postData = $this->request->getPost();
+        /**
+         * Parsing regular textarea string to list of missions
+         */
+        $postData['mission'] = implode('<br/>', array_filter(
+            array_map(function ($e) {
+                $e = explode('[', ltrim(trim($e), '-'));
+                if ($e[0] && ($e[1] ?? false)) {
+                    return trim(preg_replace('/\s+/', ' ', $e[0])) . '[' . trim(preg_replace('/\s+/', ' ', $e[1])) . ']';
+                }
+            }, explode(']', $postData['mission']))
+        ));
+
+        /**
+         * Base update data
+         */
+        $updateData = [
+            'id' => 1,
+            'landing_title' => $postData['landing_title'],
+            'landing_tagline' => $postData['landing_tagline'],
+            'vision' => $postData['vision'],
+            'mission' => $postData['mission']
+        ];
+
+        /**
+         * Image upload handler
+         */
+        $savedImageName = explode('/', $this->lm->find(1, true)->landing_image);
+        $savedImageName = end($savedImageName);
+        if ($img->getSize() > 0) {
+            $imageUploader = new ImageUploader;
+            $opt = [
+                'upload_path' => 'organization-profile',
+                'max_size' => 300,
+                'name' => 'landing_image',
+            ];
+            if ($path = $imageUploader->upload($opt)) {
+                $updateData += [
+                    'landing_image' => base_url($path)
+                ];
+            }
+            $savedImagePath = ROOTPATH . 'public_html/uploads/' . $opt['upload_path'] . "/$savedImageName";
+        }
+
+        /**
+         * Call to action update data
+         */
+        if ($postData['cta_text']) {
+            $updateData += [
+                'cta_text' => $postData['cta_text'],
+                'cta_url' => addProtocol($postData['cta_url']),
+            ];
+        }
+
+        if ($this->lm->skipValidation(true)->save($updateData)) {
+            $flash = [
+                'message' => 'Info utama berhasil diperbarui.',
+                'type' => 'success'
+            ];
+            setFlash($flash);
+            if ($savedImagePath ?? false) {
+                if (file_exists($savedImagePath)) {
+                    unlink($savedImagePath);
+                }
+            }
+            return redirect()->to('konten/profil-karang-taruna/info-utama');
+        }
+        $flash = [
+            'message' => 'Info utama gagal diperbarui.',
+            'type' => 'danger'
+        ];
+        setFlash($flash);
+        return redirect()->to('konten/profil-karang-taruna/info-utama')->withInput();
     }
     public function ourActivities()
     {

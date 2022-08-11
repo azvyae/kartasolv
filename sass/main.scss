@@ -58,7 +58,7 @@ $dark: #191d21;
   .sidebar-nav {
     width: 20%;
     height: calc(100vh - 64px);
-    background-color: #ececec;
+    background-color: $gray-200;
     z-index: 1 !important;
   }
 }

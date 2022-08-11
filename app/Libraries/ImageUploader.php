@@ -41,7 +41,7 @@ class ImageUploader
                 return FALSE;
             }
             $unConverted = WRITEPATH . 'uploads' . $img->store($options['upload_path'] ?? '', $img->getRandomName());
-            $filepath = $this->convertToWebp($unConverted, 300);
+            $filepath = $this->convertToWebp($unConverted, $options['max_size']);
             if (!$filepath) {
                 return FALSE;
             }
@@ -50,9 +50,9 @@ class ImageUploader
                 if (!is_dir(ROOTPATH . 'public_html/uploads' . $options['upload_path'])) {
                     mkdir(ROOTPATH . 'public_html/uploads' . $options['upload_path'], 0777, true);
                 };
-                $file->move(ROOTPATH . 'public_html/uploads' . $options['upload_path'], $file->getRandomName());
+                $newFilename = $file->move(ROOTPATH . 'public_html/uploads' . $options['upload_path'], $file->getRandomName())->getFilename();
             }
-            $fullPath = 'uploads' . $options['upload_path'] . $file->getFilename();
+            $fullPath = 'uploads' . $options['upload_path'] . ($newFilename ?? $file->getFilename());
         }
         if ($options['private'] ?? false) {
             $fullPath = esc($fullPath, 'url');
@@ -73,7 +73,9 @@ class ImageUploader
             return FALSE;
         }
         $file->getFilename();
-        if ($file->getMimeType() == 'image/webp' && $file->getSize() < ($maxSize * 1024)) {
+        $mimeType = $file->getMimeType();
+        $fileSize = $file->getSize();
+        if ($mimeType == 'image/webp' && $fileSize < ($maxSize * 1024)) {
             return TRUE;
         }
         $quality = 80;
@@ -84,9 +86,10 @@ class ImageUploader
         if ($info[0] > 2048 or $info[1] > 2048) {
             $img->resize(2048, 2048, true);
         }
-        $newFile = str_replace('.' . $file->getExtension(), '.webp', $filePath);
+        $newFile = str_replace('.' . $file->getExtension(), '.webp', str_replace($file->getFilename(), $file->getRandomName(), $filePath));
         $img->convert(IMAGETYPE_WEBP);
         $img->save($newFile, $quality);
+        // dd($newFile, $filePath);
         unlink($filePath);
         return $newFile;
     }

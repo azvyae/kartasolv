@@ -43,13 +43,14 @@
                     <div class="col-md-6 mb-3">
                         <div class="input-group has-validation">
                             <span class="input-group-text">https://</span>
-                            <div class="form-floating">
+                            <div class="form-floating <?= setInvalid('cta_url'); ?>">
                                 <input value="<?= old('cta_url', removeProtocol($landing->cta_url)); ?>" name="cta_url" type="text" id="cta_url" class="form-control <?= setInvalid('cta_url'); ?>" placeholder="Url Call to Action" aria-label="Url Call to Action">
                                 <label for="cta_url">Url Call to Action</label>
                             </div>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('cta_url'); ?>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -71,23 +72,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 mb-3">
+                    <div class="col-md-12 mb-3 ">
                         <label for="landing_image">Gambar di Landing</label>
                         <div class="input-group has-validation">
-                            <input onchange="previewImage(this)" value="<?= old('landing_image', $landing->landing_image); ?>" name="landing_image" type="file" id="landing_image" class="form-control <?= setInvalid('landing_image'); ?>" placeholder="Gambar Utama di Landing" aria-label="Gambar Utama di Landing">
-                            <div class="invalid-feedback">
-                                <?= showInvalidFeedback('cta_url'); ?>
-                            </div>
+                            <input onchange="previewImage(this)" name="landing_image" type="file" id="landing_image" class="form-control <?= setInvalid('landing_image'); ?>" placeholder="Gambar Utama di Landing" aria-label="Gambar Utama di Landing">
                             <button type="button" class="btn btn-secondary input-group-text" data-bs-toggle="modal" data-bs-target="#landing_image_modal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
                                     <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
                                 </svg>
                             </button>
+                            <div class="invalid-feedback">
+                                <?= showInvalidFeedback('landing_image'); ?>
+                            </div>
                         </div>
 
-                        <div class="invalid-feedback">
-                            <?= showInvalidFeedback('cta_text'); ?>
-                        </div>
                     </div>
 
                 </div>
@@ -107,7 +105,7 @@
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <textarea style="height: 200px;" required name="mission" type="text" id="mission" class="form-control <?= setInvalid('mission'); ?>" placeholder="Misi" aria-label="Misi"><?= old('mission', parseMission($landing->mission)); ?></textarea>
+                            <textarea data-bs-toggle="tooltip" data-bs-title="Pisahkan setiap misi dengan '-' atau enter, dan gunakan tanda kurung '(...)' untuk menuliskan isi deskripsi setiap misi." style="height: 200px;" required name="mission" type="text" id="mission" class="form-control <?= setInvalid('mission'); ?>" placeholder="Misi" aria-label="Misi"><?= old('mission', parseMission($landing->mission)); ?></textarea>
                             <label for="mission">Misi</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('mission'); ?>
@@ -136,9 +134,13 @@
         if (file) {
             preview_landing_image.src = URL.createObjectURL(file)
         } else {
-            preview_landing_image.src = 'https://dummyimage.com/600x400/e6e6e6/9c9c9c.jpg&text=Tidak+ada+gambar'
+            preview_landing_image.src = baseUrl('/img/default.webp')
         }
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })
 </script>
 
 

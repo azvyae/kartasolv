@@ -137,16 +137,6 @@ class Controller
      */
     protected function validate($rules, array $messages = []): bool
     {
-        if (strpos($rules, '|') !== false) {
-            $result = [];
-            $result = array_map(function ($e) {
-                return $this->validate($e);
-            }, explode('|', $rules));
-            if (in_array(FALSE, $result)) {
-                return FALSE;
-            }
-            return TRUE;
-        }
         $this->setValidator($rules, $messages);
 
         return $this->validator->withRequest($this->request)->run();

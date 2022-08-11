@@ -1,6 +1,6 @@
 <?= $this->extend('layout/main_template'); ?>
 <?= $this->section('main'); ?>
-<div id="kirim-pesan" class="bg-white mt-lg-0 ms-lg-4 mt-3 h-100 text-dark">
+<div class="bg-white mt-lg-0 ms-lg-4 mt-3 h-100 text-dark">
     <div class="container-fluid col-lg-12 px-4 py-md-5 py-2 ">
         <div class="text-lg-start text-center mb-5 border-bottom ">
             <h1 class="display-4 fw-bold lh-1 mb-3">Pengaturan Profil Karta</h1>

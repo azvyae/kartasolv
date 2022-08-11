@@ -3,6 +3,7 @@
 namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
+use Config\Services;
 
 class Profile extends BaseController
 {
@@ -30,13 +31,18 @@ class Profile extends BaseController
 
     private function _updateProfile()
     {
+        $rules  = $this->um->getValidationRules(
+            [
+                'except' => ['user_password', 'user_new_password', 'password_verify'],
+                'add' => ['gRecaptcha']
+            ]
+        );
         $user = $this->um->find(checkAuth('userId'), true);
-        $optionalRules = '';
-        $passwords = $this->request->getPost(['user_password', 'user_new_password', 'password_verify']);
-        if ($passwords['user_password'] or $passwords['user_new_password'] or $passwords['password_verify']) {
-            $optionalRules .= '|userPassword|userNewPassword|passwordVerify';
+        $passwords = $this->request->getPost(['user_password', 'user_new_password']);
+        if ($passwords['user_password'] or $passwords['user_new_password']) {
+            $rules += $this->um->getValidationRules();
         }
-        if (!$this->validate("userEmail|updateProfile|gRecaptcha{$optionalRules}")) {
+        if (!$this->validate($rules)) {
             return redirect()->to('profil')->withInput();
         }
 

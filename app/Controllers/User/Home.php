@@ -40,7 +40,6 @@ class Home extends BaseController
                 $ctype = "image/svg+xml";
                 break;
             default:
-                return redirect()->to('/');
         }
 
         if (file_exists(WRITEPATH . $imagePath)) {
@@ -51,8 +50,8 @@ class Home extends BaseController
                 'private',
             ]);
             return readfile(WRITEPATH . $imagePath);
-        } else {
-            return show404();
         }
+        $this->response->setStatusCode(404);
+        return show404();
     }
 }

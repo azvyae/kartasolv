@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Config\Services;
 
 class Auth extends BaseController
 {
@@ -26,7 +27,8 @@ class Auth extends BaseController
 
     private function _login()
     {
-        if (!$this->validate('userEmail|userPassword|gRecaptcha')) {
+        $rules = $this->um->getValidationRules(['only' => ['user_email', 'user_password'], 'add' => ['gRecaptcha']]);
+        if (!$this->validate($rules)) {
             return redirect()->to('masuk')->withInput();
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
@@ -73,7 +75,8 @@ class Auth extends BaseController
 
     private function _forgetPassword()
     {
-        if (!$this->validate('userEmail|gRecaptcha')) {
+        $rules = $this->um->getValidationRules(['only' => ['user_email'], 'add' => ['gRecaptcha']]);
+        if (!$this->validate($rules)) {
             return redirect()->to('lupa-kata-sandi')->withInput();
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
@@ -152,10 +155,12 @@ class Auth extends BaseController
 
     private function _resetPassword($uuid)
     {
+        $rules = $this->um->getValidationRules(['only' => ['user_new_password', 'password_verify'], 'add' => ['gRecaptcha']]);
         $user = $this->um->find($uuid, true);
         $rawUUID = $this->request->getGet('uuid');
         $rawAttempt = $this->request->getGet('attempt');
-        if (!$this->validate('userNewPassword|passwordVerify|gRecaptcha')) {
+
+        if (!$this->validate($rules)) {
             return redirect()->to("atur-ulang-kata-sandi?uuid=$rawUUID&attempt=$rawAttempt")->withInput();
         }
 

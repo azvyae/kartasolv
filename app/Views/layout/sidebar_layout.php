@@ -6,7 +6,7 @@
             <ul class="nav nav-pills flex-column mb-auto">
                 <?php foreach (getSidebarMenu() as $page) : ?>
                     <li class="nav-item d-flex flex-column w-100 py-1 my-1">
-                        <a href="<?= base_url($page->page_url); ?>" class="d-flex flex-row nav-link <?= isSamePage($page->page_url) ? 'active' : 'link-dark' ?>">
+                        <a href="<?= base_url($page->page_url); ?>" class="d-flex btn flex-row text-start <?= isSamePage($page->page_url) ? 'btn-primary' : '' ?>">
                             <div class="col-2  me-1 d-flex flex-shrink-1 align-items-center"> <i class="<?= $page->page_icon; ?> me-2"></i></div>
                             <div class="col-10"><?= $page->page_title; ?></div>
                         </a>

@@ -6,7 +6,7 @@ use Config\Services;
 
 class CustomRules
 {
-    public function verify_recaptcha()
+    public function verify_recaptcha($response)
     {
 
         $client = service('curlrequest');
@@ -14,7 +14,7 @@ class CustomRules
         $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => [
                 'secret' => getenv('recaptcha.secretkey'),
-                'response' => $request->getPost('g-recaptcha-response'),
+                'response' => $response,
                 'remoteip' => $request->getIPAddress()
             ],
         ]);

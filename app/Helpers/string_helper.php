@@ -2,13 +2,19 @@
 
 function removeProtocol($url)
 {
-    $disallowed = array('http://', 'https://');
+    $disallowed = ['http://', 'https://'];
     foreach ($disallowed as $d) {
         if (strpos($url, $d) === 0) {
             return str_replace($d, '', $url);
         }
     }
     return $url;
+}
+
+function addProtocol($url, $protocol = 'https://')
+{
+    $url = removeProtocol($url);
+    return $protocol . $url;
 }
 
 function objectify($data)
@@ -46,7 +52,7 @@ function parseMission($string)
     $mission = objectify(getMissions($string));
     $txt = '';
     foreach ($mission as $m) {
-        $txt .= "-$m->mission ($m->desc)\n";
+        $txt .= "- $m->mission [$m->desc]\n";
     }
     return $txt;
 }

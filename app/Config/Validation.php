@@ -52,47 +52,4 @@ class Validation extends BaseConfig
             ]
         ]
     ];
-    public $updateProfile = [
-        'user_name' => [
-            'label' => 'Nama',
-            'rules' => 'required|max_length[64]',
-        ],
-        'user_temp_mail' => [
-            'label' => 'Email',
-            'rules' => 'required|valid_email|max_length[64]|is_unique[users.user_email,user_email,{user_email}]',
-            'errors' => [
-                'is_unique' => 'Email sudah digunakan!'
-            ]
-        ],
-
-    ];
-    public $userEmail = [
-        'user_email' => [
-            'label' => 'Email',
-            'rules' => 'required|valid_email|max_length[64]',
-        ],
-
-    ];
-    public $userPassword = [
-        'user_password' => [
-            'label' => 'Kata Sandi',
-            'rules' => 'required|min_length[6]',
-        ],
-    ];
-    public $userNewPassword = [
-        'user_new_password' => [
-            'label' => 'Kata Sandi Baru',
-            'rules' => 'required|min_length[6]',
-        ],
-    ];
-    public $passwordVerify = [
-        'password_verify' => [
-            'label' => 'Verifikasi Kata Sandi',
-            'rules' => 'required|matches[user_new_password]',
-            'errors' => [
-                'matches'  => 'Kata Sandi Harus Sama!'
-            ]
-        ],
-
-    ];
 }
