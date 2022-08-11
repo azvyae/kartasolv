@@ -36,7 +36,6 @@ class OrganizationProfile extends BaseController
     }
     private function _updateMainInfo()
     {
-        $oldData = $this->lm->find(1, true);
         $rules = $this->lm->getValidationRules(['except' => ['landing_image']]);
         if (($img = $this->request->getFile('landing_image'))->getSize() > 0) {
             $rules += $this->lm->getValidationRules();
