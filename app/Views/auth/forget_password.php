@@ -37,7 +37,7 @@
 
                 <div class="row mb-3">
                     <div class="col-md-4 mx-auto">
-                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='submit' class="btn g-recaptcha btn-primary w-100">Atur Ulang Kata Sandi</button>
+                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='forget_password' class="btn g-recaptcha btn-primary w-100">Atur Ulang Kata Sandi</button>
 
                     </div>
                 </div>
@@ -50,7 +50,6 @@
         </div>
     </div>
 </div>
-<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     function onSubmit(token) {
         form = document.getElementById("forgetPasswordForm")

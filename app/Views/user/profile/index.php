@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-md-6 ">
                         <input type="hidden" name="_method" value="PUT">
-                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='submit' class="btn py-2 g-recaptcha btn-primary w-100">Simpan</button>
+                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='change_profile' class="btn py-2 g-recaptcha btn-primary w-100">Simpan</button>
 
                     </div>
                 </div>
@@ -91,7 +91,6 @@
         </div>
     </div>
 </div>
-<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     var check = function() {
         if (document.getElementById('user_new_password').value ==

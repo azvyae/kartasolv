@@ -55,6 +55,9 @@ class Auth extends BaseController
 
     private function _logout()
     {
+        if (!$this->validate('gRecaptcha')) {
+            return redirect()->to('/');
+        }
         if (!isset($_SESSION))
             session_start();
         if (session_status() === PHP_SESSION_ACTIVE)

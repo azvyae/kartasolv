@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use CodeIgniter\Model;
+use App\Libraries\Model;
+
 
 class MenuModel extends Model
 {

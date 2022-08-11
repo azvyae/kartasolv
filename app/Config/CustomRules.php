@@ -21,6 +21,7 @@ class CustomRules
         // Make and decode POST request:
         $recaptcha = json_decode($response->getBody());
         // Take action based on the score returned:
+        // dd($recaptcha);
         if (($recaptcha->score ?? 0) >= 0.5) {
             return TRUE;
         } else {

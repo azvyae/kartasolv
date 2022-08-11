@@ -49,7 +49,7 @@
 
                 <div class="row mb-3">
                     <div class="col-md-4 mx-auto">
-                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='submit' class="btn g-recaptcha btn-primary w-100">Masuk</button>
+                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='login' class="btn g-recaptcha btn-primary w-100">Masuk</button>
 
                     </div>
                 </div>
@@ -62,7 +62,6 @@
         </div>
     </div>
 </div>
-<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     function onSubmit(token) {
         form = document.getElementById("loginForm")

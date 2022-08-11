@@ -51,14 +51,13 @@
                 <div class="row mb-3">
                     <div class="col-md-4 mx-auto">
                         <input type="hidden" name="_method" value="PUT">
-                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='submit' class="btn g-recaptcha btn-primary w-100">Simpan</button>
+                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='reset_password' class="btn g-recaptcha btn-primary w-100">Simpan</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
     var check = function() {
         if (document.getElementById('user_new_password').value ==

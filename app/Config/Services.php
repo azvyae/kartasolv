@@ -38,4 +38,13 @@ class Services extends BaseService
 
         return new \App\Libraries\RouteCollection(static::locator(), config('Modules'));
     }
+
+    public static function redirectresponse($config = null, $getShared = false)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('redirectresponse');
+        }
+
+        return new \App\Libraries\RedirectResponse(config('App'));
+    }
 }

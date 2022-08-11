@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use CodeIgniter\Model;
+use App\Libraries\Model;
 
 class ActivitiesModel extends Model
 {

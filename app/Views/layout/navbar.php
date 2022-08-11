@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <nav class="navbar fw-semibold px-3 bg-white navbar-expand-lg shadow-sm fixed-top">
     <div class="container-fluid col-11">
         <div class="me-5">
@@ -44,6 +45,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav text-end">
+
                     <?php if (checkAuth('userId')) : ?>
                         <li class="nav-item dropdown py-2 py-md-0 px-3">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,7 +60,20 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <form action="<?= base_url('keluar'); ?>" method="post"><?= csrf_field(); ?><button class="dropdown-item" type="submit" name="_method" value="DELETE">Keluar</button></form>
+                                    <form id="logoutAttempt" action="<?= base_url('keluar'); ?>" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onLogout' data-action='logout' class="dropdown-item g-recaptcha">Keluar</button>
+
+                                    </form>
+                                    <script>
+                                        function onLogout(token) {
+                                            form = document.getElementById("logoutAttempt")
+                                            if (form.reportValidity()) {
+                                                form.submit();
+                                            }
+                                        }
+                                    </script>
                                 </li>
                             </ul>
                         </li>
