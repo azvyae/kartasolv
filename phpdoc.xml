@@ -7,10 +7,17 @@
         <cache>build/cache</cache>
     </paths>
     <version number="0.9.0">
-        <api>
+        <api format="php">
             <source dsn=".">
-                <path>src</path>
+                <path>app/Controllers</path>
+                <path>app/Helpers</path>
+                <path>app/Libraries</path>
+                <path>app/Models</path>
             </source>
+            <ignore hidden="true" symlinks="true">
+                <path>app/Controllers/Sandbox/**/*</path>
+
+            </ignore>
         </api>
     </version>
 </phpdocumentor>

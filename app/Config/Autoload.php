@@ -65,7 +65,6 @@ class Autoload extends AutoloadConfig
      * @var array<string, string>
      */
     public $classmap = [
-        'RouteCollection' => APPPATH . 'Libraries/RouteCollection.php',
         'Model' => APPPATH . 'Libraries/Model.php',
         'RedirectResponse' => APPPATH . 'Libraries/RedirectResponse.php',
         'DatabaseManager' => APPPATH . 'Libraries/DatabaseManager.php'

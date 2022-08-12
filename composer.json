@@ -29,13 +29,10 @@
     }
   },
   "scripts": {
-    "basic-test": "phpunit",
-    "test": "phpunit --testdox --colors=always",
-    "coverage": "phpdbg -qrr vendor/bin/phpunit",
+    "test": ".\\vendor\\bin\\phpunit --testdox",
     "post-update-cmd": [
       "@composer dump-autoload"
-    ],
-    "test-all": "phpdbg -qrr vendor/bin/phpunit & phpunit --testdox --colors=always"
+    ]
   },
   "support": {
     "forum": "http://forum.codeigniter.com/",
