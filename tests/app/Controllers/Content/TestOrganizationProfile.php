@@ -77,6 +77,97 @@ class TestOrganizationProfile extends CIUnitTestCase
         $result->assertSee('Data Pengurus', 'h1');
         $result->assertSeeElement('table');
     }
+
+    public function testMembersAjax()
+    {
+        $datatablesQuery = [
+            'draw' => '1',
+            'columns' => [
+                [
+                    'data' => 'member_name',
+                    'name' => 'member_name',
+                    'searchable' => 'true',
+                    'orderable' => 'true',
+                    'search' => [
+                        'value' => '',
+                        'regex' => 'false',
+                    ],
+                ],
+                [
+                    'data' => 'member_position',
+                    'name' => 'member_position',
+                    'searchable' => 'true',
+                    'orderable' => 'true',
+                    'search' => [
+                        'value' => '',
+                        'regex' => 'false',
+                    ],
+                ],
+                [
+                    'data' => 'member_type',
+                    'name' => 'member_type',
+                    'searchable' => 'true',
+                    'orderable' => 'true',
+                    'search' => [
+                        'value' => '',
+                        'regex' => 'false',
+                    ],
+                ],
+                [
+                    'data' => 'member_active',
+                    'name' => 'member_active',
+                    'searchable' => 'true',
+                    'orderable' => 'true',
+                    'search' => [
+                        'value' => '',
+                        'regex' => 'false',
+                    ],
+                ],
+                [
+                    'data' => 'unique_id',
+                    'name' => 'unique_id',
+                    'searchable' => 'true',
+                    'orderable' => 'false',
+                    'search' => [
+                        'value' => '',
+                        'regex' => 'false',
+                    ],
+                ],
+            ],
+            'order' => [
+                [
+                    'column' => '0',
+                    'dir' => 'asc',
+                ],
+            ],
+            'start' => '0',
+            'length' => '10',
+            'search' => [
+                'value' => '',
+                'regex' => 'false',
+            ],
+            'orderable' => [
+                'member_name',
+                'member_position',
+                'member_type',
+                'member_active',
+            ],
+            'searchable' => [
+                'member_name',
+                'member_position',
+                'member_type',
+                'member_active',
+            ],
+            '_' => '1660301593638',
+        ];
+        $headers = [
+            'X-Requested-With' => 'XMLHttpRequest'
+        ];
+        $result = $this->withSession($this->sessionData)->withBodyFormat('json')->withHeaders($headers)->call('get', 'konten/profil-karang-taruna/pengurus', $datatablesQuery);
+        $result->assertOK();
+        $result->assertTrue($result->getJSON() !== false);
+    }
+
     public function testMemberCreate()
     {
         $result = $this->withSession($this->sessionData)->call('get', "konten/profil-karang-taruna/pengurus/tambah");

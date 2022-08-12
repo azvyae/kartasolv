@@ -117,5 +117,5 @@
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="<?= base_url('js/swiper.js'); ?>"></script>
+<script src="<?= base_url('js/swiper.min.js'); ?>"></script>
 <?= $this->endSection(); ?>

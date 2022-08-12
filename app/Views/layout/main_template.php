@@ -14,6 +14,9 @@
     <title><?= $title ?? 'Karta Sarijadi'; ?></title>
     <script>
         const baseUrl = (string = '') => {
+            if (string) {
+                string = '/' + string;
+            }
             return "<?= base_url(); ?>" + string;
         }
     </script>

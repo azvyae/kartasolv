@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Config\Services;
+
 class Auth extends BaseController
 {
     private $um;
@@ -12,10 +14,11 @@ class Auth extends BaseController
 
     public function index()
     {
-        if (getMethod('post')) {
-            return $this->_login();
-        } else if (getMethod('delete')) {
-            return $this->_logout();
+        switch (getMethod()) {
+            case 'post':
+                return $this->_login(); break;
+            case 'delete':
+                return $this->_logout(); break;
         }
         $data = [
             'title' => 'Masuk | Karta Sarijadi',
@@ -56,10 +59,8 @@ class Auth extends BaseController
         if (!$this->validate('gRecaptcha')) {
             return redirect()->to('/');
         }
-        if (!isset($_SESSION))
-            session_start();
-        if (session_status() === PHP_SESSION_ACTIVE)
-            session_destroy();
+        if (!isset($_SESSION)) session_start();
+        if (session_status() === PHP_SESSION_ACTIVE) session_destroy();
         return redirect()->to('masuk');
     }
 

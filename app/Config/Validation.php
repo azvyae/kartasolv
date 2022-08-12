@@ -46,7 +46,7 @@ class Validation extends BaseConfig
     public $gRecaptcha = [
         'g-recaptcha-response' => [
             'label' => 'reCaptcha',
-            'rules' => 'required|verify_recaptcha',
+            'rules' => 'verify_recaptcha',
             'errors' => [
                 'verify_recaptcha' => 'Gagal verifikasi reCaptcha google!'
             ]

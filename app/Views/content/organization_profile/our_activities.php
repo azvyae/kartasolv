@@ -176,7 +176,7 @@
         if (file) {
             image_x_button.setAttribute('data-bs-imageurl', URL.createObjectURL(file))
         } else {
-            image_x_button.setAttribute('data-bs-imageurl', baseUrl('/img/default.webp'))
+            image_x_button.setAttribute('data-bs-imageurl', baseUrl('img/default.webp'))
         }
     }
 </script>

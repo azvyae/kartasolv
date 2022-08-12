@@ -38,7 +38,7 @@
         </div>
     </div>
     <script src="<?= base_url('js/particles.min.js') ?>" defer='defer'></script>
-    <script src="<?= base_url('js/error.js'); ?>" defer='defer'></script>
+    <script src="<?= base_url('js/error.min.js'); ?>" defer='defer'></script>
 </body>
 
 </html>

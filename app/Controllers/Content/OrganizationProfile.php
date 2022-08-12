@@ -206,11 +206,65 @@ class OrganizationProfile extends BaseController
 
     public function members()
     {
+        if ($this->request->isAJAX()) {
+            switch (getMethod()) {
+                case 'get':
+                    return $this->_membersDatatable();
+                    break;
+                case 'delete':
+                    return $this->_delete();
+                    break;
+            }
+        }
         $data = [
             'title' => "Data Pengurus | Karta Sarijadi",
             'sidebar' => true,
         ];
         return view('content/organization_profile/members', $data);
+    }
+
+    private function _membersDatatable()
+    {
+        $condition = [
+            'limit' => $this->request->getGet('length'),
+            'offset' => $this->request->getGet('start'),
+            'filter' => $this->request->getGet('searchBuilder'),
+            'order' => $this->request->getGet('order')[0] ?? '',
+            'search' => $this->request->getGet('search')['value'] ?? '',
+            'columnSearch' => $this->request->getGet('searchable'),
+            "orderable" => $this->request->getGet('orderable')
+        ];
+        $members = $this->mm->getDatatable($condition);
+        $data = $ids = [];
+        foreach ($members->result as $field) {
+            $member_id = encode($field->member_id);
+            $ids[] = $member_id;
+            $row = [
+                'unique_id' => $member_id,
+                'member_name' => $field->member_name,
+                'member_image' => $field->member_image,
+                'member_position' => $field->member_position,
+                'member_type' => $field->member_type,
+                'member_active' => $field->member_active,
+            ];
+            $data[] = $row;
+        }
+
+        $output = [
+            "draw" => $this->request->getGet('draw'),
+            "recordsFiltered" => $members->totalRows,
+            "recordsTotal" => $members->totalRows,
+            "data" => $data,
+            "ids" => $ids,
+        ];
+        echo json_encode($output);
+    }
+
+    private function _delete()
+    {
+        if (getMethod('delete')) {
+            dd($this->request->getPost());
+        }
     }
 
     public function memberCrud($id = '')

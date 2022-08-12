@@ -349,7 +349,7 @@ class Security implements SecurityInterface
                 $tokenName = null;
             }
         }
-
+        // 
         return $request->getPost($this->tokenName) ?? $tokenName;
     }
 

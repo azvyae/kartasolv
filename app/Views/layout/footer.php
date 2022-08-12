@@ -2,7 +2,7 @@
     <div class="container">
         <div class="pt-4 pb-3 mt-auto">
             <div class="d-flex pb-1 mb-1 justify-content-around align-items-center">
-                <a href="<?= base_url(); ?>" ">
+                <a href="<?= base_url(); ?>">
                         <img src=" <?= base_url('img/logo.webp'); ?>" alt="Logo Karang Taruna" width="24" height="24">
                 </a>
                 <ul class="nav justify-content-center ">
@@ -21,7 +21,6 @@
             </p>
         </div>
     </div>
-    <script src="<?= base_url('js/app.min.js'); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </footer>

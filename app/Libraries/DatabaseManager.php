@@ -11,98 +11,117 @@ class DatabaseManager extends Database
     {
         $this->db = $this->connect();
     }
-    // INSERT STATEMENT
-    public function insert($table, $data, $batch = false, $xss_clean = true)
+    public function filterDatatables($condition)
     {
-        if ($xss_clean) {
-            $data = $this->CI->security->xss_clean($data);
+        // dd($condition['filter']['criteria']);
+        $d = null;
+        if ($condition['order']) {
+            $order = $condition['orderable'][$condition['order']['column']] . ' ' . $condition['order']['dir'];
         }
-        $created_at = date('Y-m-d H:i:s');
-        $created_by = check_auth('user_id');
-        if (!$batch) {
-            $data['created_at'] = $created_at;
-            $data['created_by'] = $created_by;
-        } else {
-            $data = array_map(function ($d) use ($created_at, $created_by) {
-                return $d += [
-                    'created_at' => $created_at,
-                    'created_by' => $created_by
-                ];
-            }, $data);
-        }
-        $this->CI->db->trans_start();
-        if (!$batch) {
-            $this->CI->db->insert($table, $data);
-            $id = $this->CI->db->insert_id();
-        } else {
-            $id = $this->CI->db->insert_batch($table, $data);
-        }
-        $affected_rows = $this->affected_rows();
-        if ($affected_rows > 0) {
-            $this->CI->db->trans_complete();
-            if ($id == 0) {
-                return $affected_rows;
-            }
-            return $id;
-        } else {
-            $this->CI->db->trans_complete();
-            return false;
-        }
-    }
-
-    // UPDATE STATEMENT
-    public function update($table, $data, $where)
-    {
-        $data['updated_at'] = date('Y-m-d H:i:s');
-        if ($user_id = check_auth('user_id')) {
-            $data['updated_by'] = $user_id;
-        } else if (!array_key_exists('updated_by', $data)) {
-            $data['updated_by'] = null;
-        }
-        $this->CI->db->update($table, $data, $where);
-        return $this->affected_rows();
-    }
-
-    // DELETE STATEMENT
-    public function delete($table, $where, $hard_delete = false)
-    {
-        if ($hard_delete) {
-            if (is_array($where[0] ?? false)) {
-                foreach ($where as $or_where) {
-                    $this->CI->db->or_where($or_where);
+        $d['orderBy'] = $order ?? $condition['orderable'][0] . ' ASC';
+        $d['group'] = [];
+        if ($condition['filter'] ?? false) {
+            foreach ($condition['filter']['criteria'] as $criteria) {
+                if (!array_key_exists('data', $criteria) or !array_key_exists('condition', $criteria)) {
+                    continue;
                 }
-                $this->CI->db->delete($table);
-            } else {
-
-                $this->CI->db->delete($table, $where);
-            }
-        } else {
-            $data['deleted_by'] = null;
-            $data['deleted_at'] = date('Y-m-d H:i:s');
-            if ($user_id = check_auth('user_id')) {
-                $data['deleted_by'] = $user_id;
-            }
-
-            if (is_array($where[0] ?? false)) {
-                $where = array_map(function ($e) {
-                    return $e += ['deleted_at' => null];
-                }, $where);
-                foreach ($where as $or_where) {
-                    $this->CI->db->or_group_start();
-                    $this->CI->db->where($or_where);
-                    $this->CI->db->group_end();
+                if (!in_array($criteria['origData'], $condition['columnSearch'])) {
+                    continue;
                 }
-                $this->CI->db->update($table, ['deleted_at' => $data['deleted_at'], 'deleted_by' => $data['deleted_by']]);
-            } else {
-                $where['deleted_at'] = null;
-                $this->CI->db->update($table, $data, $where);
+                $cdn = $this->translate($criteria['condition']);
+                $col = $criteria['origData'] ?? null;
+                switch ($cdn) {
+                    case 'null':
+                        if ($criteria['type'] == 'date') {
+                            if ($condition['filter']['logic'] == 'OR') {
+                                array_push($d['group'], ['orWhere', [$col => null]]);
+                            } else {
+                                $subgroup = [];
+                                array_push($subgroup, ['orWhere', [$col => null]]);
+                                array_push($d['group'], ['subgroup', $subgroup]);
+                            }
+                        } else {
+                            if ($condition['filter']['logic'] == 'OR') {
+                                array_push($d['group'], ['orWhere', [$col => null]], ['orWhere', [$col => '']]);
+                            } else {
+                                $subgroup = [];
+                                array_push($subgroup, ['orWhere', [$col => null]], ['orWhere', [$col => '']]);
+                                array_push($d['group'], ['subgroup', $subgroup]);
+                            }
+                        }
+
+                        break;
+                    case 'contains':
+                        if (!array_key_exists('value', $criteria)) continue 2;
+                        if ($condition['filter']['logic'] == 'OR') {
+                            array_push($d['group'], ['orLike', [$col => $criteria['value1']]]);
+                        } else {
+                            array_push($d['group'], ['like', [$col => $criteria['value1']]]);
+                        }
+                        break;
+                    default:
+                        if (!array_key_exists('value', $criteria)) continue 2;
+                        if ($criteria['type'] == 'date') {
+                            switch ($cdn) {
+                                case '=':
+                                    if ($condition['filter']['logic'] == 'OR') {
+                                        array_push($d['group'], ['orLike', [$col => $criteria['value1']]]);
+                                    } else {
+                                        array_push($d['group'], ['like', [$col => $criteria['value1']]]);
+                                    }
+                                    break;
+                                case '>':
+                                    if ($condition['filter']['logic'] == 'OR') {
+                                        array_push($d['group'], ['orWhere', [$col . " >= " => $criteria['value1']]]);
+                                    } else {
+                                        array_push($d['group'], ['where', [$col . " >= " => $criteria['value1']]]);
+                                    }
+                                    break;
+                                case '<':
+                                    if ($condition['filter']['logic'] == 'OR') {
+                                        array_push($d['group'], ['orWhere', [$col . " <= " => $criteria['value1']]]);
+                                    } else {
+                                        array_push($d['group'], ['where', [$col . " <= " => $criteria['value1']]]);
+                                    }
+                                    break;
+                            }
+                        } else {
+                            if ($condition['filter']['logic'] == 'OR') {
+                                array_push($d['group'], ['orWhere', [$col . " {$cdn} " => $criteria['value1']]]);
+                            } else {
+                                array_push($d['group'], ['where', [$col . " {$cdn} " => $criteria['value1']]]);
+                            }
+                        }
+
+                        break;
+                }
             }
         }
-        return $this->affected_rows();
-    }
-    public function count_all($data)
-    {
+        if ($condition['search']) {
+            $subgroup = [];
+            foreach ($condition['columnSearch'] as $column) {
+                array_push($subgroup, ['orLike', [$column => $condition['search']]]);
+            }
+            array_push($d['group'], ['subgroup', $subgroup]);
+        }
+        $d['query'] = [
+            'orderBy' => $d['orderBy'],
 
+        ];
+        if ($condition['limit'] >= 0) {
+            $d['query'] += [
+                'limit'  =>  $condition['limit'],
+                'offset' => $condition['offset']
+            ];
+        }
+        if (array_key_exists('group', $d)) {
+            $d['query'] += ['group' => $d['group']];
+        }
+        return $d['query'];
+    }
+    public function countAll($data)
+    {
+        $this->builder = $this->db->table($data['table']);
         if (array_key_exists('groupBy', $data)) {
             $this->builder->groupBy($data['groupBy']);
         }
@@ -151,7 +170,7 @@ class DatabaseManager extends Database
     /**
      * Read function
      * @param mixed $data
-     * @param boolean $retrieve_all
+     * @param boolean $retrieveAll
      * @return mixed
      * ----------------------------------------------------------
      * Simple read query:
@@ -181,7 +200,7 @@ class DatabaseManager extends Database
      * ];
      * $this->lib_db->read($query);
      */
-    public function read($data, $retrieve_all = false)
+    public function read($data, $retrieveAll = false)
     {
         $this->builder = $this->db->table($data['table']);
 
@@ -256,14 +275,6 @@ class DatabaseManager extends Database
         return filterOutput($data);
     }
 
-    /**
-     * AUTOCOMPLETE FUNCTION DO NOT CHANGE
-     */
-    public function insertID()
-    {
-        return $this->db->insertID();
-    }
-
     public function makeGroup($data)
     {
         $this->builder->groupStart('', $data[1]['grouptype'] ?? $data['group']['grouptype'] ?? 'AND ');
@@ -281,15 +292,6 @@ class DatabaseManager extends Database
             }
         }
         $this->builder->groupEnd();
-    }
-
-    public function affectedRows()
-    {
-        $affectedRows = $this->builder->affectedRows();
-        if ($affectedRows > 0) {
-            return $affectedRows;
-        }
-        return 0;
     }
 
     public function translate($condition)

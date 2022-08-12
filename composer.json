@@ -29,10 +29,11 @@
     }
   },
   "scripts": {
-    "test": ".\\vendor\\bin\\phpunit --testdox",
+    "test": "php -dxdebug.mode=coverage .\\vendor\\bin\\phpunit --testdox --color=always",
     "post-update-cmd": [
       "@composer dump-autoload"
-    ]
+    ],
+    "coverage": "php -dxdebug.mode=coverage phpdbg -qrr --testdox .\\vendor\\bin\\phpunit"
   },
   "support": {
     "forum": "http://forum.codeigniter.com/",

@@ -134,7 +134,7 @@
         if (file) {
             preview_landing_image.src = URL.createObjectURL(file)
         } else {
-            preview_landing_image.src = baseUrl('/img/default.webp')
+            preview_landing_image.src = baseUrl('img/default.webp')
         }
     }
     document.addEventListener('DOMContentLoaded', function() {
