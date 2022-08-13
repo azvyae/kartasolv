@@ -21,7 +21,7 @@ class LandingModel extends Model
         ],
         'landing_tagline' => [
             'label' => 'Tagline',
-            'rules' => 'required|max_length[256]|string',
+            'rules' => 'required|max_length[512]|string',
         ],
         'cta_text' => [
             'label' => 'Teks Call to Action',
