@@ -50,14 +50,14 @@
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row">
             <h2 class="display-4 fw-bold">Kegiatan Kami</h2>
-            <p class="col-md-8 fs-6 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum id rerum suscipit sint saepe consequuntur eveniet eaque sed dolores maiores. Esse soluta nemo natus quos suscipit dolores laborum tempore eaque.</p>
+            <p class="col-md-8 fs-6 mx-auto">Ada serangkaian dan berbagai macam jenis kegiatan yang dilakukan oleh Karang Taruna Kelurahan Sarijadi, khususnya untuk menjalankan program kerja yang ada, yang memiliki berbagai macam jenis kegiatan.</p>
         </div>
         <div class="row flex-lg-row align-items-center g-5 mt-md-2 py-3">
             <div class="col-10 mx-auto col-sm-8 col-lg-6">
                 <img src="<?= $activitiesInfo->image_a; ?>" class="d-block mx-lg-auto shadow-lg   img-fluid rounded" alt="Bootstrap Themes" width="450" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
-                <h3 class="fs-4 col-lg-10 mx-auto"><?= $activitiesInfo->title_a; ?><br>
+                <h3 class="fs-3 fw-bold col-lg-10 mx-auto"><?= $activitiesInfo->title_a; ?><br>
                 </h3>
                 <p class="fs-6 col-lg-8 mx-auto"><?= $activitiesInfo->desc_a; ?></p>
             </div>
@@ -67,7 +67,7 @@
                 <img src="<?= $activitiesInfo->image_b; ?>" class="d-block mx-lg-auto shadow-lg img-fluid rounded" alt="Bootstrap Themes" width="450" height="500" loading="lazy">
             </div>
             <div class="col-lg-6 ">
-                <h3 class="fs-4 col-lg-10 mx-auto"><?= $activitiesInfo->title_b; ?><br>
+                <h3 class="fs-3 fw-bold col-lg-10 mx-auto"><?= $activitiesInfo->title_b; ?><br>
                 </h3>
                 <p class="fs-6 col-lg-8 mx-auto"><?= $activitiesInfo->desc_b; ?></p>
             </div>
@@ -77,7 +77,7 @@
                 <img src="<?= $activitiesInfo->image_c; ?>" class="d-block mx-lg-auto shadow-lg img-fluid rounded" alt="Bootstrap Themes" width="450" height="500" loading="lazy">
             </div>
             <div class="col-lg-6 ">
-                <h3 class="fs-4 col-lg-10 mx-auto"><?= $activitiesInfo->title_c; ?><br>
+                <h3 class="fs-3 fw-bold col-lg-10 mx-auto"><?= $activitiesInfo->title_c; ?><br>
                 </h3>
                 <p class="fs-6 col-lg-8 mx-auto"><?= $activitiesInfo->desc_c; ?></p>
             </div>
@@ -89,7 +89,7 @@
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row text-center">
             <h2 class="display-4 fw-bold">Siapa Kami</h2>
-            <p class="col-md-8 fs-6 mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis et ipsam, hic pariatur excepturi aspernatur repellat facilis optio dolores unde doloremque alias necessitatibus nemo beatae perferendis, consequuntur earum culpa vel.</p>
+            <p class="col-md-8 fs-6 mx-auto">Kami tidak sendiri, kami bergerak bersama, Warga Kelurahan Sarijadi dan para Pemudanya. Kami adalah Karang Taruna Ngajomantara.</p>
         </div>
         <div class="row flex-lg-row align-items-center g-5 py-lg-5 py-2">
             <div class="swiper ">

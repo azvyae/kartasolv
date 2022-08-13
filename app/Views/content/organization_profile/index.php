@@ -9,18 +9,17 @@
             <div class="col-md-4">
                 <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/main-info.webp'); ?>" alt="Info Karang Taruna">
                 <h2><a class="link-primary text-decoration-none" href="<?= base_url('konten/profil-karang-taruna/info-utama'); ?>">Ubah Informasi Utama</a></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam pariatur at sint quaerat praesentium libero aliquid sit ipsa eos, possimus corporis molestias blanditiis et quas, placeat aliquam accusantium eaque delectus.</p>
+                <p>Ubah informasi utama, meliputi Judul utama pada halaman awal, tagline, visi misi, link Call to Action, dan foto pada bagian Visi Misi.</p>
             </div>
             <div class="col-md-4">
                 <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/activities.webp'); ?>" alt="Kegiatan Kami">
                 <h2><a class="link-primary text-decoration-none" href="<?= base_url('konten/profil-karang-taruna/kegiatan-kami'); ?>">Ubah Kegiatan Kami</a></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam pariatur at sint quaerat praesentium libero aliquid sit ipsa eos, possimus corporis molestias blanditiis et quas, placeat aliquam accusantium eaque delectus.</p>
+                <p>Ubah data pada bagian Kegiatan Kami di halaman utama, terdiri dari foto, judul, dan deskripsi setiap kegiatan.</p>
             </div>
             <div class="col-md-4">
                 <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/team.webp'); ?>" alt="Anggota">
                 <h2><a class="link-primary text-decoration-none" href="<?= base_url('konten/profil-karang-taruna/pengurus'); ?>">Ubah Data Pengurus</a></h2>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam pariatur at sint quaerat praesentium libero aliquid sit ipsa eos, possimus corporis molestias blanditiis et quas, placeat aliquam accusantium eaque delectus.</p>
+                <p>Lihat data pengurus yang akan ditampilkan di halaman utama.</p>
             </div>
         </div>
     </div>

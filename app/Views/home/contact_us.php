@@ -9,7 +9,10 @@
             </div>
             <div class="col-lg-6 text-md-start text-center">
                 <h1 class=" fw-bold lh-1 mb-3">Hubungi Kami</h1>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum unde vitae ullam non beatae neque, possimus veniam, ea perspiciatis impedit nostrum eligendi voluptates provident distinctio veritatis soluta enim, dolorem architecto.</p>
+                <p class="lead">Anda dapat menghubungi kami dengan langsung datang ke alamat kami, di Kantor Kelurahan Sarijadi.</p>
+                <address>
+                    <p>Kantor Kelurahan Sarijadi.<br>Jl. Sarijadi Raya No.71, Sarijadi, Kec. Sukasari, Kota Bandung, Jawa Barat 40151</p>
+                </address>
             </div>
         </div>
     </div>
@@ -20,7 +23,7 @@
         <div class="row flex-lg-row align-items-center g-5 py-5">
             <div class="col-lg-6 text-md-start text-center">
                 <h2 class=" fw-bold lh-1 mb-3">Kritik, Saran, dan Aduan</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum unde vitae ullam non beatae neque, possimus veniam, ea perspiciatis impedit nostrum eligendi voluptates provident distinctio veritatis soluta enim, dolorem architecto.</p>
+                <p>Kami menerima kritik dan saran yang membangun demi meningkatnya kesejahteraan sosial khususnya di Kelurahan Sarijadi. Adapun kami juga menyediakan form aduan jika Anda atau orang yang anda kenal membutuhkan bantuan kami.</p>
             </div>
             <div class="col-lg-6">
                 <form action="" method="post">
