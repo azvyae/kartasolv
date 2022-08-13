@@ -1,2 +1,11 @@
 User-agent: *
-Disallow: 
+Disallow: /gambar-privat
+
+User-agent: *
+Disallow: /robots.txt
+
+User-agent: *
+Disallow: /sitemap.xml
+
+User-agent: *
+Allow: /
