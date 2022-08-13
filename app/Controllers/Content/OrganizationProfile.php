@@ -47,7 +47,7 @@ class OrganizationProfile extends BaseController
         /**
          * Parsing regular textarea string to list of missions
          */
-        $postData['mission'] = implode('<br/>', array_filter(
+        $postData['mission'] = implode('\n', array_filter(
             array_map(function ($e) {
                 $e = explode('[', ltrim(trim($e), '-'));
                 if ($e[0] && ($e[1] ?? false)) {
@@ -237,7 +237,7 @@ class OrganizationProfile extends BaseController
         $members = $this->mm->getDatatable($condition);
         $data = $ids = [];
         foreach ($members->result as $field) {
-            $member_id = encode($field->member_id);
+            $member_id = encode($field->member_id, 'members');
             $ids[] = $member_id;
             $row = [
                 'unique_id' => $member_id,
@@ -262,39 +262,136 @@ class OrganizationProfile extends BaseController
 
     private function _delete()
     {
-        if (getMethod('delete')) {
-            dd($this->request->getPost());
+        $deleteData = $this->request->getPost('selections');
+        $totalData = count($deleteData);
+        $response = false;
+        $data = array_map(function ($e) {
+            return decode($e, 'members');
+        }, $deleteData);
+        if ($data) {
+            if ($this->mm->delete($data)) {
+                $flash = [
+                    'message'   => "$totalData data pengurus berhasil dihapus",
+                    'type'        => 'success',
+                ];
+                setFlash($flash);
+                $response = $totalData;
+            } else {
+                $flash = [
+                    'message'   => "Data pengurus gagal dihapus",
+                    'type'        => 'danger',
+                ];
+                setFlash($flash);
+            }
         }
+        echo json_encode($response);
     }
 
-    public function memberCrud($id = '')
+    public function memberCrud($memberId = '')
     {
+        helper('form');
+        switch (getMethod()) {
+            case 'post':
+                $this->_memberCrud();
+                break;
+            case 'put':
+                $this->_memberCrud($memberId);
+                break;
+            default:
+                break;
+        }
         $data = [
-            'title' => 'Tambah Data Pengurus'
+            'title' => 'Tambah Data Pengurus | Karta Sarijadi',
+            'crudType' => 'Tambah Data Pengurus'
         ];
-        $this->request->getPost();
-        if ($id) {
-            $mm = new \App\Models\MembersModel();
-            $id = decode($id, 'members');
-            $member = $mm->find($id, true);
+        if ($memberId) {
+            $id = decode($memberId, 'members');
+            $member = $this->mm->find($id, true);
             if (!$member) {
                 return show404();
             }
             $data = [
-                'title' => 'Ubah Data Pengurus',
-                'member' => $member
+                'title' => 'Ubah Data Pengurus | Karta Sarijadi',
+                'crudType' => 'Ubah Data Pengurus',
+                'member' => $member,
+                'memberId' => $memberId
             ];
         }
+        $data += [
+            'sidebar' => true
+        ];
         return view('content/organization_profile/member_crud', $data);
     }
 
-    private function _memberCrud()
+    private function _memberCrud($memberId = null)
     {
-        # validation here based on request (post or put)
-    }
+        $memberActive = $this->request->getPost('member_active');
+        $decodedMemberId = decode($memberId, 'members');
+        if (!$memberActive) {
+            $memberActive = 'Nonaktif';
+        }
+        $rules = $this->mm->getValidationRules(['except' => ['member_image']]);
+        if (($img = $this->request->getFile('member_image'))->getSize() > 0) {
+            $rules += $this->mm->getValidationRules();
+        }
+        if (!$this->validate($rules)) {
+            return redirect()->to('konten/profil-karang-taruna/members/' . ($memberId ?? 'tambah'))->withInput();
+        }
+        /**
+         * Base update data
+         */
+        $data = [
+            'member_name' => $this->request->getPost('member_name'),
+            'member_position' => $this->request->getPost('member_position'),
+            'member_type' => $this->request->getPost('member_type'),
+            'member_active' => $memberActive
+        ];
 
-    private function _member()
-    {
-        # code...
+        /**
+         * Image upload handler
+         */
+        $savedImagePath = '';
+        if ($img->getSize() > 0) {
+            $imageUploader = new ImageUploader;
+            $opt = [
+                'upload_path' => 'members',
+                'max_size' => 300,
+                'name' => 'member_image',
+            ];
+            if ($path = $imageUploader->upload($opt)) {
+                if ($decodedMemberId) {
+                    $savedImageName = explode('/', $this->mm->find($decodedMemberId, true)->member_image);
+                    $savedImageName = end($savedImageName);
+                    $savedImagePath = ROOTPATH . 'public_html/uploads/' . $opt['upload_path'] . "/$savedImageName";
+                }
+                $data += [
+                    'member_image' => base_url($path)
+                ];
+            }
+        }
+        if ($decodedMemberId) {
+            $data += [
+                'member_id' => $decodedMemberId
+            ];
+        }
+        if ($this->mm->skipValidation(true)->save($data)) {
+            $flash = [
+                'message' => 'Data Pengurus berhasil diperbarui.',
+                'type' => 'success'
+            ];
+            setFlash($flash);
+            if ($savedImagePath) {
+                if (file_exists($savedImagePath)) {
+                    unlink($savedImagePath);
+                }
+            }
+            return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'));
+        }
+        $flash = [
+            'message' => 'Data Pengurus gagal diperbarui.',
+            'type' => 'danger'
+        ];
+        setFlash($flash);
+        return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))->withInput();
     }
 }

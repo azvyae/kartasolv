@@ -36,11 +36,11 @@ function loadDatatableConfig(config) {
               ends: null,
               "!ends": null,
               "!null": null,
-              "null":null,
+              null: null,
             },
-            num: { "null":null,"!=": null, "!between": null, "!null": null, between: null },
-            date: { "null":null,"!=": null, "!between": null, "!null": null, between: null },
-            html: { "null":null,"=": null, "!=": null, starts: null, "!starts": null, "!contains": null, ends: null, "!ends": null, "!null": null },
+            num: { null: null, "!=": null, "!between": null, "!null": null, between: null },
+            date: { null: null, "!=": null, "!between": null, "!null": null, between: null },
+            html: { null: null, "=": null, "!=": null, starts: null, "!starts": null, "!contains": null, ends: null, "!ends": null, "!null": null },
             array: {
               "=": {
                 init: function (that, fn, preDefined = null, array = false) {
@@ -191,7 +191,7 @@ function loadDatatableConfig(config) {
               ends: null,
               "!ends": null,
               "!null": null,
-              "null" : null
+              null: null,
             },
           },
         },
@@ -233,7 +233,7 @@ function loadDatatableConfig(config) {
       ) &&
       $("#confirm-delete-records").on("click", function () {
         $.ajax({
-          type: "delete",
+          type: "POST",
           url: config.buttons.delete.url,
           data: window.deletePostData,
           success: function (response) {
@@ -248,7 +248,7 @@ function loadDatatableConfig(config) {
         text: '<i class="bi bi-trash3"></i>',
         attr: { type: "button", title: "Hapus data" },
         action: function () {
-          (postData = { selections: mapSelection(this.rows({ selected: !0 })[0], this.ajax.json().ids), request_type: "delete" }),
+          (postData = { selections: mapSelection(this.rows({ selected: !0 })[0], this.ajax.json().ids), _method: "DELETE" }),
             Object.assign(postData, config.buttons.delete.postData),
             postData.selections.length > 0 &&
               ($("#delete-records-number").html(postData.selections.length), new bootstrap.Modal("#delete_modal", {}).show(), (window.deletePostData = postData)),

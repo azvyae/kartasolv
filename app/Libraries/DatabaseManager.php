@@ -3,6 +3,7 @@
 namespace App\Libraries;
 
 use Config\Database;
+use Exception;
 
 class DatabaseManager extends Database
 {
@@ -13,7 +14,6 @@ class DatabaseManager extends Database
     }
     public function filterDatatables($condition)
     {
-        // dd($condition['filter']['criteria']);
         $d = null;
         if ($condition['order']) {
             $order = $condition['orderable'][$condition['order']['column']] . ' ' . $condition['order']['dir'];
@@ -119,8 +119,23 @@ class DatabaseManager extends Database
         }
         return $d['query'];
     }
-    public function countAll($data)
+    public function countAll($data, $retrieve_all = false)
     {
+        if (!$retrieve_all) {
+            if (array_key_exists('where', $data)) {
+                if (!is_array($data['where'])) {
+                    throw new Exception('Where clause must be an associative array!');
+                }
+            }
+            if (array_key_exists('join', $data)) {
+                $data['where'][$data['table'] . '.deleted_at'] = null;
+                foreach ($data['join'] as $key) {
+                    $data['where'][($key[3] ?? $key[0]) . '.deleted_at'] = null;
+                }
+            } else {
+                $data['where']['deleted_at'] = null;
+            }
+        }
         $this->builder = $this->db->table($data['table']);
         if (array_key_exists('groupBy', $data)) {
             $this->builder->groupBy($data['groupBy']);
@@ -203,7 +218,21 @@ class DatabaseManager extends Database
     public function read($data, $retrieveAll = false)
     {
         $this->builder = $this->db->table($data['table']);
-
+        if (!$retrieveAll) {
+            if (array_key_exists('where', $data)) {
+                if (!is_array($data['where'])) {
+                    throw new Exception('Where clause must be an associative array!');
+                }
+            }
+            if (array_key_exists('join', $data)) {
+                $data['where'][$data['table'] . '.deleted_at'] = null;
+                foreach ($data['join'] as $key) {
+                    $data['where'][($key[3] ?? $key[0]) . '.deleted_at'] = null;
+                }
+            } else {
+                $data['where']['deleted_at'] = null;
+            }
+        }
 
         if (array_key_exists('select', $data)) {
             $this->builder->select($data['select']);

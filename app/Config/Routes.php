@@ -92,6 +92,7 @@ $routes->group('konten', static function ($routes) {
         });
         $routes->group('pengurus', static function ($routes) {
             $routes->get('/', 'Content\OrganizationProfile::members');
+            $routes->delete('/', 'Content\OrganizationProfile::members');
             $routes->group('tambah', static function ($routes) {
                 $routes->get('/', 'Content\OrganizationProfile::memberCrud');
                 $routes->post('/', 'Content\OrganizationProfile::memberCrud');
@@ -99,7 +100,6 @@ $routes->group('konten', static function ($routes) {
             $routes->group('(:alphanum)', static function ($routes) {
                 $routes->get('/', 'Content\OrganizationProfile::memberCrud/$1');
                 $routes->put('/', 'Content\OrganizationProfile::memberCrud/$1');
-                $routes->delete('/', 'Content\OrganizationProfile::memberCrud/$1');
             });
         });
     });

@@ -70,7 +70,7 @@
                                     <form id="logoutAttempt" action="<?= base_url('keluar'); ?>" method="post">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onLogout' data-action='logout' class="dropdown-item g-recaptcha">Keluar</button>
+                                        <button type="button" data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onLogout' data-action='logout' class="dropdown-item g-recaptcha">Keluar</button>
 
                                     </form>
                                     <script>

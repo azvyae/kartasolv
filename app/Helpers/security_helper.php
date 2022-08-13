@@ -6,11 +6,7 @@ function checkAuth($data = null)
 {
     $session = session();
     if ($data) {
-        if (strtolower($data) == 'all') {
-            return $session->user ?? null;
-        } else {
-            return $session->user->$data ?? null;
-        }
+        return $session->user->$data ?? null;
     } else {
         $menuModel = model('App\Models\MenuModel');
         $router = service('router');
@@ -26,17 +22,10 @@ function checkAuth($data = null)
             if ($controllerName === 'Auth' && !isExcluded(getMethod() . '::' . $router->methodName())) {
                 return redirect()->to('dasbor');
             }
-            if (!$isGranted) {
-                $flash = [
-                    'message' => 'Kamu tidak dapat mengakses halaman tersebut!',
-                    'type' => 'danger'
-                ];
-                setFlash($flash);
-                return redirect()->to('dasbor');
-            }
-        } else if (!$isGranted) {
+        }
+        if (!$isGranted) {
             $flash = [
-                'message' => 'Masuk untuk akses ke halaman!',
+                'message' => 'Kamu tidak dapat mengakses halaman tersebut!',
                 'type' => 'danger'
             ];
             setFlash($flash);
@@ -93,11 +82,7 @@ function htmlEscape($var, $double_encode = TRUE)
         return $var;
     }
 
-    if (!is_array($var) && !is_string($var)) {
-        return $var;
-    } else {
-        return htmlspecialchars($var, ENT_QUOTES, config('charset'), $double_encode);
-    }
+    return htmlspecialchars($var, ENT_QUOTES, config('charset'), $double_encode);
 }
 
 function encode($data, $type = '')
@@ -110,9 +95,6 @@ function decode($data, $type = '')
 {
     $hashids = new Hashids($type . substr(getenv('encryption.kartaKey'), strlen($type)), 16);
     $decoded = $hashids->decode($data);
-    if (count($decoded) > 1) {
-        return $decoded;
-    }
     return $decoded[0] ?? NULL;
 }
 

@@ -63,7 +63,7 @@ class Model extends OriginalModel
             ]);
 
             if (!empty($eventData['returnData'])) {
-                return $eventData['data'];
+                return filterOutput($eventData['data']);
             }
         }
 
@@ -82,12 +82,11 @@ class Model extends OriginalModel
         $this->tempUseSoftDeletes = $this->useSoftDeletes;
         $this->tempAllowCallbacks = $this->allowCallbacks;
 
-        return $eventData['data'];
+        return filterOutput($eventData['data']);
     }
 
     protected function setModifiedBy(array $data)
     {
-
         $data['data'] += [
             'modified_by' => checkAuth('userId')
         ];

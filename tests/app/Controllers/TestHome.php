@@ -32,6 +32,7 @@ class TestHome extends CIUnitTestCase
         $result->assertSeeElement('footer');
         $result->getActualOutputForAssertion();
     }
+
     public function testHistory()
     {
         $result = $this->call('get', "sejarah");

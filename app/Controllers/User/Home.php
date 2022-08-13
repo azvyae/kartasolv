@@ -43,7 +43,7 @@ class Home extends BaseController
         }
 
         if (file_exists(WRITEPATH . $imagePath)) {
-            $this->response->setHeader('Content-type', $ctype);
+            $this->response->setHeader('Content-Type', $ctype);
             $this->response->setCache([
                 'max-age' => '7200',
                 'must-revalidate',

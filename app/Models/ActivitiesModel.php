@@ -63,28 +63,4 @@ class ActivitiesModel extends Model
         ],
 
     ];
-
-    public function getDatatable($condition)
-    {
-        $dbMan = new DatabaseManager;
-        $query = [
-            'result' => 'result',
-            'table'  => 'activities',
-            'select' => ['activity_id', 'staffs.staff_id', 'staff_name', 'activity_title', 'activities.created_at', 'activity_quota', 'activity_category', 'activity_slug'],
-            'join' => [
-                ['staffs', 'staffs.user_id = activities.created_by', 'left']
-            ]
-        ];
-
-        $query += $dbMan->filterDatatables($condition);
-        $data = [
-            'total_rows' => $dbMan->countAll($query),
-            'result' => $dbMan->read($query),
-            'searchable' => array_map(function ($e) {
-                return $e . ":name";
-            }, $condition['column_search'])
-        ];
-
-        return objectify($data);
-    }
 }

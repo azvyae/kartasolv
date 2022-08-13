@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use Config\Services;
-
 class Auth extends BaseController
 {
     private $um;
@@ -16,9 +14,13 @@ class Auth extends BaseController
     {
         switch (getMethod()) {
             case 'post':
-                return $this->_login(); break;
+                return $this->_login();
+                break;
             case 'delete':
-                return $this->_logout(); break;
+                return $this->_logout();
+                break;
+            default:
+                break;
         }
         $data = [
             'title' => 'Masuk | Karta Sarijadi',
@@ -67,7 +69,7 @@ class Auth extends BaseController
     public function forgetPassword()
     {
         if (getMethod('post')) {
-            $this->_forgetPassword();
+            return $this->_forgetPassword();
         }
         $data = [
             'title' => 'Lupa Kata Sandi | Karta Sarijadi'
@@ -100,27 +102,23 @@ class Auth extends BaseController
                 'user_id' => $user->user_id,
                 'user_reset_attempt' => $time
             ];
-            if ($this->um->save($updateData) && $this->_verifyPassword($user, $time)) {
-                $flash = [
-                    'message' => 'Silakan cek emailmu untuk melanjutkan.',
-                    'type' => 'success'
-                ];
-                setFlash($flash);
-                return redirect()->to('masuk');
+            if ($this->_verifyPassword($user, $time)) {
+                if ($this->um->save($updateData)) {
+                    $flash = [
+                        'message' => 'Silakan cek emailmu untuk melanjutkan.',
+                        'type' => 'success'
+                    ];
+                    setFlash($flash);
+                    return redirect()->to('masuk');
+                }
             }
-
+        } else {
             $flash = [
-                'message' => 'Email yang kamu masukkan tidak ditemukan!',
-                'type' => 'success'
+                'message' => 'Email yang kamu tulis tidak ditemukan!',
+                'type' => 'danger'
             ];
             setFlash($flash);
-            return redirect()->to('lupa-kata-sandi');
         }
-        $flash = [
-            'message' => 'Email yang kamu tulis tidak ditemukan!',
-            'type' => 'danger'
-        ];
-        setFlash($flash);
         return redirect()->to('lupa-kata-sandi')->withInput();
     }
 
@@ -139,7 +137,7 @@ class Auth extends BaseController
                     return redirect()->to('lupa-kata-sandi');
                 }
                 if (getMethod('put')) {
-                    $this->_resetPassword($uuid);
+                    return $this->_resetPassword($uuid);
                 }
                 $data = [
                     'title' => 'Atur Ulang Kata Sandi | Karta Sarijadi'
@@ -161,7 +159,6 @@ class Auth extends BaseController
         $user = $this->um->find($uuid, true);
         $rawUUID = $this->request->getGet('uuid');
         $rawAttempt = $this->request->getGet('attempt');
-
         if (!$this->validate($rules)) {
             return redirect()->to("atur-ulang-kata-sandi?uuid=$rawUUID&attempt=$rawAttempt")->withInput();
         }
@@ -171,20 +168,13 @@ class Auth extends BaseController
             'user_password' => kartaPasswordHash($this->request->getPost('user_new_password')),
             'user_reset_attempt' => null
         ];
-        if ($this->um->save($data)) {
-            $flash = [
-                'message' => 'Berhasil mengubah kata sandi.',
-                'type' => 'success'
-            ];
-            setFlash($flash);
-            return redirect()->to('masuk');
-        }
+        $this->um->save($data);
         $flash = [
-            'message' => 'Gagal mengubah kata sandi.',
-            'type' => 'danger'
+            'message' => 'Berhasil mengubah kata sandi.',
+            'type' => 'success'
         ];
         setFlash($flash);
-        return redirect()->to("atur-ulang-kata-sandi?uuid=$rawUUID&attempt=$rawAttempt")->withInput();
+        return redirect()->to('masuk');
     }
 
     public function verifyEmail()
@@ -248,11 +238,12 @@ class Auth extends BaseController
     private function _verifyPassword($user, $time)
     {
         $config = [
-            'protocol' => 'smtp',
+            'protocol' => getenv('email.protocol'),
             'SMTPHost' => 'mail.kartasarijadi.com',
             'SMTPUser' => 'no-reply@kartasarijadi.com',
-            'SMTPPass' => getenv('app.emailpass'),
-            'SMTPPort' => '587',
+            'mailType' => 'html',
+            'SMTPPass' => getenv('email.pass'),
+            'SMTPPort' => getenv('email.port'),
             'mailType' => 'html',
         ];
         $email = \Config\Services::email($config);
@@ -267,7 +258,7 @@ class Auth extends BaseController
             'link' => base_url("atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt")
         ];
         $email->setMessage(view('layout/email/reset_password', $data));
-        return $email->send();
+        return $email->send(true);
     }
 
     private function _setSession($user)

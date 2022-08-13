@@ -5,6 +5,7 @@
         <?= csrf_field('secureData'); ?>
         <div class="border-bottom text-lg-start text-center mb-3">
             <h1 class="display-4 fw-bold lh-1 mb-3">Data Pengurus</h1>
+            <?= getFlash('message'); ?>
         </div>
         <div class="row g-5 py-3">
             <table id="table" class="table-responsive table-hover table align-middle table-striped w-100" class="w-100">
@@ -30,10 +31,10 @@
             // Configure buttons
             buttons: {
                 add: {
-                    url: baseUrl('content/activities/create')
+                    url: baseUrl('konten/profil-karang-taruna/pengurus/tambah')
                 },
                 delete: {
-                    url: baseUrl('content/activities'),
+                    url: baseUrl('konten/profil-karang-taruna/pengurus'),
                     postData: postData()
                 },
             },
@@ -112,21 +113,17 @@
                     className: 'text-center',
                     type: 'array',
                     options: [{
-                            value: '1',
+                            value: 'Aktif',
                             text: 'Aktif'
                         },
                         {
-                            value: '0',
+                            value: 'Nonaktif',
                             text: 'Nonaktif'
                         },
 
                     ],
                     render: function(data) {
-                        text = 'Nonaktif'
-                        if (data == 1) {
-                            text = 'Aktif'
-                        }
-                        return `<span>${text}</span>`;
+                        return `<span>${data}</span>`;
                     }
                 },
                 {
@@ -190,6 +187,6 @@
 <script type="text/javascript" defer="true" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" defer="true" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script type="text/javascript" defer="true" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/sb-1.3.4/sl-1.4.0/datatables.min.js"></script>
-<script type="text/javascript" defer="true" charset="utf8" src="<?= base_url('js/datatables/config.js'); ?>"></script>
+<script type="text/javascript" defer="true" charset="utf8" src="<?= base_url('js/datatables/config.min.js'); ?>"></script>
 
 <?= $this->endSection(); ?>

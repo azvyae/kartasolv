@@ -48,7 +48,7 @@ function getUserName()
  */
 function getMissions($data)
 {
-    $points = explode('<br/>', $data);
+    $points = explode('\n', $data);
     return array_map(function ($e) {
         [$m, $d] = explode('[', $e);
         return [

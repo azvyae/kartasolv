@@ -32,7 +32,7 @@ class UsersModel extends Model
         ],
         'password_verify' => [
             'label' => 'Verifikasi Kata Sandi',
-            'rules' => 'required[user_new_password]|matches[user_new_password]',
+            'rules' => 'required_with[user_new_password]|matches[user_new_password]',
             'errors' => [
                 'matches'  => 'Kata Sandi Harus Sama!'
             ]

@@ -16,7 +16,35 @@ class MembersModel extends Model
     protected $useSoftDeletes = true;
     protected $beforeInsert = ['setCreatedBy'];
     protected $beforeUpdate = ['setModifiedBy'];
-    protected $beforeDelete = ['setModifiedBy'];
+    protected $validationRules = [
+        'member_name' => [
+            'label' => 'Judul Utama',
+            'rules' => 'required|max_length[64]|string',
+        ],
+        'member_position' => [
+            'label' => 'Tagline',
+            'rules' => 'required|max_length[256]|string',
+        ],
+        'member_type' => [
+            'label' => 'Jenis Pengurus',
+            'rules' => 'required|in_list[1,2,3,4]',
+            'errors' => [
+                'in_list[1,2,3,4]' => 'Kamu hanya dapat memilih antara Ketua, Top Level, Kabid, atau Anggota!'
+            ]
+        ],
+        'member_active' => [
+            'label' => 'Aktif',
+            'rules' => 'in_list[Aktif,Nonaktif]|permit_empty',
+            'errors' => [
+                'in_list[Aktif,Nonaktif]' => ['Kamu Hanya Dapat Memilih Opsi Aktif/Nonaktif']
+            ]
+        ],
+        'member_image' => [
+            'label' => 'Foto Pengurus',
+            'rules' => 'is_image[member_image]|ext_in[member_image,png,jpg,jpeg,webp]|uploaded[member_image]',
+        ],
+
+    ];
 
     public function getMembers()
     {

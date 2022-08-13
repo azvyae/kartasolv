@@ -94,11 +94,11 @@ class Profile extends BaseController
     private function _verifyEmail($user, $tempMail, $time)
     {
         $config = [
-            'protocol' => 'smtp',
+            'protocol' => getenv('email.protocol'),
             'SMTPHost' => 'mail.kartasarijadi.com',
             'SMTPUser' => 'no-reply@kartasarijadi.com',
-            'SMTPPass' => getenv('app.emailpass'),
-            'SMTPPort' => '587',
+            'SMTPPass' => getenv('email.pass'),
+            'SMTPPort' => getenv('email.port'),
             'mailType' => 'html',
         ];
         $email = \Config\Services::email($config);
