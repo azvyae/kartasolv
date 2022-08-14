@@ -39,4 +39,10 @@ class Home extends BaseController
         ];
         return view('home/contact_us', $data);
     }
+
+    public function sitemap()
+    {
+        $this->response->setContentType('application/xml', 'ISO-8859-1');
+        return view('home/sitemap');
+    }
 }
