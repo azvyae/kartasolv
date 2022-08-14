@@ -1,7 +1,7 @@
 <?= $this->extend('layout/main_template'); ?>
 <?= $this->section('main'); ?>
 <!-- Section 1 -->
-<div class="bg-success text-white">
+<div class="bg-success hero text-white" style="padding-top: 64px;">
     <div class="container col-xxl-8 px-4 py-md-5 py-2  ">
         <div class="row flex-lg-row align-items-center g-5 py-5">
             <div class="mx-auto col-10 col-sm-8 col-lg-6 map" id="canvas1">
@@ -77,6 +77,22 @@
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function(event) {
+        const navbar = document.querySelector('#main-navbar');
+        hero = document.querySelector('.hero')
+        height = Math.max(hero.scrollHeight, hero.offsetHeight,
+            hero.clientHeight, hero.scrollHeight, hero.offsetHeight);
+        window.onscroll = () => {
+            if (window.scrollY > height) {
+                navbar.classList.add('bg-white');
+                navbar.classList.remove('bg-success');
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('bg-white');
+                navbar.classList.add('bg-success');
+                navbar.classList.remove('shadow-sm');
+
+            }
+        };
         document.getElementById('mapCanvas').classList.add('scrolloff');
         document.getElementById('canvas1').onclick = function() {
             document.getElementById('mapCanvas').classList.remove('scrolloff')

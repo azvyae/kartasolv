@@ -2,7 +2,7 @@
 <?= $this->section('main'); ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <!-- HERO -->
-<div class="bg-warning text-dark">
+<div class="hero bg-warning text-dark" style="padding-top: 64px;">
     <div class="container col-xxl-8 px-4 py-md-5 py-2  ">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="mx-auto col-10 col-sm-8 col-lg-6">
@@ -112,6 +112,24 @@
     </div>
 </div>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('#main-navbar');
+        hero = document.querySelector('.hero')
+        height = Math.max(hero.scrollHeight, hero.offsetHeight,
+            hero.clientHeight, hero.scrollHeight, hero.offsetHeight);
+        window.onscroll = () => {
+            if (window.scrollY > height) {
+                navbar.classList.add('bg-white');
+                navbar.classList.remove('bg-warning');
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('bg-white');
+                navbar.classList.add('bg-warning');
+                navbar.classList.remove('shadow-sm');
+
+            }
+        };
+    })
     var imageFallbackOption = (el, url) => {
         el.setAttribute("src", url);
     }

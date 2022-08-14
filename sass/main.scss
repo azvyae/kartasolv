@@ -76,5 +76,12 @@ table.dataTable.table-hover > tbody > tr.selected:hover > * {
   }
 }
 
+nav.navbar {
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
 // import bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";

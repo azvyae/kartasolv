@@ -23,7 +23,7 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <header style="margin-bottom: 64px;">
+    <header>
         <?= $this->include('layout/navbar'); ?>
     </header>
     <?php if ($sidebar ?? false) : ?>

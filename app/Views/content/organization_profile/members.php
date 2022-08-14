@@ -1,6 +1,6 @@
 <?= $this->extend('layout/main_template'); ?>
 <?= $this->section('main'); ?>
-<div id="kirim-pesan" class="bg-white mt-lg-0 ms-lg-4 mt-3 h-100 text-dark">
+<div id="kirim-pesan" class="bg-white mt-lg-0 ms-lg-4 mt-3 h-100 text-dark" style="padding-top: 64px;">
     <div class="container-fluid col-lg-12 px-4 py-md-5 py-2 ">
         <?= csrf_field('secureData'); ?>
         <div class="border-bottom text-lg-start text-center mb-3">

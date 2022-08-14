@@ -1,7 +1,7 @@
 <?= $this->extend('layout/main_template'); ?>
 <?= $this->section('main'); ?>
 <!-- Section 1 -->
-<div class="bg-info  text-dark">
+<div class="bg-info hero text-dark" style="padding-top: 64px;">
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row text-center">
             <div class="col-md-6 mx-auto">
@@ -50,4 +50,24 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('#main-navbar');
+        hero = document.querySelector('.hero')
+        height = Math.max(hero.scrollHeight, hero.offsetHeight,
+            hero.clientHeight, hero.scrollHeight, hero.offsetHeight);
+        window.onscroll = () => {
+            if (window.scrollY > height) {
+                navbar.classList.add('bg-white');
+                navbar.classList.remove('bg-info');
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('bg-white');
+                navbar.classList.add('bg-info');
+                navbar.classList.remove('shadow-sm');
+
+            }
+        };
+    })
+</script>
 <?= $this->endSection(); ?>
