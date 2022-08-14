@@ -9,7 +9,7 @@ class HistoryModel extends Model
 {
     protected $table = 'info_history';
     protected $primaryKey = 'id';
-    protected $useTimestamps = 'true';
+    protected $useTimestamps = true;
     protected $allowedFields = [
         'title_a',
         'desc_a',
@@ -22,7 +22,7 @@ class HistoryModel extends Model
         'image_a',
         'image_b',
     ];
-    protected $beforeUpdate = ['setModifiedBy'];
+    protected $afterUpdate = ['setModifiedBy'];
     protected $validationRules = [
         'title_a' => [
             'label' => 'Nama Kegiatan 1',
@@ -67,5 +67,4 @@ class HistoryModel extends Model
 
     ];
     protected $returnType     = 'object';
-    protected $useSoftDeletes = true;
 }

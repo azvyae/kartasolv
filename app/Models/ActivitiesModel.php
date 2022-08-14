@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use App\Libraries\DatabaseManager;
 use App\Libraries\Model;
 
 class ActivitiesModel extends Model
 {
     protected $table = 'info_activities';
     protected $primaryKey = 'id';
-    protected $useTimestamps = 'true';
+    protected $useTimestamps = true;
     protected $allowedFields = [
         'title_a',
         'desc_a',
@@ -22,7 +21,6 @@ class ActivitiesModel extends Model
         'image_c',
     ];
     protected $returnType     = 'object';
-    protected $useSoftDeletes = true;
     protected $beforeUpdate = ['setModifiedBy'];
     protected $validationRules = [
         'title_a' => [

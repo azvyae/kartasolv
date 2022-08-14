@@ -27,6 +27,12 @@ class History extends BaseController
 
     private function _updateHistory()
     {
+        /**
+         * Only accept from certain routes
+         */
+        if ($referrer = acceptFrom('konten/sejarah')) {
+            return redirect()->to($referrer);
+        }
         $rules = $this->hm->getValidationRules(['except' => ['image_a', 'image_b']]);
         $images = $this->request->getFiles();
         $postData = $this->request->getPost();

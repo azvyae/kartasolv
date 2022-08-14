@@ -1,5 +1,6 @@
 <?php
 
+use Config\Services;
 use Hashids\Hashids;
 
 function checkAuth($data = null)
@@ -124,4 +125,20 @@ function getMethod($method = null)
         return service('request')->getMethod();
     }
     return service('request')->getMethod() === $method;
+}
+
+function acceptFrom($routes = '')
+{
+    if (getenv('CI_ENVIRONMENT') !== 'testing') {
+        $referrer = Services::request()->getUserAgent()->getReferrer();
+        if (!((base_url($routes) === $referrer) || (base_url("index.php/$routes") === $referrer))) {
+            $flash = [
+                'message' => 'Aksi tidak diperbolehkan!',
+                'type' => 'danger'
+            ];
+            setFlash($flash);
+            return $referrer;
+        }
+    }
+    return false;
 }

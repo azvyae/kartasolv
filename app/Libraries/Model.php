@@ -99,4 +99,9 @@ class Model extends OriginalModel
         ];
         return $data;
     }
+
+    protected function setDeletedBy(array $data)
+    {
+        dd($data, $this->useSoftDeletes);
+    }
 }

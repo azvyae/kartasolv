@@ -6,51 +6,47 @@ use App\Libraries\DatabaseManager;
 use App\Libraries\Model;
 
 
-class MembersModel extends Model
+class CommunitiesModel extends Model
 {
-    protected $table = 'members';
-    protected $primaryKey = 'member_id';
+    protected $table = 'communities';
+    protected $primaryKey = 'community_id';
     protected $useTimestamps = true;
-    protected $allowedFields = ['member_name', 'member_position', 'member_type', 'member_active', 'member_image'];
+    protected $allowedFields = ['community_identifier', 'community_name', 'community_address', 'pmpsks_type', 'pmpsks_status'];
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
     protected $beforeInsert = ['setCreatedBy'];
     protected $beforeUpdate = ['setModifiedBy'];
     protected $afterDelete = ['setDeletedBy'];
     protected $validationRules = [
-        'member_name' => [
-            'label' => 'Judul Utama',
-            'rules' => 'required|max_length[64]|string',
+        'community_identifier' => [
+            'label' => 'NIK',
+            'rules' => 'required|min_length[16]|max_length[16]|numeric',
         ],
-        'member_position' => [
-            'label' => 'Tagline',
-            'rules' => 'required|max_length[256]|string',
+        'community_name' => [
+            'label' => 'Nama',
+            'rules' => 'required|max_length[128]|string',
         ],
-        'member_type' => [
-            'label' => 'Jenis Pengurus',
+        'community_address' => [
+            'label' => 'Alamat ',
             'rules' => 'required|in_list[1,2,3,4]',
             'errors' => [
                 'in_list[1,2,3,4]' => 'Kamu hanya dapat memilih antara Ketua, Top Level, Kabid, atau Anggota!'
             ]
         ],
-        'member_active' => [
+        'pmpsks_type' => [
             'label' => 'Aktif',
             'rules' => 'in_list[Aktif,Nonaktif]|permit_empty',
             'errors' => [
                 'in_list[Aktif,Nonaktif]' => ['Kamu Hanya Dapat Memilih Opsi Aktif/Nonaktif']
             ]
         ],
-        'member_image' => [
+        'pmpsks_status' => [
             'label' => 'Foto Pengurus',
             'rules' => 'is_image[member_image]|ext_in[member_image,png,jpg,jpeg,webp]|uploaded[member_image]',
         ],
 
     ];
 
-    public function getMembers()
-    {
-        return $this->where('member_active', 1)->orderBy('member_type, member_id', 'asc')->findAll();
-    }
     public function getDatatable($condition)
     {
         $dbMan = new DatabaseManager;
