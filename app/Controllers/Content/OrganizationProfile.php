@@ -25,6 +25,7 @@ class OrganizationProfile extends BaseController
     public function mainInfo()
     {
         if (getMethod('put')) {
+
             return $this->_updateMainInfo();
         }
         $data = [
@@ -36,6 +37,9 @@ class OrganizationProfile extends BaseController
     }
     private function _updateMainInfo()
     {
+        if ($referrer = acceptFrom('konten/profil-karang-taruna/info-utama')) {
+            return redirect()->to($referrer);
+        }
         $rules = $this->lm->getValidationRules(['except' => ['landing_image']]);
         if (($img = $this->request->getFile('landing_image'))->getSize() > 0) {
             $rules += $this->lm->getValidationRules();
@@ -121,6 +125,7 @@ class OrganizationProfile extends BaseController
     public function ourActivities()
     {
         if (getMethod('put')) {
+
             return $this->_updateOurActivities();
         }
         $data = [
@@ -133,6 +138,9 @@ class OrganizationProfile extends BaseController
 
     private function _updateOurActivities()
     {
+        if ($referrer = acceptFrom('konten/profil-karang-taruna/kegiatan-kami')) {
+            return redirect()->to($referrer);
+        }
         $rules = $this->am->getValidationRules(['except' => ['image_a', 'image_b', 'image_c']]);
         $images = $this->request->getFiles();
         $postData = $this->request->getPost();
@@ -207,6 +215,7 @@ class OrganizationProfile extends BaseController
     public function members()
     {
         if ($this->request->isAJAX()) {
+
             switch (getMethod()) {
                 case 'get':
                     return $this->_membersDatatable();
@@ -225,6 +234,9 @@ class OrganizationProfile extends BaseController
 
     private function _membersDatatable()
     {
+        if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus')) {
+            return redirect()->to($referrer);
+        }
         $condition = [
             'limit' => $this->request->getGet('length'),
             'offset' => $this->request->getGet('start'),
@@ -262,6 +274,9 @@ class OrganizationProfile extends BaseController
 
     private function _delete()
     {
+        if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus')) {
+            return redirect()->to($referrer);
+        }
         $deleteData = $this->request->getPost('selections');
         $totalData = count($deleteData);
         $response = false;
@@ -325,6 +340,9 @@ class OrganizationProfile extends BaseController
 
     private function _memberCrud($memberId = null)
     {
+        if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))) {
+            return redirect()->to($referrer);
+        }
         $memberActive = $this->request->getPost('member_active');
         $decodedMemberId = decode($memberId, 'members');
         if (!$memberActive) {
@@ -335,7 +353,7 @@ class OrganizationProfile extends BaseController
             $rules += $this->mm->getValidationRules();
         }
         if (!$this->validate($rules)) {
-            return redirect()->to('konten/profil-karang-taruna/members/' . ($memberId ?? 'tambah'))->withInput();
+            return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))->withInput();
         }
         /**
          * Base update data

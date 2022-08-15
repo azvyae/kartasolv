@@ -30,6 +30,9 @@ class Auth extends BaseController
 
     private function _login()
     {
+        if ($referrer = acceptFrom('masuk')) {
+            return redirect()->to($referrer);
+        }
         $rules = $this->um->getValidationRules(['only' => ['user_email', 'user_password'], 'add' => ['gRecaptcha']]);
         if (!$this->validate($rules)) {
             return redirect()->to('masuk')->withInput();
@@ -58,6 +61,9 @@ class Auth extends BaseController
 
     private function _logout()
     {
+        if ($referrer = acceptFrom('keluar')) {
+            return redirect()->to($referrer);
+        }
         if (!$this->validate('gRecaptcha')) {
             return redirect()->to('/');
         }

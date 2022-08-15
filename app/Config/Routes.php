@@ -39,7 +39,6 @@ $routes->get('/', 'Home::index');
 $routes->get('sejarah', 'Home::history');
 $routes->get('hubungi-kami', 'Home::contactUs');
 $routes->get('dasbor', 'User\Home::index');
-$routes->get('phpinfo', 'Sandbox\Home::phpinfo');
 $routes->get('verifikasi', 'Auth::verifyEmail');
 $routes->get('gambar-privat', 'User\Home::loadImage');
 $routes->delete('keluar', 'Auth::index');
@@ -52,16 +51,6 @@ $routes->group('masuk', static function ($routes) {
 $routes->group('profil', static function ($routes) {
     $routes->get('/', 'User\Profile::index');
     $routes->put('/', 'User\Profile::index');
-});
-
-$routes->group('sandbox', static function ($routes) {
-    $routes->get('/', 'Sandbox\Home::sandboxOne');
-    $routes->put('/', 'Sandbox\Home::sandboxOne');
-});
-
-$routes->group('sandbox2', static function ($routes) {
-    $routes->get('/', 'Sandbox\Home::sandboxTwo');
-    $routes->put('/', 'Sandbox\Home::sandboxTwo');
 });
 
 $routes->group('lupa-kata-sandi', static function ($routes) {
