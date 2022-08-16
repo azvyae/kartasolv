@@ -8,12 +8,12 @@
         <div class="row g-5 text-center py-3">
             <div class="col-md-4">
                 <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/pmks.webp'); ?>" alt="PMKS">
-                <h2><a class="link-primary text-decoration-none" href="<?= base_url('data/pmks'); ?>">0 Data PMKS</a></h2>
+                <h2><a class="link-primary text-decoration-none" href="<?= base_url('data/pmks'); ?>"><?= countTable('communities', 'PMKS');; ?> Data PMKS</a></h2>
                 <p>Lihat dan kelola data Penyandang Masalah Kesejahteraan Sosial di Kelurahan Sarijadi.</p>
             </div>
             <div class="col-md-4">
                 <img class="rounded-circle shadow-lg w-50 mb-3" src="<?= base_url('img/psks.webp'); ?>" alt="PSKS">
-                <h2><a class="link-primary text-decoration-none" href="<?= base_url('data/psks'); ?>">0 Data PSKS</a></h2>
+                <h2><a class="link-primary text-decoration-none" href="<?= base_url('data/psks'); ?>"><?= countTable('communities', 'PSKS'); ?> Data PSKS</a></h2>
                 <p>Lihat dan kelola data Potensi dan Sumber Kesejahteraan Sosial di Kelurahan Sarijadi.</p>
             </div>
             <div class="col-md-4">
