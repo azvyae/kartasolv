@@ -99,7 +99,7 @@
                     <?php foreach ($members as $m) :  ?>
                         <?php $urlFallback = "https://avatars.dicebear.com/api/initials/" . rawurlencode($m->member_name) . ".svg?background=%234F4F4F&fontSize=35&bold=true" ?>
                         <div class="swiper-slide text-center">
-                            <img onerror="imageFallbackOption(this, '<?= $urlFallback; ?>')" src="<?= $m->member_image ?>" class="rounded-circle mb-4" width="150px" height="150px" style="object-fit: cover;" alt="Foto <?= $m->member_name; ?>">
+                            <img onerror="imageFallbackOption(this, '<?= $urlFallback; ?>')" src="<?= $m->member_image ?>" class="rounded-circle mb-4" width="150px" height="150px" style="object-fit: cover; object-position: top" alt="Foto <?= $m->member_name; ?>">
                             <p class="fw-semibold col-lg-12 col-10 mx-auto mb-1 fs-5"><?= $m->member_name; ?></p>
                             <p class="fs-6 col-lg-12 col-10 mx-auto"><?= $m->member_position; ?></p>
                         </div>
