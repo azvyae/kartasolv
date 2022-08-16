@@ -6,7 +6,7 @@
     <div class="container col-xxl-8 px-4 py-md-5 py-2  ">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="mx-auto col-10 col-sm-8 col-lg-6">
-                <img src="<?= $members[0]->member_image; ?>" class="rounded d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="400" loading="lazy">
+                <img src="<?= $members[0]->member_image; ?>" class="rounded mx-auto col-8 col-lg-8 d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="400" loading="lazy">
             </div>
             <div class="col-lg-6 text-md-start text-center">
                 <h1 class="display-4 fw-bold lh-1 mb-3"><?= $landingInfo->landing_title; ?></h1>
