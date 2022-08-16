@@ -23,6 +23,9 @@ class Pmks extends BaseController
                 case 'get':
                     return $this->_datatable();
                     break;
+                case 'put':
+                    return $this->_updateStatus();
+                    break;
                 case 'delete':
                     return $this->_delete();
                     break;
@@ -81,6 +84,40 @@ class Pmks extends BaseController
             "ids" => $ids,
         ];
         echo json_encode($output);
+    }
+
+    private function _updateStatus()
+    {
+        if ($referrer = acceptFrom('data/pmks')) {
+            return redirect()->to($referrer);
+        }
+
+        $communityIds = array_map(function ($e) {
+            return decode($e, 'pmks');
+        }, $this->request->getPost('selections'));
+        foreach ($communityIds as $id) {
+            $data = ['community_id' => $id];
+            if ($this->cm->find($id, true)->community_status === 'Disetujui') {
+                $data += [
+                    'community_status' => 'Belum Disetujui'
+                ];
+            } else {
+                $data += [
+                    'community_status' => 'Disetujui'
+                ];
+            }
+            $this->cm->save($data);
+        }
+        $flash = [
+            'message' => count($communityIds) . ' Data PMKS Berhasil Diperbarui',
+            'type' => 'success'
+        ];
+        setFlash($flash);
+        $response = [
+            // If reload filled with false, it wont reload after ajax request
+            'reload' => true
+        ];
+        echo json_encode($response);
     }
 
     private function _delete()

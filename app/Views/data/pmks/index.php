@@ -38,11 +38,17 @@
                     url: baseUrl('data/pmks'),
                     postData: postData()
                 },
+                manipulateSelected: {
+                    url: baseUrl('data/pmks'),
+                    text: '<i class="bi bi-toggles"></i>',
+                    title: 'Ubah Status Disetujui/Belum Disetujui',
+                    postData: postData()
+                },
                 custom: {
                     text: '<i class="bi bi-cloud-upload"></i>',
                     title: 'Tambah dengan spreadsheet',
                     action: function() {
-                        window.location.href = 'google.com';
+                        window.location.href = baseUrl('data/pmks/tambah-spreadsheet');
                     }
                 }
             },

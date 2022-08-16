@@ -97,6 +97,7 @@ $routes->group('konten', static function ($routes) {
 $routes->group('data', static function ($routes) {
     $routes->group('pmks', static function ($routes) {
         $routes->get('/', 'Data\Pmks::index');
+        $routes->put('/', 'Data\Pmks::index');
         $routes->get('gambar', 'Data\Pmks::getImages');
         $routes->delete('/', 'Data\Pmks::index');
         $routes->group('tambah', static function ($routes) {
@@ -114,6 +115,7 @@ $routes->group('data', static function ($routes) {
     });
     $routes->group('psks', static function ($routes) {
         $routes->get('/', 'Data\Psks::index');
+        $routes->put('/', 'Data\Psks::index');
         $routes->get('gambar', 'Data\Psks::getImages');
         $routes->delete('/', 'Data\Psks::index');
         $routes->group('tambah', static function ($routes) {
