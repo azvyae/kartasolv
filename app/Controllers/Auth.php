@@ -61,9 +61,6 @@ class Auth extends BaseController
 
     private function _logout()
     {
-        if ($referrer = acceptFrom('keluar')) {
-            return redirect()->to($referrer);
-        }
         if (!$this->validate('gRecaptcha')) {
             return redirect()->to('/');
         }

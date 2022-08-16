@@ -26,47 +26,72 @@
                 <p>Kami menerima kritik dan saran yang membangun demi meningkatnya kesejahteraan sosial khususnya di Kelurahan Sarijadi. Adapun kami juga menyediakan form aduan jika Anda atau orang yang anda kenal membutuhkan bantuan kami.</p>
             </div>
             <div class="col-lg-6">
-                <form action="" method="post">
+                <form action="<?= base_url('hubungi-kami'); ?>" id="messageForm" method="post">
                     <div class="row mb-3">
                         <div class="col">
-                            <div class="form-floating">
-                                <input type="text" name="message_name" id="nama" class="form-control" placeholder="Nama" aria-label="Nama">
-                                <label for="nama">Nama</label>
+                            <?= csrf_field(); ?>
+                            <?= getFlash('message'); ?>
+                            <div class="form-floating has-validation">
+                                <input required type="text" name="message_sender" value="<?= old('message_sender'); ?>" id="message_sender" maxlength="64" class="form-control <?= setInvalid('message_sender'); ?>" placeholder="Nama" aria-label="Nama">
+                                <label for="message_sender">Nama Pengirim</label>
+                                <div class="invalid-feedback">
+                                    <?= showInvalidFeedback('message_sender'); ?>
+                                </div>
                             </div>
                         </div>
 
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <div class="form-floating">
-                                <input type="text" name="message_whatsapp" id="noWhatsapp" class="form-control" placeholder="No Whatsapp" aria-label="No Whatsapp">
+                            <div class="form-floating has-validation">
+                                <input type="number" required name="message_whatsapp" value="<?= old('message_whatsapp'); ?>" id="noWhatsapp" class="form-control <?= setInvalid('message_whatsapp'); ?>" placeholder="No Whatsapp" aria-label="No Whatsapp">
                                 <label for="noWhatsapp">No Whatsapp</label>
+                                <div id="whatsappValidation" class="invalid-feedback">
+                                    <?= showInvalidFeedback('message_whatsapp'); ?>
+                                </div>
                             </div>
 
                         </div>
                         <div class="col">
-                            <div class="form-floating">
-                                <select name="message_type" class="form-select" id="jenisPesan" aria-label="Jenis Pesan">
+                            <div class="form-floating has-validation">
+                                <select name="message_type" required class="form-select <?= setInvalid('message_type'); ?>" id="jenisPesan" aria-label="Jenis Pesan">
                                     <option value="" selected>Pilih</option>
-                                    <option value="kritik_saran">Kritik & Saran</option>
-                                    <option value="laporan_aduan">Laporan/Aduan</option>
+                                    <option <?= set_select('message_type', 'Kritik & Saran'); ?> value="Kritik & Saran">Kritik & Saran</option>
+                                    <option <?= set_select('message_type', 'Laporan/Aduan'); ?> value="Laporan/Aduan">Laporan/Aduan</option>
                                 </select>
                                 <label for="jenisPesan">Jenis Pesan</label>
+                                <div class="invalid-feedback">
+                                    <?= showInvalidFeedback('message_type'); ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row mb-1">
                         <div class="col">
-                            <div class="form-floating">
-                                <textarea name="message_text" style="height: 200px;" class="form-control" placeholder="Tulis pesan di sini" id="pesan"></textarea>
+                            <div class="form-floating has-validation">
+                                <textarea required name="message_text" maxlength="280" style="height: 200px;" class="form-control <?= setInvalid('message_text'); ?>" placeholder="Tulis pesan di sini" id="pesan"><?= old('message_text'); ?></textarea>
                                 <label for="pesan">Pesan</label>
+                                <div class="invalid-feedback">
+                                    <?= showInvalidFeedback('message_text'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col mx-auto ">
+                            <span class="text-muted  <?= setInvalid('g-recaptcha-response'); ?> small">Situs ini dilindungi oleh reCAPTCHA dan berlaku
+                                <a class="text-decoration-none" href="https://policies.google.com/privacy">Kebijakan Privasi</a> dan
+                                <a class="text-decoration-none" href="https://policies.google.com/terms">Persyaratan Layanan</a> Google.
+                            </span>
+                            <div class="invalid-feedback">
+                                <?= showInvalidFeedback('g-recaptcha-response'); ?>
                             </div>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <div class="form-floating">
-                                <button type="submit" class="btn btn-primary w-100">Kirim</button>
+                                <button data-sitekey="<?= getCaptchaSitekey(); ?>" data-callback='onSubmit' data-action='sendMessage' class="btn g-recaptcha btn-primary w-100">Kirim</button>
                             </div>
                         </div>
                     </div>
@@ -76,6 +101,32 @@
     </div>
 </div>
 <script>
+    function onSubmit(token) {
+        form = document.getElementById("messageForm")
+        if (form.reportValidity()) {
+            whatsappInput = document.getElementById('noWhatsapp');
+            cond = false
+            val = whatsappInput.value
+            if (val[0] == '+' && val[1] == '6' && val[2] == '2' && val[3] == '8') {
+                cond = true;
+            } else if (val[0] == '6' && val[1] == '2' && val[2] == '8') {
+                cond = true;
+            } else if (val[0] == '0' && val[1] == '8') {
+                cond = true;
+            }
+            if (val.length < 5) {
+                cond = false
+            }
+            if (cond) {
+                form.submit();
+            } else {
+                whatsappInput.classList.add('is-invalid')
+                document.getElementById('whatsappValidation').innerText = 'Nomor Whatsapp Salah!'
+            }
+        }
+
+
+    }
     document.addEventListener("DOMContentLoaded", function(event) {
         const navbar = document.querySelector('#main-navbar');
         hero = document.querySelector('.hero')

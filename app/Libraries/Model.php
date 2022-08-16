@@ -34,7 +34,7 @@ class Model extends OriginalModel
                     $rules += $this->validation->getRuleGroup($opt);
                 }
             } else {
-                $rules += $this->validation->loadRuleGroup($options['add'][0]);
+                $rules += $this->validation->getRuleGroup($options['add'][0]);
             }
         }
         return $rules;

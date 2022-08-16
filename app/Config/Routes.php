@@ -135,6 +135,7 @@ $routes->group('data', static function ($routes) {
     });
     $routes->group('pesan', static function ($routes) {
         $routes->get('/', 'Data\Messages::index');
+        $routes->put('/', 'Data\Messages::index');
         $routes->delete('/', 'Data\Messages::index');
     });
 });

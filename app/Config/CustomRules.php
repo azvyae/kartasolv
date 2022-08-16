@@ -34,4 +34,18 @@ class CustomRules
             return FALSE;
         }
     }
+
+    public function phone_number($text)
+    {
+        if ($text[0] == '+' && $text[1] == '6' && $text[2] == '2' && $text[3] == '8') {
+            return true;
+        }
+        if ($text[0] == '6' && $text[1] == '2' && $text[2] == '8') {
+            return true;
+        }
+        if ($text[0] == '0'  && $text[1] == '8') {
+            return true;
+        }
+        return false;
+    }
 }
