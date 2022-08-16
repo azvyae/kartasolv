@@ -4,7 +4,6 @@ namespace App\Controllers\Data;
 
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
-use Config\Services;
 
 class Pmks extends BaseController
 {
@@ -191,35 +190,66 @@ class Pmks extends BaseController
 
     public function spreadsheetCrud()
     {
-        helper('form');
-        switch (getMethod()) {
-            case 'post':
-                $this->_crud();
-                break;
-            default:
-                break;
+        if (getMethod('post')) {
+            if (!$this->validate('spreadsheet')) {
+                return redirect()->to('data/pmks/tambah-spreadsheet')->withInput();
+            }
+            $excelFile = $this->request->getFile('file_excel');
+            $ext = $excelFile->getClientExtension();
+            if ($ext == 'xls') {
+                $render = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+            } else {
+                $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            }
+            $spreadsheet = $render->load($excelFile);
+            $data = $spreadsheet->getActiveSheet()->toArray();
+            $totalData = count($data) - 1;
+            $successfulInsert = 0;
+            foreach ($data as $i => $row) {
+                if ($i == 0) {
+                    continue;
+                }
+
+                $name = trim($row[0]);
+                $address = trim($row[1]);
+                $identifier = !empty($identifier = trim($row[2])) ? $identifier : null;
+                $type = trim($row[3]);
+                $status = trim($row[4]);
+
+                if ($this->cm->find($identifier, true)) {
+                    continue;
+                } else {
+                    if (empty($name) || empty($address) || empty($type) || $type < 1 || $type >= 26 || ($status != 'Disetujui' && $status != 'Belum Disetujui')) {
+                        continue;
+                    }
+                    $data = [
+                        'community_name' => $name,
+                        'community_address' => $address,
+                        'community_identifier' => $identifier,
+                        'pmpsks_type' => $type,
+                        'community_status' => $status
+                    ];
+                    if ($this->cm->skipValidation(true)->save($data)) {
+                        $successfulInsert++;
+                    }
+                }
+            }
+            if ($successfulInsert > 0) {
+                $flash = [
+                    'message' => "Berhasil menambahkan $successfulInsert data dari $totalData data.",
+                    'type' => 'success'
+                ];
+                setFlash($flash);
+            }
+            return redirect()->to('data/pmks/tambah-spreadsheet');
         }
         $data = [
-            'title' => 'Tambah Data Pengurus | Karta Sarijadi',
-            'crudType' => 'Tambah Data Pengurus'
+            'title' => 'Tambah Data Dengan Sheet | Karta Sarijadi',
         ];
-        // if ($communityId) {
-        //     $id = decode($communityId, 'members');
-        //     $member = $this->mm->find($id, true);
-        //     if (!$member) {
-        //         return show404();
-        //     }
-        //     $data = [
-        //         'title' => 'Ubah Data Pengurus | Karta Sarijadi',
-        //         'crudType' => 'Ubah Data Pengurus',
-        //         'member' => $member,
-        //         'memberId' => $communityId
-        //     ];
-        // }
         $data += [
             'sidebar' => true
         ];
-        return view('content/organization_profile/member_crud', $data);
+        return view('data/pmks/spreadsheet_crud', $data);
     }
 
     private function _crud($communityId = null)

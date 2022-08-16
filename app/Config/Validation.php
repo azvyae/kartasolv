@@ -52,4 +52,14 @@ class Validation extends BaseConfig
             ]
         ]
     ];
+
+    public $spreadsheet = [
+        'file_excel' => [
+            'label' => 'Berkas Spreadsheet',
+            'rules' => 'uploaded[file_excel]|ext_in[file_excel,xlsx,xls]',
+            'errors' => [
+                'ext_in' => 'Berkas yang dapat diunggah hanya XLSX atau XLS saja!'
+            ]
+        ]
+    ];
 }
