@@ -56,9 +56,10 @@ class Validation extends BaseConfig
     public $spreadsheet = [
         'file_excel' => [
             'label' => 'Berkas Spreadsheet',
-            'rules' => 'uploaded[file_excel]|ext_in[file_excel,xlsx,xls]',
+            'rules' => 'uploaded[file_excel]|ext_in[file_excel,xlsx,xls]|max_size[file_excel,1024]',
             'errors' => [
-                'ext_in' => 'Berkas yang dapat diunggah hanya XLSX atau XLS saja!'
+                'ext_in' => 'Berkas yang dapat diunggah hanya XLSX atau XLS saja!',
+                'max_size' => 'Ukuran maksimal file adalah 1 MB'
             ]
         ]
     ];
