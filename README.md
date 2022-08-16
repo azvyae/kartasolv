@@ -22,3 +22,7 @@ Access Website : https://kartasarijadi.com
 - Every strict http method requests like Post, Put, and Delete are secured with referrer checking
 - Navbar has dynamic color change
 - Added new table databases for PMKS, PSKS, and messages
+- Added new features
+- Added send message function
+- Send message to notify admin with email
+- Administrator allowed to manage messages through datatables
