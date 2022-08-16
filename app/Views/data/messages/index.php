@@ -68,7 +68,7 @@
 
                     ],
                     render: function(data) {
-                        if (data === 'Kritik & Saran') {
+                        if (data == 'Kritik & Saran') {
                             className = 'bg-warning text-dark'
                         } else {
                             className = 'bg-danger text-light'
