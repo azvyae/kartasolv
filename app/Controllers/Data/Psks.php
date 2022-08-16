@@ -5,7 +5,7 @@ namespace App\Controllers\Data;
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
 
-class Pmks extends BaseController
+class Psks extends BaseController
 {
     protected $cm, $pim, $pm;
     public function __construct()
@@ -30,24 +30,24 @@ class Pmks extends BaseController
                     break;
             }
         }
-        $pmks_types = array_map(function ($e) {
+        $psks_types = array_map(function ($e) {
             return [
                 'value' => $e->pmpsks_name,
                 'text' => $e->pmpsks_name,
             ];
-        }, $this->pm->select('pmpsks_name')->where('pmpsks_type', 'PMKS')->find());
+        }, $this->pm->select('pmpsks_name')->where('pmpsks_type', 'PSKS')->find());
 
         $data = [
-            'title' => "Data PMKS | Karta Sarijadi",
+            'title' => "Data PSKS | Karta Sarijadi",
             'sidebar' => true,
-            'pmks_types' => json_encode($pmks_types)
+            'psks_types' => json_encode($psks_types)
         ];
-        return view('data/pmks/index', $data);
+        return view('data/psks/index', $data);
     }
 
     private function _datatable()
     {
-        if ($referrer = acceptFrom('data/pmks')) {
+        if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
         $condition = [
@@ -59,10 +59,10 @@ class Pmks extends BaseController
             'columnSearch' => $this->request->getGet('searchable'),
             "orderable" => $this->request->getGet('orderable')
         ];
-        $communities = $this->cm->getPMKSDatatable($condition);
+        $communities = $this->cm->getPSKSDatatable($condition);
         $data = $ids = [];
         foreach ($communities->result as $field) {
-            $community_id = encode($field->community_id, 'pmks');
+            $community_id = encode($field->community_id, 'psks');
             $ids[] = $community_id;
             $row = [
                 'unique_id' => $community_id,
@@ -87,12 +87,12 @@ class Pmks extends BaseController
 
     private function _updateStatus()
     {
-        if ($referrer = acceptFrom('data/pmks')) {
+        if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
 
         $communityIds = array_map(function ($e) {
-            return decode($e, 'pmks');
+            return decode($e, 'psks');
         }, $this->request->getPost('selections'));
         foreach ($communityIds as $id) {
             $data = ['community_id' => $id];
@@ -108,7 +108,7 @@ class Pmks extends BaseController
             $this->cm->save($data);
         }
         $flash = [
-            'message' => count($communityIds) . ' Data PMKS Berhasil Diperbarui',
+            'message' => count($communityIds) . ' Data PSKS Berhasil Diperbarui',
             'type' => 'success'
         ];
         setFlash($flash);
@@ -121,27 +121,27 @@ class Pmks extends BaseController
 
     private function _delete()
     {
-        if ($referrer = acceptFrom('data/pmks')) {
+        if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
         $deleteData = $this->request->getPost('selections');
         $totalData = count($deleteData);
         $response = false;
         $data = array_map(function ($e) {
-            return decode($e, 'pmks');
+            return decode($e, 'psks');
         }, $deleteData);
         if ($data) {
             if ($this->cm->delete($data)) {
                 $this->pim->deleteImages($data);
                 $flash = [
-                    'message'   => "$totalData data PMKS berhasil dihapus",
+                    'message'   => "$totalData data PSKS berhasil dihapus",
                     'type'        => 'success',
                 ];
                 setFlash($flash);
                 $response = $totalData;
             } else {
                 $flash = [
-                    'message'   => "Data PMKS gagal dihapus",
+                    'message'   => "Data PSKS gagal dihapus",
                     'type'        => 'danger',
                 ];
                 setFlash($flash);
@@ -164,35 +164,35 @@ class Pmks extends BaseController
                 break;
         }
         $data = [
-            'title' => 'Tambah Data PMKS | Karta Sarijadi',
-            'crudType' => 'Tambah Data PMKS'
+            'title' => 'Tambah Data PSKS | Karta Sarijadi',
+            'crudType' => 'Tambah Data PSKS'
         ];
         if ($communityId) {
-            $id = decode($communityId, 'pmks');
+            $id = decode($communityId, 'psks');
             $community = $this->cm->find($id, true);
             if (!$community) {
                 return show404();
             }
             $data = [
-                'title' => 'Ubah Data PMKS | Karta Sarijadi',
-                'crudType' => 'Ubah Data PMKS',
+                'title' => 'Ubah Data PSKS | Karta Sarijadi',
+                'crudType' => 'Ubah Data PSKS',
                 'community' => $community,
                 'communityId' => $communityId,
                 'pmpsksImg' => $this->pim->getImages($id)
             ];
         }
         $data += [
-            'pmksTypes' => $this->pm->select(['pmpsks_id', 'pmpsks_name'])->where('pmpsks_type', 'PMKS')->findAll(),
+            'psksTypes' => $this->pm->select(['pmpsks_id', 'pmpsks_name'])->where('pmpsks_type', 'PSKS')->findAll(),
             'sidebar' => true
         ];
-        return view('data/pmks/crud', $data);
+        return view('data/psks/crud', $data);
     }
 
     public function spreadsheetCrud()
     {
         if (getMethod('post')) {
             if (!$this->validate('spreadsheet')) {
-                return redirect()->to('data/pmks/tambah-spreadsheet')->withInput();
+                return redirect()->to('data/psks/tambah-spreadsheet')->withInput();
             }
             $excelFile = $this->request->getFile('file_excel');
             $ext = $excelFile->getClientExtension();
@@ -219,7 +219,7 @@ class Pmks extends BaseController
                 if ($this->cm->find($identifier, true)) {
                     continue;
                 } else {
-                    if (empty($name) || empty($address) || empty($type) || $type < 1 || $type >= 26 || ($status != 'Disetujui' && $status != 'Belum Disetujui')) {
+                    if (empty($name) || empty($address) || empty($type) || $type < 27 || $type >= 38 || ($status != 'Disetujui' && $status != 'Belum Disetujui')) {
                         continue;
                     }
                     $data = [
@@ -240,8 +240,14 @@ class Pmks extends BaseController
                     'type' => 'success'
                 ];
                 setFlash($flash);
+            } else {
+                $flash = [
+                    'message' => "Ada kegagalan saat menambahkan data.",
+                    'type' => 'danger'
+                ];
+                setFlash($flash);
             }
-            return redirect()->to('data/pmks/tambah-spreadsheet');
+            return redirect()->to('data/psks/tambah-spreadsheet');
         }
         $data = [
             'title' => 'Tambah Data Dengan Sheet | Karta Sarijadi',
@@ -249,20 +255,20 @@ class Pmks extends BaseController
         $data += [
             'sidebar' => true
         ];
-        return view('data/pmks/spreadsheet_crud', $data);
+        return view('data/psks/spreadsheet_crud', $data);
     }
 
     private function _crud($communityId = null)
     {
-        if ($referrer = acceptFrom('data/pmks/' . ($communityId ?? 'tambah'))) {
+        if ($referrer = acceptFrom('data/psks/' . ($communityId ?? 'tambah'))) {
             return redirect()->to($referrer);
         }
         $communityStatus = $this->request->getPost('community_status');
-        $decodedCommunityID = decode($communityId, 'pmks');
+        $decodedCommunityID = decode($communityId, 'psks');
         if (!$communityStatus) {
             $communityStatus = 'Belum Disetujui';
         }
-        $rules = $this->cm->getValidationRules(['except' => ['psks_type']]);
+        $rules = $this->cm->getValidationRules(['except' => ['pmks_type']]);
         if ($decodedCommunityID) {
             $rules['community_identifier']['rules'] .= '|is_unique[communities.community_identifier,community_identifier,{community_identifier}]';
         } else {
@@ -274,7 +280,7 @@ class Pmks extends BaseController
             }
         }
         if (!$this->validate($rules)) {
-            return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'))->withInput();
+            return redirect()->to('data/psks/' . ($communityId ?? 'tambah'))->withInput();
         }
         /**
          * Base update data
@@ -283,7 +289,7 @@ class Pmks extends BaseController
             'community_name' => $this->request->getPost('community_name'),
             'community_address' => $this->request->getPost('community_address'),
             'community_identifier' => !empty($identifier = trim($this->request->getPost('community_identifier'))) ? $identifier : null,
-            'pmpsks_type' => $this->request->getPost('pmks_type'),
+            'pmpsks_type' => $this->request->getPost('psks_type'),
             'community_status' => $communityStatus,
         ];
 
@@ -300,7 +306,7 @@ class Pmks extends BaseController
             if ($img[0]->getSize() > 0) {
                 $imageUploader = new ImageUploader;
                 $opt = [
-                    'upload_path' => 'pmks',
+                    'upload_path' => 'psks',
                     'name' => 'pmpsks_img_loc',
                     'multi' => true,
                     'private' => true
@@ -336,25 +342,25 @@ class Pmks extends BaseController
                 $this->pim->skipValidation(true)->insertBatch($imgs);
             }
             $flash = [
-                'message' => 'Data PMKS berhasil diperbarui.',
+                'message' => 'Data PSKS berhasil diperbarui.',
                 'type' => 'success'
             ];
             setFlash($flash);
-            return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'));
+            return redirect()->to('data/psks/' . ($communityId ?? 'tambah'));
         }
         $flash = [
-            'message' => 'Data PMKS gagal diperbarui.',
+            'message' => 'Data PSKS gagal diperbarui.',
             'type' => 'danger'
         ];
         setFlash($flash);
-        return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'))->withInput();
+        return redirect()->to('data/psks/' . ($communityId ?? 'tambah'))->withInput();
     }
 
     public function getImages()
     {
-        $communityId = decode($this->request->getGet('uuid'), 'pmks');
+        $communityId = decode($this->request->getGet('uuid'), 'psks');
         if (!$this->request->isAJAX() || !$communityId) {
-            return redirect()->to('data/pmks');
+            return redirect()->to('data/psks');
         }
         echo json_encode(array_map(function ($e) {
             return $e->pmpsks_img_loc ?? null;

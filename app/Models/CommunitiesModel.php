@@ -88,10 +88,10 @@ class CommunitiesModel extends Model
             'table'  => 'communities',
             'select' => ['community_id', 'community_name', 'community_address', 'community_identifier', 'pmpsks_name', 'community_status'],
             'join' => [
-                ['pmpsks_types', 'communities.pmpsks_type = pmpsks_id']
+                ['pmpsks_types', 'communities.pmpsks_type = pmpsks_id', 'full']
             ],
             'where' => [
-                'communities.pmpsks_type' => 'PSKS'
+                'pmpsks_types.pmpsks_type' => 'PSKS'
             ]
         ];
 
