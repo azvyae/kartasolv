@@ -71,7 +71,7 @@
                         if (data == 'Laporan/Aduan') {
                             className = 'bg-danger text-light'
                         } else {
-                            className = 'bg-warning text-dark'
+                            className = 'bg-success text-dark'
                         }
                         return `<span class="small badge ${className}">${data}</span>`;
                     }
