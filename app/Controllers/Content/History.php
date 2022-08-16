@@ -70,7 +70,6 @@ class History extends BaseController
                 $imageUploader = new ImageUploader;
                 $opt = [
                     'upload_path' => 'history',
-                    'max_size' => 300,
                     'name' => $field,
                 ];
                 if ($path = $imageUploader->upload($opt)) {

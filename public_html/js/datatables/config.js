@@ -240,7 +240,7 @@ function loadDatatableConfig(config) {
             response > 0 && location.reload();
           },
           error: function () {
-            location.reload();
+            // location.reload();
           },
         });
       }) &&
@@ -292,7 +292,12 @@ function loadDatatableConfig(config) {
         },
       }),
     config.buttons.hasOwnProperty("custom") &&
-      buttons.push({ text: config.buttons.custom.text, action: config.buttons.custom.action, className: config.buttons.custom.className + " " }),
+      buttons.push({
+        text: config.buttons.custom.text,
+        action: config.buttons.custom.action,
+        className: config.buttons.custom.className + " ",
+        attr: { type: "button", title: config.buttons.custom.title },
+      }),
     {
       buttons: { dom: { buttonLiner: { tag: "span" } }, buttons: buttons },
       processing: !0,

@@ -47,17 +47,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 d-flex align-items-center mb-3">
+                    <div class="col-md-6 mb-3">
 
+                        <label class="form-check-label" for="member_active">Aktif?</label>
                         <div class="form-check has-validation form-switch">
                             <?php $memberActive = $member->member_active ?? 'Nonaktif' ?>
-                            <input <?= set_checkbox('member_active', 'Aktif', $memberActive == 'Aktif'); ?> value="Aktif" name="member_active" class="form-check-input" type="checkbox" role="switch" id="member_active">
-                            <label class="form-check-label" for="member_active">Aktif?
-                                <span class="<?= setInvalid('member_active'); ?>"></span>
-                                <span class="invalid-feedback">
-                                    <?= showInvalidFeedback('member_active'); ?>
-                                </span>
-                            </label>
+                            <input style="width: 48px; height:24px" <?= set_checkbox('member_active', 'Aktif', $memberActive == 'Aktif'); ?> value="Aktif" name="member_active" class="form-check-input" type="checkbox" role="switch" id="member_active">
+                            <span class="<?= setInvalid('member_active'); ?>"></span>
+                            <span class="invalid-feedback">
+                                <?= showInvalidFeedback('member_active'); ?>
+                            </span>
 
                         </div>
                     </div>
@@ -97,9 +96,11 @@
                     </div>
 
                 </div>
-                <div class="row mb-3">
-
-                    <div class="col-md-12 ">
+                <div class="row ">
+                    <div class="col-md-6 mb-3">
+                        <a href="<?= base_url('konten/profil-karang-taruna/pengurus'); ?>" class="btn py-2 btn-outline-secondary w-100">Kembali</a>
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <button type="submit" <?= ($memberId ?? false) ? 'name="_method" value="PUT"' : ''; ?> class="btn py-2 btn-primary w-100">Simpan</button>
 
                     </div>

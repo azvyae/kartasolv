@@ -79,7 +79,6 @@ class OrganizationProfile extends BaseController
             $imageUploader = new ImageUploader;
             $opt = [
                 'upload_path' => 'organization-profile',
-                'max_size' => 300,
                 'name' => 'landing_image',
             ];
             if ($path = $imageUploader->upload($opt)) {
@@ -176,7 +175,6 @@ class OrganizationProfile extends BaseController
                 $imageUploader = new ImageUploader;
                 $opt = [
                     'upload_path' => 'activities',
-                    'max_size' => 300,
                     'name' => $field,
                 ];
                 if ($path = $imageUploader->upload($opt)) {
@@ -373,7 +371,6 @@ class OrganizationProfile extends BaseController
             $imageUploader = new ImageUploader;
             $opt = [
                 'upload_path' => 'members',
-                'max_size' => 300,
                 'name' => 'member_image',
             ];
             if ($path = $imageUploader->upload($opt)) {

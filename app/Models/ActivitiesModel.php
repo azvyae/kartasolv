@@ -33,7 +33,10 @@ class ActivitiesModel extends Model
         ],
         'image_a' => [
             'label' => 'Gambar Kegiatan 1',
-            'rules' => 'is_image[image_a]|ext_in[image_a,png,jpg,jpeg,webp]|uploaded[image_a]',
+            'rules' => 'is_image[image_a]|ext_in[image_a,png,jpg,jpeg,webp]|uploaded[image_a]|max_size[image_a,2048]',
+            'errors' => [
+                'max_size' => 'Maksimal ukuran berkas adalah 2 MB!'
+            ]
         ],
         'title_b' => [
             'label' => 'Nama Kegiatan 2',
@@ -45,7 +48,10 @@ class ActivitiesModel extends Model
         ],
         'image_b' => [
             'label' => 'Gambar Kegiatan 2',
-            'rules' => 'is_image[image_b]|ext_in[image_b,png,jpg,jpeg,webp]|uploaded[image_b]',
+            'rules' => 'is_image[image_b]|ext_in[image_b,png,jpg,jpeg,webp]|uploaded[image_b]|max_size[image_b,2048]',
+            'errors' => [
+                'max_size' => 'Maksimal ukuran berkas adalah 2 MB!'
+            ]
         ],
         'title_c' => [
             'label' => 'Nama Kegiatan 3',
@@ -57,7 +63,10 @@ class ActivitiesModel extends Model
         ],
         'image_c' => [
             'label' => 'Gambar Kegiatan 3',
-            'rules' => 'is_image[image_c]|ext_in[image_c,png,jpg,jpeg,webp]|uploaded[image_c]',
+            'rules' => 'is_image[image_c]|ext_in[image_c,png,jpg,jpeg,webp]|uploaded[image_c]|max_size[image_c,2048]',
+            'errors' => [
+                'max_size' => 'Maksimal ukuran berkas adalah 2 MB!'
+            ]
         ],
 
     ];

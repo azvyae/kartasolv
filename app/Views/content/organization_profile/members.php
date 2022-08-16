@@ -87,11 +87,11 @@
                         switch (data) {
                             case '1':
                                 type = 'Ketua'
-                                className = 'text-dark bg-warning'
+                                className = 'bg-danger'
                                 break;
                             case '2':
                                 type = 'Top Level'
-                                className = 'bg-primary'
+                                className = 'bg-warning text-dark'
                                 break;
                             case '3':
                                 type = 'Kabid'
@@ -99,10 +99,10 @@
                                 break;
                             default:
                                 type = 'Anggota'
-                                className = 'bg-secondary'
+                                className = 'bg-light text-dark'
                                 break;
                         }
-                        return `<span class="badge fs-6 ${className}">${type}</span>`;
+                        return `<span class="badge ${className}">${type}</span>`;
                     }
 
                 },
@@ -133,7 +133,7 @@
                     className: "text-center",
                     render: function(data, type, row) {
                         return (
-                            `<button data-name-target="id-${row.member_name}" data-bs-title="Foto ${row.member_name}" data-bs-toggle="modal" data-bs-target="#image_modal" class="btn btn-sm btn-warning m-1 rounded">Lihat Gambar</button><a href="${baseUrl(`konten/profil-karang-taruna/pengurus/${data}`)}" class="btn m-1 btn-sm btn-primary rounded">Ubah</a>`
+                            `<button data-name-target="id-${row.member_name}" data-bs-title="Foto ${row.member_name}" data-bs-toggle="modal" data-bs-target="#image_modal" class="btn btn-sm btn-outline-secondary m-1 rounded" title="Lihat Gambar">Foto</button><a href="${baseUrl(`konten/profil-karang-taruna/pengurus/${data}`)}" class="btn m-1 btn-sm btn-primary rounded">Ubah</a>`
                         );
                     },
                 },

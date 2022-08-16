@@ -83,5 +83,9 @@ nav.navbar {
   transition: all 0.1s linear;
 }
 
+.swiper-slide img {
+  filter: grayscale(80%);
+}
+
 // import bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";

@@ -20,11 +20,10 @@ class ImageUploader
         }
         $request = service('request');
         if ($options['multi'] ?? false) {
-            $imgs = $request->getFiles()[$options['name']];
+            $imgs = $request->getFileMultiple($options['name']);
             $opt = [
                 'private' => $options['private'] ?? false,
                 'upload_path' => $options['upload_path'],
-                'max_size' => $options['max_size'],
                 'name' => $options['name'],
             ];
             $images = array_map(function ($e) use ($opt) {
@@ -41,7 +40,7 @@ class ImageUploader
                 return FALSE;
             }
             $unConverted = WRITEPATH . 'uploads' . $img->store($options['upload_path'] ?? '', $img->getRandomName());
-            $filepath = $this->convertToWebp($unConverted, $options['max_size']);
+            $filepath = $this->convertToWebp($unConverted);
             if (!$filepath) {
                 return FALSE;
             }
@@ -66,7 +65,7 @@ class ImageUploader
      * @param	object	$file
      * @return	File
      */
-    private function convertToWebp($filePath, int $maxSize = 0)
+    private function convertToWebp($filePath)
     {
         $file = new File($filePath, true);
         if (!$file) {
@@ -74,8 +73,7 @@ class ImageUploader
         }
         $file->getFilename();
         $mimeType = $file->getMimeType();
-        $fileSize = $file->getSize();
-        if ($mimeType == 'image/webp' && $fileSize < ($maxSize * 1024)) {
+        if ($mimeType == 'image/webp') {
             return TRUE;
         }
         $quality = 80;
@@ -89,7 +87,6 @@ class ImageUploader
         $newFile = str_replace('.' . $file->getExtension(), '.webp', str_replace($file->getFilename(), $file->getRandomName(), $filePath));
         $img->convert(IMAGETYPE_WEBP);
         $img->save($newFile, $quality);
-        // dd($newFile, $filePath);
         unlink($filePath);
         return $newFile;
     }

@@ -120,9 +120,11 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
-
-                    <div class="col-md-12 ">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="<?= base_url('dasbor'); ?>" class="btn py-2 btn-outline-secondary w-100">Kembali</a>
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <button type="submit" name="_method" value="PUT" class="btn py-2 btn-primary w-100">Simpan</button>
 
                     </div>
