@@ -1,41 +1,8 @@
-@font-face {
-  font-family: "creato-display";
-  src: url("../fonts/creatodisplay-regular-webfont.woff2"), url("../fonts/creatodisplay-regular-webfont.woff");
-  font-style: normal;
-  font-weight: normal;
-}
-@font-face {
-  font-family: "creato-display";
-  src: url("../fonts/creatodisplay-regularitalic-webfont.woff2"), url("../fonts/creatodisplay-regularitalic-webfont.woff");
-  font-style: italic;
-  font-weight: normal;
-}
-@font-face {
-  font-family: "creato-display";
-  src: url("../fonts/creatodisplay-medium-webfont.woff2"), url("../fonts/creatodisplay-medium-webfont.woff");
-  font-style: normal;
-  font-weight: 500;
-}
-@font-face {
-  font-family: "creato-display";
-  src: url("../fonts/creatodisplay-mediumitalic-webfont.woff2"), url("../fonts/creatodisplay-mediumitalic-webfont.woff");
-  font-style: italic;
-  font-weight: 500;
-}
-@font-face {
-  font-family: "creato-display";
-  src: url("../fonts/creatodisplay-bold-webfont.woff2"), url("../fonts/creatodisplay-bold-webfont.woff");
-  font-style: normal;
-  font-weight: bold;
-}
-@font-face {
-  font-family: "creato-display";
-  src: url("../fonts/creatodisplay-bolditalic-webfont.woff2"), url("../fonts/creatodisplay-bolditalic-webfont.woff");
-  font-style: italic;
-  font-weight: bold;
-}
-$font-family-sans-serif: "creato-display";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+$font-family-sans-serif: "Roboto";
+$font-weight-normal: 400;
 $font-weight-semibold: 500;
+$font-weight-bold: 700;
 $primary: #213751;
 $secondary: #4b5563;
 $success: #019267;
@@ -76,17 +43,6 @@ table.dataTable.table-hover > tbody > tr.selected:hover > * {
   }
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 nav.navbar {
   -webkit-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
@@ -96,6 +52,10 @@ nav.navbar {
 
 .swiper-slide img {
   filter: grayscale(80%);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
 }
 
 // import bootstrap

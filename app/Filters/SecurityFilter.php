@@ -10,7 +10,6 @@ class SecurityFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        header("Access-Control-Allow-Origin: https://www.kartasarijadi.com");
         return checkAuth();
         if (strpos(service('router')->controllerName(), "\App\Controllers\Sandbox") !== FALSE && getenv('CI_ENVIRONMENT') === 'production') {
             return redirect()->to('/');
