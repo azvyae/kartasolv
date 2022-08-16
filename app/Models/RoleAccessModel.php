@@ -9,10 +9,8 @@ class RoleAccessModel extends Model
 {
     protected $table = 'role_access';
     protected $primaryKey = 'role_access_id';
-    protected $useTimestamps = 'true';
     protected $allowedFields = ['role_id', 'menu_id'];
     protected $returnType     = 'object';
-    protected $useSoftDeletes = false;
 
     public function getRoleAccessId($roleId, $menuId)
     {

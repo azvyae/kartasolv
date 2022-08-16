@@ -39,7 +39,6 @@ $routes->get('/', 'Home::index');
 $routes->get('sejarah', 'Home::history');
 $routes->get('hubungi-kami', 'Home::contactUs');
 $routes->get('dasbor', 'User\Home::index');
-$routes->get('phpinfo', 'Sandbox\Home::phpinfo');
 $routes->get('verifikasi', 'Auth::verifyEmail');
 $routes->get('gambar-privat', 'User\Home::loadImage');
 $routes->get('sitemap', 'Home::sitemap');
@@ -53,16 +52,6 @@ $routes->group('masuk', static function ($routes) {
 $routes->group('profil', static function ($routes) {
     $routes->get('/', 'User\Profile::index');
     $routes->put('/', 'User\Profile::index');
-});
-
-$routes->group('sandbox', static function ($routes) {
-    $routes->get('/', 'Sandbox\Home::sandboxOne');
-    $routes->put('/', 'Sandbox\Home::sandboxOne');
-});
-
-$routes->group('sandbox2', static function ($routes) {
-    $routes->get('/', 'Sandbox\Home::sandboxTwo');
-    $routes->put('/', 'Sandbox\Home::sandboxTwo');
 });
 
 $routes->group('lupa-kata-sandi', static function ($routes) {
@@ -103,6 +92,49 @@ $routes->group('konten', static function ($routes) {
                 $routes->put('/', 'Content\OrganizationProfile::memberCrud/$1');
             });
         });
+    });
+});
+
+$routes->group('data', static function ($routes) {
+    $routes->group('pmks', static function ($routes) {
+        $routes->get('/', 'Data\Pmks::index');
+        $routes->put('/', 'Data\Pmks::index');
+        $routes->get('gambar', 'Data\Pmks::getImages');
+        $routes->delete('/', 'Data\Pmks::index');
+        $routes->group('tambah', static function ($routes) {
+            $routes->get('/', 'Data\Pmks::crud');
+            $routes->post('/', 'Data\Pmks::crud');
+        });
+        $routes->group('tambah-spreadsheet', static function ($routes) {
+            $routes->get('/', 'Data\Pmks::spreadsheetCrud');
+            $routes->post('/', 'Data\Pmks::spreadsheetCrud');
+        });
+        $routes->group('(:alphanum)', static function ($routes) {
+            $routes->get('/', 'Data\Pmks::crud/$1');
+            $routes->put('/', 'Data\Pmks::crud/$1');
+        });
+    });
+    $routes->group('psks', static function ($routes) {
+        $routes->get('/', 'Data\Psks::index');
+        $routes->put('/', 'Data\Psks::index');
+        $routes->get('gambar', 'Data\Psks::getImages');
+        $routes->delete('/', 'Data\Psks::index');
+        $routes->group('tambah', static function ($routes) {
+            $routes->get('/', 'Data\Psks::crud');
+            $routes->post('/', 'Data\Psks::crud');
+        });
+        $routes->group('tambah-spreadsheet', static function ($routes) {
+            $routes->get('/', 'Data\Psks::spreadsheetCrud');
+            $routes->post('/', 'Data\Psks::spreadsheetCrud');
+        });
+        $routes->group('(:alphanum)', static function ($routes) {
+            $routes->get('/', 'Data\Psks::crud/$1');
+            $routes->put('/', 'Data\Psks::crud/$1');
+        });
+    });
+    $routes->group('pesan', static function ($routes) {
+        $routes->get('/', 'Data\Messages::index');
+        $routes->delete('/', 'Data\Messages::index');
     });
 });
 

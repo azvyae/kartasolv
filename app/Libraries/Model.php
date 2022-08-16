@@ -99,4 +99,15 @@ class Model extends OriginalModel
         ];
         return $data;
     }
+
+    protected function setDeletedBy(array $data)
+    {
+        if ($this->useSoftDeletes) {
+            $this->builder();
+            foreach ($data['id'] as $id) {
+                $this->builder->orWhere($this->primaryKey, $id);
+            }
+            $this->builder->update(['deleted_by' => checkAuth('userId')]);
+        }
+    }
 }

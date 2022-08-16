@@ -9,10 +9,8 @@ class MenuModel extends Model
 {
     protected $table = 'menu';
     protected $primaryKey = 'menu_id';
-    protected $useTimestamps = 'true';
     protected $allowedFields = ['menu_string'];
     protected $returnType     = 'object';
-    protected $useSoftDeletes = false;
 
     public function getMenuId($controllerName)
     {

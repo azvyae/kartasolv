@@ -12,7 +12,6 @@ class UsersModel extends Model
     protected $useTimestamps = 'true';
     protected $allowedFields = ['user_name', 'user_email', 'user_password', 'user_temp_mail', 'user_change_mail', 'user_reset_attempt', 'user_last_login'];
     protected $returnType     = 'object';
-    protected $useSoftDeletes = true;
     protected $validationRules = [
         'user_name' => [
             'label' => 'Nama',

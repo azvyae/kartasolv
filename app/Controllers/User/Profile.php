@@ -31,6 +31,9 @@ class Profile extends BaseController
 
     private function _updateProfile()
     {
+        if ($referrer = acceptFrom('profil')) {
+            return redirect()->to($referrer);
+        }
         $rules  = $this->um->getValidationRules(
             [
                 'except' => ['user_password', 'user_new_password', 'password_verify'],
