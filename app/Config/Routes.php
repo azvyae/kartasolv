@@ -38,6 +38,7 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'Home::index');
 $routes->get('sejarah', 'Home::history');
 $routes->get('hubungi-kami', 'Home::contactUs');
+$routes->post('hubungi-kami', 'Home::contactUs');
 $routes->get('dasbor', 'User\Home::index');
 $routes->get('verifikasi', 'Auth::verifyEmail');
 $routes->get('gambar-privat', 'User\Home::loadImage');

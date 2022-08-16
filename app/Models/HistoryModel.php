@@ -58,16 +58,16 @@ class HistoryModel extends Model
         ],
         'image_a' => [
             'label' => 'Gambar 1',
-            'rules' => 'is_image[image_a]|ext_in[image_a,png,jpg,jpeg,webp]|uploaded[image_a]|max_size[image_a,2048]',
+            'rules' => 'is_image[image_a]|ext_in[image_a,png,jpg,jpeg,webp]|uploaded[image_a]|max_size[image_a,1024]',
             'errors' => [
-                'max_size' => 'Maksimal ukuran berkas adalah 2 MB!'
+                'max_size' => 'Maksimal ukuran berkas adalah 1 MB!'
             ]
         ],
         'image_b' => [
             'label' => 'Gambar 2',
-            'rules' => 'is_image[image_b]|ext_in[image_b,png,jpg,jpeg,webp]|uploaded[image_b]|max_size[image_b,2048]',
+            'rules' => 'is_image[image_b]|ext_in[image_b,png,jpg,jpeg,webp]|uploaded[image_b]|max_size[image_b,1024]',
             'errors' => [
-                'max_size' => 'Maksimal ukuran berkas adalah 2 MB!'
+                'max_size' => 'Maksimal ukuran berkas adalah 1 MB!'
             ]
         ],
 

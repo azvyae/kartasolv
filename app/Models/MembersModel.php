@@ -42,9 +42,9 @@ class MembersModel extends Model
         ],
         'member_image' => [
             'label' => 'Foto Pengurus',
-            'rules' => 'is_image[member_image]|ext_in[member_image,png,jpg,jpeg,webp]|uploaded[member_image]|max_size[member_image,4096]',
+            'rules' => 'is_image[member_image]|ext_in[member_image,png,jpg,jpeg,webp]|uploaded[member_image]|max_size[member_image,1024]',
             'errors' => [
-                'max_size' => 'Maksimal ukuran berkas adalah 4 MB!'
+                'max_size' => 'Maksimal ukuran berkas adalah 1 MB!'
             ]
         ],
 

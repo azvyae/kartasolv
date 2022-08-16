@@ -40,7 +40,10 @@ class LandingModel extends Model
         ],
         'landing_image' => [
             'label' => 'Gambar pada Landing (visi)',
-            'rules' => 'is_image[landing_image]|ext_in[landing_image,png,jpg,jpeg,webp]|uploaded[landing_image]|max_size[landing_image,2048]',
+            'rules' => 'is_image[landing_image]|ext_in[landing_image,png,jpg,jpeg,webp]|uploaded[landing_image]|max_size[landing_image,1024]',
+            'errors' => [
+                'max_size' => 'Ukuran maksimal gambar adalah 1 MB'
+            ]
         ],
 
     ];

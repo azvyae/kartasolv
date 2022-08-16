@@ -14,9 +14,9 @@ class PmpsksImgModel extends Model
     protected $validationRules = [
         'pmpsks_img_loc' => [
             'label' => 'Foto Data PMKS/PSKS',
-            'rules' => 'is_image[pmpsks_img_loc]|ext_in[pmpsks_img_loc,png,jpg,jpeg,webp]|uploaded[pmpsks_img_loc]|max_size[pmpsks_img_loc,4096]',
+            'rules' => 'is_image[pmpsks_img_loc]|ext_in[pmpsks_img_loc,png,jpg,jpeg,webp]|uploaded[pmpsks_img_loc]|max_size[pmpsks_img_loc,1024]',
             'errors' => [
-                'max_size' => 'Maksimal ukuran berkas adalah 4 MB!'
+                'max_size' => 'Maksimal ukuran berkas adalah 1 MB!'
             ]
         ],
 
