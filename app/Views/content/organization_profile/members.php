@@ -44,7 +44,7 @@
                     data: "member_name",
                     className: 'text-center text-lg-start',
                     render: function(data, type, row) {
-                        return `<img id="id-${row.member_name}"  loading="lazy" onerror="imageFallbackOption(this,'${row.member_name}')" class="rounded-circle img-fluid me-2" style="object-fit: cover;width:48px; height:48px"  src="${row.member_image}" alt="Foto Pengurus" />
+                        return `<img id="id-${row.member_name}"  loading="lazy" onerror="imageFallbackOption(this,'${row.member_name}')" class="rounded-circle img-fluid me-2" style="object-fit: cover;width:48px; height:48px; object-position: top;"  src="${row.member_image}" alt="Foto Pengurus" />
                         <div class="d-block d-lg-inline fw-semibold fs-6">${row.member_name}</div>`;
                     },
 
