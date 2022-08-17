@@ -7,6 +7,11 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
 /**
+ * Security Filter are filter interface that runs before controller executed.
+ * 
+ * This Security Filter firstly, run checkAuth method.
+ * @see https://codeigniter.com/user_guide for complete instructions
+ * 
  * @package Kartasolv\Filters
  */
 class SecurityFilter implements FilterInterface
@@ -14,9 +19,6 @@ class SecurityFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         return checkAuth();
-        if (strpos(service('router')->controllerName(), "\App\Controllers\Sandbox") !== FALSE && getenv('CI_ENVIRONMENT') === 'production') {
-            return redirect()->to('/');
-        }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

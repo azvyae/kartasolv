@@ -513,7 +513,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Filters\\SecurityFilter",
             "name": "SecurityFilter",
-            "summary": "",
+            "summary": "Security\u0020Filter\u0020are\u0020filter\u0020interface\u0020that\u0020runs\u0020before\u0020controller\u0020executed.",
             "url": "classes/App-Filters-SecurityFilter.html"
         },                {
             "fqsen": "\\App\\Filters\\SecurityFilter\u003A\u003Abefore\u0028\u0029",
@@ -528,17 +528,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\checkAuth\u0028\u0029",
             "name": "checkAuth",
-            "summary": "",
+            "summary": "Main\u0020authentication\u0020function\u0020for\u0020Kartasolv\u0020application.",
             "url": "namespaces/default.html#function_checkAuth"
-        },                {
-            "fqsen": "\\isExcluded\u0028\u0029",
-            "name": "isExcluded",
-            "summary": "",
-            "url": "namespaces/default.html#function_isExcluded"
         },                {
             "fqsen": "\\filterOutput\u0028\u0029",
             "name": "filterOutput",
-            "summary": "",
+            "summary": "Filters\u0020data\u0020from\u0020Object,\u0020Array,\u0020or\u0020String\u0020to\u0020be\u0020escaped.",
             "url": "namespaces/default.html#function_filterOutput"
         },                {
             "fqsen": "\\htmlEscape\u0028\u0029",
@@ -548,42 +543,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\encode\u0028\u0029",
             "name": "encode",
-            "summary": "",
+            "summary": "Encode\u0020data\u0020to\u0020random\u0020string.\u0020Useful\u0020for\u0020encode\u0020ID\u0020data.",
             "url": "namespaces/default.html#function_encode"
         },                {
             "fqsen": "\\decode\u0028\u0029",
             "name": "decode",
-            "summary": "",
+            "summary": "Decode\u0020data\u0020to\u0020random\u0020string.\u0020Useful\u0020for\u0020decode\u0020ID\u0020data.",
             "url": "namespaces/default.html#function_decode"
         },                {
             "fqsen": "\\show404\u0028\u0029",
             "name": "show404",
-            "summary": "",
+            "summary": "Showing\u0020404\u0020page.",
             "url": "namespaces/default.html#function_show404"
         },                {
             "fqsen": "\\getCaptchaSitekey\u0028\u0029",
             "name": "getCaptchaSitekey",
-            "summary": "",
+            "summary": "Retrieve\u0020Captcha\u0020Sitekey.",
             "url": "namespaces/default.html#function_getCaptchaSitekey"
         },                {
             "fqsen": "\\kartaPasswordHash\u0028\u0029",
             "name": "kartaPasswordHash",
-            "summary": "",
+            "summary": "Hash\u0020raw\u0020string\u0020to\u0020a\u0020password.",
             "url": "namespaces/default.html#function_kartaPasswordHash"
         },                {
             "fqsen": "\\kartaPasswordVerify\u0028\u0029",
             "name": "kartaPasswordVerify",
-            "summary": "",
+            "summary": "Verify\u0020string\u0020input\u0020to\u0020hashed\u0020password.",
             "url": "namespaces/default.html#function_kartaPasswordVerify"
         },                {
             "fqsen": "\\getMethod\u0028\u0029",
             "name": "getMethod",
-            "summary": "",
+            "summary": "Simplification\u0020retrieving\u0020method\u0020from\u0020Services.",
             "url": "namespaces/default.html#function_getMethod"
         },                {
             "fqsen": "\\acceptFrom\u0028\u0029",
             "name": "acceptFrom",
-            "summary": "",
+            "summary": "Redirection\u0020function\u0020when\u0020submitted\u0020form\u0020source\/referrer\u0020is\u0020not\u0020from\u0020correct\u0020route.",
             "url": "namespaces/default.html#function_acceptFrom"
         },                {
             "fqsen": "\\removeProtocol\u0028\u0029",

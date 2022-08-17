@@ -4,6 +4,10 @@ use Config\Services;
 use Hashids\Hashids;
 
 /**
+ * Main authentication function for Kartasolv application.
+ * 
+ * @param mixed $data Gather information from session.
+ * @return mixed Could be redirection or session data.
  * @package Kartasolv\Helpers\security
  */
 function checkAuth($data = null)
@@ -23,7 +27,10 @@ function checkAuth($data = null)
             $isGranted = $roleAccessModel->getRoleAccessId($roleId, $thisMenu) !== NULL;
         }
         if ($session->user) {
-            if ($controllerName === 'Auth' && !isExcluded(getMethod() . '::' . $router->methodName())) {
+            if ($controllerName === 'Auth' && !in_array(getMethod() . '::' . $router->methodName(), [
+                'delete::index',
+                'get::verifyEmail'
+            ])) {
                 return redirect()->to('dasbor');
             }
         }
@@ -40,17 +47,10 @@ function checkAuth($data = null)
 }
 
 /**
- * @package Kartasolv\Helpers\security
- */
-function isExcluded($str)
-{
-    return in_array($str, [
-        'delete::index',
-        'get::verifyEmail'
-    ]);
-}
-
-/**
+ * Filters data from Object, Array, or String to be escaped.
+ * 
+ * @param mixed $data Data that would like filtered.
+ * @return mixed Filtered data.
  * @package Kartasolv\Helpers\security
  */
 function filterOutput($data)
@@ -73,22 +73,20 @@ function filterOutput($data)
 
 /**
  * Returns HTML escaped variable.
- * @package Kartasolv\Helpers\security
  * @param	mixed	$var		The input string or array of strings to be escaped.
  * @param	bool	$double_encode	$double_encode set to FALSE prevents escaping twice.
  * @return	mixed			The escaped string or array of strings as a result.
+ * @package Kartasolv\Helpers\security
  */
 function htmlEscape($var, $double_encode = TRUE)
 {
     if (empty($var)) {
         return $var;
     }
-
     if (is_array($var)) {
         foreach (array_keys($var) as $key) {
             $var[$key] = htmlEscape($var[$key], $double_encode);
         }
-
         return $var;
     }
 
@@ -96,6 +94,13 @@ function htmlEscape($var, $double_encode = TRUE)
 }
 
 /**
+ * Encode data to random string. Useful for encode ID data.
+ * 
+ * @param string|int $data Data to be encoded, only accept integers.
+ * @param string $type random key to be included when encoding data.
+ * 
+ * @return string Encoded data.
+ * 
  * @package Kartasolv\Helpers\security
  */
 function encode($data, $type = '')
@@ -105,6 +110,13 @@ function encode($data, $type = '')
 }
 
 /**
+ * Decode data to random string. Useful for decode ID data.
+ * 
+ * @param string $data Data to be decoded, only accept string.
+ * @param string $type random key to be included when encoding data.
+ * 
+ * @return mixed Decoded data.
+ * 
  * @package Kartasolv\Helpers\security
  */
 function decode($data, $type = '')
@@ -115,6 +127,9 @@ function decode($data, $type = '')
 }
 
 /**
+ * Showing 404 page.
+ * 
+ * @throws \CodeIgniter\Exceptions\PageNotFoundException 404 Not Found.
  * @package Kartasolv\Helpers\security
  */
 function show404()
@@ -123,6 +138,9 @@ function show404()
 }
 
 /**
+ * Retrieve Captcha Sitekey.
+ * 
+ * @return string Captcha Site Key.
  * @package Kartasolv\Helpers\security
  */
 function getCaptchaSitekey()
@@ -131,6 +149,10 @@ function getCaptchaSitekey()
 }
 
 /**
+ * Hash raw string to a password.
+ * 
+ * @param string $password Password input to be hashed (saved on database).
+ * @return string Hashed password.
  * @package Kartasolv\Helpers\security
  */
 function kartaPasswordHash(String $password)
@@ -139,6 +161,11 @@ function kartaPasswordHash(String $password)
 }
 
 /**
+ * Verify string input to hashed password.
+ * 
+ * @param string $password Raw string password input.
+ * @param string $hash Hashed password
+ * @return bool  Returns TRUE if the password and hash match, or FALSE otherwise.
  * @package Kartasolv\Helpers\security
  */
 function kartaPasswordVerify(String $password, String $hash)
@@ -147,6 +174,10 @@ function kartaPasswordVerify(String $password, String $hash)
 }
 
 /**
+ * Simplification retrieving method from Services.
+ * @param mixed $method Method to be verified, if set null, this function
+ * only retrieve HTTP Method sent.
+ * @return bool|string Returns true/false if parameter provided, otherwise return method string.
  * @package Kartasolv\Helpers\security
  */
 function getMethod($method = null)
@@ -158,6 +189,9 @@ function getMethod($method = null)
 }
 
 /**
+ * Redirection function when submitted form source/referrer is not from correct route.
+ * @param string $routes Route to be checked.
+ * @return bool|string Return false or go to referrer
  * @package Kartasolv\Helpers\security
  */
 function acceptFrom($routes = '')
