@@ -36,7 +36,6 @@ class Home extends BaseController
     public function contactUs()
     {
         helper('form');
-        // dd(getMethod(), $this->request->getPost());
         if (getMethod('post')) {
             return $this->_sendMessage();
         }

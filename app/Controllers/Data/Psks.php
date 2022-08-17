@@ -5,9 +5,37 @@ namespace App\Controllers\Data;
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
 
+/**
+ * This controller shows PSKS data.
+ * 
+ * This controller basicly shows messages data with Datatables, this controller also have some
+ * procedure to delete and toggle Community Status shown in the Datatables.
+ * 
+ * @package Controllers\Data
+ */
 class Psks extends BaseController
 {
-    protected $cm, $pim, $pm;
+    /**
+     * CommunitiesModel initiator.
+     * @var \App\Models\CommunitiesModel $cm
+     */
+    protected $cm;
+
+    /**
+     *  PmpsksImgModel initiator. 
+     * @var \App\Models\PmpsksImgModel $pim
+     */
+    protected $pim;
+
+    /** 
+     * PmpsksModel initiator.
+     * @var \App\Models\PmpsksModel $pm
+     */
+    protected $pm;
+
+    /**
+     * Constructor provided to prepare every model.
+     */
     public function __construct()
     {
         $this->cm = new \App\Models\CommunitiesModel();
@@ -15,6 +43,11 @@ class Psks extends BaseController
         $this->pm = new \App\Models\PmpsksModel();
     }
 
+    /**
+     * Prepare basic view for PSKS table.
+     * It can also accept get, put and delete HTTP method.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void View, Redirection, or AJAX Response.
+     */
     public function index()
     {
         if ($this->request->isAJAX()) {
@@ -45,6 +78,10 @@ class Psks extends BaseController
         return view('data/psks/index', $data);
     }
 
+    /**
+     * PSKS Datatables generator.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _datatable()
     {
         if ($referrer = acceptFrom('data/psks')) {
@@ -85,6 +122,10 @@ class Psks extends BaseController
         echo json_encode($output);
     }
 
+    /**
+     * PSKS update read/unread ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _updateStatus()
     {
         if ($referrer = acceptFrom('data/psks')) {
@@ -119,6 +160,10 @@ class Psks extends BaseController
         echo json_encode($response);
     }
 
+    /**
+     * Delete PSKS data ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _delete()
     {
         if ($referrer = acceptFrom('data/psks')) {
@@ -150,6 +195,17 @@ class Psks extends BaseController
         echo json_encode($response);
     }
 
+    /**
+     * Create form view for creating
+     * and updating PSKS data.
+     * 
+     * @param string $communityId If no parameter provided, this method will show
+     * create PSKS data form view, otherwise it will show existing PSKS data.
+     * 
+     * @throws \CodeIgniter\Exceptions\PageNotFoundException 404 Not Found
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse View or Redirection.
+     */
     public function crud($communityId = '')
     {
         helper('form');
@@ -188,6 +244,11 @@ class Psks extends BaseController
         return view('data/psks/crud', $data);
     }
 
+    /**
+     * Create form view for creating
+     * PSKS data with Spreadsheet.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
+     */
     public function spreadsheetCrud()
     {
         if (getMethod('post')) {
@@ -258,6 +319,15 @@ class Psks extends BaseController
         return view('data/psks/spreadsheet_crud', $data);
     }
 
+    /**
+     * Form validation and procedure
+     * to save data with PmpsksModel.
+     * 
+     * @param string $communityId If no parameter provided, this method will show
+     * create PSKS data form view, otherwise it will show existing PSKS data.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _crud($communityId = null)
     {
         if ($referrer = acceptFrom('data/psks/' . ($communityId ?? 'tambah'))) {
@@ -356,8 +426,15 @@ class Psks extends BaseController
         return redirect()->to('data/psks/' . ($communityId ?? 'tambah'))->withInput();
     }
 
+    /**
+     * Get PSKS data images ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     public function getImages()
     {
+        if ($referrer = acceptFrom('data/pmks')) {
+            return redirect()->to($referrer);
+        }
         $communityId = decode($this->request->getGet('uuid'), 'psks');
         if (!$this->request->isAJAX() || !$communityId) {
             return redirect()->to('data/psks');

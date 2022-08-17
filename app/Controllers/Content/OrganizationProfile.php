@@ -5,15 +5,56 @@ namespace App\Controllers\Content;
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
 
+/**
+ * This controller provides content management controller for displaying contents in host route.
+ * 
+ * This controller has some methods including index page, *mainInfo* page that provides main information
+ * on the landing page, updating main info, *ourActivities* methods are for providing information about
+ * activities info section in the landing page, and lastly, this controller provides information about
+ * *members* of the organization.
+ * 
+ * The *members* method is slightly different than other methods on this controller because it is
+ * implemented dynamic *Datatables* with server side data processing. It also provides create update and
+ * delete functions.
+ * 
+ * @package Controllers\Content
+ */
 class OrganizationProfile extends BaseController
 {
-    protected $lm, $am, $mm;
+    /**
+     * LandingModel initiator 
+     * @var \App\Models\LandingModel $lm
+     */
+    protected $lm;
+
+    /** 
+     * ActivitiesModel initiator
+     * @var \App\Models\ActivitiesModel $am 
+     */
+    protected $am;
+
+    /** MembersModel initiator
+     * @var \App\Models\MembersModel $mm 
+     */
+    protected $mm;
+
+    /**
+     * Prepare LandingModel, ActivitiesModel, MembersModel for every
+     * method available for simplicity.
+     */
     public function __construct()
     {
         $this->lm = new \App\Models\LandingModel();
         $this->am = new \App\Models\ActivitiesModel();
         $this->mm = new \App\Models\MembersModel();
     }
+
+    /**
+     * Create view for index page navigation for
+     * changing landing information.
+     * 
+     * @return string View.
+     */
     public function index()
     {
         $data = [
@@ -22,6 +63,12 @@ class OrganizationProfile extends BaseController
         ];
         return view('content/organization_profile/index', $data);
     }
+
+    /**
+     * Create view form for mainInfo.
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse View or Redirection.
+     */
     public function mainInfo()
     {
         if (getMethod('put')) {
@@ -35,6 +82,13 @@ class OrganizationProfile extends BaseController
         ];
         return view('content/organization_profile/main_info', $data);
     }
+
+    /**
+     * Form validation and save data by model for mainInfo.
+     * It also have string parser procedure when retrieving mission input.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _updateMainInfo()
     {
         if ($referrer = acceptFrom('konten/profil-karang-taruna/info-utama')) {
@@ -48,9 +102,7 @@ class OrganizationProfile extends BaseController
             return redirect()->to('konten/profil-karang-taruna/info-utama')->withInput();
         }
         $postData = $this->request->getPost();
-        /**
-         * Parsing regular textarea string to list of missions
-         */
+
         $postData['mission'] = implode('\n', array_filter(
             array_map(function ($e) {
                 $e = explode('[', ltrim(trim($e), '-'));
@@ -60,9 +112,6 @@ class OrganizationProfile extends BaseController
             }, explode(']', $postData['mission']))
         ));
 
-        /**
-         * Base update data
-         */
         $updateData = [
             'id' => 1,
             'landing_title' => $postData['landing_title'],
@@ -71,9 +120,6 @@ class OrganizationProfile extends BaseController
             'mission' => $postData['mission']
         ];
 
-        /**
-         * Image upload handler
-         */
         $savedImagePath = '';
         if ($img->getSize() > 0) {
             $imageUploader = new ImageUploader;
@@ -91,9 +137,6 @@ class OrganizationProfile extends BaseController
             }
         }
 
-        /**
-         * Call to action update data
-         */
         if ($postData['cta_text']) {
             $updateData += [
                 'cta_text' => $postData['cta_text'],
@@ -121,6 +164,12 @@ class OrganizationProfile extends BaseController
         setFlash($flash);
         return redirect()->to('konten/profil-karang-taruna/info-utama')->withInput();
     }
+
+    /**
+     * Create view form for ourActivities.
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse View or Redirection.
+     */
     public function ourActivities()
     {
         if (getMethod('put')) {
@@ -135,6 +184,11 @@ class OrganizationProfile extends BaseController
         return view('content/organization_profile/our_activities', $data);
     }
 
+    /**
+     * Form validation for ourActivities.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _updateOurActivities()
     {
         if ($referrer = acceptFrom('konten/profil-karang-taruna/kegiatan-kami')) {
@@ -153,9 +207,7 @@ class OrganizationProfile extends BaseController
         if (!$this->validate($rules)) {
             return redirect()->to('konten/profil-karang-taruna/kegiatan-kami')->withInput();
         }
-        /**
-         * Base update data
-         */
+
         $updateData = [
             'id' => 1,
             'title_a' => $postData['title_a'],
@@ -166,9 +218,6 @@ class OrganizationProfile extends BaseController
             'desc_c' => $postData['desc_c'],
         ];
 
-        /**
-         * Image upload handler
-         */
         $savedImagePaths = [];
         foreach ($images as $field => $img) {
             if ($img->getSize() > 0) {
@@ -210,6 +259,11 @@ class OrganizationProfile extends BaseController
         return redirect()->to('konten/profil-karang-taruna/kegiatan-kami')->withInput();
     }
 
+    /**
+     * Prepare basic view for members table before retrieve its data from datatables.
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void View, Redirection, or AJAX Response.
+     */
     public function members()
     {
         if ($this->request->isAJAX()) {
@@ -230,6 +284,11 @@ class OrganizationProfile extends BaseController
         return view('content/organization_profile/members', $data);
     }
 
+    /**
+     * Members Datatables generator.
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _membersDatatable()
     {
         if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus')) {
@@ -269,6 +328,11 @@ class OrganizationProfile extends BaseController
         echo json_encode($output);
     }
 
+    /**
+     * Members delete ajax call.
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _delete()
     {
         if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus')) {
@@ -299,15 +363,25 @@ class OrganizationProfile extends BaseController
         echo json_encode($response);
     }
 
+    /**
+     * Create form view for creating and updating member data.
+     * 
+     * @param string $memberId If no parameter provided, this method will show
+     * create member data form view, otherwise it will show existing member data.
+     * 
+     * @throws \CodeIgniter\Exceptions\PageNotFoundException 404 Not Found
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse View or Redirection
+     */
     public function memberCrud($memberId = '')
     {
         helper('form');
         switch (getMethod()) {
             case 'post':
-                $this->_memberCrud();
+                return $this->_memberCrud();
                 break;
             case 'put':
-                $this->_memberCrud($memberId);
+                return $this->_memberCrud($memberId);
                 break;
             default:
                 break;
@@ -335,7 +409,15 @@ class OrganizationProfile extends BaseController
         return view('content/organization_profile/member_crud', $data);
     }
 
-    private function _memberCrud($memberId = null)
+    /**
+     * Form validation and save data handler for members.
+     * 
+     * @param string $memberId If no parameter provided, this method will show
+     * create member data form view, otherwise it will show existing member data.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
+    private function _memberCrud($memberId = '')
     {
         if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))) {
             return redirect()->to($referrer);
@@ -352,9 +434,7 @@ class OrganizationProfile extends BaseController
         if (!$this->validate($rules)) {
             return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))->withInput();
         }
-        /**
-         * Base update data
-         */
+
         $data = [
             'member_name' => $this->request->getPost('member_name'),
             'member_position' => $this->request->getPost('member_position'),
@@ -362,9 +442,6 @@ class OrganizationProfile extends BaseController
             'member_active' => $memberActive
         ];
 
-        /**
-         * Image upload handler
-         */
         $savedImagePath = '';
         if ($img->getSize() > 0) {
             $imageUploader = new ImageUploader;

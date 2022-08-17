@@ -4,8 +4,19 @@ namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
 
+/**
+ * This controller used for dashboard and load private images (logged in only).
+ * 
+ * This controller has 2 method, index and loadImage.
+ * 
+ * @package Controllers\User
+ */
 class Home extends BaseController
 {
+    /**
+     * Prepare dashboard view
+     * @return string View.
+     */
     public function index()
     {
         $roleName = checkAuth('roleName');
@@ -16,6 +27,13 @@ class Home extends BaseController
         return view('user/home/index', $data);
     }
 
+    /**
+     * Provides function call for private images, called from host/gambar-private?q=... url
+     * 
+     * @throws \CodeIgniter\Exceptions\PageNotFoundException 404 Not Found
+     * 
+     * @return string|false|\CodeIgniter\HTTP\RedirectResponse ImageString or Redirection.
+     */
     public function loadImage()
     {
         if (strpos($this->request->getGet('q'), '..') !== false) {

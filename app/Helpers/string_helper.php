@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @package Helpers\string
+ */
 function removeProtocol($url)
 {
     $disallowed = ['http://', 'https://'];
@@ -11,17 +14,26 @@ function removeProtocol($url)
     return $url;
 }
 
+/**
+ * @package Helpers\string
+ */
 function addProtocol($url, $protocol = 'https://')
 {
     $url = removeProtocol($url);
     return $protocol . $url;
 }
 
+/**
+ * @package Helpers\string
+ */
 function objectify($data)
 {
     return json_decode(json_encode($data));
 }
 
+/**
+ * @package Helpers\string
+ */
 function setFlash($flash)
 {
     $session = session();
@@ -31,8 +43,9 @@ function setFlash($flash)
         $session->setFlashdata('condition', $flash['condition']);
     }
 }
+
 /**
- * Style your flashdata here!
+ * @package Helpers\string
  */
 function getFlash($key)
 {
@@ -47,6 +60,9 @@ function getFlash($key)
     }
 }
 
+/**
+ * @package Helpers\string
+ */
 function parseMission($string)
 {
     $mission = objectify(getMissions($string));
@@ -58,12 +74,18 @@ function parseMission($string)
 }
 
 
+/**
+ * @package Helpers\string
+ */
 function setInvalid($name)
 {
 
     return service('validation')->hasError($name) ? ' is-invalid ' : '';
 }
 
+/**
+ * @package Helpers\string
+ */
 function showInvalidFeedback($name)
 {
     return service('validation')->getError($name);
@@ -71,6 +93,9 @@ function showInvalidFeedback($name)
 
 use Config\Database;
 
+/**
+ * @package Helpers\string
+ */
 function countTable($table, $param = '')
 {
     if ($param) {

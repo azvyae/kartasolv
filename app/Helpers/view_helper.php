@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * @package Helpers\view
+ */
+
 function isSamePage($pageToCheck)
 {
     helper('url');
     return ($pageToCheck === uri_string()) ? ' active ' : '';
 }
 
+/**
+ * @package Helpers\view
+ */
 function getSidebarMenu()
 {
     $roleId = checkAuth('roleId');
@@ -13,6 +20,9 @@ function getSidebarMenu()
     return $ram->getPageByRole($roleId);
 }
 
+/**
+ * @package Helpers\view
+ */
 function isSameController($controllerToCheck)
 {
     $router = service('router');
@@ -22,6 +32,9 @@ function isSameController($controllerToCheck)
     return $controllerToCheck === str_replace("\App\Controllers\\", '', $router->controllerName());
 }
 
+/**
+ * @package Helpers\view
+ */
 function getCallToAction()
 {
     $lm = new \App\Models\LandingModel();
@@ -37,6 +50,9 @@ function getCallToAction()
     return false;
 }
 
+/**
+ * @package Helpers\view
+ */
 function getUserName()
 {
     $um = new \App\Models\UsersModel;
@@ -44,6 +60,7 @@ function getUserName()
 }
 
 /**
+ * @package Helpers\view
  * @return array
  */
 function getMissions($data)

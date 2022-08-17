@@ -2,14 +2,32 @@
 
 namespace App\Controllers;
 
+/**
+ * Authentication Controller.
+ *
+ * This controller has some crucial authentication methods from login,
+ * logging out, forget password, reset password, verifying email, and
+ * setting session.
+ * 
+ * @property \App\Models\UsersModel $um UsersModel initiator.
+ * 
+ * @package Controllers
+ */
 class Auth extends BaseController
 {
     private $um;
+    /**
+     * Construct UsersModel.
+     */
     public function __construct()
     {
         $this->um = new \App\Models\UsersModel();
     }
 
+    /**
+     * Shows login page and its form.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string
+     */
     public function index()
     {
         switch (getMethod()) {
@@ -28,6 +46,11 @@ class Auth extends BaseController
         return view('auth/index', $data);
     }
 
+    /**
+     * Validate login form, sending email through post form
+     * and verify password.
+     * @return \CodeIgniter\HTTP\RedirectResponse
+     */
     private function _login()
     {
         if ($referrer = acceptFrom('masuk')) {

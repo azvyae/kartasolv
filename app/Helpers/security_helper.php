@@ -3,6 +3,9 @@
 use Config\Services;
 use Hashids\Hashids;
 
+/**
+ * @package Helpers\security
+ */
 function checkAuth($data = null)
 {
     $session = session();
@@ -36,6 +39,9 @@ function checkAuth($data = null)
     return null;
 }
 
+/**
+ * @package Helpers\security
+ */
 function isExcluded($str)
 {
     return in_array($str, [
@@ -44,6 +50,9 @@ function isExcluded($str)
     ]);
 }
 
+/**
+ * @package Helpers\security
+ */
 function filterOutput($data)
 {
     if (is_object($data)) {
@@ -64,7 +73,7 @@ function filterOutput($data)
 
 /**
  * Returns HTML escaped variable.
- *
+ * @package Helpers\security
  * @param	mixed	$var		The input string or array of strings to be escaped.
  * @param	bool	$double_encode	$double_encode set to FALSE prevents escaping twice.
  * @return	mixed			The escaped string or array of strings as a result.
@@ -86,12 +95,18 @@ function htmlEscape($var, $double_encode = TRUE)
     return htmlspecialchars($var, ENT_QUOTES, config('charset'), $double_encode);
 }
 
+/**
+ * @package Helpers\security
+ */
 function encode($data, $type = '')
 {
     $hashids = new Hashids($type . substr(getenv('encryption.kartaKey'), strlen($type)), 16);
     return $hashids->encode($data);
 }
 
+/**
+ * @package Helpers\security
+ */
 function decode($data, $type = '')
 {
     $hashids = new Hashids($type . substr(getenv('encryption.kartaKey'), strlen($type)), 16);
@@ -99,26 +114,41 @@ function decode($data, $type = '')
     return $decoded[0] ?? NULL;
 }
 
+/**
+ * @package Helpers\security
+ */
 function show404()
 {
     throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
 }
 
+/**
+ * @package Helpers\security
+ */
 function getCaptchaSitekey()
 {
     return getenv('recaptcha.sitekey');
 }
 
+/**
+ * @package Helpers\security
+ */
 function kartaPasswordHash(String $password)
 {
     return password_hash($password, PASSWORD_ARGON2I, ['cost' => 10]) . strlen($password);
 }
 
+/**
+ * @package Helpers\security
+ */
 function kartaPasswordVerify(String $password, String $hash)
 {
     return password_verify($password, substr($hash, 0, strlen($hash) - strlen((string)strlen($password))));
 }
 
+/**
+ * @package Helpers\security
+ */
 function getMethod($method = null)
 {
     if (!$method) {
@@ -127,6 +157,9 @@ function getMethod($method = null)
     return service('request')->getMethod() === $method;
 }
 
+/**
+ * @package Helpers\security
+ */
 function acceptFrom($routes = '')
 {
     if (getenv('CI_ENVIRONMENT') !== 'testing') {

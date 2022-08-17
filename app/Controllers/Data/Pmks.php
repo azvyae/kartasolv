@@ -5,9 +5,37 @@ namespace App\Controllers\Data;
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
 
+/**
+ * This controller shows PMKS data.
+ * 
+ * This controller basicly shows messages data with Datatables, this controller also have some
+ * procedure to delete and toggle Community Status shown in the Datatables.
+ * 
+ * @package Controllers\Data
+ */
 class Pmks extends BaseController
 {
-    protected $cm, $pim, $pm;
+    /**
+     * CommunitiesModel initiator.
+     * @var \App\Models\CommunitiesModel $cm
+     */
+    protected $cm;
+
+    /**
+     *  PmpsksImgModel initiator. 
+     * @var \App\Models\PmpsksImgModel $pim
+     */
+    protected $pim;
+
+    /** 
+     * PmpsksModel initiator.
+     * @var \App\Models\PmpsksModel $pm
+     */
+    protected $pm;
+
+    /**
+     * Constructor provided to prepare every model.
+     */
     public function __construct()
     {
         $this->cm = new \App\Models\CommunitiesModel();
@@ -15,6 +43,11 @@ class Pmks extends BaseController
         $this->pm = new \App\Models\PmpsksModel();
     }
 
+    /**
+     * Prepare basic view for PMKS table.
+     * It can also accept get, put and delete HTTP method.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void View, Redirection, or AJAX Response.
+     */
     public function index()
     {
         if ($this->request->isAJAX()) {
@@ -45,6 +78,10 @@ class Pmks extends BaseController
         return view('data/pmks/index', $data);
     }
 
+    /**
+     * PMKS Datatables generator.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _datatable()
     {
         if ($referrer = acceptFrom('data/pmks')) {
@@ -85,6 +122,10 @@ class Pmks extends BaseController
         echo json_encode($output);
     }
 
+    /**
+     * PMKS update read/unread ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _updateStatus()
     {
         if ($referrer = acceptFrom('data/pmks')) {
@@ -113,12 +154,15 @@ class Pmks extends BaseController
         ];
         setFlash($flash);
         $response = [
-            // If reload filled with false, it wont reload after ajax request
             'reload' => true
         ];
         echo json_encode($response);
     }
 
+    /**
+     * Delete PMKS data ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _delete()
     {
         if ($referrer = acceptFrom('data/pmks')) {
@@ -150,15 +194,26 @@ class Pmks extends BaseController
         echo json_encode($response);
     }
 
+    /**
+     * Create form view for creating
+     * and updating PMKS data.
+     * 
+     * @param string $communityId If no parameter provided, this method will show
+     * create PMKS data form view, otherwise it will show existing PMKS data.
+     * 
+     * @throws \CodeIgniter\Exceptions\PageNotFoundException 404 Not Found
+     * 
+     * @return string|\CodeIgniter\HTTP\RedirectResponse View or Redirection.
+     */
     public function crud($communityId = '')
     {
         helper('form');
         switch (getMethod()) {
             case 'post':
-                $this->_crud();
+                return $this->_crud();
                 break;
             case 'put':
-                $this->_crud($communityId);
+                return $this->_crud($communityId);
                 break;
             default:
                 break;
@@ -188,6 +243,11 @@ class Pmks extends BaseController
         return view('data/pmks/crud', $data);
     }
 
+    /**
+     * Create form view for creating
+     * PMKS data with Spreadsheet.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
+     */
     public function spreadsheetCrud()
     {
         if (getMethod('post')) {
@@ -252,7 +312,16 @@ class Pmks extends BaseController
         return view('data/pmks/spreadsheet_crud', $data);
     }
 
-    private function _crud($communityId = null)
+    /**
+     * Form validation and procedure
+     * to save data with PmpsksModel.
+     * 
+     * @param string $communityId If no parameter provided, this method will show
+     * create PMKS data form view, otherwise it will show existing PMKS data.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
+    private function _crud($communityId = '')
     {
         if ($referrer = acceptFrom('data/pmks/' . ($communityId ?? 'tambah'))) {
             return redirect()->to($referrer);
@@ -350,8 +419,15 @@ class Pmks extends BaseController
         return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'))->withInput();
     }
 
+    /**
+     * Get PMKS data images ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     public function getImages()
     {
+        if ($referrer = acceptFrom('data/pmks')) {
+            return redirect()->to($referrer);
+        }
         $communityId = decode($this->request->getGet('uuid'), 'pmks');
         if (!$this->request->isAJAX() || !$communityId) {
             return redirect()->to('data/pmks');

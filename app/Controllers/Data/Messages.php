@@ -4,14 +4,35 @@ namespace App\Controllers\Data;
 
 use App\Controllers\BaseController;
 
+/**
+ * This controller shows Messages data.
+ * 
+ * This controller basicly shows messages data with Datatables, this controller also have some
+ * procedure to delete and toggle read/unread messages shown in the Datatables.
+ * 
+ * @package Controllers\Data
+ */
 class Messages extends BaseController
 {
+    /**  
+     * MessagesModel initiator.
+     * @var \App\Models\MessagesModel $msm 
+     */
     protected $msm;
+
+    /**
+     * Prepare MessagesModel.
+     */
     public function __construct()
     {
         $this->msm = new \App\Models\MessagesModel();
     }
 
+    /**
+     * Prepare basic view for messages.
+     * It can also accept get, put and delete HTTP method.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void View, Redirection, or AJAX Response.
+     */
     public function index()
     {
         if ($this->request->isAJAX()) {
@@ -35,6 +56,10 @@ class Messages extends BaseController
         return view('data/messages/index', $data);
     }
 
+    /**
+     * Messages Datatables generator.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _datatable()
     {
         if ($referrer = acceptFrom('data/pesan')) {
@@ -78,6 +103,10 @@ class Messages extends BaseController
         echo json_encode($output);
     }
 
+    /**
+     * Messages update read/unread ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _updateStatus()
     {
         if ($referrer = acceptFrom('data/pesan')) {
@@ -111,6 +140,10 @@ class Messages extends BaseController
         echo json_encode($response);
     }
 
+    /**
+     * Delete messages ajax call.
+     * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
+     */
     private function _delete()
     {
         if ($referrer = acceptFrom('data/pesan')) {

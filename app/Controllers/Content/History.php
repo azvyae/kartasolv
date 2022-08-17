@@ -5,13 +5,35 @@ namespace App\Controllers\Content;
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
 
+/**
+ * This controller provides content management controller for displaying contents in host/sejarah route.
+ * 
+ * This controller only include form with its form validation.
+ * 
+ * @package Controllers\Content
+ * 
+ */
 class History extends BaseController
 {
+    /**
+     * HistoryModel initiator.
+     * @var \App\Models\HistoryModel 
+     */
     protected $hm;
+
+    /**
+     * Prepare HistoryModel.
+     */
     public function __construct()
     {
         $this->hm = new \App\Models\HistoryModel();
     }
+
+    /**
+     * Create form view of History Content.
+     * 
+     *  @return string|\CodeIgniter\HTTP\RedirectResponse View or Redirection.
+     */
     public function index()
     {
         if (getMethod('put')) {
@@ -25,11 +47,13 @@ class History extends BaseController
         return view('content/history/index', $data);
     }
 
+    /** 
+     * Crud form validation for History Content.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _updateHistory()
     {
-        /**
-         * Only accept from certain routes
-         */
         if ($referrer = acceptFrom('konten/sejarah')) {
             return redirect()->to($referrer);
         }
@@ -46,9 +70,7 @@ class History extends BaseController
         if (!$this->validate($rules)) {
             return redirect()->to('konten/sejarah')->withInput();
         }
-        /**
-         * Base update data
-         */
+
         $updateData = [
             'id' => 1,
             'title_a' => $postData['title_a'],
@@ -61,9 +83,6 @@ class History extends BaseController
             'desc_d' => $postData['desc_d'],
         ];
 
-        /**
-         * Image upload handler
-         */
         $savedImagePaths = [];
         foreach ($images as $field => $img) {
             if ($img->getSize() > 0) {

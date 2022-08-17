@@ -3,15 +3,37 @@
 namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
-use Config\Services;
 
+/**
+ * This controller purpose is to change user account details.
+ *
+ * This controller has 3 main method, index, _updateProfile and _verifyEmail.
+ * Main purpose of this controller is to provide every logged in users to
+ * change profile data like email, and password through the system.
+ * 
+ * 
+ * @package Controllers\User
+ */
 class Profile extends BaseController
 {
+    /**
+     * UsersModel initiator.
+     * @var \App\Models\UsersModel $um 
+     */
     protected $um;
+
+    /**
+     * Construct UsersModel.
+     */
     public function __construct()
     {
         $this->um = new \App\Models\UsersModel();
     }
+
+    /**
+     * This method is to show form view of profile/account settings.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
+     */
     public function index()
     {
         if (getMethod('put')) {
@@ -29,6 +51,10 @@ class Profile extends BaseController
         return view('user/profile/index', $data);
     }
 
+    /**
+     * Validate and submit form to database.
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _updateProfile()
     {
         if ($referrer = acceptFrom('profil')) {
@@ -94,6 +120,13 @@ class Profile extends BaseController
         return redirect()->to('profil')->withInput();
     }
 
+    /**
+     * Send email method to new email posted on the form.
+     * @param mixed $user   User data provided from updated profile.
+     * @param mixed $tempMail   User temporary email.
+     * @param mixed $time   Timestamp that will be used for attempt variable creation.
+     * @return bool Sent/Not Sent Email.
+     */
     private function _verifyEmail($user, $tempMail, $time)
     {
         $config = [
