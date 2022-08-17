@@ -28,6 +28,7 @@
                     searchable: ['message_sender', 'message_type', 'message_whatsapp', 'message_status', 'created_at']
                 }
             },
+            defaultOrder: [4, 'desc'],
             // Configure buttons
             buttons: {
                 delete: {

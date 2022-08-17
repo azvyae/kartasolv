@@ -29,6 +29,7 @@
                 }
             },
             // Configure buttons
+            defaultOrder: [2, 'asc'],
             buttons: {
                 add: {
                     url: baseUrl('konten/profil-karang-taruna/pengurus/tambah')
