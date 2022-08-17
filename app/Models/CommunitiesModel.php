@@ -69,6 +69,7 @@ class CommunitiesModel extends Model
         ];
 
         $query += $dbMan->filterDatatables($condition);
+        $query['orderBy'] .= ', community_id ASC';
         $data = [
             'totalRows' => $dbMan->countAll($query),
             'result' => $dbMan->read($query),
@@ -96,6 +97,7 @@ class CommunitiesModel extends Model
         ];
 
         $query += $dbMan->filterDatatables($condition);
+        $query['orderBy'] .= ', community_id ASC';
         $data = [
             'totalRows' => $dbMan->countAll($query),
             'result' => $dbMan->read($query),

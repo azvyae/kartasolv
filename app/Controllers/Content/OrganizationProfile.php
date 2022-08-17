@@ -259,7 +259,6 @@ class OrganizationProfile extends BaseController
             ];
             $data[] = $row;
         }
-
         $output = [
             "draw" => $this->request->getGet('draw'),
             "recordsFiltered" => $members->totalRows,

@@ -64,6 +64,7 @@ class MembersModel extends Model
         ];
 
         $query += $dbMan->filterDatatables($condition);
+        $query['orderBy'] .= ', member_id ASC';
         $data = [
             'totalRows' => $dbMan->countAll($query),
             'result' => $dbMan->read($query),
