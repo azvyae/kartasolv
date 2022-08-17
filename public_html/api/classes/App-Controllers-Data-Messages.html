@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>Documentation</title>
+            <title>Kartasolv Documentation</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../">
@@ -24,7 +24,7 @@
     </head>
 <body id="top">
     <header class="phpdocumentor-header phpdocumentor-section">
-    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Kartasolv Documentation</a></h1>
     <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
     <label class="phpdocumentor-header__menu-icon" for="menu-button">
         <i class="fas fa-bars"></i>
@@ -56,6 +56,10 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/config.html" class="">Config</a>
+</h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -81,41 +85,31 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Controllers.html" class="">Controllers</a>
+    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Controllers-Content.html" class="">Content</a>
+                <a href="packages/Kartasolv-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-User.html" class="">User</a>
+                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-Data.html" class="">Data</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Helpers.html" class="">Helpers</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="packages/Helpers-security.html" class="">security</a>
+                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-string.html" class="">string</a>
+                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-view.html" class="">view</a>
+                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                
+            </li>
+                    <li>
+                <a href="packages/Kartasolv-Models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -153,8 +147,9 @@
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Controllers.html">Controllers</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Controllers-Data.html">Data</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Controllers.html">Controllers</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Controllers-Data.html">Data</a></li>
                             </ul>
         </div>
     
@@ -201,7 +196,7 @@ to all other controllers that extend BaseController.</dd>
     <span>
                         &nbsp;: <a href="classes/App-Models-MessagesModel.html"><abbr title="\App\Models\MessagesModel">MessagesModel</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>MessagesModel initiator.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/App-Controllers-BaseController.html#property_request">$request</a>
@@ -222,35 +217,35 @@ to all other controllers that extend BaseController.</dd>
     <span>
                                 &nbsp;: string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void    </span>
 </dt>
-<dd></dd>
+<dd>Prepare basic view for messages.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-BaseController.html#method_initController">initController()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructor.</dd>
+<dd>Constructor, forced HTTPS and start the session.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Data-Messages.html#method__datatable">_datatable()</a>
     <span>
                                 &nbsp;: string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void    </span>
 </dt>
-<dd></dd>
+<dd>Messages Datatables generator.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Data-Messages.html#method__delete">_delete()</a>
     <span>
                                 &nbsp;: string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void    </span>
 </dt>
-<dd></dd>
+<dd>Delete messages ajax call.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Data-Messages.html#method__updateStatus">_updateStatus()</a>
     <span>
                                 &nbsp;: string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void    </span>
 </dt>
-<dd></dd>
+<dd>Messages update read/unread ajax call.</dd>
 
         </dl>
 
@@ -280,7 +275,7 @@ to all other controllers that extend BaseController.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -315,11 +310,12 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Data/Messages.php"><a href="files/app-controllers-data-messages.html"><abbr title="app/Controllers/Data/Messages.php">Messages.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">MessagesModel initiator.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type"><a href="classes/App-Models-MessagesModel.html"><abbr title="\App\Models\MessagesModel">MessagesModel</abbr></a></span>
@@ -327,9 +323,7 @@ to all other controllers that extend BaseController.</p>
     </code>
 
     
-        <section class="phpdocumentor-description"><p>MessagesModel initiator.</p>
-</section>
-
+    
     
 
 </article>
@@ -349,7 +343,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -386,7 +380,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Data/Messages.php"><a href="files/app-controllers-data-messages.html"><abbr title="app/Controllers/Data/Messages.php">Messages.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -419,24 +413,26 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Data/Messages.php"><a href="files/app-controllers-data-messages.html"><abbr title="app/Controllers/Data/Messages.php">Messages.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Prepare basic view for messages.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">index</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span></code>
 
-    
+        <section class="phpdocumentor-description"><p>It can also accept get, put and delete HTTP method.</p>
+</section>
+
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Prepare basic view for messages.
-It can also accept get, put and delete HTTP method.</p>
+            <section class="phpdocumentor-description"><p>View, Redirection, or AJAX Response.</p>
 </section>
 
     
@@ -454,11 +450,11 @@ It can also accept get, put and delete HTTP method.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructor.</p>
+        <p class="phpdocumentor-summary">Constructor, forced HTTPS and start the session.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -514,11 +510,12 @@ It can also accept get, put and delete HTTP method.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Data/Messages.php"><a href="files/app-controllers-data-messages.html"><abbr title="app/Controllers/Data/Messages.php">Messages.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Messages Datatables generator.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">_datatable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span></code>
@@ -530,7 +527,7 @@ It can also accept get, put and delete HTTP method.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Messages Datatables generator.</p>
+            <section class="phpdocumentor-description"><p>AJAX Response or Redirection.</p>
 </section>
 
     
@@ -548,11 +545,12 @@ It can also accept get, put and delete HTTP method.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Data/Messages.php"><a href="files/app-controllers-data-messages.html"><abbr title="app/Controllers/Data/Messages.php">Messages.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">140</span>
+    <span class="phpdocumentor-element-found-in__line">147</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Delete messages ajax call.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">_delete</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span></code>
@@ -564,7 +562,7 @@ It can also accept get, put and delete HTTP method.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Delete messages ajax call.</p>
+            <section class="phpdocumentor-description"><p>AJAX Response or Redirection.</p>
 </section>
 
     
@@ -582,11 +580,12 @@ It can also accept get, put and delete HTTP method.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Data/Messages.php"><a href="files/app-controllers-data-messages.html"><abbr title="app/Controllers/Data/Messages.php">Messages.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Messages update read/unread ajax call.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">_updateStatus</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span></code>
@@ -598,7 +597,7 @@ It can also accept get, put and delete HTTP method.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|false|void</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Messages update read/unread ajax call.</p>
+            <section class="phpdocumentor-description"><p>AJAX Response or Redirection.</p>
 </section>
 
     

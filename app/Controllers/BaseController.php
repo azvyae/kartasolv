@@ -18,6 +18,9 @@ use Psr\Log\LoggerInterface;
  *     class Home extends BaseController
  *
  * For security be sure to declare any new methods as protected or private.
+ * 
+ * @package Kartasolv\Controllers
+ * 
  */
 abstract class BaseController extends Controller
 {
@@ -37,7 +40,7 @@ abstract class BaseController extends Controller
      */
     protected $helpers = [];
     /**
-     * Constructor.
+     * Constructor, forced HTTPS and start the session.
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {

@@ -9,6 +9,13 @@ use CodeIgniter\Validation\FormatRules;
 use CodeIgniter\Validation\Rules;
 use Config\CustomRules;
 
+/**
+ * Validation Rule Groups
+ * 
+ * Provides ruleset declaration, custom rules, and error templates for app.
+ * 
+ * @package Kartasolv\Config
+ */
 class Validation extends BaseConfig
 {
     //--------------------------------------------------------------------
@@ -43,6 +50,10 @@ class Validation extends BaseConfig
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
+    /**
+     * Recaptcha rule.
+     * @var (string|string[])[][] $gRecaptcha
+     */
     public $gRecaptcha = [
         'g-recaptcha-response' => [
             'label' => 'reCaptcha',
@@ -53,6 +64,10 @@ class Validation extends BaseConfig
         ]
     ];
 
+    /**
+     * Spreadsheet upload rule.
+     * @var (string|string[])[][] $spreadsheet
+     */
     public $spreadsheet = [
         'file_excel' => [
             'label' => 'Berkas Spreadsheet',

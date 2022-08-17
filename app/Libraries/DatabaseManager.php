@@ -5,6 +5,9 @@ namespace App\Libraries;
 use Config\Database;
 use Exception;
 
+/**
+ * @package Kartasolv\Libraries
+ */
 class DatabaseManager extends Database
 {
     private $db, $builder;
@@ -183,26 +186,27 @@ class DatabaseManager extends Database
     }
 
     /**
-     * Read function
-     * @param mixed $data
-     * @param boolean $retrieveAll
-     * @return mixed
-     * ----------------------------------------------------------
-     * Simple read query:
+     * Read database function with QueryBuilder.
+     * 
+     
+     *
+     * Simple read query:<br/>
+     * <pre>
      * $query = [
      *      'result' => 'result',
      *      'table'  => 'sample_table'
      * ];
+     * </pre>
      * $this->lib_db->read($query);
-     * ----------------------------------------------------------
+     *
      * Simple where query:
      * $query = [
      *      'result' => 'result',
      *      'table'  => 'sample_table',
-     *      'where'  => ['id' => '1', 'email' => 'mantap']
+     *      'where'  => ['id' => '1', 'email' => 'good@gmail.com']
      * ];
      * $this->lib_db->read($query);
-     * ----------------------------------------------------------
+     *
      * Limit and join read query:
      * $query = [
      *      'result' => 'result',
@@ -214,6 +218,10 @@ class DatabaseManager extends Database
      *      'limit'  => 3
      * ];
      * $this->lib_db->read($query);
+     * 
+     * @param mixed $data
+     * @param bool $retrieveAll
+     * @return mixed
      */
     public function read($data, $retrieveAll = false)
     {

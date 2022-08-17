@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Helpers\view
+ * @package Kartasolv\Helpers\view
  */
 
 function isSamePage($pageToCheck)
@@ -11,7 +11,7 @@ function isSamePage($pageToCheck)
 }
 
 /**
- * @package Helpers\view
+ * @package Kartasolv\Helpers\view
  */
 function getSidebarMenu()
 {
@@ -21,7 +21,7 @@ function getSidebarMenu()
 }
 
 /**
- * @package Helpers\view
+ * @package Kartasolv\Helpers\view
  */
 function isSameController($controllerToCheck)
 {
@@ -33,7 +33,7 @@ function isSameController($controllerToCheck)
 }
 
 /**
- * @package Helpers\view
+ * @package Kartasolv\Helpers\view
  */
 function getCallToAction()
 {
@@ -51,7 +51,7 @@ function getCallToAction()
 }
 
 /**
- * @package Helpers\view
+ * @package Kartasolv\Helpers\view
  */
 function getUserName()
 {
@@ -60,7 +60,7 @@ function getUserName()
 }
 
 /**
- * @package Helpers\view
+ * @package Kartasolv\Helpers\view
  * @return array
  */
 function getMissions($data)

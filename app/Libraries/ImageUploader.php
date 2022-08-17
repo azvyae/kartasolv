@@ -4,6 +4,9 @@ namespace App\Libraries;
 
 use CodeIgniter\Files\File;
 
+/**
+ * @package Kartasolv\Libraries
+ */
 class ImageUploader
 {
 

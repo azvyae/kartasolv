@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Libraries\Model;
 
-
+/**
+ * @package Kartasolv\Models
+ */
 class LandingModel extends Model
 {
     protected $table = 'info_landing';

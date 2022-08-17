@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Libraries\Model;
 
-
+/**
+ * @package Kartasolv\Models
+ */
 class PmpsksModel extends Model
 {
     protected $table = 'pmpsks_types';

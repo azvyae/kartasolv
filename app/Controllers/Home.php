@@ -2,10 +2,49 @@
 
 namespace App\Controllers;
 
-
+/**
+ * Main Landing Page Controller.
+ *
+ * This controller provides information on the landing page, history page,
+ * and contact us page.
+ * 
+ * @package Kartasolv\Controllers
+ */
 class Home extends BaseController
 {
-    private $lm, $am, $mm, $hm, $msm;
+    /**
+     * LandingModel initiator 
+     * @var \App\Models\LandingModel $lm
+     */
+    protected $lm;
+
+    /** 
+     * ActivitiesModel initiator
+     * @var \App\Models\ActivitiesModel $am 
+     */
+    protected $am;
+
+    /** MembersModel initiator
+     * @var \App\Models\MembersModel $mm 
+     */
+    protected $mm;
+
+    /**
+     * HistoryModel initiator.
+     * @var \App\Models\HistoryModel 
+     */
+    protected $hm;
+
+    /**  
+     * MessagesModel initiator.
+     * @var \App\Models\MessagesModel $msm 
+     */
+    protected $msm;
+
+    /**
+     * Prepare LandingModel, ActivitiesModel, MembersModel, HistoryModel, and MessagesModel for every
+     * method available for simplicity.
+     */
     public function __construct()
     {
         $this->lm = new \App\Models\LandingModel();
@@ -14,6 +53,11 @@ class Home extends BaseController
         $this->hm = new \App\Models\HistoryModel();
         $this->msm = new \App\Models\MessagesModel();
     }
+
+    /**
+     * Shows landing page information.
+     * @return string View.
+     */
     public function index()
     {
         $data = [
@@ -24,6 +68,11 @@ class Home extends BaseController
         ];
         return view('home/index', $data);
     }
+
+    /**
+     * Shows history page information.
+     * @return string View.
+     */
     public function history()
     {
         $data = [
@@ -33,6 +82,10 @@ class Home extends BaseController
         return view('home/history', $data);
     }
 
+    /**
+     * Shows contact us page and its form.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
+     */
     public function contactUs()
     {
         helper('form');
@@ -45,12 +98,20 @@ class Home extends BaseController
         return view('home/contact_us', $data);
     }
 
+    /**
+     * Shows sitemap information.
+     * @return string View.
+     */
     public function sitemap()
     {
         $this->response->setContentType('application/xml', 'ISO-8859-1');
         return view('home/sitemap');
     }
 
+    /**
+     * Form validation and procedure to insert new messages to the database.
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _sendMessage()
     {
         if ($referrer = acceptFrom('hubungi-kami')) {
@@ -95,6 +156,13 @@ class Home extends BaseController
         return redirect()->to('hubungi-kami');
     }
 
+    /**
+     * Sending notification procedure after person sent message to the application.
+     * 
+     * @param array $data Information provided from message sent.
+     * 
+     * @return bool Sent/Unsent Email.
+     */
     private function _sendNotification($data)
     {
         $um = new \App\Models\UsersModel();

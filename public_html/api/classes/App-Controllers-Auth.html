@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>Documentation</title>
+            <title>Kartasolv Documentation</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../">
@@ -24,7 +24,7 @@
     </head>
 <body id="top">
     <header class="phpdocumentor-header phpdocumentor-section">
-    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Kartasolv Documentation</a></h1>
     <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
     <label class="phpdocumentor-header__menu-icon" for="menu-button">
         <i class="fas fa-bars"></i>
@@ -56,6 +56,10 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/config.html" class="">Config</a>
+</h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -81,41 +85,31 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Controllers.html" class="">Controllers</a>
+    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Controllers-Content.html" class="">Content</a>
+                <a href="packages/Kartasolv-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-User.html" class="">User</a>
+                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-Data.html" class="">Data</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Helpers.html" class="">Helpers</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="packages/Helpers-security.html" class="">security</a>
+                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-string.html" class="">string</a>
+                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-view.html" class="">view</a>
+                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                
+            </li>
+                    <li>
+                <a href="packages/Kartasolv-Models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -152,7 +146,8 @@
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Controllers.html">Controllers</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Controllers.html">Controllers</a></li>
                             </ul>
         </div>
     
@@ -162,7 +157,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -186,14 +181,7 @@ setting session.</p>
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/App-Controllers-Auth.html#property_um">$um</a>
-    <span>
-                        &nbsp;: <a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a>            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/App-Controllers-BaseController.html#property_helpers">$helpers</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
@@ -212,9 +200,9 @@ to all other controllers that extend BaseController.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Controllers-Auth.html#property_um">$um</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: <a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>UsersModel initiator.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-Auth.html#method___construct">__construct()</a>
@@ -226,9 +214,9 @@ to all other controllers that extend BaseController.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-Auth.html#method_forgetPassword">forgetPassword()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string    </span>
 </dt>
-<dd></dd>
+<dd>Shows forget password page and its form.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-Auth.html#method_index">index()</a>
@@ -242,64 +230,66 @@ to all other controllers that extend BaseController.</dd>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructor.</dd>
+<dd>Constructor, forced HTTPS and start the session.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-Auth.html#method_resetPassword">resetPassword()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string    </span>
 </dt>
-<dd></dd>
+<dd>Shows reset password page and its form, this method only accessible if url provided
+is valid.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-Auth.html#method_verifyEmail">verifyEmail()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>    </span>
 </dt>
-<dd></dd>
+<dd>Control email verification or when cancelling email verification,
+this method only accessible if url provided is valid.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Auth.html#method__forgetPassword">_forgetPassword()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>    </span>
 </dt>
-<dd></dd>
+<dd>Validate forget password form, sending email through post form to verified email user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Auth.html#method__login">_login()</a>
     <span>
                                 &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>    </span>
 </dt>
-<dd>Validate login form, sending email through post form
-and verify password.</dd>
+<dd>Validate login form, receive email through post form and verify password.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Auth.html#method__logout">_logout()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>    </span>
 </dt>
-<dd></dd>
+<dd>Validate correct logout request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Auth.html#method__resetPassword">_resetPassword()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>    </span>
 </dt>
-<dd></dd>
+<dd>Validate reset password form, creating new password for particular user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Auth.html#method__setSession">_setSession()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>    </span>
 </dt>
-<dd></dd>
+<dd>Attempt to set session data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-Auth.html#method__verifyPassword">_verifyPassword()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd></dd>
+<dd>Send password reset request to the user email provided in the form
+and encode userId &amp; userAttempt based on timestamp.</dd>
 
         </dl>
 
@@ -317,41 +307,6 @@ and verify password.</dd>
         class="
             phpdocumentor-element
             -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_um">
-        $um
-        <a href="classes/App-Controllers-Auth.html#property_um" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$um</span>
-    </code>
-
-        <section class="phpdocumentor-description"><p>UsersModel initiator.</p>
-</section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
             -protected
                                                         "
 >
@@ -364,7 +319,7 @@ and verify password.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -399,7 +354,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -432,21 +387,20 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">UsersModel initiator.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a></span>
     <span class="phpdocumentor-signature__name">$um</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
+    
+    
     
 
 </article>
@@ -470,7 +424,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -503,24 +457,26 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Shows forget password page and its form.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">forgetPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">forgetPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>View or Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -536,7 +492,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -553,7 +509,9 @@ to all other controllers that extend BaseController.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>View or Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -569,11 +527,11 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructor.</p>
+        <p class="phpdocumentor-summary">Constructor, forced HTTPS and start the session.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -629,24 +587,27 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Shows reset password page and its form, this method only accessible if url provided
+is valid.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">resetPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">resetPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>View or Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -662,24 +623,27 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Control email verification or when cancelling email verification,
+this method only accessible if url provided is valid.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">verifyEmail</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">verifyEmail</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -695,24 +659,26 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Validate forget password form, sending email through post form to verified email user.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_forgetPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">_forgetPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -728,12 +694,11 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Validate login form, sending email through post form
-and verify password.</p>
+        <p class="phpdocumentor-summary">Validate login form, receive email through post form and verify password.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -746,7 +711,9 @@ and verify password.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -762,24 +729,26 @@ and verify password.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Validate correct logout request.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_logout</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">_logout</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -795,25 +764,26 @@ and verify password.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">182</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Validate reset password form, creating new password for particular user.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_resetPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uuid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">_resetPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uuid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$uuid</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Encoded UserID provided in the form.</p>
+</section>
 
             </dd>
             </dl>
@@ -821,9 +791,11 @@ and verify password.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -839,25 +811,26 @@ and verify password.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">290</span>
+    <span class="phpdocumentor-element-found-in__line">338</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Attempt to set session data.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_setSession</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">_setSession</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$user</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>User object provided based on model request.</p>
+</section>
 
             </dd>
             </dl>
@@ -865,9 +838,11 @@ and verify password.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Redirection.</p>
+</section>
+
     
 </article>
                     <article
@@ -883,33 +858,36 @@ and verify password.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/Auth.php"><a href="files/app-controllers-auth.html"><abbr title="app/Controllers/Auth.php">Auth.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">264</span>
+    <span class="phpdocumentor-element-found-in__line">305</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Send password reset request to the user email provided in the form
+and encode userId &amp; userAttempt based on timestamp.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_verifyPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$time</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">_verifyPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$time</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$user</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>User object provided based on model request.</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$time</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Encoded reset attempt timestamp.</p>
+</section>
 
             </dd>
             </dl>
@@ -917,9 +895,11 @@ and verify password.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Sent/Unsent Email.</p>
+</section>
+
     
 </article>
             </section>

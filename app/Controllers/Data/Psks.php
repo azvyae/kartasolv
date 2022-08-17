@@ -11,7 +11,7 @@ use App\Libraries\ImageUploader;
  * This controller basicly shows messages data with Datatables, this controller also have some
  * procedure to delete and toggle Community Status shown in the Datatables.
  * 
- * @package Controllers\Data
+ * @package Kartasolv\Controllers\Data
  */
 class Psks extends BaseController
 {

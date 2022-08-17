@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Libraries\DatabaseManager;
 use App\Libraries\Model;
 
-
+/**
+ * @package Kartasolv\Models
+ */
 class MembersModel extends Model
 {
     protected $table = 'members';

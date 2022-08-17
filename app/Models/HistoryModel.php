@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Libraries\Model;
 
-
+/**
+ * @package Kartasolv\Models
+ */
 class HistoryModel extends Model
 {
     protected $table = 'info_history';

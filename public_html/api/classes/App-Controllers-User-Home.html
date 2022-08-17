@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>Documentation</title>
+            <title>Kartasolv Documentation</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../">
@@ -24,7 +24,7 @@
     </head>
 <body id="top">
     <header class="phpdocumentor-header phpdocumentor-section">
-    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Kartasolv Documentation</a></h1>
     <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
     <label class="phpdocumentor-header__menu-icon" for="menu-button">
         <i class="fas fa-bars"></i>
@@ -56,6 +56,10 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/config.html" class="">Config</a>
+</h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -81,41 +85,31 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Controllers.html" class="">Controllers</a>
+    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Controllers-Content.html" class="">Content</a>
+                <a href="packages/Kartasolv-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-User.html" class="">User</a>
+                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-Data.html" class="">Data</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Helpers.html" class="">Helpers</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="packages/Helpers-security.html" class="">security</a>
+                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-string.html" class="">string</a>
+                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-view.html" class="">view</a>
+                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                
+            </li>
+                    <li>
+                <a href="packages/Kartasolv-Models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -153,8 +147,9 @@
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Controllers.html">Controllers</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Controllers-User.html">User</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Controllers.html">Controllers</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Controllers-User.html">User</a></li>
                             </ul>
         </div>
     
@@ -214,7 +209,7 @@ to all other controllers that extend BaseController.</dd>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructor.</dd>
+<dd>Constructor, forced HTTPS and start the session.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-User-Home.html#method_loadImage">loadImage()</a>
@@ -251,7 +246,7 @@ to all other controllers that extend BaseController.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -286,7 +281,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -340,7 +335,9 @@ to all other controllers that extend BaseController.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>View.</p>
+</section>
+
     
 </article>
                     <article
@@ -356,11 +353,11 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructor.</p>
+        <p class="phpdocumentor-summary">Constructor, forced HTTPS and start the session.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -416,7 +413,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Home.php"><a href="files/app-controllers-user-home.html"><abbr title="app/Controllers/User/Home.php">Home.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -429,11 +426,29 @@ to all other controllers that extend BaseController.</p>
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\CodeIgniter\Exceptions\PageNotFoundException">PageNotFoundException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>404 Not Found</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string|false|<abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>ImageString or Redirection.</p>
+</section>
+
     
 </article>
             </section>

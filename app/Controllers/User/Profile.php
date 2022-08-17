@@ -12,7 +12,7 @@ use App\Controllers\BaseController;
  * change profile data like email, and password through the system.
  * 
  * 
- * @package Controllers\User
+ * @package Kartasolv\Controllers\User
  */
 class Profile extends BaseController
 {

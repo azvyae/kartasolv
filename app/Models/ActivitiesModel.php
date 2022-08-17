@@ -4,6 +4,9 @@ namespace App\Models;
 
 use App\Libraries\Model;
 
+/**
+ * @package Kartasolv\Models
+ */
 class ActivitiesModel extends Model
 {
     protected $table = 'info_activities';

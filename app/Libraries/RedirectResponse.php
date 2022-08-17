@@ -4,6 +4,9 @@ namespace App\Libraries;
 
 use CodeIgniter\HTTP\RedirectResponse as BaseRedirectResponse;
 
+/**
+ * @package Kartasolv\Libraries
+ */
 class RedirectResponse extends BaseRedirectResponse
 {
     /**

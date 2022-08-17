@@ -1,6 +1,56 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\Config\\CustomRules",
+            "name": "CustomRules",
+            "summary": "CustomRules\u0020is\u0020a\u0020Class\u0020that\u0020provides\u0020custom\u0020form\u0020validation\u0020rules\u0020for\u0020this\u0020app.",
+            "url": "classes/Config-CustomRules.html"
+        },                {
+            "fqsen": "\\Config\\CustomRules\u003A\u003Averify_recaptcha\u0028\u0029",
+            "name": "verify_recaptcha",
+            "summary": "Verify\u0020Recaptcha\u0020is\u0020a\u0020basic\u0020function\u0020for\u0020sending\u0020and\u0020verifying\u0020Recaptcha\u0020V3\u0020token\u0020to\u0020Google.",
+            "url": "classes/Config-CustomRules.html#method_verify_recaptcha"
+        },                {
+            "fqsen": "\\Config\\CustomRules\u003A\u003Aphone_number\u0028\u0029",
+            "name": "phone_number",
+            "summary": "Simple\u0020validation\u0020for\u0020correct\u0020phone\u0020number\u0020format.\u0020\u0028Only\u0020accept\u0020Indonesian\u0020Country\u0020Code\u0029.",
+            "url": "classes/Config-CustomRules.html#method_phone_number"
+        },                {
+            "fqsen": "\\Config\\Services",
+            "name": "Services",
+            "summary": "Services\u0020Configuration\u0020file.",
+            "url": "classes/Config-Services.html"
+        },                {
+            "fqsen": "\\Config\\Services\u003A\u003Aredirectresponse\u0028\u0029",
+            "name": "redirectresponse",
+            "summary": "Override\u0020redirect\u0020response\u0020base\u0020service\u0020with\u0020new\u0020one",
+            "url": "classes/Config-Services.html#method_redirectresponse"
+        },                {
+            "fqsen": "\\Config\\Validation",
+            "name": "Validation",
+            "summary": "Validation\u0020Rule\u0020Groups",
+            "url": "classes/Config-Validation.html"
+        },                {
+            "fqsen": "\\Config\\Validation\u003A\u003A\u0024ruleSets",
+            "name": "ruleSets",
+            "summary": "Stores\u0020the\u0020classes\u0020that\u0020contain\u0020the\nrules\u0020that\u0020are\u0020available.",
+            "url": "classes/Config-Validation.html#property_ruleSets"
+        },                {
+            "fqsen": "\\Config\\Validation\u003A\u003A\u0024templates",
+            "name": "templates",
+            "summary": "Specifies\u0020the\u0020views\u0020that\u0020are\u0020used\u0020to\u0020display\u0020the\nerrors.",
+            "url": "classes/Config-Validation.html#property_templates"
+        },                {
+            "fqsen": "\\Config\\Validation\u003A\u003A\u0024gRecaptcha",
+            "name": "gRecaptcha",
+            "summary": "Recaptcha\u0020rule.",
+            "url": "classes/Config-Validation.html#property_gRecaptcha"
+        },                {
+            "fqsen": "\\Config\\Validation\u003A\u003A\u0024spreadsheet",
+            "name": "spreadsheet",
+            "summary": "Spreadsheet\u0020upload\u0020rule.",
+            "url": "classes/Config-Validation.html#property_spreadsheet"
+        },                {
             "fqsen": "\\App\\Controllers\\Auth",
             "name": "Auth",
             "summary": "Authentication\u0020Controller.",
@@ -18,52 +68,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A_login\u0028\u0029",
             "name": "_login",
-            "summary": "Validate\u0020login\u0020form,\u0020sending\u0020email\u0020through\u0020post\u0020form\nand\u0020verify\u0020password.",
+            "summary": "Validate\u0020login\u0020form,\u0020receive\u0020email\u0020through\u0020post\u0020form\u0020and\u0020verify\u0020password.",
             "url": "classes/App-Controllers-Auth.html#method__login"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A_logout\u0028\u0029",
             "name": "_logout",
-            "summary": "",
+            "summary": "Validate\u0020correct\u0020logout\u0020request.",
             "url": "classes/App-Controllers-Auth.html#method__logout"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003AforgetPassword\u0028\u0029",
             "name": "forgetPassword",
-            "summary": "",
+            "summary": "Shows\u0020forget\u0020password\u0020page\u0020and\u0020its\u0020form.",
             "url": "classes/App-Controllers-Auth.html#method_forgetPassword"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A_forgetPassword\u0028\u0029",
             "name": "_forgetPassword",
-            "summary": "",
+            "summary": "Validate\u0020forget\u0020password\u0020form,\u0020sending\u0020email\u0020through\u0020post\u0020form\u0020to\u0020verified\u0020email\u0020user.",
             "url": "classes/App-Controllers-Auth.html#method__forgetPassword"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003AresetPassword\u0028\u0029",
             "name": "resetPassword",
-            "summary": "",
+            "summary": "Shows\u0020reset\u0020password\u0020page\u0020and\u0020its\u0020form,\u0020this\u0020method\u0020only\u0020accessible\u0020if\u0020url\u0020provided\nis\u0020valid.",
             "url": "classes/App-Controllers-Auth.html#method_resetPassword"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A_resetPassword\u0028\u0029",
             "name": "_resetPassword",
-            "summary": "",
+            "summary": "Validate\u0020reset\u0020password\u0020form,\u0020creating\u0020new\u0020password\u0020for\u0020particular\u0020user.",
             "url": "classes/App-Controllers-Auth.html#method__resetPassword"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003AverifyEmail\u0028\u0029",
             "name": "verifyEmail",
-            "summary": "",
+            "summary": "Control\u0020email\u0020verification\u0020or\u0020when\u0020cancelling\u0020email\u0020verification,\nthis\u0020method\u0020only\u0020accessible\u0020if\u0020url\u0020provided\u0020is\u0020valid.",
             "url": "classes/App-Controllers-Auth.html#method_verifyEmail"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A_verifyPassword\u0028\u0029",
             "name": "_verifyPassword",
-            "summary": "",
+            "summary": "Send\u0020password\u0020reset\u0020request\u0020to\u0020the\u0020user\u0020email\u0020provided\u0020in\u0020the\u0020form\nand\u0020encode\u0020userId\u0020\u0026\u0020userAttempt\u0020based\u0020on\u0020timestamp.",
             "url": "classes/App-Controllers-Auth.html#method__verifyPassword"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A_setSession\u0028\u0029",
             "name": "_setSession",
-            "summary": "",
+            "summary": "Attempt\u0020to\u0020set\u0020session\u0020data.",
             "url": "classes/App-Controllers-Auth.html#method__setSession"
         },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A\u0024um",
             "name": "um",
-            "summary": "",
+            "summary": "UsersModel\u0020initiator.",
             "url": "classes/App-Controllers-Auth.html#property_um"
         },                {
             "fqsen": "\\App\\Controllers\\BaseController",
@@ -73,7 +123,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controllers\\BaseController\u003A\u003AinitController\u0028\u0029",
             "name": "initController",
-            "summary": "Constructor.",
+            "summary": "Constructor,\u0020forced\u0020HTTPS\u0020and\u0020start\u0020the\u0020session.",
             "url": "classes/App-Controllers-BaseController.html#method_initController"
         },                {
             "fqsen": "\\App\\Controllers\\BaseController\u003A\u003A\u0024request",
@@ -186,69 +236,234 @@ Search.appendIndex(
             "summary": "MembersModel\u0020initiator",
             "url": "classes/App-Controllers-Content-OrganizationProfile.html#property_mm"
         },                {
+            "fqsen": "\\App\\Controllers\\Data\\Messages",
+            "name": "Messages",
+            "summary": "This\u0020controller\u0020shows\u0020Messages\u0020data.",
+            "url": "classes/App-Controllers-Data-Messages.html"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Prepare\u0020MessagesModel.",
+            "url": "classes/App-Controllers-Data-Messages.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Prepare\u0020basic\u0020view\u0020for\u0020messages.",
+            "url": "classes/App-Controllers-Data-Messages.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A_datatable\u0028\u0029",
+            "name": "_datatable",
+            "summary": "Messages\u0020Datatables\u0020generator.",
+            "url": "classes/App-Controllers-Data-Messages.html#method__datatable"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A_updateStatus\u0028\u0029",
+            "name": "_updateStatus",
+            "summary": "Messages\u0020update\u0020read\/unread\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Messages.html#method__updateStatus"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A_delete\u0028\u0029",
+            "name": "_delete",
+            "summary": "Delete\u0020messages\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Messages.html#method__delete"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A\u0024msm",
+            "name": "msm",
+            "summary": "MessagesModel\u0020initiator.",
+            "url": "classes/App-Controllers-Data-Messages.html#property_msm"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks",
+            "name": "Pmks",
+            "summary": "This\u0020controller\u0020shows\u0020PMKS\u0020data.",
+            "url": "classes/App-Controllers-Data-Pmks.html"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020provided\u0020to\u0020prepare\u0020every\u0020model.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Prepare\u0020basic\u0020view\u0020for\u0020PMKS\u0020table.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_datatable\u0028\u0029",
+            "name": "_datatable",
+            "summary": "PMKS\u0020Datatables\u0020generator.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method__datatable"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_updateStatus\u0028\u0029",
+            "name": "_updateStatus",
+            "summary": "PMKS\u0020update\u0020read\/unread\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method__updateStatus"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_delete\u0028\u0029",
+            "name": "_delete",
+            "summary": "Delete\u0020PMKS\u0020data\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method__delete"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003Acrud\u0028\u0029",
+            "name": "crud",
+            "summary": "Create\u0020form\u0020view\u0020for\u0020creating\nand\u0020updating\u0020PMKS\u0020data.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method_crud"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003AspreadsheetCrud\u0028\u0029",
+            "name": "spreadsheetCrud",
+            "summary": "Create\u0020form\u0020view\u0020for\u0020creating\nPMKS\u0020data\u0020with\u0020Spreadsheet.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method_spreadsheetCrud"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_crud\u0028\u0029",
+            "name": "_crud",
+            "summary": "Form\u0020validation\u0020and\u0020procedure\nto\u0020save\u0020data\u0020with\u0020PmpsksModel.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method__crud"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003AgetImages\u0028\u0029",
+            "name": "getImages",
+            "summary": "Get\u0020PMKS\u0020data\u0020images\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Pmks.html#method_getImages"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A\u0024cm",
+            "name": "cm",
+            "summary": "CommunitiesModel\u0020initiator.",
+            "url": "classes/App-Controllers-Data-Pmks.html#property_cm"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A\u0024pim",
+            "name": "pim",
+            "summary": "PmpsksImgModel\u0020initiator.",
+            "url": "classes/App-Controllers-Data-Pmks.html#property_pim"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A\u0024pm",
+            "name": "pm",
+            "summary": "PmpsksModel\u0020initiator.",
+            "url": "classes/App-Controllers-Data-Pmks.html#property_pm"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks",
+            "name": "Psks",
+            "summary": "This\u0020controller\u0020shows\u0020PSKS\u0020data.",
+            "url": "classes/App-Controllers-Data-Psks.html"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020provided\u0020to\u0020prepare\u0020every\u0020model.",
+            "url": "classes/App-Controllers-Data-Psks.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Prepare\u0020basic\u0020view\u0020for\u0020PSKS\u0020table.",
+            "url": "classes/App-Controllers-Data-Psks.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_datatable\u0028\u0029",
+            "name": "_datatable",
+            "summary": "PSKS\u0020Datatables\u0020generator.",
+            "url": "classes/App-Controllers-Data-Psks.html#method__datatable"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_updateStatus\u0028\u0029",
+            "name": "_updateStatus",
+            "summary": "PSKS\u0020update\u0020read\/unread\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Psks.html#method__updateStatus"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_delete\u0028\u0029",
+            "name": "_delete",
+            "summary": "Delete\u0020PSKS\u0020data\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Psks.html#method__delete"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003Acrud\u0028\u0029",
+            "name": "crud",
+            "summary": "Create\u0020form\u0020view\u0020for\u0020creating\nand\u0020updating\u0020PSKS\u0020data.",
+            "url": "classes/App-Controllers-Data-Psks.html#method_crud"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003AspreadsheetCrud\u0028\u0029",
+            "name": "spreadsheetCrud",
+            "summary": "Create\u0020form\u0020view\u0020for\u0020creating\nPSKS\u0020data\u0020with\u0020Spreadsheet.",
+            "url": "classes/App-Controllers-Data-Psks.html#method_spreadsheetCrud"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_crud\u0028\u0029",
+            "name": "_crud",
+            "summary": "Form\u0020validation\u0020and\u0020procedure\nto\u0020save\u0020data\u0020with\u0020PmpsksModel.",
+            "url": "classes/App-Controllers-Data-Psks.html#method__crud"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003AgetImages\u0028\u0029",
+            "name": "getImages",
+            "summary": "Get\u0020PSKS\u0020data\u0020images\u0020ajax\u0020call.",
+            "url": "classes/App-Controllers-Data-Psks.html#method_getImages"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A\u0024cm",
+            "name": "cm",
+            "summary": "CommunitiesModel\u0020initiator.",
+            "url": "classes/App-Controllers-Data-Psks.html#property_cm"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A\u0024pim",
+            "name": "pim",
+            "summary": "PmpsksImgModel\u0020initiator.",
+            "url": "classes/App-Controllers-Data-Psks.html#property_pim"
+        },                {
+            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A\u0024pm",
+            "name": "pm",
+            "summary": "PmpsksModel\u0020initiator.",
+            "url": "classes/App-Controllers-Data-Psks.html#property_pm"
+        },                {
             "fqsen": "\\App\\Controllers\\Home",
             "name": "Home",
-            "summary": "Class\u0020BaseController",
+            "summary": "Main\u0020Landing\u0020Page\u0020Controller.",
             "url": "classes/App-Controllers-Home.html"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Prepare\u0020LandingModel,\u0020ActivitiesModel,\u0020MembersModel,\u0020HistoryModel,\u0020and\u0020MessagesModel\u0020for\u0020every\nmethod\u0020available\u0020for\u0020simplicity.",
             "url": "classes/App-Controllers-Home.html#method___construct"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Shows\u0020landing\u0020page\u0020information.",
             "url": "classes/App-Controllers-Home.html#method_index"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003Ahistory\u0028\u0029",
             "name": "history",
-            "summary": "",
+            "summary": "Shows\u0020history\u0020page\u0020information.",
             "url": "classes/App-Controllers-Home.html#method_history"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003AcontactUs\u0028\u0029",
             "name": "contactUs",
-            "summary": "",
+            "summary": "Shows\u0020contact\u0020us\u0020page\u0020and\u0020its\u0020form.",
             "url": "classes/App-Controllers-Home.html#method_contactUs"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003Asitemap\u0028\u0029",
             "name": "sitemap",
-            "summary": "",
+            "summary": "Shows\u0020sitemap\u0020information.",
             "url": "classes/App-Controllers-Home.html#method_sitemap"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A_sendMessage\u0028\u0029",
             "name": "_sendMessage",
-            "summary": "",
+            "summary": "Form\u0020validation\u0020and\u0020procedure\u0020to\u0020insert\u0020new\u0020messages\u0020to\u0020the\u0020database.",
             "url": "classes/App-Controllers-Home.html#method__sendMessage"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A_sendNotification\u0028\u0029",
             "name": "_sendNotification",
-            "summary": "",
+            "summary": "Sending\u0020notification\u0020procedure\u0020after\u0020person\u0020sent\u0020message\u0020to\u0020the\u0020application.",
             "url": "classes/App-Controllers-Home.html#method__sendNotification"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A\u0024lm",
             "name": "lm",
-            "summary": "",
+            "summary": "LandingModel\u0020initiator",
             "url": "classes/App-Controllers-Home.html#property_lm"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A\u0024am",
             "name": "am",
-            "summary": "",
+            "summary": "ActivitiesModel\u0020initiator",
             "url": "classes/App-Controllers-Home.html#property_am"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A\u0024mm",
             "name": "mm",
-            "summary": "",
+            "summary": "MembersModel\u0020initiator",
             "url": "classes/App-Controllers-Home.html#property_mm"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A\u0024hm",
             "name": "hm",
-            "summary": "",
+            "summary": "HistoryModel\u0020initiator.",
             "url": "classes/App-Controllers-Home.html#property_hm"
         },                {
             "fqsen": "\\App\\Controllers\\Home\u003A\u003A\u0024msm",
             "name": "msm",
-            "summary": "",
+            "summary": "MessagesModel\u0020initiator.",
             "url": "classes/App-Controllers-Home.html#property_msm"
         },                {
             "fqsen": "\\App\\Controllers\\User\\Home",
@@ -293,8 +508,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controllers\\User\\Profile\u003A\u003A\u0024um",
             "name": "um",
-            "summary": "",
+            "summary": "UsersModel\u0020initiator.",
             "url": "classes/App-Controllers-User-Profile.html#property_um"
+        },                {
+            "fqsen": "\\App\\Filters\\SecurityFilter",
+            "name": "SecurityFilter",
+            "summary": "",
+            "url": "classes/App-Filters-SecurityFilter.html"
+        },                {
+            "fqsen": "\\App\\Filters\\SecurityFilter\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/App-Filters-SecurityFilter.html#method_before"
+        },                {
+            "fqsen": "\\App\\Filters\\SecurityFilter\u003A\u003Aafter\u0028\u0029",
+            "name": "after",
+            "summary": "",
+            "url": "classes/App-Filters-SecurityFilter.html#method_after"
         },                {
             "fqsen": "\\checkAuth\u0028\u0029",
             "name": "checkAuth",
@@ -453,7 +683,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003Aread\u0028\u0029",
             "name": "read",
-            "summary": "Read\u0020function",
+            "summary": "Read\u0020database\u0020function\u0020with\u0020QueryBuilder.",
             "url": "classes/App-Libraries-DatabaseManager.html#method_read"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003AmakeGroup\u0028\u0029",
@@ -570,6 +800,71 @@ Search.appendIndex(
             "name": "validationRules",
             "summary": "",
             "url": "classes/App-Models-ActivitiesModel.html#property_validationRules"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel",
+            "name": "CommunitiesModel",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003AgetPMKSDatatable\u0028\u0029",
+            "name": "getPMKSDatatable",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#method_getPMKSDatatable"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003AgetPSKSDatatable\u0028\u0029",
+            "name": "getPSKSDatatable",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#method_getPSKSDatatable"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024table",
+            "name": "table",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_table"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024primaryKey",
+            "name": "primaryKey",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_primaryKey"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024useTimestamps",
+            "name": "useTimestamps",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_useTimestamps"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024allowedFields",
+            "name": "allowedFields",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_allowedFields"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024returnType",
+            "name": "returnType",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_returnType"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024useSoftDeletes",
+            "name": "useSoftDeletes",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_useSoftDeletes"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024beforeInsert",
+            "name": "beforeInsert",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_beforeInsert"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024beforeUpdate",
+            "name": "beforeUpdate",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_beforeUpdate"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024afterDelete",
+            "name": "afterDelete",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_afterDelete"
+        },                {
+            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024validationRules",
+            "name": "validationRules",
+            "summary": "",
+            "url": "classes/App-Models-CommunitiesModel.html#property_validationRules"
         },                {
             "fqsen": "\\App\\Models\\HistoryModel",
             "name": "HistoryModel",
@@ -751,311 +1046,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Models-MenuModel.html#property_returnType"
         },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel",
-            "name": "RoleAccessModel",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetRoleAccessId\u0028\u0029",
-            "name": "getRoleAccessId",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#method_getRoleAccessId"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetPageByRole\u0028\u0029",
-            "name": "getPageByRole",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#method_getPageByRole"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_table"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024primaryKey",
-            "name": "primaryKey",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_primaryKey"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024allowedFields",
-            "name": "allowedFields",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_allowedFields"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024returnType",
-            "name": "returnType",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_returnType"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel",
-            "name": "UsersModel",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel\u003A\u003AgetFromEmail\u0028\u0029",
-            "name": "getFromEmail",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html#method_getFromEmail"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html#property_table"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024primaryKey",
-            "name": "primaryKey",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html#property_primaryKey"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024useTimestamps",
-            "name": "useTimestamps",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html#property_useTimestamps"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024allowedFields",
-            "name": "allowedFields",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html#property_allowedFields"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024returnType",
-            "name": "returnType",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html#property_returnType"
-        },                {
-            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024validationRules",
-            "name": "validationRules",
-            "summary": "",
-            "url": "classes/App-Models-UsersModel.html#property_validationRules"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel",
-            "name": "CommunitiesModel",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003AgetPMKSDatatable\u0028\u0029",
-            "name": "getPMKSDatatable",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#method_getPMKSDatatable"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003AgetPSKSDatatable\u0028\u0029",
-            "name": "getPSKSDatatable",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#method_getPSKSDatatable"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_table"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024primaryKey",
-            "name": "primaryKey",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_primaryKey"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024useTimestamps",
-            "name": "useTimestamps",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_useTimestamps"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024allowedFields",
-            "name": "allowedFields",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_allowedFields"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024returnType",
-            "name": "returnType",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_returnType"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024useSoftDeletes",
-            "name": "useSoftDeletes",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_useSoftDeletes"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024beforeInsert",
-            "name": "beforeInsert",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_beforeInsert"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024beforeUpdate",
-            "name": "beforeUpdate",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_beforeUpdate"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024afterDelete",
-            "name": "afterDelete",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_afterDelete"
-        },                {
-            "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024validationRules",
-            "name": "validationRules",
-            "summary": "",
-            "url": "classes/App-Models-CommunitiesModel.html#property_validationRules"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Messages",
-            "name": "Messages",
-            "summary": "This\u0020controller\u0020shows\u0020Messages\u0020data.",
-            "url": "classes/App-Controllers-Data-Messages.html"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Prepare\u0020MessagesModel.",
-            "url": "classes/App-Controllers-Data-Messages.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Messages.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A_datatable\u0028\u0029",
-            "name": "_datatable",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Messages.html#method__datatable"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A_updateStatus\u0028\u0029",
-            "name": "_updateStatus",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Messages.html#method__updateStatus"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A_delete\u0028\u0029",
-            "name": "_delete",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Messages.html#method__delete"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Messages\u003A\u003A\u0024msm",
-            "name": "msm",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Messages.html#property_msm"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks",
-            "name": "Pmks",
-            "summary": "This\u0020controller\u0020shows\u0020PMKS\u0020data.",
-            "url": "classes/App-Controllers-Data-Pmks.html"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Constructor\u0020provided\u0020to\u0020prepare\u0020every\u0020model.",
-            "url": "classes/App-Controllers-Data-Pmks.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_datatable\u0028\u0029",
-            "name": "_datatable",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method__datatable"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_updateStatus\u0028\u0029",
-            "name": "_updateStatus",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method__updateStatus"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_delete\u0028\u0029",
-            "name": "_delete",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method__delete"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003Acrud\u0028\u0029",
-            "name": "crud",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method_crud"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003AspreadsheetCrud\u0028\u0029",
-            "name": "spreadsheetCrud",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method_spreadsheetCrud"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A_crud\u0028\u0029",
-            "name": "_crud",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method__crud"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003AgetImages\u0028\u0029",
-            "name": "getImages",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#method_getImages"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A\u0024cm",
-            "name": "cm",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#property_cm"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A\u0024pim",
-            "name": "pim",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#property_pim"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A\u0024pm",
-            "name": "pm",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Pmks.html#property_pm"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks",
-            "name": "Psks",
-            "summary": "This\u0020controller\u0020shows\u0020PSKS\u0020data.",
-            "url": "classes/App-Controllers-Data-Psks.html"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Constructor\u0020provided\u0020to\u0020prepare\u0020every\u0020model.",
-            "url": "classes/App-Controllers-Data-Psks.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_datatable\u0028\u0029",
-            "name": "_datatable",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method__datatable"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_updateStatus\u0028\u0029",
-            "name": "_updateStatus",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method__updateStatus"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_delete\u0028\u0029",
-            "name": "_delete",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method__delete"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003Acrud\u0028\u0029",
-            "name": "crud",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method_crud"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003AspreadsheetCrud\u0028\u0029",
-            "name": "spreadsheetCrud",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method_spreadsheetCrud"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A_crud\u0028\u0029",
-            "name": "_crud",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method__crud"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003AgetImages\u0028\u0029",
-            "name": "getImages",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#method_getImages"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A\u0024cm",
-            "name": "cm",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#property_cm"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A\u0024pim",
-            "name": "pim",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#property_pim"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A\u0024pm",
-            "name": "pm",
-            "summary": "",
-            "url": "classes/App-Controllers-Data-Psks.html#property_pm"
-        },                {
             "fqsen": "\\App\\Models\\MessagesModel",
             "name": "MessagesModel",
             "summary": "",
@@ -1171,25 +1161,90 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Models-PmpsksModel.html#property_returnType"
         },                {
-            "fqsen": "\\App\\Filters\\SecurityFilter",
-            "name": "SecurityFilter",
+            "fqsen": "\\App\\Models\\RoleAccessModel",
+            "name": "RoleAccessModel",
             "summary": "",
-            "url": "classes/App-Filters-SecurityFilter.html"
+            "url": "classes/App-Models-RoleAccessModel.html"
         },                {
-            "fqsen": "\\App\\Filters\\SecurityFilter\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
+            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetRoleAccessId\u0028\u0029",
+            "name": "getRoleAccessId",
             "summary": "",
-            "url": "classes/App-Filters-SecurityFilter.html#method_before"
+            "url": "classes/App-Models-RoleAccessModel.html#method_getRoleAccessId"
         },                {
-            "fqsen": "\\App\\Filters\\SecurityFilter\u003A\u003Aafter\u0028\u0029",
-            "name": "after",
+            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetPageByRole\u0028\u0029",
+            "name": "getPageByRole",
             "summary": "",
-            "url": "classes/App-Filters-SecurityFilter.html#method_after"
+            "url": "classes/App-Models-RoleAccessModel.html#method_getPageByRole"
+        },                {
+            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024table",
+            "name": "table",
+            "summary": "",
+            "url": "classes/App-Models-RoleAccessModel.html#property_table"
+        },                {
+            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024primaryKey",
+            "name": "primaryKey",
+            "summary": "",
+            "url": "classes/App-Models-RoleAccessModel.html#property_primaryKey"
+        },                {
+            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024allowedFields",
+            "name": "allowedFields",
+            "summary": "",
+            "url": "classes/App-Models-RoleAccessModel.html#property_allowedFields"
+        },                {
+            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024returnType",
+            "name": "returnType",
+            "summary": "",
+            "url": "classes/App-Models-RoleAccessModel.html#property_returnType"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel",
+            "name": "UsersModel",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel\u003A\u003AgetFromEmail\u0028\u0029",
+            "name": "getFromEmail",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html#method_getFromEmail"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024table",
+            "name": "table",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html#property_table"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024primaryKey",
+            "name": "primaryKey",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html#property_primaryKey"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024useTimestamps",
+            "name": "useTimestamps",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html#property_useTimestamps"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024allowedFields",
+            "name": "allowedFields",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html#property_allowedFields"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024returnType",
+            "name": "returnType",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html#property_returnType"
+        },                {
+            "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024validationRules",
+            "name": "validationRules",
+            "summary": "",
+            "url": "classes/App-Models-UsersModel.html#property_validationRules"
         },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
+        },                {
+            "fqsen": "\\Config",
+            "name": "Config",
+            "summary": "",
+            "url": "namespaces/config.html"
         },                {
             "fqsen": "\\App\\Controllers",
             "name": "Controllers",

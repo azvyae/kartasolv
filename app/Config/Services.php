@@ -16,20 +16,20 @@ use CodeIgniter\Config\BaseService;
  * that you might need. An example has been included with the general
  * method format you should use for your service methods. For more examples,
  * see the core Services file at system/Config/Services.php.
+ * 
+ * @package Kartasolv\Config
+ * 
  */
 class Services extends BaseService
 {
-    /*
-     * public static function example($getShared = true)
-     * {
-     *     if ($getShared) {
-     *         return static::getSharedInstance('example');
-     *     }
-     *
-     *     return new \CodeIgniter\Example();
-     * }
+    /**
+     * Override redirect response base service with new one
+     * 
+     * @param mixed $config Configuration file.
+     * @param bool $getShared Check will this method use shared params from original one.
+     * 
+     * @return mixed New RedirectResponse service.
      */
-
     public static function redirectresponse($config = null, $getShared = false)
     {
         if ($getShared) {

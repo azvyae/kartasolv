@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<phpdocumentor configVersion="3"
+<phpdocumentor title="Kartasolv Documentation" configVersion="3"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://www.phpdoc.org" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/phpDocumentor/phpDocumentor/master/data/xsd/phpdoc.xsd">
     <paths>
         <output>public_html/api</output>
         <cache>build/cache</cache>
     </paths>
-    <version number="0.9.0">
+    <version number="1.2.2">
         <api format="php">
+            <default-package-name>Kartasolv</default-package-name>
             <source dsn=".">
+                <path>app/Config/CustomRules.php</path>
+                <path>app/Config/Services.php</path>
+                <path>app/Config/Validation.php</path>
                 <path>app/Controllers</path>
                 <path>app/Filters</path>
                 <path>app/Helpers</path>

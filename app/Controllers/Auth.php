@@ -9,12 +9,16 @@ namespace App\Controllers;
  * logging out, forget password, reset password, verifying email, and
  * setting session.
  * 
- * @property \App\Models\UsersModel $um UsersModel initiator.
  * 
- * @package Controllers
+ * @package Kartasolv\Controllers
  */
 class Auth extends BaseController
 {
+    /**
+     * UsersModel initiator.
+     * @var \App\Models\UsersModel $um 
+     */
+
     private $um;
     /**
      * Construct UsersModel.
@@ -26,7 +30,7 @@ class Auth extends BaseController
 
     /**
      * Shows login page and its form.
-     * @return \CodeIgniter\HTTP\RedirectResponse|string
+     * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
      */
     public function index()
     {
@@ -47,9 +51,8 @@ class Auth extends BaseController
     }
 
     /**
-     * Validate login form, sending email through post form
-     * and verify password.
-     * @return \CodeIgniter\HTTP\RedirectResponse
+     * Validate login form, receive email through post form and verify password.
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
      */
     private function _login()
     {
@@ -82,6 +85,10 @@ class Auth extends BaseController
         return redirect()->to('masuk')->withInput();
     }
 
+    /**
+     * Validate correct logout request.
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _logout()
     {
         if (!$this->validate('gRecaptcha')) {
@@ -92,6 +99,10 @@ class Auth extends BaseController
         return redirect()->to('masuk');
     }
 
+    /**
+     * Shows forget password page and its form.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
+     */
     public function forgetPassword()
     {
         if (getMethod('post')) {
@@ -103,6 +114,10 @@ class Auth extends BaseController
         return view('auth/forget_password', $data);
     }
 
+    /**
+     * Validate forget password form, sending email through post form to verified email user.
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _forgetPassword()
     {
         $rules = $this->um->getValidationRules(['only' => ['user_email'], 'add' => ['gRecaptcha']]);
@@ -148,6 +163,11 @@ class Auth extends BaseController
         return redirect()->to('lupa-kata-sandi')->withInput();
     }
 
+    /**
+     * Shows reset password page and its form, this method only accessible if url provided
+     * is valid.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
+     */
     public function resetPassword()
     {
         $uuid = decode($this->request->getGet('uuid'), 'resetPassword');
@@ -179,6 +199,13 @@ class Auth extends BaseController
         return redirect()->to('lupa-kata-sandi');
     }
 
+    /**
+     * Validate reset password form, creating new password for particular user.
+     * 
+     * @param string $uuid Encoded UserID provided in the form.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _resetPassword($uuid)
     {
         $rules = $this->um->getValidationRules(['only' => ['user_new_password', 'password_verify'], 'add' => ['gRecaptcha']]);
@@ -203,6 +230,11 @@ class Auth extends BaseController
         return redirect()->to('masuk');
     }
 
+    /**
+     * Control email verification or when cancelling email verification,
+     * this method only accessible if url provided is valid.
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     public function verifyEmail()
     {
         $uuid = decode($this->request->getGet('uuid'), 'changeEmail');
@@ -261,6 +293,15 @@ class Auth extends BaseController
         return redirect()->to('masuk');
     }
 
+    /**
+     * Send password reset request to the user email provided in the form
+     * and encode userId & userAttempt based on timestamp.
+     * 
+     * @param Object $user User object provided based on model request.
+     * @param string $time Encoded reset attempt timestamp.
+     * 
+     * @return bool Sent/Unsent Email.
+     */
     private function _verifyPassword($user, $time)
     {
         $config = [
@@ -287,6 +328,13 @@ class Auth extends BaseController
         return $email->send(true);
     }
 
+    /**
+     * Attempt to set session data.
+     * 
+     * @param Object $user User object provided based on model request.
+     * 
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
     private function _setSession($user)
     {
         $session = session();

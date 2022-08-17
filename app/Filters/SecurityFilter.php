@@ -6,6 +6,9 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
+/**
+ * @package Kartasolv\Filters
+ */
 class SecurityFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)

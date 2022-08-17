@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function removeProtocol($url)
 {
@@ -15,7 +15,7 @@ function removeProtocol($url)
 }
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function addProtocol($url, $protocol = 'https://')
 {
@@ -24,7 +24,7 @@ function addProtocol($url, $protocol = 'https://')
 }
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function objectify($data)
 {
@@ -32,7 +32,7 @@ function objectify($data)
 }
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function setFlash($flash)
 {
@@ -45,7 +45,7 @@ function setFlash($flash)
 }
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function getFlash($key)
 {
@@ -61,7 +61,7 @@ function getFlash($key)
 }
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function parseMission($string)
 {
@@ -75,7 +75,7 @@ function parseMission($string)
 
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function setInvalid($name)
 {
@@ -84,7 +84,7 @@ function setInvalid($name)
 }
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function showInvalidFeedback($name)
 {
@@ -94,7 +94,7 @@ function showInvalidFeedback($name)
 use Config\Database;
 
 /**
- * @package Helpers\string
+ * @package Kartasolv\Helpers\string
  */
 function countTable($table, $param = '')
 {

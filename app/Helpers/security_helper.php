@@ -4,7 +4,7 @@ use Config\Services;
 use Hashids\Hashids;
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function checkAuth($data = null)
 {
@@ -40,7 +40,7 @@ function checkAuth($data = null)
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function isExcluded($str)
 {
@@ -51,7 +51,7 @@ function isExcluded($str)
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function filterOutput($data)
 {
@@ -73,7 +73,7 @@ function filterOutput($data)
 
 /**
  * Returns HTML escaped variable.
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  * @param	mixed	$var		The input string or array of strings to be escaped.
  * @param	bool	$double_encode	$double_encode set to FALSE prevents escaping twice.
  * @return	mixed			The escaped string or array of strings as a result.
@@ -96,7 +96,7 @@ function htmlEscape($var, $double_encode = TRUE)
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function encode($data, $type = '')
 {
@@ -105,7 +105,7 @@ function encode($data, $type = '')
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function decode($data, $type = '')
 {
@@ -115,7 +115,7 @@ function decode($data, $type = '')
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function show404()
 {
@@ -123,7 +123,7 @@ function show404()
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function getCaptchaSitekey()
 {
@@ -131,7 +131,7 @@ function getCaptchaSitekey()
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function kartaPasswordHash(String $password)
 {
@@ -139,7 +139,7 @@ function kartaPasswordHash(String $password)
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function kartaPasswordVerify(String $password, String $hash)
 {
@@ -147,7 +147,7 @@ function kartaPasswordVerify(String $password, String $hash)
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function getMethod($method = null)
 {
@@ -158,7 +158,7 @@ function getMethod($method = null)
 }
 
 /**
- * @package Helpers\security
+ * @package Kartasolv\Helpers\security
  */
 function acceptFrom($routes = '')
 {

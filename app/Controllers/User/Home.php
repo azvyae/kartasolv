@@ -9,7 +9,7 @@ use App\Controllers\BaseController;
  * 
  * This controller has 2 method, index and loadImage.
  * 
- * @package Controllers\User
+ * @package Kartasolv\Controllers\User
  */
 class Home extends BaseController
 {

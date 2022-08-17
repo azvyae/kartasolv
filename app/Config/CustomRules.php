@@ -4,8 +4,26 @@ namespace Config;
 
 use Config\Services;
 
+/**
+ * CustomRules is a Class that provides custom form validation rules for this app.
+ * 
+ * Only two custom rules provided for this application.
+ * 
+ * @author Azvya Erstevan I
+ * 
+ * @package Kartasolv\Config
+ * 
+ */
 class CustomRules
 {
+    /**
+     * Verify Recaptcha is a basic function for sending and verifying Recaptcha V3 token to Google.
+     * 
+     * @see https://developers.google.com/recaptcha/docs/v3
+     * 
+     * @param mixed $response Is request sent as recaptcha token to the system after post/put/delete request.
+     * @return bool Validation Response.
+     */
     public function verify_recaptcha($response)
     {
         $request = Services::request();
@@ -35,6 +53,13 @@ class CustomRules
         }
     }
 
+    /**
+     * Simple validation for correct phone number format. (Only accept Indonesian Country Code).
+     * 
+     * 
+     * @param string $text User input from Whatsapp User Input form.
+     * @return bool Validation Response.
+     */
     public function phone_number($text)
     {
         if ($text[0] == '+' && $text[1] == '6' && $text[2] == '2' && $text[3] == '8') {

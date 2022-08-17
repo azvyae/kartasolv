@@ -4,7 +4,9 @@ namespace App\Libraries;
 
 use CodeIgniter\Model as OriginalModel;
 
-
+/**
+ * @package Kartasolv\Libraries
+ */
 class Model extends OriginalModel
 {
     /**

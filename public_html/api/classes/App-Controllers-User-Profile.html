@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>Documentation</title>
+            <title>Kartasolv Documentation</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../">
@@ -24,7 +24,7 @@
     </head>
 <body id="top">
     <header class="phpdocumentor-header phpdocumentor-section">
-    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Kartasolv Documentation</a></h1>
     <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
     <label class="phpdocumentor-header__menu-icon" for="menu-button">
         <i class="fas fa-bars"></i>
@@ -56,6 +56,10 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/config.html" class="">Config</a>
+</h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -81,41 +85,31 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Controllers.html" class="">Controllers</a>
+    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Controllers-Content.html" class="">Content</a>
+                <a href="packages/Kartasolv-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-User.html" class="">User</a>
+                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Controllers-Data.html" class="">Data</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Helpers.html" class="">Helpers</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="packages/Helpers-security.html" class="">security</a>
+                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-string.html" class="">string</a>
+                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
                 
             </li>
                     <li>
-                <a href="packages/Helpers-view.html" class="">view</a>
+                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                
+            </li>
+                    <li>
+                <a href="packages/Kartasolv-Models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -153,8 +147,9 @@
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Controllers.html">Controllers</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Controllers-User.html">User</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Controllers.html">Controllers</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Controllers-User.html">User</a></li>
                             </ul>
         </div>
     
@@ -164,7 +159,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Profile.php"><a href="files/app-controllers-user-profile.html"><abbr title="app/Controllers/User/Profile.php">Profile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -188,14 +183,7 @@ change profile data like email, and password through the system.</p>
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/App-Controllers-User-Profile.html#property_um">$um</a>
-    <span>
-                        &nbsp;: <a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a>            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/App-Controllers-BaseController.html#property_helpers">$helpers</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
@@ -214,9 +202,9 @@ to all other controllers that extend BaseController.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/App-Controllers-User-Profile.html#property_um">$um</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: <a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>UsersModel initiator.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controllers-User-Profile.html#method___construct">__construct()</a>
@@ -237,7 +225,7 @@ to all other controllers that extend BaseController.</dd>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructor.</dd>
+<dd>Constructor, forced HTTPS and start the session.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Controllers-User-Profile.html#method__updateProfile">_updateProfile()</a>
@@ -269,41 +257,6 @@ to all other controllers that extend BaseController.</dd>
         class="
             phpdocumentor-element
             -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_um">
-        $um
-        <a href="classes/App-Controllers-User-Profile.html#property_um" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Profile.php"><a href="files/app-controllers-user-profile.html"><abbr title="app/Controllers/User/Profile.php">Profile.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$um</span>
-    </code>
-
-        <section class="phpdocumentor-description"><p>UsersModel initiator.</p>
-</section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
             -protected
                                                         "
 >
@@ -316,7 +269,7 @@ to all other controllers that extend BaseController.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -351,7 +304,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -384,21 +337,20 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Profile.php"><a href="files/app-controllers-user-profile.html"><abbr title="app/Controllers/User/Profile.php">Profile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">UsersModel initiator.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Models-UsersModel.html"><abbr title="\App\Models\UsersModel">UsersModel</abbr></a></span>
     <span class="phpdocumentor-signature__name">$um</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
+    
+    
     
 
 </article>
@@ -422,7 +374,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Profile.php"><a href="files/app-controllers-user-profile.html"><abbr title="app/Controllers/User/Profile.php">Profile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -455,7 +407,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Profile.php"><a href="files/app-controllers-user-profile.html"><abbr title="app/Controllers/User/Profile.php">Profile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -472,7 +424,7 @@ to all other controllers that extend BaseController.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr>|string</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Redirection or Show view</p>
+            <section class="phpdocumentor-description"><p>View or Redirection.</p>
 </section>
 
     
@@ -490,11 +442,11 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/BaseController.php"><a href="files/app-controllers-basecontroller.html"><abbr title="app/Controllers/BaseController.php">BaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructor.</p>
+        <p class="phpdocumentor-summary">Constructor, forced HTTPS and start the session.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -550,7 +502,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Profile.php"><a href="files/app-controllers-user-profile.html"><abbr title="app/Controllers/User/Profile.php">Profile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -567,7 +519,7 @@ to all other controllers that extend BaseController.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\HTTP\RedirectResponse">RedirectResponse</abbr></span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Redirection</p>
+            <section class="phpdocumentor-description"><p>Redirection.</p>
 </section>
 
     
@@ -585,7 +537,7 @@ to all other controllers that extend BaseController.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Controllers/User/Profile.php"><a href="files/app-controllers-user-profile.html"><abbr title="app/Controllers/User/Profile.php">Profile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -632,7 +584,9 @@ to all other controllers that extend BaseController.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Sent/Not Sent Email.</p>
+</section>
+
     
 </article>
             </section>

@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Libraries\Model;
 
-
+/**
+ * @package Kartasolv\Models
+ */
 class RoleAccessModel extends Model
 {
     protected $table = 'role_access';
