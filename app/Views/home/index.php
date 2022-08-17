@@ -46,7 +46,7 @@
     </div>
 </div>
 <!-- Kegiatan Kami -->
-<div class="bg-info text-primary text-center shadow-lg">
+<div class="bg-info bg-gradient text-primary text-center shadow-lg">
     <div class="container col-xxl-8 px-4 py-5  ">
         <div class="row">
             <h2 class="display-4 fw-bold">Kegiatan Kami</h2>

@@ -1,5 +1,5 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<nav id="main-navbar" class="navbar fw-semibold px-3 navbar-expand-lg <?= !isSameController(['Home']) ? 'bg-white shadow-sm' : '' ?> fixed-top">
+<nav id="main-navbar" class="navbar bg-gradient fw-semibold px-3 navbar-expand-lg <?= !isSameController(['Home']) ? 'bg-white shadow-sm' : '' ?> fixed-top">
     <div class="container-fluid col-11">
         <div class="me-5">
             <a href="<?= base_url(); ?>" class="navbar-brand  <?= !isSameController(['Home', 'Auth']) ? 'd-md-inline d-none' : '' ?>">
