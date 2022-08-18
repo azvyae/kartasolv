@@ -25,6 +25,9 @@
         <lastmod>2022-08-13T23:30:33+00:00</lastmod>
         <priority>0.64</priority>
     </url>
-
-
+    <url>
+        <loc><?= base_url('api'); ?></loc>
+        <lastmod>2022-08-13T23:30:33+00:00</lastmod>
+        <priority>0.3</priority>
+    </url>
 </urlset>
