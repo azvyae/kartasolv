@@ -5,7 +5,7 @@ Access Website : https://kartasarijadi.com
 
 If you would like to see full documentation to make this kind of project, you can see https://kartasarijadi.com/api
 
-### Changelog latest v.1.2.2
+### Changelog latest v.1.2.4
 - Created landing page and call to action button.
 - Created Karang Taruna's History page.
 - Added Google Maps embed for Karang Taruna Sarijadi's contact information.
