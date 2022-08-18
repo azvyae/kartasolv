@@ -3,7 +3,9 @@ Kartasolv is an Social Welfare Development Web Application that focused on helpi
 
 Access Website : https://kartasarijadi.com
 
-### Features on V.1.1.0
+If you would like to see full documentation to make this kind of project, you can see https://kartasarijadi.com/api
+
+### Changelog latest v.1.2.2
 - Created landing page and call to action button.
 - Created Karang Taruna's History page.
 - Added Google Maps embed for Karang Taruna Sarijadi's contact information.
@@ -26,3 +28,8 @@ Access Website : https://kartasarijadi.com
 - Added send message function
 - Send message to notify admin with email
 - Administrator allowed to manage messages through datatables
+- Fixed some reset password and sending email bug
+- Downgraded PHP Version to 7.4
+- Changed main info logo on landing page
+- Changed orderables config
+- Finished created documentation
