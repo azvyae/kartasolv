@@ -126,8 +126,8 @@ class Auth extends BaseController
         }
         $email = $this->request->getPost('user_email', FILTER_SANITIZE_EMAIL);
         if ($user = $this->um->getFromEmail($email)) {
-            if ($last = strtotime($user->user_reset_attempt)) {
-                if (date('Y-m-d H:i:s', strtotime('+5 minutes', $last)) < date('Y-m-d H:i:s')) {
+            if ($last = strtotime('+5 minutes', $user->user_reset_attempt)) {
+                if (date('Y-m-d H:i:s', $last) > date('Y-m-d H:i:s')) {
                     $flash = [
                         'message' => 'Kamu baru saja melakukan permintaan atur ulang kata sandi, tunggu 5 menit lagi.',
                         'type' => 'warning'
