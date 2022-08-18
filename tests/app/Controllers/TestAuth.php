@@ -51,17 +51,17 @@ class TestAuth extends CIUnitTestCase
     {
         $data = [
             'user_id' => 2,
-            'user_password' => '200ceb26807d6bf99fd6f4f0d1ca54d4'
+            'user_password' => 'e16b2ab8d12314bf4efbd6203906ea6c'
         ];
         $this->um->save($data);
-        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test@gmail.com', 'user_password' => 'administrator', 'g-recaptcha-response' => 'random-token']);
+        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test@test.com', 'user_password' => 'testpassword', 'g-recaptcha-response' => 'random-token']);
         $result->assertOK();
         $result->assertRedirectTo(base_url('dasbor'));
     }
 
     public function testLoginWithDefaultHash()
     {
-        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test@gmail.com', 'user_password' => 'administrator', 'g-recaptcha-response' => 'random-token']);
+        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test@test.com', 'user_password' => 'testpassword', 'g-recaptcha-response' => 'random-token']);
         $result->assertOK();
         $result->assertRedirectTo(base_url('dasbor'));
     }
@@ -139,7 +139,7 @@ class TestAuth extends CIUnitTestCase
 
     public function testForgetPasswordWithCorrectEmail()
     {
-        $result = $this->call('post', "lupa-kata-sandi", ['user_email' => 'test@gmail.com', csrf_token() => csrf_hash(), 'g-recaptcha-response' => 'random-token']);
+        $result = $this->call('post', "lupa-kata-sandi", ['user_email' => 'test@test.com', csrf_token() => csrf_hash(), 'g-recaptcha-response' => 'random-token']);
         $result->assertOK();
         $result->assertSessionHas('message', 'Silakan cek emailmu untuk melanjutkan.');
         $result->assertRedirectTo(base_url('masuk'));
@@ -153,7 +153,7 @@ class TestAuth extends CIUnitTestCase
             'user_reset_attempt' => $date
         ];
         $this->um->save($updateData);
-        $result = $this->call('post', "lupa-kata-sandi", ['user_email' => 'test@gmail.com', csrf_token() => csrf_hash(), 'g-recaptcha-response' => 'random-token']);
+        $result = $this->call('post', "lupa-kata-sandi", ['user_email' => 'test@test.com', csrf_token() => csrf_hash(), 'g-recaptcha-response' => 'random-token']);
         $result->assertOK();
         $result->assertSessionHas('message', 'Kamu baru saja melakukan permintaan atur ulang kata sandi, tunggu 5 menit lagi.');
         $result->assertRedirectTo(base_url('lupa-kata-sandi'));

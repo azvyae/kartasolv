@@ -118,7 +118,7 @@ nb-configuration.xml
 /results/
 /phpunit*.xml
 /.phpunit.*.cache
-
+/public_html/phpunit
 # NodeJS
 node_modules/
 
