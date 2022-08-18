@@ -150,6 +150,12 @@ class Auth extends BaseController
                     setFlash($flash);
                     return redirect()->to('masuk');
                 }
+            } else {
+                $flash = [
+                    'message' => 'Gagal mengirimkan email.',
+                    'type' => 'danger'
+                ];
+                setFlash($flash);
             }
         } else {
             $flash = [
