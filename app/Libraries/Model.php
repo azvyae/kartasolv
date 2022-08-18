@@ -5,7 +5,11 @@ namespace App\Libraries;
 use CodeIgniter\Model as OriginalModel;
 
 /**
- * @package Kartasolv\Libraries
+ * Extends from original Codeigniter Model.
+ * 
+ * This class has certain method to override its original method and added some functionalities.
+ * 
+ * @package KartasolvApp\Libraries
  */
 class Model extends OriginalModel
 {
@@ -13,6 +17,8 @@ class Model extends OriginalModel
      * Returns the model's defined validation rules so that they
      * can be used elsewhere, if needed.
      *
+     * Added ['add'] option to combine model validationRules with other RuleGroup rules.
+     * 
      * @param array $options Options
      */
     public function getValidationRules(array $options = []): array
@@ -87,6 +93,11 @@ class Model extends OriginalModel
         return filterOutput($eventData['data']);
     }
 
+    /**
+     * Assign modified_by field in the database.
+     * @param array $data
+     * @return array
+     */
     protected function setModifiedBy(array $data)
     {
         $data['data'] += [
@@ -94,6 +105,11 @@ class Model extends OriginalModel
         ];
         return $data;
     }
+    /**
+     * Assign created_by field in the database.
+     * @param array $data
+     * @return array
+     */
     protected function setCreatedBy(array $data)
     {
         $data['data'] += [
@@ -102,6 +118,11 @@ class Model extends OriginalModel
         return $data;
     }
 
+    /**
+     * Assign deleted_by field in the database.
+     * @param array $data
+     * @return void
+     */
     protected function setDeletedBy(array $data)
     {
         if ($this->useSoftDeletes) {

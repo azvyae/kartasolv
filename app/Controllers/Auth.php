@@ -10,7 +10,7 @@ namespace App\Controllers;
  * setting session.
  * 
  * 
- * @package Kartasolv\Controllers
+ * @package KartasolvApp\Controllers
  */
 class Auth extends BaseController
 {

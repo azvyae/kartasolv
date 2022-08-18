@@ -8,7 +8,7 @@
     </paths>
     <version number="1.2.2">
         <api format="php">
-            <default-package-name>Kartasolv</default-package-name>
+            <default-package-name>KartasolvApp</default-package-name>
             <source dsn=".">
                 <path>app/Config/CustomRules.php</path>
                 <path>app/Config/Services.php</path>

@@ -8,7 +8,7 @@ namespace App\Controllers;
  * This controller provides information on the landing page, history page,
  * and contact us page.
  * 
- * @package Kartasolv\Controllers
+ * @package KartasolvApp\Controllers
  */
 class Home extends BaseController
 {

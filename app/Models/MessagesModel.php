@@ -6,7 +6,9 @@ use App\Libraries\DatabaseManager;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Messages model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class MessagesModel extends Model
 {
@@ -44,6 +46,12 @@ class MessagesModel extends Model
         ]
     ];
 
+    /**
+     * Retrieve Datatables.
+     * @see \App\Libraries\DatabaseManager for complete instructions.
+     * @param mixed $condition Condition retrieved from the controller.
+     * @return object Objectified result.
+     */
     public function getDatatable($condition)
     {
         $dbMan = new DatabaseManager;

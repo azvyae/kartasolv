@@ -85,31 +85,45 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
+    <a href="packages/KartasolvApp.html" class="">KartasolvApp</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Kartasolv-Config.html" class="">Config</a>
+                <a href="packages/KartasolvApp-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
+                <a href="packages/KartasolvApp-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
+                <a href="packages/KartasolvApp-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
+                <a href="packages/KartasolvApp-Libraries.html" class="">Libraries</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                <a href="packages/KartasolvApp-Models.html" class="">Models</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/KartasolvHelpers.html" class="">KartasolvHelpers</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/KartasolvHelpers-security.html" class="">security</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Models.html" class="">Models</a>
+                <a href="packages/KartasolvHelpers-string.html" class="">string</a>
+                
+            </li>
+                    <li>
+                <a href="packages/KartasolvHelpers-view.html" class="">view</a>
                 
             </li>
             </ul>
@@ -146,8 +160,8 @@
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Libraries.html">Libraries</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/KartasolvApp.html">KartasolvApp</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/KartasolvApp-Libraries.html">Libraries</a></li>
                             </ul>
         </div>
     
@@ -157,13 +171,33 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">DatabaseManager is a library made to simplify query builder especially to retrieve data and displays it to
+Datatables with server side processing.</p>
+
+    <section class="phpdocumentor-description"><p>This library has five main methods from composing query, counting results, grouping query,
+translate query, and prepare query to be executed.</p>
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Azvya Erstevan I.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
 
 
@@ -181,42 +215,42 @@
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
+<dd>Prepare builder variable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Libraries-DatabaseManager.html#property_db">$db</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: <abbr title="\CodeIgniter\Database\BaseConnection">BaseConnection</abbr>            </span>
 </dt>
-<dd></dd>
+<dd>Prepare the db connection.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Libraries-DatabaseManager.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Construct connection to the database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Libraries-DatabaseManager.html#method_countAll">countAll()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: int    </span>
 </dt>
-<dd></dd>
+<dd>Count queried result.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Libraries-DatabaseManager.html#method_filterDatatables">filterDatatables()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Generate datatables query based on user input.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Libraries-DatabaseManager.html#method_makeGroup">makeGroup()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Group Queries.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Libraries-DatabaseManager.html#method_read">read()</a>
@@ -224,13 +258,6 @@
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Read database function with QueryBuilder.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Libraries-DatabaseManager.html#method_translate">translate()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
 
         </dl>
 
@@ -260,20 +287,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Prepare builder variable.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$builder</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>Table to be connected.</p>
+</section>
 
     
 
@@ -294,20 +322,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Prepare the db connection.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\CodeIgniter\Database\BaseConnection">BaseConnection</abbr></span>
     <span class="phpdocumentor-signature__name">$db</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>Database connection.</p>
+</section>
 
     
 
@@ -332,17 +361,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Construct connection to the database.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
@@ -365,17 +394,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">304</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Count queried result.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">countAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$retrieve_all</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">countAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$retrieve_all</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -383,15 +412,17 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Query array.</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$retrieve_all</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Retrieve everything includin deleted_at is not null data.</p>
+</section>
 
             </dd>
             </dl>
@@ -399,9 +430,11 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">int</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Row count.</p>
+</section>
+
     
 </article>
                     <article
@@ -417,16 +450,134 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Generate datatables query based on user input.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">filterDatatables</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$condition</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>Before you could implement php data you have to provide Javascript and html function inside the
+View file.</p>
+<p>HTML Code Example:</p>
+<pre class="prettyprint"><code class="language-html"> &lt;table id=&quot;table&quot;&gt;&lt;/table&gt;
+</code></pre>
+<p>And you have to provide Javascript function, you can either use separated files or implement this code inside
+the html &lt;script>&lt;/script> Tag. Example:</p>
+<pre class="prettyprint"><code class="language-javascript"> document.addEventListener('DOMContentLoaded', function() {
+   // Create configuration
+   config = {
+       table_id: 'table',
+       // Ajax server side config
+       ajax: {
+           url: baseUrl(&quot;konten/profil-karang-taruna/pengurus&quot;),
+           type: &quot;GET&quot;,
+           data: {
+               orderable: ['selected_id', 'selected_name', 'selected_name2'],
+               searchable: ['selected_id', 'selected_name', 'selected_name2']
+           }
+       },
+       // Configure buttons
+       defaultOrder: [2, 'asc'],
+       buttons: {
+           add: {
+               url: baseUrl('ajax/url')
+           },
+           xlsx: true,
+           delete: {
+               url: baseUrl('ajax/url'),
+               postData: postData()
+           },
+           manipulateSelected: {
+               url: baseUrl('ajax/url'),
+               text: '&lt;i class=&quot;icon sample&quot;&gt;&lt;/i&gt;',
+               title: 'Title Custom',
+               postData: postData()
+           },
+           custom: {
+               text: '&lt;i class=&quot;icon sample&quot;&gt;&lt;/i&gt;',
+               title: 'Title Custom',
+               action: function() {
+                   window.location.href = baseUrl('ajax/url/custom');
+               }
+           }
+       },
+       columns: [{
+               title: &quot;Nama&quot;,
+               name: &quot;selected_name&quot;,
+               data: &quot;selected_name&quot;,
+               className: 'text-center text-lg-start',
+               render: function(data, type, row) {
+                   return `{row.selected_name}`;
+               },
+
+           },
+           {
+               title: &quot;Tipe&quot;,
+               name: &quot;selected_name2&quot;,
+               data: &quot;selected_name2&quot;,
+               className: 'text-center',
+               type: 'array',
+               options: [{
+                       value: '1',
+                       text: 'Ketua'
+                   },
+                   {
+                       value: '2',
+                       text: 'Top Level'
+                   },
+                   {
+                       value: '3',
+                       text: 'Kegiatan Khusus'
+                   },
+                   {
+                       value: '4',
+                       text: 'Anggota'
+                   },
+
+               ],
+               render: function(data) {
+                   switch (data) {
+                       case '1':
+                           type = 'Ketua'
+                           className = 'bg-danger'
+                           break;
+                       case '2':
+                           type = 'Top Level'
+                           className = 'bg-warning text-dark'
+                           break;
+                       case '3':
+                           type = 'Kabid'
+                           className = 'bg-success'
+                           break;
+                       default:
+                           type = 'Anggota'
+                           className = 'bg-light text-dark'
+                           break;
+                   }
+                   return `&lt;span class=&quot;badge ${className}&quot;&gt;${type}&lt;/span&gt;`;
+               }
+           },
+           {
+               title: &quot;Aksi&quot;,
+               name: &quot;unique_id&quot;,
+               data: &quot;unique_id&quot;,
+               className: &quot;text-center&quot;,
+               render: function(data, type, row) {
+                   return (
+                       `&lt;a href=&quot;sample/url/${unique_id}&gt;&lt;/a&gt;`
+                   );
+               },
+           },
+       ],
+   }
+   createDatatable(config);
+})
+</code></pre>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -435,17 +586,56 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Condition to be generated, for usage see Model Examples provided in this application.</p>
+<pre class="prettyprint"><code class="language-php">public function getDatatable($condition)
+  {
+      $dbMan = new DatabaseManager;
+      $query = [
+          'result' =&gt; 'result',
+          'table'  =&gt; 'table_name',
+          'select' =&gt; ['selected_id', 'selected_name', 'selected_name2']
+      ];
+      $query += $dbMan-&gt;filterDatatables($condition);
+      $query['orderBy'] .= ', selected_id ASC';
+      $data = [
+          'totalRows' =&gt; $dbMan-&gt;countAll($query),
+          'result' =&gt; $dbMan-&gt;read($query),
+          'searchable' =&gt; array_map(function ($e) {
+              return $e . &quot;:name&quot;;
+          }, $condition['columnSearch'])
+      ];
+      return objectify($data);
+ }
+</code></pre>
+</section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://datatables.net/"><abbr title="https://datatables.net/">https://datatables.net/</abbr></a></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>for instructions how to create server side processing Datatables.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Formatted query.</p>
+</section>
+
     
 </article>
                     <article
@@ -461,17 +651,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">315</span>
+    <span class="phpdocumentor-element-found-in__line">499</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Group Queries.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">makeGroup</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">makeGroup</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -479,7 +669,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Query to be grouped.</p>
+</section>
 
             </dd>
             </dl>
@@ -487,9 +678,11 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Nothing to return, just sets the builder to be grouped.</p>
+</section>
+
     
 </article>
                     <article
@@ -505,7 +698,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">405</span>
 
     </aside>
 
@@ -513,34 +706,35 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">read</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$retrieveAll</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">read</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$retrieveAll</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>Simple read query:<br/></p>
-<pre class="prettyprint">
-$query = [
-     'result' => 'result',
-     'table'  => 'sample_table'
+        <section class="phpdocumentor-description"><p>Simple read query:</p>
+<pre class="prettyprint"><code class="language-php">$query = [
+     'result' =&gt; 'result',
+     'table'  =&gt; 'sample_table'
 ];
-</pre>
-<p>$this-&gt;lib_db-&gt;read($query);</p>
-<p>Simple where query:
-$query = [
-'result' =&gt; 'result',
-'table'  =&gt; 'sample_table',
-'where'  =&gt; ['id' =&gt; '1', 'email' =&gt; 'good@gmail.com']
+$this-&gt;lib_db-&gt;read($query);
+</code></pre>
+<p>Simple where query:</p>
+<pre class="prettyprint"><code class="language-php">$query = [
+     'result' =&gt; 'result',
+     'table'  =&gt; 'sample_table',
+     'where'  =&gt; ['id' =&gt; '1', 'email' =&gt; 'good@gmail.com']
 ];
-$this-&gt;lib_db-&gt;read($query);</p>
-<p>Limit and join read query:
-$query = [
-'result' =&gt; 'result',
-'table'  =&gt; 'sample_table',
-'join'   =&gt; [
-['sample_table_2','sample_table.id = sample_table_2.id_sample', 'right outer'],
-['sample_table_3','sample_table_2.id_sample = sample_table_3.id_sample_2']
-],
-'limit'  =&gt; 3
+$this-&gt;lib_db-&gt;read($query);
+</code></pre>
+<p>Limit and join read query:</p>
+<pre class="prettyprint"><code class="language-php">$query = [
+     'result' =&gt; 'result',
+     'table'  =&gt; 'sample_table',
+     'join'   =&gt; [
+         ['sample_table_2','sample_table.id = sample_table_2.id_sample', 'right outer'],
+         ['sample_table_3','sample_table_2.id_sample = sample_table_3.id_sample_2']
+     ],
+     'limit'  =&gt; 3
 ];
-$this-&gt;lib_db-&gt;read($query);</p>
+$this-&gt;lib_db-&gt;read($query);
+</code></pre>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -550,55 +744,14 @@ $this-&gt;lib_db-&gt;read($query);</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Array query data.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$retrieveAll</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_translate">
-        translate()
-        <a href="classes/App-Libraries-DatabaseManager.html#method_translate" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/DatabaseManager.php"><a href="files/app-libraries-databasemanager.html"><abbr title="app/Libraries/DatabaseManager.php">DatabaseManager.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">334</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">translate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$condition</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$condition</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
 
@@ -610,7 +763,9 @@ $this-&gt;lib_db-&gt;read($query);</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Queried result.</p>
+</section>
+
     
 </article>
             </section>

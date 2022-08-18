@@ -1,9 +1,12 @@
 <?php
 
 /**
- * @package Kartasolv\Helpers\string
+ * Removing protocol like http and https from url provided.
+ * @param string $url Url that would like to protocol removed.
+ * @return string Removed protocol url string.
+ * @package KartasolvHelpers\string
  */
-function removeProtocol($url)
+function removeProtocol(String $url)
 {
     $disallowed = ['http://', 'https://'];
     foreach ($disallowed as $d) {
@@ -15,16 +18,23 @@ function removeProtocol($url)
 }
 
 /**
- * @package Kartasolv\Helpers\string
+ * Add protocol to provided url string.
+ * @param string $url Url that would like to protocol appended.
+ * @param string $protocol Appended protocol, choose between https:// or http://.
+ * @return string Complete url string with its protocol.
+ * @package KartasolvHelpers\string
  */
-function addProtocol($url, $protocol = 'https://')
+function addProtocol(String $url, $protocol = 'https://')
 {
     $url = removeProtocol($url);
     return $protocol . $url;
 }
 
 /**
- * @package Kartasolv\Helpers\string
+ * Change associative array/string into PHP Object.
+ * @param mixed $data Things that would like to objectified.
+ * @return object Objectified data.
+ * @package KartasolvHelpers\string
  */
 function objectify($data)
 {
@@ -32,7 +42,17 @@ function objectify($data)
 }
 
 /**
- * @package Kartasolv\Helpers\string
+ * Set session flashdata with custom format according Codeigniter 4 session.
+ * @param mixed $flash Flash data that would like to generated, better if use associative array with this kind of formatting:
+ * ```php
+ * $flash = [
+ *      'message' => 'Message Data',
+ *      'type' => 'danger'|'warning'|'success' |'info'
+ * ];
+ * setFlash($flash);
+ * ```
+ * @return void Only sets flash data.
+ * @package KartasolvHelpers\string
  */
 function setFlash($flash)
 {
@@ -45,7 +65,10 @@ function setFlash($flash)
 }
 
 /**
- * @package Kartasolv\Helpers\string
+ * Retrieve flash data.
+ * @param mixed $key Better if use only 'message' to retrieve the data.
+ * @return array|null|string Returned formatted flash data.
+ * @package KartasolvHelpers\string
  */
 function getFlash($key)
 {
@@ -61,7 +84,10 @@ function getFlash($key)
 }
 
 /**
- * @package Kartasolv\Helpers\string
+ * Parse mission string from the database into generated string for textarea input.
+ * @param string $string Mission data taken from database.
+ * @return string Parsed mission data to textarea.
+ * @package KartasolvHelpers\string
  */
 function parseMission($string)
 {
@@ -75,16 +101,21 @@ function parseMission($string)
 
 
 /**
- * @package Kartasolv\Helpers\string
+ * Sets an input to be invalid by returning is-invalid class to the input.
+ * @param string $name Input name.
+ * @return string Returned string wether it is invalid or not after form validation input.
+ * @package KartasolvHelpers\string
  */
 function setInvalid($name)
 {
-
     return service('validation')->hasError($name) ? ' is-invalid ' : '';
 }
 
 /**
- * @package Kartasolv\Helpers\string
+ * Retrieves error message from form validation input.
+ * @param string $name Input name.
+ * @return string String wether error input message.
+ * @package KartasolvHelpers\string
  */
 function showInvalidFeedback($name)
 {
@@ -94,7 +125,11 @@ function showInvalidFeedback($name)
 use Config\Database;
 
 /**
- * @package Kartasolv\Helpers\string
+ * Data counter for certain table, currently the param only used for Communities table joined to PMPSKS Table.
+ * @param string $table Table name.
+ * @param string $param Only accepts PMKS or PSKS as a string.
+ * @return int|string Counted result.
+ * @package KartasolvHelpers\string
  */
 function countTable($table, $param = '')
 {

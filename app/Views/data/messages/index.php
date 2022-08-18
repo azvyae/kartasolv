@@ -83,7 +83,8 @@
                     name: "message_whatsapp",
                     data: "message_whatsapp",
                     className: 'text-center',
-                    render: function(data) {
+                    type: 'string',
+                    render: function(data, type) {
                         return `<a class="fs-3" target="_blank" href="https://wa.me/${data}"><i class="bi text-success bi-whatsapp"></i></a>`;
                     }
 

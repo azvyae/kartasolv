@@ -10,7 +10,7 @@ use App\Libraries\ImageUploader;
  * 
  * This controller only include form with its form validation.
  * 
- * @package Kartasolv\Controllers\Content
+ * @package KartasolvApp\Controllers\Content
  * 
  */
 class History extends BaseController

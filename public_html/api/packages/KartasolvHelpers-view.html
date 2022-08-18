@@ -85,31 +85,45 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
+    <a href="packages/KartasolvApp.html" class="">KartasolvApp</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Kartasolv-Config.html" class="">Config</a>
+                <a href="packages/KartasolvApp-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
+                <a href="packages/KartasolvApp-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
+                <a href="packages/KartasolvApp-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
+                <a href="packages/KartasolvApp-Libraries.html" class="">Libraries</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                <a href="packages/KartasolvApp-Models.html" class="">Models</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/KartasolvHelpers.html" class="">KartasolvHelpers</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/KartasolvHelpers-security.html" class="">security</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Models.html" class="">Models</a>
+                <a href="packages/KartasolvHelpers-string.html" class="">string</a>
+                
+            </li>
+                    <li>
+                <a href="packages/KartasolvHelpers-view.html" class="-active">view</a>
                 
             </li>
             </ul>
@@ -131,8 +145,7 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Helpers.html">Helpers</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="packages/KartasolvHelpers.html">KartasolvHelpers</a></li>
     </ul>
 
     <article class="phpdocumentor-element -package">
@@ -151,44 +164,44 @@
                             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_isSamePage">isSamePage()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Check wether same page or not for navigation bar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_getSidebarMenu">getSidebarMenu()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Retrieve sidebar menus based on roles.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_isSameController">isSameController()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd></dd>
+<dd>Check wether same controller or not for navigation bar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_getCallToAction">getCallToAction()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|object|null|false    </span>
 </dt>
-<dd></dd>
+<dd>Retrieve Call to Action url and text from database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_getUserName">getUserName()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Retrieve Logged In User Name from database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_getMissions">getMissions()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Function for displaying missions on the landing page.</dd>
 
     </dl>
 
@@ -197,7 +210,7 @@
             <section class="phpdocumentor-functions">
         <h3 class="phpdocumentor-elements__header" id="functions">
             Functions
-            <a href="packages/Kartasolv-Helpers-view.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="packages/KartasolvHelpers-view.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_isSamePage">
@@ -207,14 +220,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Check wether same page or not for navigation bar.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">isSamePage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pageToCheck</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">isSamePage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pageToCheck</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -224,7 +238,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Route uri string</p>
+</section>
 
             </dd>
             </dl>
@@ -232,9 +247,11 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Active class for html.</p>
+</section>
+
     
 </article>
                     <article class="phpdocumentor-element -function - ">
@@ -245,11 +262,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Retrieve sidebar menus based on roles.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
                     <span class="phpdocumentor-signature__name">getSidebarMenu</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -261,7 +279,9 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Menu that could be accessed by certain role checked by checkAuth() function.</p>
+</section>
+
     
 </article>
                     <article class="phpdocumentor-element -function - ">
@@ -272,14 +292,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Check wether same controller or not for navigation bar.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">isSameController</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$controllerToCheck</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">isSameController</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$controllerToCheck</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -289,7 +310,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Route uri string.</p>
+</section>
 
             </dd>
             </dl>
@@ -297,9 +319,11 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Returned boolean result after checking same controller or not.</p>
+</section>
+
     
 </article>
                     <article class="phpdocumentor-element -function - ">
@@ -310,23 +334,26 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Retrieve Call to Action url and text from database.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getCallToAction</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getCallToAction</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object|null|false</span></code>
 
     
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object|null|false</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Call to action data or nothing to return.</p>
+</section>
+
     
 </article>
                     <article class="phpdocumentor-element -function - ">
@@ -337,11 +364,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Retrieve Logged In User Name from database.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
                     <span class="phpdocumentor-signature__name">getUserName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -353,7 +381,9 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>User Name.</p>
+</section>
+
     
 </article>
                     <article class="phpdocumentor-element -function - ">
@@ -364,24 +394,26 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Function for displaying missions on the landing page.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getMissions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getMissions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Mission data taken from database.</p>
+</section>
 
             </dd>
             </dl>
@@ -391,7 +423,9 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Mission and its description.</p>
+</section>
+
     
 </article>
             </section>
@@ -410,7 +444,7 @@
 </section>
             </div>
         </div>
-        <a href="packages/Kartasolv-Helpers-view.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="packages/KartasolvHelpers-view.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

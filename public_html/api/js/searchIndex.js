@@ -583,97 +583,97 @@ Search.appendIndex(
         },                {
             "fqsen": "\\removeProtocol\u0028\u0029",
             "name": "removeProtocol",
-            "summary": "",
+            "summary": "Removing\u0020protocol\u0020like\u0020http\u0020and\u0020https\u0020from\u0020url\u0020provided.",
             "url": "namespaces/default.html#function_removeProtocol"
         },                {
             "fqsen": "\\addProtocol\u0028\u0029",
             "name": "addProtocol",
-            "summary": "",
+            "summary": "Add\u0020protocol\u0020to\u0020provided\u0020url\u0020string.",
             "url": "namespaces/default.html#function_addProtocol"
         },                {
             "fqsen": "\\objectify\u0028\u0029",
             "name": "objectify",
-            "summary": "",
+            "summary": "Change\u0020associative\u0020array\/string\u0020into\u0020PHP\u0020Object.",
             "url": "namespaces/default.html#function_objectify"
         },                {
             "fqsen": "\\setFlash\u0028\u0029",
             "name": "setFlash",
-            "summary": "",
+            "summary": "Set\u0020session\u0020flashdata\u0020with\u0020custom\u0020format\u0020according\u0020Codeigniter\u00204\u0020session.",
             "url": "namespaces/default.html#function_setFlash"
         },                {
             "fqsen": "\\getFlash\u0028\u0029",
             "name": "getFlash",
-            "summary": "",
+            "summary": "Retrieve\u0020flash\u0020data.",
             "url": "namespaces/default.html#function_getFlash"
         },                {
             "fqsen": "\\parseMission\u0028\u0029",
             "name": "parseMission",
-            "summary": "",
+            "summary": "Parse\u0020mission\u0020string\u0020from\u0020the\u0020database\u0020into\u0020generated\u0020string\u0020for\u0020textarea\u0020input.",
             "url": "namespaces/default.html#function_parseMission"
         },                {
             "fqsen": "\\setInvalid\u0028\u0029",
             "name": "setInvalid",
-            "summary": "",
+            "summary": "Sets\u0020an\u0020input\u0020to\u0020be\u0020invalid\u0020by\u0020returning\u0020is\u002Dinvalid\u0020class\u0020to\u0020the\u0020input.",
             "url": "namespaces/default.html#function_setInvalid"
         },                {
             "fqsen": "\\showInvalidFeedback\u0028\u0029",
             "name": "showInvalidFeedback",
-            "summary": "",
+            "summary": "Retrieves\u0020error\u0020message\u0020from\u0020form\u0020validation\u0020input.",
             "url": "namespaces/default.html#function_showInvalidFeedback"
         },                {
             "fqsen": "\\countTable\u0028\u0029",
             "name": "countTable",
-            "summary": "",
+            "summary": "Data\u0020counter\u0020for\u0020certain\u0020table,\u0020currently\u0020the\u0020param\u0020only\u0020used\u0020for\u0020Communities\u0020table\u0020joined\u0020to\u0020PMPSKS\u0020Table.",
             "url": "namespaces/default.html#function_countTable"
         },                {
             "fqsen": "\\isSamePage\u0028\u0029",
             "name": "isSamePage",
-            "summary": "",
+            "summary": "Check\u0020wether\u0020same\u0020page\u0020or\u0020not\u0020for\u0020navigation\u0020bar.",
             "url": "namespaces/default.html#function_isSamePage"
         },                {
             "fqsen": "\\getSidebarMenu\u0028\u0029",
             "name": "getSidebarMenu",
-            "summary": "",
+            "summary": "Retrieve\u0020sidebar\u0020menus\u0020based\u0020on\u0020roles.",
             "url": "namespaces/default.html#function_getSidebarMenu"
         },                {
             "fqsen": "\\isSameController\u0028\u0029",
             "name": "isSameController",
-            "summary": "",
+            "summary": "Check\u0020wether\u0020same\u0020controller\u0020or\u0020not\u0020for\u0020navigation\u0020bar.",
             "url": "namespaces/default.html#function_isSameController"
         },                {
             "fqsen": "\\getCallToAction\u0028\u0029",
             "name": "getCallToAction",
-            "summary": "",
+            "summary": "Retrieve\u0020Call\u0020to\u0020Action\u0020url\u0020and\u0020text\u0020from\u0020database.",
             "url": "namespaces/default.html#function_getCallToAction"
         },                {
             "fqsen": "\\getUserName\u0028\u0029",
             "name": "getUserName",
-            "summary": "",
+            "summary": "Retrieve\u0020Logged\u0020In\u0020User\u0020Name\u0020from\u0020database.",
             "url": "namespaces/default.html#function_getUserName"
         },                {
             "fqsen": "\\getMissions\u0028\u0029",
             "name": "getMissions",
-            "summary": "",
+            "summary": "Function\u0020for\u0020displaying\u0020missions\u0020on\u0020the\u0020landing\u0020page.",
             "url": "namespaces/default.html#function_getMissions"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager",
             "name": "DatabaseManager",
-            "summary": "",
+            "summary": "DatabaseManager\u0020is\u0020a\u0020library\u0020made\u0020to\u0020simplify\u0020query\u0020builder\u0020especially\u0020to\u0020retrieve\u0020data\u0020and\u0020displays\u0020it\u0020to\nDatatables\u0020with\u0020server\u0020side\u0020processing.",
             "url": "classes/App-Libraries-DatabaseManager.html"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Construct\u0020connection\u0020to\u0020the\u0020database.",
             "url": "classes/App-Libraries-DatabaseManager.html#method___construct"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003AfilterDatatables\u0028\u0029",
             "name": "filterDatatables",
-            "summary": "",
+            "summary": "Generate\u0020datatables\u0020query\u0020based\u0020on\u0020user\u0020input.",
             "url": "classes/App-Libraries-DatabaseManager.html#method_filterDatatables"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003AcountAll\u0028\u0029",
             "name": "countAll",
-            "summary": "",
+            "summary": "Count\u0020queried\u0020result.",
             "url": "classes/App-Libraries-DatabaseManager.html#method_countAll"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003Aread\u0028\u0029",
@@ -683,42 +683,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003AmakeGroup\u0028\u0029",
             "name": "makeGroup",
-            "summary": "",
+            "summary": "Group\u0020Queries.",
             "url": "classes/App-Libraries-DatabaseManager.html#method_makeGroup"
-        },                {
-            "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003Atranslate\u0028\u0029",
-            "name": "translate",
-            "summary": "",
-            "url": "classes/App-Libraries-DatabaseManager.html#method_translate"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003A\u0024db",
             "name": "db",
-            "summary": "",
+            "summary": "Prepare\u0020the\u0020db\u0020connection.",
             "url": "classes/App-Libraries-DatabaseManager.html#property_db"
         },                {
             "fqsen": "\\App\\Libraries\\DatabaseManager\u003A\u003A\u0024builder",
             "name": "builder",
-            "summary": "",
+            "summary": "Prepare\u0020builder\u0020variable.",
             "url": "classes/App-Libraries-DatabaseManager.html#property_builder"
         },                {
             "fqsen": "\\App\\Libraries\\ImageUploader",
             "name": "ImageUploader",
-            "summary": "",
+            "summary": "ImageUploader\u0020that\u0020use\u0020Codeigniter\u00204\u0027s\u0020File\u0020Uploader\u0020Class",
             "url": "classes/App-Libraries-ImageUploader.html"
         },                {
             "fqsen": "\\App\\Libraries\\ImageUploader\u003A\u003Aupload\u0028\u0029",
             "name": "upload",
-            "summary": "",
+            "summary": "Upload\u0020method.",
             "url": "classes/App-Libraries-ImageUploader.html#method_upload"
         },                {
             "fqsen": "\\App\\Libraries\\ImageUploader\u003A\u003AconvertToWebp\u0028\u0029",
             "name": "convertToWebp",
-            "summary": "Convert\u0020to\u0020webp\u0020and\u0020compress",
+            "summary": "Convert\u0020file\u0020in\u0020addressed\u0020filepath\u0020into\u0020webp.",
             "url": "classes/App-Libraries-ImageUploader.html#method_convertToWebp"
         },                {
             "fqsen": "\\App\\Libraries\\Model",
             "name": "Model",
-            "summary": "",
+            "summary": "Extends\u0020from\u0020original\u0020Codeigniter\u0020Model.",
             "url": "classes/App-Libraries-Model.html"
         },                {
             "fqsen": "\\App\\Libraries\\Model\u003A\u003AgetValidationRules\u0028\u0029",
@@ -733,22 +728,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Libraries\\Model\u003A\u003AsetModifiedBy\u0028\u0029",
             "name": "setModifiedBy",
-            "summary": "",
+            "summary": "Assign\u0020modified_by\u0020field\u0020in\u0020the\u0020database.",
             "url": "classes/App-Libraries-Model.html#method_setModifiedBy"
         },                {
             "fqsen": "\\App\\Libraries\\Model\u003A\u003AsetCreatedBy\u0028\u0029",
             "name": "setCreatedBy",
-            "summary": "",
+            "summary": "Assign\u0020created_by\u0020field\u0020in\u0020the\u0020database.",
             "url": "classes/App-Libraries-Model.html#method_setCreatedBy"
         },                {
             "fqsen": "\\App\\Libraries\\Model\u003A\u003AsetDeletedBy\u0028\u0029",
             "name": "setDeletedBy",
-            "summary": "",
+            "summary": "Assign\u0020deleted_by\u0020field\u0020in\u0020the\u0020database.",
             "url": "classes/App-Libraries-Model.html#method_setDeletedBy"
         },                {
             "fqsen": "\\App\\Libraries\\RedirectResponse",
             "name": "RedirectResponse",
-            "summary": "",
+            "summary": "Override\u0020RedirectResponse\u0020class.",
             "url": "classes/App-Libraries-RedirectResponse.html"
         },                {
             "fqsen": "\\App\\Libraries\\RedirectResponse\u003A\u003Ato\u0028\u0029",
@@ -758,7 +753,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\ActivitiesModel",
             "name": "ActivitiesModel",
-            "summary": "",
+            "summary": "Table\u0020Info_activities\u0020model.",
             "url": "classes/App-Models-ActivitiesModel.html"
         },                {
             "fqsen": "\\App\\Models\\ActivitiesModel\u003A\u003A\u0024table",
@@ -798,17 +793,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\CommunitiesModel",
             "name": "CommunitiesModel",
-            "summary": "",
+            "summary": "Table\u0020Communities\u0020model.",
             "url": "classes/App-Models-CommunitiesModel.html"
         },                {
             "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003AgetPMKSDatatable\u0028\u0029",
             "name": "getPMKSDatatable",
-            "summary": "",
+            "summary": "Retrieve\u0020Datatables.",
             "url": "classes/App-Models-CommunitiesModel.html#method_getPMKSDatatable"
         },                {
             "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003AgetPSKSDatatable\u0028\u0029",
             "name": "getPSKSDatatable",
-            "summary": "",
+            "summary": "Retrieve\u0020Datatables.",
             "url": "classes/App-Models-CommunitiesModel.html#method_getPSKSDatatable"
         },                {
             "fqsen": "\\App\\Models\\CommunitiesModel\u003A\u003A\u0024table",
@@ -863,7 +858,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\HistoryModel",
             "name": "HistoryModel",
-            "summary": "",
+            "summary": "Table\u0020Info_history\u0020model.",
             "url": "classes/App-Models-HistoryModel.html"
         },                {
             "fqsen": "\\App\\Models\\HistoryModel\u003A\u003A\u0024table",
@@ -903,12 +898,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\LandingModel",
             "name": "LandingModel",
-            "summary": "",
+            "summary": "Table\u0020Info_landing\u0020model.",
             "url": "classes/App-Models-LandingModel.html"
         },                {
             "fqsen": "\\App\\Models\\LandingModel\u003A\u003AgetCallToAction\u0028\u0029",
             "name": "getCallToAction",
-            "summary": "",
+            "summary": "Retrieve\u0020Call\u0020to\u0020Action\u0020data.",
             "url": "classes/App-Models-LandingModel.html#method_getCallToAction"
         },                {
             "fqsen": "\\App\\Models\\LandingModel\u003A\u003A\u0024table",
@@ -948,17 +943,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\MembersModel",
             "name": "MembersModel",
-            "summary": "",
+            "summary": "Table\u0020Members\u0020model.",
             "url": "classes/App-Models-MembersModel.html"
         },                {
             "fqsen": "\\App\\Models\\MembersModel\u003A\u003AgetMembers\u0028\u0029",
             "name": "getMembers",
-            "summary": "",
+            "summary": "Get\u0020members\u0020data\u0020for\u0020landing\u0020page.",
             "url": "classes/App-Models-MembersModel.html#method_getMembers"
         },                {
             "fqsen": "\\App\\Models\\MembersModel\u003A\u003AgetDatatable\u0028\u0029",
             "name": "getDatatable",
-            "summary": "",
+            "summary": "Retrieve\u0020Datatables.",
             "url": "classes/App-Models-MembersModel.html#method_getDatatable"
         },                {
             "fqsen": "\\App\\Models\\MembersModel\u003A\u003A\u0024table",
@@ -1013,12 +1008,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\MenuModel",
             "name": "MenuModel",
-            "summary": "",
+            "summary": "Table\u0020Menu\u0020model.",
             "url": "classes/App-Models-MenuModel.html"
         },                {
             "fqsen": "\\App\\Models\\MenuModel\u003A\u003AgetMenuId\u0028\u0029",
             "name": "getMenuId",
-            "summary": "",
+            "summary": "Retrieve\u0020menu\u0020id\u0020based\u0020on\u0020controller\u0020name.",
             "url": "classes/App-Models-MenuModel.html#method_getMenuId"
         },                {
             "fqsen": "\\App\\Models\\MenuModel\u003A\u003A\u0024table",
@@ -1043,12 +1038,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\MessagesModel",
             "name": "MessagesModel",
-            "summary": "",
+            "summary": "Table\u0020Messages\u0020model.",
             "url": "classes/App-Models-MessagesModel.html"
         },                {
             "fqsen": "\\App\\Models\\MessagesModel\u003A\u003AgetDatatable\u0028\u0029",
             "name": "getDatatable",
-            "summary": "",
+            "summary": "Retrieve\u0020Datatables.",
             "url": "classes/App-Models-MessagesModel.html#method_getDatatable"
         },                {
             "fqsen": "\\App\\Models\\MessagesModel\u003A\u003A\u0024table",
@@ -1098,17 +1093,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\PmpsksImgModel",
             "name": "PmpsksImgModel",
-            "summary": "",
+            "summary": "Table\u0020Pmpsks_img\u0020model.",
             "url": "classes/App-Models-PmpsksImgModel.html"
         },                {
             "fqsen": "\\App\\Models\\PmpsksImgModel\u003A\u003AgetImages\u0028\u0029",
             "name": "getImages",
-            "summary": "",
+            "summary": "Retrieve\u0020PMPSKS\u0020image\u0020based\u0020on\u0020Community\u0020Id.",
             "url": "classes/App-Models-PmpsksImgModel.html#method_getImages"
         },                {
             "fqsen": "\\App\\Models\\PmpsksImgModel\u003A\u003AdeleteImages\u0028\u0029",
             "name": "deleteImages",
-            "summary": "",
+            "summary": "Delete\u0020image\u0020method\u0020and\u0020unlink\/delete\u0020from\u0020directory\u0020function.",
             "url": "classes/App-Models-PmpsksImgModel.html#method_deleteImages"
         },                {
             "fqsen": "\\App\\Models\\PmpsksImgModel\u003A\u003A\u0024table",
@@ -1138,7 +1133,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\PmpsksModel",
             "name": "PmpsksModel",
-            "summary": "",
+            "summary": "Table\u0020Pmpsks_types\u0020model.",
             "url": "classes/App-Models-PmpsksModel.html"
         },                {
             "fqsen": "\\App\\Models\\PmpsksModel\u003A\u003A\u0024table",
@@ -1158,17 +1153,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\RoleAccessModel",
             "name": "RoleAccessModel",
-            "summary": "",
+            "summary": "Table\u0020Role_access\u0020model.",
             "url": "classes/App-Models-RoleAccessModel.html"
         },                {
             "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetRoleAccessId\u0028\u0029",
             "name": "getRoleAccessId",
-            "summary": "",
+            "summary": "Retrieve\u0020role\u0020access\u0020id,\u0020used\u0020for\u0020checkAuth\u0028\u0029\u0020functon.",
             "url": "classes/App-Models-RoleAccessModel.html#method_getRoleAccessId"
         },                {
             "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetPageByRole\u0028\u0029",
             "name": "getPageByRole",
-            "summary": "",
+            "summary": "Retrieve\u0020page\u0020menu\u0020on\u0020the\u0020sidebar\u0020based\u0020on\u0020roles.",
             "url": "classes/App-Models-RoleAccessModel.html#method_getPageByRole"
         },                {
             "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024table",
@@ -1193,12 +1188,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\UsersModel",
             "name": "UsersModel",
-            "summary": "",
+            "summary": "Table\u0020Users\u0020model.",
             "url": "classes/App-Models-UsersModel.html"
         },                {
             "fqsen": "\\App\\Models\\UsersModel\u003A\u003AgetFromEmail\u0028\u0029",
             "name": "getFromEmail",
-            "summary": "",
+            "summary": "Retrieve\u0020user\u0020data\u0020based\u0020on\u0020email.",
             "url": "classes/App-Models-UsersModel.html#method_getFromEmail"
         },                {
             "fqsen": "\\App\\Models\\UsersModel\u003A\u003A\u0024table",

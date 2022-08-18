@@ -14,7 +14,7 @@ use Config\CustomRules;
  * 
  * Provides ruleset declaration, custom rules, and error templates for app.
  * 
- * @package Kartasolv\Config
+ * @package KartasolvApp\Config
  */
 class Validation extends BaseConfig
 {

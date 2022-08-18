@@ -5,7 +5,12 @@ namespace App\Libraries;
 use CodeIgniter\HTTP\RedirectResponse as BaseRedirectResponse;
 
 /**
- * @package Kartasolv\Libraries
+ * Override RedirectResponse class.
+ * 
+ * This class has function to override redirect()->to() function, instead of using site_url(),
+ * this class use base_url() instead.
+ * 
+ * @package KartasolvApp\Libraries
  */
 class RedirectResponse extends BaseRedirectResponse
 {

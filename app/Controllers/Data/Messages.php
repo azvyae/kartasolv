@@ -10,7 +10,7 @@ use App\Controllers\BaseController;
  * This controller basicly shows messages data with Datatables, this controller also have some
  * procedure to delete and toggle read/unread messages shown in the Datatables.
  * 
- * @package Kartasolv\Controllers\Data
+ * @package KartasolvApp\Controllers\Data
  */
 class Messages extends BaseController
 {

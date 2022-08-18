@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Users model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class UsersModel extends Model
 {
@@ -47,6 +49,11 @@ class UsersModel extends Model
         ],
     ];
 
+    /**
+     * Retrieve user data based on email.
+     * @param string $email
+     * @return mixed
+     */
     public function getFromEmail($email)
     {
         return $this->join('roles', 'roles.role_id = users.role_id')->where('user_email', $email)->get()->getRow();

@@ -6,7 +6,9 @@ use App\Libraries\DatabaseManager;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Members model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class MembersModel extends Model
 {
@@ -52,10 +54,21 @@ class MembersModel extends Model
 
     ];
 
+    /**
+     * Get members data for landing page.
+     * @return array Retrieved members data.
+     */
     public function getMembers()
     {
         return $this->where('member_active', 1)->orderBy('member_type, member_id', 'asc')->findAll();
     }
+
+    /**
+     * Retrieve Datatables.
+     * @see \App\Libraries\DatabaseManager for complete instructions.
+     * @param mixed $condition Condition retrieved from the controller.
+     * @return object Objectified result.
+     */
     public function getDatatable($condition)
     {
         $dbMan = new DatabaseManager;

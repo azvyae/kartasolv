@@ -1,7 +1,10 @@
 <?php
 
 /**
- * @package Kartasolv\Helpers\view
+ * Check wether same page or not for navigation bar.
+ * @param mixed $pageToCheck Route uri string
+ * @return string Active class for html.
+ * @package KartasolvHelpers\view
  */
 
 function isSamePage($pageToCheck)
@@ -11,7 +14,9 @@ function isSamePage($pageToCheck)
 }
 
 /**
- * @package Kartasolv\Helpers\view
+ * Retrieve sidebar menus based on roles.
+ * @return mixed Menu that could be accessed by certain role checked by checkAuth() function.
+ * @package KartasolvHelpers\view
  */
 function getSidebarMenu()
 {
@@ -21,7 +26,10 @@ function getSidebarMenu()
 }
 
 /**
- * @package Kartasolv\Helpers\view
+ * Check wether same controller or not for navigation bar.
+ * @param mixed $controllerToCheck Route uri string.
+ * @return bool Returned boolean result after checking same controller or not.
+ * @package KartasolvHelpers\view
  */
 function isSameController($controllerToCheck)
 {
@@ -33,7 +41,9 @@ function isSameController($controllerToCheck)
 }
 
 /**
- * @package Kartasolv\Helpers\view
+ * Retrieve Call to Action url and text from database.
+ * @return array|object|null|false Call to action data or nothing to return.
+ * @package KartasolvHelpers\view
  */
 function getCallToAction()
 {
@@ -51,7 +61,9 @@ function getCallToAction()
 }
 
 /**
- * @package Kartasolv\Helpers\view
+ * Retrieve Logged In User Name from database.
+ * @return mixed User Name.
+ * @package KartasolvHelpers\view
  */
 function getUserName()
 {
@@ -60,8 +72,10 @@ function getUserName()
 }
 
 /**
- * @package Kartasolv\Helpers\view
- * @return array
+ * Function for displaying missions on the landing page.
+ * @param string $data Mission data taken from database.
+ * @return array Mission and its description.
+ * @package KartasolvHelpers\view
  */
 function getMissions($data)
 {

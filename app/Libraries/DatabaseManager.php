@@ -6,15 +6,187 @@ use Config\Database;
 use Exception;
 
 /**
- * @package Kartasolv\Libraries
+ * DatabaseManager is a library made to simplify query builder especially to retrieve data and displays it to
+ * Datatables with server side processing.
+ * 
+ * This library has five main methods from composing query, counting results, grouping query,
+ * translate query, and prepare query to be executed.
+ * 
+ * @author Azvya Erstevan I.
+ * @package KartasolvApp\Libraries
  */
 class DatabaseManager extends Database
 {
-    private $db, $builder;
+    /**
+     * Prepare the db connection.
+     * @var \CodeIgniter\Database\BaseConnection $db Database connection.
+     */
+    private $db;
+
+    /**
+     * Prepare builder variable.
+     * @var mixed $builder Table to be connected.
+     */
+    private $builder;
+    /**
+     * Construct connection to the database.
+     */
     public function __construct()
     {
         $this->db = $this->connect();
     }
+
+    /**
+     * Generate datatables query based on user input.
+     * 
+     * Before you could implement php data you have to provide Javascript and html function inside the
+     * View file.
+     * 
+     * HTML Code Example:
+     * ```html
+     *  <table id="table"></table>
+     * ```
+     * 
+     * And you have to provide Javascript function, you can either use separated files or implement this code inside
+     * the html <script></script> Tag. Example:
+     * 
+     * ```javascript
+     *  document.addEventListener('DOMContentLoaded', function() {
+     *    // Create configuration
+     *    config = {
+     *        table_id: 'table',
+     *        // Ajax server side config
+     *        ajax: {
+     *            url: baseUrl("konten/profil-karang-taruna/pengurus"),
+     *            type: "GET",
+     *            data: {
+     *                orderable: ['selected_id', 'selected_name', 'selected_name2'],
+     *                searchable: ['selected_id', 'selected_name', 'selected_name2']
+     *            }
+     *        },
+     *        // Configure buttons
+     *        defaultOrder: [2, 'asc'],
+     *        buttons: {
+     *            add: {
+     *                url: baseUrl('ajax/url')
+     *            },
+     *            xlsx: true,
+     *            delete: {
+     *                url: baseUrl('ajax/url'),
+     *                postData: postData()
+     *            },
+     *            manipulateSelected: {
+     *                url: baseUrl('ajax/url'),
+     *                text: '<i class="icon sample"></i>',
+     *                title: 'Title Custom',
+     *                postData: postData()
+     *            },
+     *            custom: {
+     *                text: '<i class="icon sample"></i>',
+     *                title: 'Title Custom',
+     *                action: function() {
+     *                    window.location.href = baseUrl('ajax/url/custom');
+     *                }
+     *            }
+     *        },
+     *        columns: [{
+     *                title: "Nama",
+     *                name: "selected_name",
+     *                data: "selected_name",
+     *                className: 'text-center text-lg-start',
+     *                render: function(data, type, row) {
+     *                    return `{row.selected_name}`;
+     *                },
+     *
+     *            },
+     *            {
+     *                title: "Tipe",
+     *                name: "selected_name2",
+     *                data: "selected_name2",
+     *                className: 'text-center',
+     *                type: 'array',
+     *                options: [{
+     *                        value: '1',
+     *                        text: 'Ketua'
+     *                    },
+     *                    {
+     *                        value: '2',
+     *                        text: 'Top Level'
+     *                    },
+     *                    {
+     *                        value: '3',
+     *                        text: 'Kegiatan Khusus'
+     *                    },
+     *                    {
+     *                        value: '4',
+     *                        text: 'Anggota'
+     *                    },
+     *
+     *                ],
+     *                render: function(data) {
+     *                    switch (data) {
+     *                        case '1':
+     *                            type = 'Ketua'
+     *                            className = 'bg-danger'
+     *                            break;
+     *                        case '2':
+     *                            type = 'Top Level'
+     *                            className = 'bg-warning text-dark'
+     *                            break;
+     *                        case '3':
+     *                            type = 'Kabid'
+     *                            className = 'bg-success'
+     *                            break;
+     *                        default:
+     *                            type = 'Anggota'
+     *                            className = 'bg-light text-dark'
+     *                            break;
+     *                    }
+     *                    return `<span class="badge ${className}">${type}</span>`;
+     *                }
+     *            },
+     *            {
+     *                title: "Aksi",
+     *                name: "unique_id",
+     *                data: "unique_id",
+     *                className: "text-center",
+     *                render: function(data, type, row) {
+     *                    return (
+     *                        `<a href="sample/url/${unique_id}></a>`
+     *                    );
+     *                },
+     *            },
+     *        ],
+     *    }
+     *    createDatatable(config);
+     *})
+     * ```
+     * 
+     * @param mixed $condition Condition to be generated, for usage see Model Examples provided in this application.
+     * ```php
+     * public function getDatatable($condition)
+     *   {
+     *       $dbMan = new DatabaseManager;
+     *       $query = [
+     *           'result' => 'result',
+     *           'table'  => 'table_name',
+     *           'select' => ['selected_id', 'selected_name', 'selected_name2']
+     *       ];
+     *       $query += $dbMan->filterDatatables($condition);
+     *       $query['orderBy'] .= ', selected_id ASC';
+     *       $data = [
+     *           'totalRows' => $dbMan->countAll($query),
+     *           'result' => $dbMan->read($query),
+     *           'searchable' => array_map(function ($e) {
+     *               return $e . ":name";
+     *           }, $condition['columnSearch'])
+     *       ];
+     *       return objectify($data);
+     *  }
+     * ```
+     * @return mixed Formatted query.
+     * @see https://datatables.net/ for instructions how to create server side processing Datatables.
+     */
     public function filterDatatables($condition)
     {
         $d = null;
@@ -31,7 +203,7 @@ class DatabaseManager extends Database
                 if (!in_array($criteria['origData'], $condition['columnSearch'])) {
                     continue;
                 }
-                $cdn = $this->translate($criteria['condition']);
+                $cdn = $criteria['condition'];
                 $col = $criteria['origData'] ?? null;
                 switch ($cdn) {
                     case 'null':
@@ -122,6 +294,13 @@ class DatabaseManager extends Database
         }
         return $d['query'];
     }
+
+    /**
+     * Count queried result.
+     * @param mixed $data Query array.
+     * @param bool $retrieve_all Retrieve everything includin deleted_at is not null data.
+     * @return int Row count.
+     */
     public function countAll($data, $retrieve_all = false)
     {
         if (!$retrieve_all) {
@@ -188,26 +367,26 @@ class DatabaseManager extends Database
     /**
      * Read database function with QueryBuilder.
      * 
-     
      *
-     * Simple read query:<br/>
-     * <pre>
+     * Simple read query:
+     * ```php
      * $query = [
      *      'result' => 'result',
      *      'table'  => 'sample_table'
      * ];
-     * </pre>
      * $this->lib_db->read($query);
-     *
+     * ```
      * Simple where query:
+     * ```php
      * $query = [
      *      'result' => 'result',
      *      'table'  => 'sample_table',
      *      'where'  => ['id' => '1', 'email' => 'good@gmail.com']
      * ];
      * $this->lib_db->read($query);
-     *
+     * ```
      * Limit and join read query:
+     * ```php
      * $query = [
      *      'result' => 'result',
      *      'table'  => 'sample_table',
@@ -218,10 +397,10 @@ class DatabaseManager extends Database
      *      'limit'  => 3
      * ];
      * $this->lib_db->read($query);
-     * 
-     * @param mixed $data
-     * @param bool $retrieveAll
-     * @return mixed
+     * ```
+     * @param mixed $data Array query data.
+     * @param bool $retrieve_all Retrieve everything includin deleted_at is not null data.
+     * @return mixed Queried result.
      */
     public function read($data, $retrieveAll = false)
     {
@@ -312,6 +491,11 @@ class DatabaseManager extends Database
         return filterOutput($data);
     }
 
+    /**
+     * Group Queries.
+     * @param mixed $data Query to be grouped.
+     * @return void Nothing to return, just sets the builder to be grouped.
+     */
     public function makeGroup($data)
     {
         $this->builder->groupStart('', $data[1]['grouptype'] ?? $data['group']['grouptype'] ?? 'AND ');
@@ -329,23 +513,5 @@ class DatabaseManager extends Database
             }
         }
         $this->builder->groupEnd();
-    }
-
-    public function translate($condition)
-    {
-        $conditions = [
-            'null' => 'null',
-            'contains' => 'contains',
-            'between' => 'between',
-            '=' => '=',
-            '<' => '<',
-            '<=' => '<=',
-            '>=' => '>=',
-            '>' => '>',
-        ];
-        if (array_key_exists($condition, $conditions)) {
-            return $conditions[$condition];
-        }
-        return false;
     }
 }

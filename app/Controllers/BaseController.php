@@ -19,7 +19,7 @@ use Psr\Log\LoggerInterface;
  *
  * For security be sure to declare any new methods as protected or private.
  * 
- * @package Kartasolv\Controllers
+ * @package KartasolvApp\Controllers
  * 
  */
 abstract class BaseController extends Controller

@@ -85,31 +85,45 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
+    <a href="packages/KartasolvApp.html" class="">KartasolvApp</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Kartasolv-Config.html" class="">Config</a>
+                <a href="packages/KartasolvApp-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
+                <a href="packages/KartasolvApp-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
+                <a href="packages/KartasolvApp-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
+                <a href="packages/KartasolvApp-Libraries.html" class="">Libraries</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                <a href="packages/KartasolvApp-Models.html" class="">Models</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/KartasolvHelpers.html" class="">KartasolvHelpers</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/KartasolvHelpers-security.html" class="">security</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Models.html" class="">Models</a>
+                <a href="packages/KartasolvHelpers-string.html" class="">string</a>
+                
+            </li>
+                    <li>
+                <a href="packages/KartasolvHelpers-view.html" class="">view</a>
                 
             </li>
             </ul>
@@ -143,8 +157,8 @@
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Libraries.html">Libraries</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/KartasolvApp.html">KartasolvApp</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/KartasolvApp-Libraries.html">Libraries</a></li>
                             </ul>
         </div>
     
@@ -154,13 +168,31 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/ImageUploader.php"><a href="files/app-libraries-imageuploader.html"><abbr title="app/Libraries/ImageUploader.php">ImageUploader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">14</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">ImageUploader that use Codeigniter 4&#039;s File Uploader Class</p>
+
+    <section class="phpdocumentor-description"><p>This class has procedure to compress images and convert them into webp.</p>
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Azvya Erstevan I</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
 
 
@@ -178,14 +210,14 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Upload method.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-Libraries-ImageUploader.html#method_convertToWebp">convertToWebp()</a>
     <span>
                                 &nbsp;: <abbr title="\CodeIgniter\Files\File">File</abbr>    </span>
 </dt>
-<dd>Convert to webp and compress</dd>
+<dd>Convert file in addressed filepath into webp.</dd>
 
         </dl>
 
@@ -213,17 +245,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/ImageUploader.php"><a href="files/app-libraries-imageuploader.html"><abbr title="app/Libraries/ImageUploader.php">ImageUploader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Upload method.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">upload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\CodeIgniter\Files\File">File</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">upload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\CodeIgniter\Files\File">File</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -231,15 +263,17 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Options taken from the Controllers.</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$file</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\CodeIgniter\Files\File">File</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\CodeIgniter\Files\File">File</abbr>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>File that uploaded by the input or (multiple input).</p>
+</section>
 
             </dd>
             </dl>
@@ -249,7 +283,9 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Boolean result or Uploaded Filepath.</p>
+</section>
+
     
 </article>
                     <article
@@ -265,17 +301,19 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/ImageUploader.php"><a href="files/app-libraries-imageuploader.html"><abbr title="app/Libraries/ImageUploader.php">ImageUploader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Convert to webp and compress</p>
+        <p class="phpdocumentor-summary">Convert file in addressed filepath into webp.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">convertToWebp</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filePath</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\Files\File">File</abbr></span></code>
 
-    
+        <section class="phpdocumentor-description"><p>Convert to webp and compress</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -293,7 +331,9 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\CodeIgniter\Files\File">File</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Converted File.</p>
+</section>
+
     
 </article>
             </section>

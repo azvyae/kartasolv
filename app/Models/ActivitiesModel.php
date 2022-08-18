@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Info_activities model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class ActivitiesModel extends Model
 {

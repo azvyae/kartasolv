@@ -17,7 +17,7 @@ use App\Libraries\ImageUploader;
  * implemented dynamic *Datatables* with server side data processing. It also provides create update and
  * delete functions.
  * 
- * @package Kartasolv\Controllers\Content
+ * @package KartasolvApp\Controllers\Content
  */
 class OrganizationProfile extends BaseController
 {

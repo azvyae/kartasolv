@@ -8,7 +8,7 @@ use Hashids\Hashids;
  * 
  * @param mixed $data Gather information from session.
  * @return mixed Could be redirection or session data.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function checkAuth($data = null)
 {
@@ -51,7 +51,7 @@ function checkAuth($data = null)
  * 
  * @param mixed $data Data that would like filtered.
  * @return mixed Filtered data.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function filterOutput($data)
 {
@@ -76,7 +76,7 @@ function filterOutput($data)
  * @param	mixed	$var		The input string or array of strings to be escaped.
  * @param	bool	$double_encode	$double_encode set to FALSE prevents escaping twice.
  * @return	mixed			The escaped string or array of strings as a result.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function htmlEscape($var, $double_encode = TRUE)
 {
@@ -98,10 +98,10 @@ function htmlEscape($var, $double_encode = TRUE)
  * 
  * @param string|int $data Data to be encoded, only accept integers.
  * @param string $type random key to be included when encoding data.
- * 
+ * @see https://hashids.org/ for complete information.
  * @return string Encoded data.
  * 
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function encode($data, $type = '')
 {
@@ -114,10 +114,10 @@ function encode($data, $type = '')
  * 
  * @param string $data Data to be decoded, only accept string.
  * @param string $type random key to be included when encoding data.
- * 
+ * @see https://hashids.org/ for complete information.
  * @return mixed Decoded data.
  * 
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function decode($data, $type = '')
 {
@@ -130,7 +130,7 @@ function decode($data, $type = '')
  * Showing 404 page.
  * 
  * @throws \CodeIgniter\Exceptions\PageNotFoundException 404 Not Found.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function show404()
 {
@@ -141,7 +141,7 @@ function show404()
  * Retrieve Captcha Sitekey.
  * 
  * @return string Captcha Site Key.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function getCaptchaSitekey()
 {
@@ -153,7 +153,7 @@ function getCaptchaSitekey()
  * 
  * @param string $password Password input to be hashed (saved on database).
  * @return string Hashed password.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function kartaPasswordHash(String $password)
 {
@@ -166,7 +166,7 @@ function kartaPasswordHash(String $password)
  * @param string $password Raw string password input.
  * @param string $hash Hashed password
  * @return bool  Returns TRUE if the password and hash match, or FALSE otherwise.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function kartaPasswordVerify(String $password, String $hash)
 {
@@ -178,7 +178,7 @@ function kartaPasswordVerify(String $password, String $hash)
  * @param mixed $method Method to be verified, if set null, this function
  * only retrieve HTTP Method sent.
  * @return bool|string Returns true/false if parameter provided, otherwise return method string.
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function getMethod($method = null)
 {
@@ -192,7 +192,7 @@ function getMethod($method = null)
  * Redirection function when submitted form source/referrer is not from correct route.
  * @param string $routes Route to be checked.
  * @return bool|string Return false or go to referrer
- * @package Kartasolv\Helpers\security
+ * @package KartasolvHelpers\security
  */
 function acceptFrom($routes = '')
 {

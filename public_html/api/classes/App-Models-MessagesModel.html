@@ -85,31 +85,45 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Kartasolv.html" class="">Kartasolv</a>
+    <a href="packages/KartasolvApp.html" class="">KartasolvApp</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/Kartasolv-Config.html" class="">Config</a>
+                <a href="packages/KartasolvApp-Config.html" class="">Config</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Controllers.html" class="">Controllers</a>
+                <a href="packages/KartasolvApp-Controllers.html" class="">Controllers</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Filters.html" class="">Filters</a>
+                <a href="packages/KartasolvApp-Filters.html" class="">Filters</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Helpers.html" class="">Helpers</a>
+                <a href="packages/KartasolvApp-Libraries.html" class="">Libraries</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Libraries.html" class="">Libraries</a>
+                <a href="packages/KartasolvApp-Models.html" class="">Models</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/KartasolvHelpers.html" class="">KartasolvHelpers</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/KartasolvHelpers-security.html" class="">security</a>
                 
             </li>
                     <li>
-                <a href="packages/Kartasolv-Models.html" class="">Models</a>
+                <a href="packages/KartasolvHelpers-string.html" class="">string</a>
+                
+            </li>
+                    <li>
+                <a href="packages/KartasolvHelpers-view.html" class="">view</a>
                 
             </li>
             </ul>
@@ -146,8 +160,8 @@
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv.html">Kartasolv</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Kartasolv-Models.html">Models</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/KartasolvApp.html">KartasolvApp</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/KartasolvApp-Models.html">Models</a></li>
                             </ul>
         </div>
     
@@ -157,13 +171,30 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Table Messages model.</p>
 
 
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://codeigniter.com/user_guide/models/model.html"><abbr title="https://codeigniter.com/user_guide/models/model.html">https://codeigniter.com/user_guide/models/model.html</abbr></a></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>for instructions.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
 
 
@@ -249,9 +280,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Models-MessagesModel.html#method_getDatatable">getDatatable()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: object    </span>
 </dt>
-<dd></dd>
+<dd>Retrieve Datatables.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Libraries-Model.html#method_getValidationRules">getValidationRules()</a>
@@ -264,23 +295,23 @@ can be used elsewhere, if needed.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/App-Libraries-Model.html#method_setCreatedBy">setCreatedBy()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Assign created_by field in the database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/App-Libraries-Model.html#method_setDeletedBy">setDeletedBy()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Assign deleted_by field in the database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/App-Libraries-Model.html#method_setModifiedBy">setModifiedBy()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Assign modified_by field in the database.</dd>
 
         </dl>
 
@@ -310,7 +341,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -344,7 +375,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
@@ -378,7 +409,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -412,7 +443,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
@@ -446,7 +477,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -480,7 +511,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -514,7 +545,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -548,7 +579,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -582,7 +613,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -620,7 +651,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/Model.php"><a href="files/app-libraries-model.html"><abbr title="app/Libraries/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -675,17 +706,17 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Models/MessagesModel.php"><a href="files/app-models-messagesmodel.html"><abbr title="app/Models/MessagesModel.php">MessagesModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Retrieve Datatables.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDatatable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$condition</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getDatatable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$condition</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -693,17 +724,36 @@ can be used elsewhere, if needed.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Condition retrieved from the controller.</p>
+</section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/App-Libraries-DatabaseManager.html"><abbr title="\App\Libraries\DatabaseManager">DatabaseManager</abbr></a></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>for complete instructions.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">object</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Objectified result.</p>
+</section>
+
     
 </article>
                     <article
@@ -719,7 +769,7 @@ can be used elsewhere, if needed.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/Model.php"><a href="files/app-libraries-model.html"><abbr title="app/Libraries/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -730,7 +780,9 @@ can be used elsewhere, if needed.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValidationRules</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-    
+        <section class="phpdocumentor-description"><p>Added ['add'] option to combine model validationRules with other RuleGroup rules.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -765,17 +817,17 @@ can be used elsewhere, if needed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/Model.php"><a href="files/app-libraries-model.html"><abbr title="app/Libraries/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Assign created_by field in the database.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">setCreatedBy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setCreatedBy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -783,15 +835,14 @@ can be used elsewhere, if needed.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
         
     
@@ -809,17 +860,17 @@ can be used elsewhere, if needed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/Model.php"><a href="files/app-libraries-model.html"><abbr title="app/Libraries/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Assign deleted_by field in the database.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">setDeletedBy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setDeletedBy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -827,15 +878,14 @@ can be used elsewhere, if needed.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
     
@@ -853,17 +903,17 @@ can be used elsewhere, if needed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/Libraries/Model.php"><a href="files/app-libraries-model.html"><abbr title="app/Libraries/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Assign modified_by field in the database.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">setModifiedBy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setModifiedBy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -871,15 +921,14 @@ can be used elsewhere, if needed.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
         
     

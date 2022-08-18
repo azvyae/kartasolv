@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Role_access model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class RoleAccessModel extends Model
 {
@@ -14,6 +16,14 @@ class RoleAccessModel extends Model
     protected $allowedFields = ['role_id', 'menu_id'];
     protected $returnType     = 'object';
 
+    /**
+     * Retrieve role access id, used for checkAuth() functon.
+     * 
+     * @see checkAuth() for information.
+     * @param mixed $roleId
+     * @param mixed $menuId
+     * @return array|object|null
+     */
     public function getRoleAccessId($roleId, $menuId)
     {
         $where = [
@@ -23,6 +33,11 @@ class RoleAccessModel extends Model
         return $this->where($where)->first();
     }
 
+    /**
+     * Retrieve page menu on the sidebar based on roles.
+     * @param mixed $roleId
+     * @return mixed
+     */
     public function getPageByRole($roleId)
     {
         return $this

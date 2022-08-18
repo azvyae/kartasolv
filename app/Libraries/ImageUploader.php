@@ -5,11 +5,20 @@ namespace App\Libraries;
 use CodeIgniter\Files\File;
 
 /**
- * @package Kartasolv\Libraries
+ * ImageUploader that use Codeigniter 4's File Uploader Class
+ * 
+ * This class has procedure to compress images and convert them into webp.
+ * @author Azvya Erstevan I
+ * @package KartasolvApp\Libraries
  */
 class ImageUploader
 {
-
+    /**
+     * Upload method.
+     * @param array $options Options taken from the Controllers.
+     * @param \CodeIgniter\Files\File|null $file File that uploaded by the input or (multiple input).
+     * @return mixed Boolean result or Uploaded Filepath.
+     */
     public function upload(array $options, File $file = null)
     {
         if (!$options['upload_path']) {
@@ -63,10 +72,12 @@ class ImageUploader
     }
 
     /**
+     * Convert file in addressed filepath into webp.
+     * 
      * Convert to webp and compress
      *
-     * @param	object	$file
-     * @return	File
+     * @param	object	$file Filepath.
+     * @return	File Converted File.
      */
     private function convertToWebp($filePath)
     {

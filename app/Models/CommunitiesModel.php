@@ -6,7 +6,9 @@ use App\Libraries\DatabaseManager;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Communities model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class CommunitiesModel extends Model
 {
@@ -55,6 +57,12 @@ class CommunitiesModel extends Model
 
     ];
 
+    /**
+     * Retrieve Datatables.
+     * @see \App\Libraries\DatabaseManager for complete instructions.
+     * @param mixed $condition Condition retrieved from the controller.
+     * @return object Objectified result.
+     */
     public function getPMKSDatatable($condition)
     {
         $dbMan = new DatabaseManager;
@@ -83,6 +91,12 @@ class CommunitiesModel extends Model
         return objectify($data);
     }
 
+    /**
+     * Retrieve Datatables.
+     * @see \App\Libraries\DatabaseManager for complete instructions.
+     * @param mixed $condition Condition retrieved from the controller.
+     * @return object Objectified result.
+     */
     public function getPSKSDatatable($condition)
     {
         $dbMan = new DatabaseManager;

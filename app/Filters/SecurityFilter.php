@@ -12,7 +12,7 @@ use CodeIgniter\HTTP\ResponseInterface;
  * This Security Filter firstly, run checkAuth method.
  * @see https://codeigniter.com/user_guide for complete instructions
  * 
- * @package Kartasolv\Filters
+ * @package KartasolvApp\Filters
  */
 class SecurityFilter implements FilterInterface
 {

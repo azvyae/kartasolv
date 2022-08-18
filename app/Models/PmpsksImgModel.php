@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Pmpsks_img model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class PmpsksImgModel extends Model
 {
@@ -24,11 +26,23 @@ class PmpsksImgModel extends Model
 
     ];
 
+    /**
+     * Retrieve PMPSKS image based on Community Id.
+     * 
+     * @param int|string $communityId Community_id field on table.
+     * @return mixed Retrieved data.
+     */
     public function getImages($communityId)
     {
         return $this->select('pmpsks_img_loc')->where('community_id', $communityId)->findAll();
     }
 
+    /**
+     * Delete image method and unlink/delete from directory function.
+     * 
+     * @param array $communityIds Community_id to be deleted.
+     * @return bool|string Return if data is deleted or not.
+     */
     public function deleteImages(array $communityIds)
     {
         foreach ($this->getImages($communityIds) as $e) {

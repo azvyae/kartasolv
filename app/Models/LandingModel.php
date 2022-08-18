@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Libraries\Model;
 
 /**
- * @package Kartasolv\Models
+ * Table Info_landing model.
+ * @see https://codeigniter.com/user_guide/models/model.html for instructions.
+ * @package KartasolvApp\Models
  */
 class LandingModel extends Model
 {
@@ -50,6 +52,10 @@ class LandingModel extends Model
 
     ];
 
+    /**
+     * Retrieve Call to Action data.
+     * @return array|object|null Call to Action data.
+     */
     public function getCallToAction()
     {
         return $this->select(['cta_text', 'cta_url'])->find(1);

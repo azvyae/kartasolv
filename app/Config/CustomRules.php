@@ -11,7 +11,7 @@ use Config\Services;
  * 
  * @author Azvya Erstevan I
  * 
- * @package Kartasolv\Config
+ * @package KartasolvApp\Config
  * 
  */
 class CustomRules
