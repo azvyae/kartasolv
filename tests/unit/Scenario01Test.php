@@ -252,4 +252,84 @@ class Scenario01Test extends CIUnitTestCase
         $result->assertSessionHas('message', 'Pengguna tidak ditemukan.');
         $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
     }
+
+    /**
+     * @testdox TC-09 Mengubah kata sandi
+     */
+    public function testChangePassword()
+    {
+        $this->tc['expected'] = "Menampilkan pesan Berhasil melakukan perubahan. Kata sandi berhasil diubah.";
+        $this->tc['step'] = [
+            'Masuk ke halaman profil',
+            'Ubah data pada kolom kata sandi',
+            'Tekan tombol simpan',
+        ];
+        $this->tc['data'] = [
+            "user_name: User Test",
+            "user_temp_mail: new@test.com",
+            "user_password: testpassword",
+            "user_new_password: testpassword",
+            "password_verify: testpassword",
+        ];
+        $result = $this->withHeaders([
+            "Content-Type" => 'multipart/form-data'
+        ])->withSession(
+            $this->sessionData
+        )->withRoutes([
+            ['post', 'profil', 'User\Profile::index'],
+        ])->call('post', 'profil', [
+            csrf_token() => csrf_hash(),
+            'user_name' => 'User Test',
+            'user_email' => 'test@test.com',
+            'user_temp_mail' => 'test@test.com',
+            'user_password' => 'testpassword',
+            'user_new_password' => 'testpassword',
+            'password_verify' => 'testpassword',
+            '_method' => 'PUT',
+            'g-recaptcha-response' => 'random-token'
+        ]);
+        $result->assertOK();
+        $result->assertSessionHas('message', 'Berhasil melakukan perubahan. Kata sandi berhasil diubah.');
+        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
+    }
+
+    /**
+     * @testdox TC-10 Mengubah kata sandi dengan kata sandi salah
+     */
+    public function testChangePasswordWithWrongPassword()
+    {
+        $this->tc['expected'] = "Menampilkan pesan Kata sandi salah.";
+        $this->tc['step'] = [
+            'Masuk ke halaman profil',
+            'Ubah data pada kolom kata sandi',
+            'Tekan tombol simpan',
+        ];
+        $this->tc['data'] = [
+            "user_name: User Test",
+            "user_temp_mail: new@test.com",
+            "user_password: wrongpassword",
+            "user_new_password: testpassword",
+            "password_verify: testpassword",
+        ];
+        $result = $this->withHeaders([
+            "Content-Type" => 'multipart/form-data'
+        ])->withSession(
+            $this->sessionData
+        )->withRoutes([
+            ['post', 'profil', 'User\Profile::index'],
+        ])->call('post', 'profil', [
+            csrf_token() => csrf_hash(),
+            'user_name' => 'User Test',
+            'user_email' => 'test@test.com',
+            'user_temp_mail' => 'test@test.com',
+            'user_password' => 'wrongpassword',
+            'user_new_password' => 'testpassword',
+            'password_verify' => 'testpassword',
+            '_method' => 'PUT',
+            'g-recaptcha-response' => 'random-token'
+        ]);
+        $result->assertOK();
+        $result->assertSessionHas('message', 'Kata sandi salah.');
+        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
+    }
 }

@@ -5,6 +5,9 @@ use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
+/**
+ * @testdox #### TS-02 Cek fungsi mengatur ulang kata sandi
+ */
 class Scenario02Test extends CIUnitTestCase
 {
     use DatabaseTestTrait;
@@ -39,86 +42,6 @@ class Scenario02Test extends CIUnitTestCase
         Services::validation()->reset();
         parseTest($this->tc);
         $this->assertTrue($this->tc['expected'] === $this->tc['actual'], "expected: " . $this->tc['expected'] . "\n" . 'actual: ' . $this->tc['actual']);
-    }
-
-    /**
-     * @testdox TC-01 Mengubah kata sandi
-     */
-    public function testChangePassword()
-    {
-        $this->tc['expected'] = "Menampilkan pesan Berhasil melakukan perubahan. Kata sandi berhasil diubah.";
-        $this->tc['step'] = [
-            'Masuk ke halaman profil',
-            'Ubah data pada kolom kata sandi',
-            'Tekan tombol simpan',
-        ];
-        $this->tc['data'] = [
-            "user_name: User Test",
-            "user_temp_mail: new@test.com",
-            "user_password: testpassword",
-            "user_new_password: testpassword",
-            "password_verify: testpassword",
-        ];
-        $result = $this->withHeaders([
-            "Content-Type" => 'multipart/form-data'
-        ])->withSession(
-            $this->sessionData
-        )->withRoutes([
-            ['post', 'profil', 'User\Profile::index'],
-        ])->call('post', 'profil', [
-            csrf_token() => csrf_hash(),
-            'user_name' => 'User Test',
-            'user_email' => 'test@test.com',
-            'user_temp_mail' => 'test@test.com',
-            'user_password' => 'testpassword',
-            'user_new_password' => 'testpassword',
-            'password_verify' => 'testpassword',
-            '_method' => 'PUT',
-            'g-recaptcha-response' => 'random-token'
-        ]);
-        $result->assertOK();
-        $result->assertSessionHas('message', 'Berhasil melakukan perubahan. Kata sandi berhasil diubah.');
-        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
-    }
-
-    /**
-     * @testdox TC-02 Mengubah kata sandi dengan kata sandi salah
-     */
-    public function testChangePasswordWithWrongPassword()
-    {
-        $this->tc['expected'] = "Menampilkan pesan Kata sandi salah.";
-        $this->tc['step'] = [
-            'Masuk ke halaman profil',
-            'Ubah data pada kolom kata sandi',
-            'Tekan tombol simpan',
-        ];
-        $this->tc['data'] = [
-            "user_name: User Test",
-            "user_temp_mail: new@test.com",
-            "user_password: wrongpassword",
-            "user_new_password: testpassword",
-            "password_verify: testpassword",
-        ];
-        $result = $this->withHeaders([
-            "Content-Type" => 'multipart/form-data'
-        ])->withSession(
-            $this->sessionData
-        )->withRoutes([
-            ['post', 'profil', 'User\Profile::index'],
-        ])->call('post', 'profil', [
-            csrf_token() => csrf_hash(),
-            'user_name' => 'User Test',
-            'user_email' => 'test@test.com',
-            'user_temp_mail' => 'test@test.com',
-            'user_password' => 'wrongpassword',
-            'user_new_password' => 'testpassword',
-            'password_verify' => 'testpassword',
-            '_method' => 'PUT',
-            'g-recaptcha-response' => 'random-token'
-        ]);
-        $result->assertOK();
-        $result->assertSessionHas('message', 'Kata sandi salah.');
-        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
     }
 
     public function testForgetPasswordPage()
