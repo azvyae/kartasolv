@@ -40,7 +40,7 @@ $routes->get('sejarah', 'Home::history');
 $routes->get('hubungi-kami', 'Home::contactUs');
 $routes->post('hubungi-kami', 'Home::contactUs');
 $routes->get('dasbor', 'User\Home::index');
-$routes->get('verifikasi', 'Auth::verifyEmail');
+$routes->get('verifikasi', 'User\Profile::verifyEmail');
 $routes->get('gambar-privat', 'User\Home::loadImage');
 $routes->get('sitemap', 'Home::sitemap');
 $routes->delete('keluar', 'Auth::index');

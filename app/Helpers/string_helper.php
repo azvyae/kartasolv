@@ -59,21 +59,21 @@ function setFlash($flash)
     $session = session();
     $session->setFlashdata('message', $flash['message']);
     $session->setFlashdata('type', $flash['type']);
-    if (array_key_exists('condition', $flash)) {
-        $session->setFlashdata('condition', $flash['condition']);
-    }
 }
 
 /**
  * Retrieve flash data.
  * @param mixed $key Better if use only 'message' to retrieve the data.
+ * @param bool $onlyFlash Retrieve only flash data without formatting.
  * @return array|null|string Returned formatted flash data.
  * @package KartasolvHelpers\string
  */
-function getFlash($key)
+function getFlash($key, $onlyFlash = false)
 {
-
     $session = session();
+    if ($onlyFlash) {
+        return $session->getFlashdata($key);
+    }
     $type = $session->getFlashdata('type');
     $allowedType = ['success', 'warning', 'danger', 'info'];
     if (in_array($type, $allowedType)) {
@@ -122,8 +122,6 @@ function showInvalidFeedback($name)
     return service('validation')->getError($name);
 }
 
-use Config\Database;
-
 /**
  * Data counter for certain table, currently the param only used for Communities table joined to PMPSKS Table.
  * @param string $table Table name.
@@ -134,7 +132,37 @@ use Config\Database;
 function countTable($table, $param = '')
 {
     if ($param) {
-        return Database::connect()->table($table)->join('pmpsks_types', 'pmpsks_types.pmpsks_id = communities.pmpsks_type', 'full')->where('pmpsks_types.pmpsks_type', $param)->countAllResults();
+        return \Config\Database::connect()->table($table)->join('pmpsks_types', 'pmpsks_types.pmpsks_id = communities.pmpsks_type', 'full')->where('pmpsks_types.pmpsks_type', $param)->countAllResults();
     }
-    return Database::connect()->table($table)->countAllResults();
+    return \Config\Database::connect()->table($table)->countAllResults();
+}
+
+/**
+ * Parsing test cases array. Use only for unit testing.
+ * @param array|null $tc Test Case Data.
+ * @return void Prints to the console with MD Format.
+ * @package KartasolvHelpers\string
+ */
+function parseTest($tc = [])
+{
+    if (!$tc) {
+        return null;
+    }
+    print "> **START**\n>";
+    print "\n> Test Step:\n";
+    foreach ($tc['step'] as $i => $step) {
+        print "> " . ($i + 1) . ". $step\n";
+    }
+    print ">";
+    print "\n> Test Data:\n";
+    print "> ``` \n";
+    foreach ($tc['data'] as $data) {
+        print "> $data\n";
+    }
+    print "> ``` \n";
+    print ">";
+    print "\n> Result:\n";
+    print "> * Expected : " . $tc['expected'] . "\n";
+    print "> * Actual : " . $tc['actual'] . "\n";
+    print ">\n> **END**\n\n";
 }

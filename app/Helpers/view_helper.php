@@ -27,17 +27,14 @@ function getSidebarMenu()
 
 /**
  * Check wether same controller or not for navigation bar.
- * @param mixed $controllerToCheck Route uri string.
+ * @param array $controllerToCheck Route uri string.
  * @return bool Returned boolean result after checking same controller or not.
  * @package KartasolvHelpers\view
  */
-function isSameController($controllerToCheck)
+function isSameController(array $controllerToCheck)
 {
     $router = service('router');
-    if (is_array($controllerToCheck)) {
-        return in_array(str_replace("\App\Controllers\\", '', $router->controllerName()), $controllerToCheck);
-    }
-    return $controllerToCheck === str_replace("\App\Controllers\\", '', $router->controllerName());
+    return in_array(str_replace("\App\Controllers\\", '', $router->controllerName()), $controllerToCheck);
 }
 
 /**

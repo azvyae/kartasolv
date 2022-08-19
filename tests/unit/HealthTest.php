@@ -7,14 +7,29 @@ use Tests\Support\Libraries\ConfigReader;
 
 /**
  * @internal
+ * @testdox #### Uji Kesehatan Aplikasi
  */
 final class HealthTest extends CIUnitTestCase
 {
+    /**
+     * @testdox APPPATH didefinisikan
+     */
     public function testIsDefinedAppPath()
     {
         $this->assertTrue(defined('APPPATH'));
     }
 
+    /**
+     * @testdox CI_ENVIRONMENT didefinisikan sebagai "testing"
+     */
+    public function testEnvCheck()
+    {
+        $this->assertSame('testing', getenv('CI_ENVIRONMENT'));
+    }
+
+    /**
+     * @testdox Basis URL aplikasi didefinisikan pada .env
+     */
     public function testBaseUrlHasBeenSet()
     {
         $validation = Services::validation();

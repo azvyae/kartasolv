@@ -87,7 +87,7 @@
                     <?php else : ?>
                         <a href="<?= base_url('masuk'); ?>" class="btn btn-outline-secondary my-1 me-lg-2 px-3">Masuk</a>
                         <?php if ($callToAction = getCalltoAction()) : ?>
-                            <a target="<?= $callToAction->target; ?>" href="<?= $callToAction->cta_url; ?>" class="btn px-3 my-1 btn-primary me-lg-2"><?= $callToAction->cta_text; ?></a>
+                            <a target="<?= $callToAction->target; ?>" href="<?= $callToAction->cta_url; ?>" id="callToAction" class="btn px-3 my-1 btn-primary me-lg-2"><?= $callToAction->cta_text; ?></a>
                         <?php endif ?>
                     <?php endif ?>
 

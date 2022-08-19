@@ -57,7 +57,9 @@ class Auth extends BaseController
     private function _login()
     {
         if ($referrer = acceptFrom('masuk')) {
+            // @codeCoverageIgnoreStart
             return redirect()->to($referrer);
+            // @codeCoverageIgnoreEnd
         }
         $rules = $this->um->getValidationRules(['only' => ['user_email', 'user_password'], 'add' => ['gRecaptcha']]);
         if (!$this->validate($rules)) {
@@ -91,9 +93,12 @@ class Auth extends BaseController
      */
     private function _logout()
     {
+        // @codeCoverageIgnoreStart
         if (!$this->validate('gRecaptcha')) {
             return redirect()->to('/');
         }
+        // @codeCoverageIgnoreEnd
+
         if (!isset($_SESSION)) session_start();
         if (session_status() === PHP_SESSION_ACTIVE) session_destroy();
         return redirect()->to('masuk');
@@ -151,11 +156,13 @@ class Auth extends BaseController
                     return redirect()->to('masuk');
                 }
             } else {
+                // @codeCoverageIgnoreStart
                 $flash = [
                     'message' => 'Gagal mengirimkan email.',
                     'type' => 'danger'
                 ];
                 setFlash($flash);
+                // @codeCoverageIgnoreEnd
             }
         } else {
             $flash = [
@@ -235,69 +242,6 @@ class Auth extends BaseController
     }
 
     /**
-     * Control email verification or when cancelling email verification,
-     * this method only accessible if url provided is valid.
-     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
-     */
-    public function verifyEmail()
-    {
-        $uuid = decode($this->request->getGet('uuid'), 'changeEmail');
-        $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'changeEmail'));
-        $cancel = (bool) $this->request->getGet('cancel');
-
-        if ($uuid && $attempt) {
-            $user = $this->um->find($uuid, true);
-            if ($user) {
-                if ($user->user_change_mail <= date('Y-m-d H:i:s') or $user->user_change_mail !== $attempt) {
-                    $flash = [
-                        'message' => 'Link tidak valid/kadaluarsa.',
-                        'type' => 'warning'
-                    ];
-                    setFlash($flash);
-                } else {
-                    $data = [
-                        'user_id' => $user->user_id,
-                        'user_email' => $user->user_temp_mail,
-                        'user_change_mail' => null,
-                        'user_temp_mail' => null
-                    ];
-                    if ($this->um->save($data)) {
-                        $flash = [
-                            'message' => 'Berhasil mengubah email.',
-                            'type' => 'success'
-                        ];
-                        setFlash($flash);
-                    }
-                }
-            } else {
-                $flash = [
-                    'message' => 'Pengguna tidak ditemukan.',
-                    'type' => 'danger'
-                ];
-                setFlash($flash);
-            }
-            if ($cancel) {
-                $data = [
-                    'user_id' => $user->user_id,
-                    'user_change_mail' => null,
-                    'user_temp_mail' => null
-                ];
-                if ($this->um->save($data)) {
-                    $flash = [
-                        'message' => 'Berhasil membatalkan perubahan email.',
-                        'type' => 'success'
-                    ];
-                    setFlash($flash);
-                }
-            }
-        }
-        if (checkAuth('userId')) {
-            return redirect()->to('profil');
-        }
-        return redirect()->to('masuk');
-    }
-
-    /**
      * Send password reset request to the user email provided in the form
      * and encode userId & userAttempt based on timestamp.
      * 
@@ -357,6 +301,13 @@ class Auth extends BaseController
         ];
         $this->um->save($data);
         $session->set($sessionData);
+        if ($verifyData = $session->getTempdata('verifyEmail')) {
+            $url = "uuid=$verifyData->uuid&attempt=$verifyData->attempt";
+            if ($cancel = $verifyData->cancel ?? null) {
+                $url .= "&cancel=$cancel";
+            }
+            return redirect()->to("verifikasi?$url");
+        }
         return redirect()->to('dasbor');
     }
 }

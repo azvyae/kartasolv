@@ -114,9 +114,11 @@ class Home extends BaseController
      */
     private function _sendMessage()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('hubungi-kami')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $rules = $this->msm->getValidationRules(['add' => ['gRecaptcha']]);
         if (!$this->validate($rules)) {
             return redirect()->to('hubungi-kami')->withInput();
@@ -147,11 +149,13 @@ class Home extends BaseController
             ];
             setFlash($flash);
         } else {
+            // @codeCoverageIgnoreStart
             $flash = [
                 'message' => 'Gagal mengirimkan pesan.',
                 'type' => 'danger'
             ];
             setFlash($flash);
+            // @codeCoverageIgnoreEnd
         }
         return redirect()->to('hubungi-kami');
     }

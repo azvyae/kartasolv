@@ -31,6 +31,7 @@ class CustomRules
         if (getenv('CI_ENVIRONMENT') == 'testing') {
             return $token === 'random-token';
         }
+        // @codeCoverageIgnoreStart
         $client = service('curlrequest');
         if (!$token) {
             return false;
@@ -42,15 +43,13 @@ class CustomRules
                 'remoteip' => $request->getIPAddress()
             ],
         ]);
-        // Make and decode POST request:
         $recaptcha = json_decode($response->getBody());
-        // Take action based on the score returned:
         if (($recaptcha->score ?? 0) >= 0.5) {
             return TRUE;
         } else {
-
             return FALSE;
         }
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -69,6 +68,9 @@ class CustomRules
             return true;
         }
         if ($text[0] == '0'  && $text[1] == '8') {
+            return true;
+        }
+        if ($text[0] == '8') {
             return true;
         }
         return false;

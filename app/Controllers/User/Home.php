@@ -46,14 +46,12 @@ class Home extends BaseController
         $file_extension = strtolower(substr(strrchr($filename, "."), 1));
 
         switch ($file_extension) {
+                // @codeCoverageIgnoreStart
             case "gif":
                 $ctype = "image/gif";
                 break;
             case "png":
                 $ctype = "image/png";
-                break;
-            case "webp":
-                $ctype = "image/webp";
                 break;
             case "jpeg":
             case "jpg":
@@ -61,6 +59,10 @@ class Home extends BaseController
                 break;
             case "svg":
                 $ctype = "image/svg+xml";
+                break;
+                // @codeCoverageIgnoreEnd
+            case "webp":
+                $ctype = "image/webp";
                 break;
             default:
         }

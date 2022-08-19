@@ -7,7 +7,7 @@ use App\Controllers\BaseController;
 /**
  * This controller purpose is to change user account details.
  *
- * This controller has 3 main method, index, _updateProfile and _verifyEmail.
+ * This controller has 4 main method, index, _updateProfile, _verifyEmail, and public function verifyEmail.
  * Main purpose of this controller is to provide every logged in users to
  * change profile data like email, and password through the system.
  * 
@@ -40,9 +40,6 @@ class Profile extends BaseController
             return $this->_updateProfile();
         }
         $user = $this->um->find(checkAuth('userId'), true);
-        if (!$user) {
-            return redirect()->to('dasbor');
-        }
         $data = [
             'title' => "Ubah Akun/Profil | Karta Sarijadi",
             'sidebar' => true,
@@ -57,9 +54,11 @@ class Profile extends BaseController
      */
     private function _updateProfile()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('profil')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $rules  = $this->um->getValidationRules(
             [
                 'except' => ['user_password', 'user_new_password', 'password_verify'],
@@ -102,6 +101,10 @@ class Profile extends BaseController
                     'user_change_mail' => $time
                 ];
                 $message  .= ' Silakan cek emailmu untuk verifikasi perubahan email.';
+            } else {
+                // @codeCoverageIgnoreStart
+                $message  .= ' Namun gagal melakukan perubahan email.';
+                // @codeCoverageIgnoreEnd
             }
         }
         if ($this->um->save($data)) {
@@ -112,12 +115,6 @@ class Profile extends BaseController
             setFlash($flash);
             return redirect()->to('profil');
         }
-        $flash = [
-            'message' => 'Gagal melakukan perubahan.',
-            'type' => 'danger'
-        ];
-        setFlash($flash);
-        return redirect()->to('profil')->withInput();
     }
 
     /**
@@ -151,5 +148,73 @@ class Profile extends BaseController
         ];
         $email->setMessage(view('layout/email/email_change', $data));
         return $email->send();
+    }
+
+    /**
+     * Control email verification or when cancelling email verification,
+     * this method only accessible if url provided is valid.
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
+     */
+    public function verifyEmail()
+    {
+        $uuid = decode($this->request->getGet('uuid'), 'changeEmail');
+        $attempt = date('Y-m-d H:i:s', decode($this->request->getGet('attempt'), 'changeEmail'));
+        $cancel = (bool) $this->request->getGet('cancel');
+
+        if ($uuid && $attempt) {
+            $user = $this->um->find($uuid, true);
+            $loggedInUserId = checkAuth('userId');
+            if ($user && $user->user_id == $loggedInUserId) {
+                if ($cancel) {
+                    $data = [
+                        'user_id' => $user->user_id,
+                        'user_change_mail' => null,
+                        'user_temp_mail' => null
+                    ];
+                    if ($this->um->skipValidation()->save($data)) {
+                        $flash = [
+                            'message' => 'Berhasil membatalkan perubahan email.',
+                            'type' => 'success'
+                        ];
+                        setFlash($flash);
+                    }
+                } else if ($user->user_change_mail <= date('Y-m-d H:i:s') or $user->user_change_mail !== $attempt) {
+                    $flash = [
+                        'message' => 'Link tidak valid/kadaluarsa.',
+                        'type' => 'warning'
+                    ];
+                    setFlash($flash);
+                } else {
+                    if ($user->user_temp_mail) {
+                        $data  = [
+                            'user_id' => $user->user_id,
+                            'user_email' => $user->user_temp_mail,
+                            'user_change_mail' => null,
+                            'user_temp_mail' => null
+                        ];
+                        if ($this->um->skipValidation()->save($data)) {
+                            $flash = [
+                                'message' => 'Berhasil mengubah email.',
+                                'type' => 'success'
+                            ];
+                            setFlash($flash);
+                        }
+                    } else {
+                        $flash = [
+                            'message' => 'Gagal melakukan perubahan email.',
+                            'type' => 'danger'
+                        ];
+                        setFlash($flash);
+                    }
+                }
+            } else {
+                $flash = [
+                    'message' => 'Pengguna tidak ditemukan.',
+                    'type' => 'danger'
+                ];
+                setFlash($flash);
+            }
+        }
+        return redirect()->to('profil');
     }
 }

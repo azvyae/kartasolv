@@ -64,6 +64,7 @@ writable/uploads/*
 writable/debugbar/*
 
 php_errors.log
+!writable/uploads/default.webp
 
 #-------------------------
 # User Guide Temp Files

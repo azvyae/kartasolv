@@ -1,22 +1,19 @@
 <?php
 
-namespace App\Controllers;
-
-use App\Models\UsersModel;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
-class TestAuth extends CIUnitTestCase
+class Scenario02Test extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
-    protected $sessionData, $um;
+    protected $sessionData, $um, $tc;
     protected function setUp(): void
     {
         parent::setUp();
-        $this->um = new UsersModel();
+        $this->um = new \App\Models\UsersModel();
         $this->sessionData = [
             'user' => objectify([
                 'userId' => 2,
@@ -25,8 +22,13 @@ class TestAuth extends CIUnitTestCase
                 'roleName' => 'Administrator',
             ])
         ];
+        $this->tc = [
+            'testStep' => [],
+            'testData' => [],
+            'expected' => '',
+            'actual' => ''
+        ];
     }
-
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -34,82 +36,89 @@ class TestAuth extends CIUnitTestCase
             session_start();
         if (session_status() === PHP_SESSION_ACTIVE)
             session_destroy();
-
         Services::validation()->reset();
+        parseTest($this->tc);
+        $this->assertTrue($this->tc['expected'] === $this->tc['actual'], "expected: " . $this->tc['expected'] . "\n" . 'actual: ' . $this->tc['actual']);
     }
 
-    public function testLoginPage()
+    /**
+     * @testdox TC-01 Mengubah kata sandi
+     */
+    public function testChangePassword()
     {
-        $result = $this->call('get', "masuk");
-        $result->assertOK();
-        $result->assertSee('Masuk', 'h1');
-        $result->assertSeeElement('input[name=user_email]');
-        $result->assertSeeElement('input[name=user_password]');
-    }
-
-    public function testLoginWithMdfiveHash()
-    {
-        $data = [
-            'user_id' => 2,
-            'user_password' => 'e16b2ab8d12314bf4efbd6203906ea6c'
+        $this->tc['expected'] = "Menampilkan pesan Berhasil melakukan perubahan. Kata sandi berhasil diubah.";
+        $this->tc['step'] = [
+            'Masuk ke halaman profil',
+            'Ubah data pada kolom kata sandi',
+            'Tekan tombol simpan',
         ];
-        $this->um->save($data);
-        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test@test.com', 'user_password' => 'testpassword', 'g-recaptcha-response' => 'random-token']);
-        $result->assertOK();
-        $result->assertRedirectTo(base_url('dasbor'));
-    }
-
-    public function testLoginWithDefaultHash()
-    {
-        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test@test.com', 'user_password' => 'testpassword', 'g-recaptcha-response' => 'random-token']);
-        $result->assertOK();
-        $result->assertRedirectTo(base_url('dasbor'));
-    }
-
-    public function testLoginWithWrongPassword()
-    {
-        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test@gmail.com', 'user_password' => 'administratore', 'g-recaptcha-response' => 'random-token']);
-        $result->assertOK();
-        $result->assertSessionHas('message', 'Email atau Kata Sandi Salah!');
-        $result->assertRedirectTo(base_url('masuk'));
-    }
-
-    public function testLoginValidationFails()
-    {
-        $result = $this->call('post', 'masuk', [csrf_token() => csrf_hash(), 'user_email' => 'test satu dua', 'user_password' => 'lalawora', 'g-recaptcha-response' => 'random-token']);
-        $result->assertOK();
-        $validationError = service('validation')->getError('user_email');
-        $result->assertTrue($validationError === 'Kolom Email harus berisi sebuah alamat surel yang valid.', $validationError);
-        $result->assertRedirectTo(base_url('masuk'));
-    }
-
-    public function testAccessLoginPageAfterSessionIsSet()
-    {
-        $result = $this->withSession($this->sessionData)->call('get', "masuk");
-        $result->assertOK();
-        $result->assertRedirectTo(base_url('dasbor'));
-    }
-
-    public function testLogout()
-    {
+        $this->tc['data'] = [
+            "user_name: User Test",
+            "user_temp_mail: new@test.com",
+            "user_password: testpassword",
+            "user_new_password: testpassword",
+            "password_verify: testpassword",
+        ];
         $result = $this->withHeaders([
             "Content-Type" => 'multipart/form-data'
-        ])->withRoutes([
-            ['post', 'keluar', 'Auth::index'],
-        ])->withSession($this->sessionData)->call('post', "keluar", ['_method' => "DELETE", csrf_token() => csrf_hash(), 'g-recaptcha-response' => 'random-token']);
+        ])->withSession(
+            $this->sessionData
+        )->withRoutes([
+            ['post', 'profil', 'User\Profile::index'],
+        ])->call('post', 'profil', [
+            csrf_token() => csrf_hash(),
+            'user_name' => 'User Test',
+            'user_email' => 'test@test.com',
+            'user_temp_mail' => 'test@test.com',
+            'user_password' => 'testpassword',
+            'user_new_password' => 'testpassword',
+            'password_verify' => 'testpassword',
+            '_method' => 'PUT',
+            'g-recaptcha-response' => 'random-token'
+        ]);
         $result->assertOK();
-        $result->assertRedirectTo(base_url('masuk'));
+        $result->assertSessionHas('message', 'Berhasil melakukan perubahan. Kata sandi berhasil diubah.');
+        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
     }
 
-    public function testLogoutValidationFails()
+    /**
+     * @testdox TC-02 Mengubah kata sandi dengan kata sandi salah
+     */
+    public function testChangePasswordWithWrongPassword()
     {
+        $this->tc['expected'] = "Menampilkan pesan Kata sandi salah.";
+        $this->tc['step'] = [
+            'Masuk ke halaman profil',
+            'Ubah data pada kolom kata sandi',
+            'Tekan tombol simpan',
+        ];
+        $this->tc['data'] = [
+            "user_name: User Test",
+            "user_temp_mail: new@test.com",
+            "user_password: wrongpassword",
+            "user_new_password: testpassword",
+            "password_verify: testpassword",
+        ];
         $result = $this->withHeaders([
             "Content-Type" => 'multipart/form-data'
-        ])->withRoutes([
-            ['post', 'keluar', 'Auth::index'],
-        ])->withSession($this->sessionData)->call('post', "keluar", ['_method' => "DELETE", csrf_token() => csrf_hash(), 'g-recaptcha-response' => 'fail-token']);
+        ])->withSession(
+            $this->sessionData
+        )->withRoutes([
+            ['post', 'profil', 'User\Profile::index'],
+        ])->call('post', 'profil', [
+            csrf_token() => csrf_hash(),
+            'user_name' => 'User Test',
+            'user_email' => 'test@test.com',
+            'user_temp_mail' => 'test@test.com',
+            'user_password' => 'wrongpassword',
+            'user_new_password' => 'testpassword',
+            'password_verify' => 'testpassword',
+            '_method' => 'PUT',
+            'g-recaptcha-response' => 'random-token'
+        ]);
         $result->assertOK();
-        $result->assertRedirectTo(base_url());
+        $result->assertSessionHas('message', 'Kata sandi salah.');
+        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
     }
 
     public function testForgetPasswordPage()
@@ -240,7 +249,7 @@ class TestAuth extends CIUnitTestCase
             "Content-Type" => 'multipart/form-data'
         ])->withRoutes([
             ['post', 'atur-ulang-kata-sandi', 'Auth::resetPassword']
-        ])->call('post', $url, [csrf_token() => csrf_hash(), 'user_new_password' => '123456', 'password_verify' => '123456', '_method' => 'PUT', 'g-recaptcha-response' => 'random-token']);
+        ])->call('post', $url, [csrf_token() => csrf_hash(), 'user_new_password' => 'testpassword', 'password_verify' => 'testpassword', '_method' => 'PUT', 'g-recaptcha-response' => 'random-token']);
         $result->assertOK();
         $result->assertSessionHas('message', 'Berhasil mengubah kata sandi.');
         $result->assertRedirectTo(base_url('masuk'));

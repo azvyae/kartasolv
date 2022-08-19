@@ -96,11 +96,6 @@ Search.appendIndex(
             "summary": "Validate\u0020reset\u0020password\u0020form,\u0020creating\u0020new\u0020password\u0020for\u0020particular\u0020user.",
             "url": "classes/App-Controllers-Auth.html#method__resetPassword"
         },                {
-            "fqsen": "\\App\\Controllers\\Auth\u003A\u003AverifyEmail\u0028\u0029",
-            "name": "verifyEmail",
-            "summary": "Control\u0020email\u0020verification\u0020or\u0020when\u0020cancelling\u0020email\u0020verification,\nthis\u0020method\u0020only\u0020accessible\u0020if\u0020url\u0020provided\u0020is\u0020valid.",
-            "url": "classes/App-Controllers-Auth.html#method_verifyEmail"
-        },                {
             "fqsen": "\\App\\Controllers\\Auth\u003A\u003A_verifyPassword\u0028\u0029",
             "name": "_verifyPassword",
             "summary": "Send\u0020password\u0020reset\u0020request\u0020to\u0020the\u0020user\u0020email\u0020provided\u0020in\u0020the\u0020form\nand\u0020encode\u0020userId\u0020\u0026\u0020userAttempt\u0020based\u0020on\u0020timestamp.",
@@ -505,6 +500,11 @@ Search.appendIndex(
             "name": "_verifyEmail",
             "summary": "Send\u0020email\u0020method\u0020to\u0020new\u0020email\u0020posted\u0020on\u0020the\u0020form.",
             "url": "classes/App-Controllers-User-Profile.html#method__verifyEmail"
+        },                {
+            "fqsen": "\\App\\Controllers\\User\\Profile\u003A\u003AverifyEmail\u0028\u0029",
+            "name": "verifyEmail",
+            "summary": "Control\u0020email\u0020verification\u0020or\u0020when\u0020cancelling\u0020email\u0020verification,\nthis\u0020method\u0020only\u0020accessible\u0020if\u0020url\u0020provided\u0020is\u0020valid.",
+            "url": "classes/App-Controllers-User-Profile.html#method_verifyEmail"
         },                {
             "fqsen": "\\App\\Controllers\\User\\Profile\u003A\u003A\u0024um",
             "name": "um",

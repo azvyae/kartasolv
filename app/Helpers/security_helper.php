@@ -19,6 +19,7 @@ function checkAuth($data = null)
         $menuModel = model('App\Models\MenuModel');
         $router = service('router');
         $controllerName = str_replace("\App\Controllers\\", '', $router->controllerName());
+        $methodName =  $router->methodName();
         $roleId = checkAuth('roleId');
         $thisMenu = $menuModel->getMenuId($controllerName)->menu_id ?? NULL;
         $isGranted = TRUE;
@@ -27,10 +28,7 @@ function checkAuth($data = null)
             $isGranted = $roleAccessModel->getRoleAccessId($roleId, $thisMenu) !== NULL;
         }
         if ($session->user) {
-            if ($controllerName === 'Auth' && !in_array(getMethod() . '::' . $router->methodName(), [
-                'delete::index',
-                'get::verifyEmail'
-            ])) {
+            if ($controllerName === "Auth" && "$methodName::" . getMethod() !== 'index::delete') {
                 return redirect()->to('dasbor');
             }
         }
@@ -39,6 +37,30 @@ function checkAuth($data = null)
                 'message' => 'Kamu tidak dapat mengakses halaman tersebut!',
                 'type' => 'danger'
             ];
+            // @codeCoverageIgnoreStart
+            if ("$controllerName::$methodName" === 'User\Profile::verifyEmail') {
+                $request = Services::request();
+                $uuid = $request->getGet('uuid');
+                $attempt = $request->getGet('attempt');
+                $cancel = (bool) $request->getGet('cancel');
+                if ($uuid && $attempt) {
+                    $data = [
+                        'uuid' => $uuid,
+                        'attempt' => $attempt
+                    ];
+                    if ($cancel) {
+                        $data += [
+                            'cancel' => $cancel
+                        ];
+                    }
+                    $session->setTempdata('verifyEmail', objectify($data), 1800);
+                    $flash = [
+                        'message' => 'Kamu harus masuk untuk melakukan verifikasi email!',
+                        'type' => 'warning'
+                    ];
+                }
+            }
+            // @codeCoverageIgnoreEnd
             setFlash($flash);
             return redirect()->to('masuk');
         }
@@ -196,6 +218,7 @@ function getMethod($method = null)
  */
 function acceptFrom($routes = '')
 {
+    // @codeCoverageIgnoreStart
     if (getenv('CI_ENVIRONMENT') !== 'testing') {
         $referrer = Services::request()->getUserAgent()->getReferrer();
         if (!((base_url($routes) === $referrer) || (base_url("index.php/$routes") === $referrer))) {
@@ -208,4 +231,5 @@ function acceptFrom($routes = '')
         }
     }
     return false;
+    // @codeCoverageIgnoreEnd
 }
