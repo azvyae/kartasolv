@@ -26,8 +26,8 @@ class Scenario02Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
-            'testStep' => [],
-            'testData' => [],
+            'step' => [],
+            'data' => [],
             'expected' => '',
             'actual' => ''
         ];
@@ -214,15 +214,6 @@ class Scenario02Test extends CIUnitTestCase
     public function testResetPassword()
     {
         $this->tc['expected'] = "Menampilkan pesan Berhasil mengubah kata sandi.";
-        $this->tc['step'] = [
-            'Masuk ke halaman atur ulang kata sandi',
-            'Mengisi formulir perubahan kata sandi',
-            'Tekan tombol simpan',
-        ];
-        $this->tc['data'] = [
-            'user_new_password: testpassword',
-            'password_verify: testpassword'
-        ];
         $date = date('Y-m-d H:i:s', strtotime('+15 minutes', time()));
         $updateData = [
             'user_id' => 2,
@@ -232,6 +223,21 @@ class Scenario02Test extends CIUnitTestCase
         $uuid = encode(2, 'resetPassword');
         $attempt = encode(strtotime($date), 'resetPassword');
         $url = "atur-ulang-kata-sandi?uuid=$uuid&attempt=$attempt";
+        $result = $this->call('get', $url);
+        $result->assertOK();
+        $result->assertSee('Atur Ulang Kata Sandi', 'h1');
+        $result->assertSeeElement('input[name=user_new_password]');
+        $result->assertSeeElement('input[name=password_verify]');
+        $this->tc['step'] = [
+            'Masuk ke halaman atur ulang kata sandi',
+            'Mengisi formulir perubahan kata sandi',
+            'Tekan tombol simpan',
+        ];
+        $this->tc['data'] = [
+            'user_new_password: testpassword',
+            'password_verify: testpassword'
+        ];
+
         $result = $this->withHeaders([
             "Content-Type" => 'multipart/form-data'
         ])->withRoutes([
@@ -240,6 +246,6 @@ class Scenario02Test extends CIUnitTestCase
         $result->assertOK();
         $result->assertSessionHas('message', 'Berhasil mengubah kata sandi.');
         $result->assertRedirectTo(base_url('masuk'));
-        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message');
+        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
     }
 }

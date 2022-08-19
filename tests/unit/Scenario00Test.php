@@ -1,6 +1,6 @@
 <?php
 
-
+use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
@@ -155,6 +155,70 @@ class Scenario00Test extends CIUnitTestCase
         ])->withSession($this->sessionData)->call('post', "keluar", ['_method' => "DELETE", csrf_token() => csrf_hash(), 'g-recaptcha-response' => 'random-token']);
         $result->assertOK();
         $result->assertRedirectTo(base_url('masuk'));
+        $this->tc['actual'] = "Diarahkan ke halaman " . $result->getRedirectUrl();
+    }
+
+    /**
+     * @testdox TC-07 Masuk ke dasbor tanpa log in
+     */
+    public function testRestrictAccessIfNotLoggedIn()
+    {
+        $this->tc['expected'] = "Menampilkan pesan Kamu tidak dapat mengakses halaman tersebut!";
+        $this->tc['step'] =  ["Masuk ke halaman dasbor"];
+
+        $result = $this->call('get', "dasbor");
+        $result->assertOK();
+        $result->assertSessionHas('message', 'Kamu tidak dapat mengakses halaman tersebut!');
+        $result->assertRedirectTo(base_url('masuk'));
+        $this->tc['actual'] = "Menampilkan pesan " . getFlash('message', true);
+    }
+
+    /**
+     * @testdox TC-08 Akses gambar privat tidak ditemukan
+     */
+    public function testPrivateImageNotFound()
+    {
+        $this->tc['expected'] = "Mendapatkan kode 404";
+        $this->tc['step'] =  ["Masuk ke halaman Gambar Privat"];
+        $this->tc['data'] =  ["q: notfound.webp"];
+        $sessionData = [
+            'user' => objectify([
+                'userId' => 2,
+                'roleId' => 1,
+                'roleString' => 'admin',
+                'roleName' => 'Administrator',
+            ])
+        ];
+        $this->tc['actual'] = 'Mendapatkan kode 404';
+        $this->expectException(PageNotFoundException::class);
+        $this->withSession($sessionData)->call('get', 'gambar-privat?q=notfound.webp');
+    }
+
+    /**
+     * @testdox TC-08 Akses gambar privat
+     */
+    public function testLoadPrivateImages()
+    {
+        $this->tc['expected'] = "Mendapatkan header dengan tipe image/webp";
+        $this->tc['step'] =  ["Masuk ke halaman Gambar Privat"];
+        $this->tc['data'] =  ["q: default.webp"];
+        $result = $this->withSession($this->sessionData)->call('get', "gambar-privat?", ['q' => 'uploads/default.webp']);
+        $result->assertOK();
+        $result->assertHeader('Content-Type', 'image/webp; charset=UTF-8');
+        $this->tc['actual'] = "Mendapatkan header dengan tipe image/webp";
+    }
+
+    /**
+     * @testdox TC-08 Akses gambar privat dengan mencoba akses direktori terkunci
+     */
+    public function testRestrictAccessingPrivateDirectory()
+    {
+        $this->tc['expected'] = "Diarahkan ke halaman " . base_url('gambar-privat?q=%2fuploads%2fdefault.webp');
+        $this->tc['step'] =  ["Masuk ke halaman Gambar Privat"];
+        $this->tc['data'] =  ["q: ../../uploads/default.webp"];
+        $result = $this->withSession($this->sessionData)->call('get', "gambar-privat?", ['q' => '../../uploads/default.webp']);
+        $result->assertOK();
+        $result->assertRedirectTo(base_url('gambar-privat?q=%2fuploads%2fdefault.webp'));
         $this->tc['actual'] = "Diarahkan ke halaman " . $result->getRedirectUrl();
     }
 }

@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Controllers\Content;
-
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
 
-class TestHistory extends CIUnitTestCase
+class Scenario04Test extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;

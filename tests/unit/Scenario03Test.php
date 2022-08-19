@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Controllers\Content;
-
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
 
-class TestOrganizationProfile extends CIUnitTestCase
+class Scenario03Test extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;

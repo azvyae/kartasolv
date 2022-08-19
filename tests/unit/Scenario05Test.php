@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Controllers;
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
@@ -8,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Database;
 use Config\Services;
 
-class TestHome extends CIUnitTestCase
+class Scenario05Test extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     use FeatureTestTrait;
@@ -70,13 +69,6 @@ class TestHome extends CIUnitTestCase
         $result->assertDontSeeElement('a[target=_self]');
     }
 
-    public function testHistoryPage()
-    {
-        $result = $this->call('get', "sejarah");
-        $result->assertOK();
-        $result->assertSeeElement('h1');
-        $result->assertSeeElement('footer');
-    }
     public function testContactUsPage()
     {
         $result = $this->call('get', "hubungi-kami");
