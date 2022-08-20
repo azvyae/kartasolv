@@ -259,6 +259,9 @@ class Pmks extends BaseController
     {
         // @codeCoverageIgnoreStart
         if (getMethod('post')) {
+            if ($referrer = acceptFrom("data/pmks/tambah-spreadsheet")) {
+                return redirect()->to($referrer);
+            }
             if (!$this->validate('spreadsheet')) {
                 return redirect()->to('data/pmks/tambah-spreadsheet')->withInput();
             }

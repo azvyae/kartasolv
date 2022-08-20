@@ -84,9 +84,11 @@ class Psks extends BaseController
      */
     private function _datatable()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $condition = [
             'limit' => $this->request->getGet('length'),
             'offset' => $this->request->getGet('start'),
@@ -128,9 +130,11 @@ class Psks extends BaseController
      */
     private function _updateStatus()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
 
         $communityIds = array_map(function ($e) {
             return decode($e, 'psks');
@@ -154,7 +158,6 @@ class Psks extends BaseController
         ];
         setFlash($flash);
         $response = [
-            // If reload filled with false, it wont reload after ajax request
             'reload' => true
         ];
         echo json_encode($response);
@@ -166,9 +169,11 @@ class Psks extends BaseController
      */
     private function _delete()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $deleteData = $this->request->getPost('selections');
         $totalData = count($deleteData);
         $response = false;
@@ -251,7 +256,11 @@ class Psks extends BaseController
      */
     public function spreadsheetCrud()
     {
+        // @codeCoverageIgnoreStart
         if (getMethod('post')) {
+            if ($referrer = acceptFrom("data/psks/tambah-spreadsheet")) {
+                return redirect()->to($referrer);
+            }
             if (!$this->validate('spreadsheet')) {
                 return redirect()->to('data/psks/tambah-spreadsheet')->withInput();
             }
@@ -310,6 +319,7 @@ class Psks extends BaseController
             }
             return redirect()->to('data/psks/tambah-spreadsheet');
         }
+        // @codeCoverageIgnoreEnd
         $data = [
             'title' => 'Tambah Data Dengan Sheet | Karta Sarijadi',
         ];
@@ -330,9 +340,11 @@ class Psks extends BaseController
      */
     private function _crud($communityId = '')
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom("data/psks/$communityId", "data/psks/tambah")) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $communityStatus = $this->request->getPost('community_status');
         $decodedCommunityID = decode($communityId, 'psks');
         if (!$communityStatus) {
@@ -344,6 +356,7 @@ class Psks extends BaseController
         } else {
             $rules['community_identifier']['rules'] .= '|is_unique[communities.community_identifier]';
         }
+        // @codeCoverageIgnoreStart
         if (($imgCount = count($img = $this->request->getFileMultiple('pmpsks_img_loc'))) > 0) {
             if ($img[0]->getSize() > 0) {
                 $rules += $this->pim->getValidationRules();
@@ -352,9 +365,7 @@ class Psks extends BaseController
         if (!$this->validate($rules)) {
             return redirect()->to('data/psks/' . ($communityId ?? 'tambah'))->withInput();
         }
-        /**
-         * Base update data
-         */
+        // @codeCoverageIgnoreEnd
         $data = [
             'community_name' => $this->request->getPost('community_name'),
             'community_address' => $this->request->getPost('community_address'),
@@ -369,9 +380,7 @@ class Psks extends BaseController
             ];
         }
 
-        /**
-         * Image upload handler
-         */
+        // @codeCoverageIgnoreStart
         if ($imgCount > 0) {
             if ($img[0]->getSize() > 0) {
                 $imageUploader = new ImageUploader;
@@ -388,9 +397,11 @@ class Psks extends BaseController
                 }
             }
         }
+        // @codeCoverageIgnoreEnd
 
         $result = $communityId === null ? $this->cm->skipValidation(true)->insert($data) : $this->cm->skipValidation(true)->save($data);
         if ($result) {
+            // @codeCoverageIgnoreStart
             if ($newImages ?? false) {
                 $imgs = [];
                 if (is_int($result)) {
@@ -411,6 +422,7 @@ class Psks extends BaseController
                 }
                 $this->pim->skipValidation(true)->insertBatch($imgs);
             }
+            // @codeCoverageIgnoreEnd
             $flash = [
                 'message' => 'Data PSKS berhasil diperbarui.',
                 'type' => 'success'
@@ -418,12 +430,14 @@ class Psks extends BaseController
             setFlash($flash);
             return redirect()->to('data/psks/' . ($communityId ?? 'tambah'));
         }
+        // @codeCoverageIgnoreStart
         $flash = [
             'message' => 'Data PSKS gagal diperbarui.',
             'type' => 'danger'
         ];
         setFlash($flash);
         return redirect()->to('data/psks/' . ($communityId ?? 'tambah'))->withInput();
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -432,9 +446,11 @@ class Psks extends BaseController
      */
     public function getImages()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $communityId = decode($this->request->getGet('uuid'), 'psks');
         if (!$this->request->isAJAX() || !$communityId) {
             return redirect()->to('data/psks');
