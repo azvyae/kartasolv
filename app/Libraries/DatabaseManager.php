@@ -197,16 +197,19 @@ class DatabaseManager extends Database
         $d['group'] = [];
         if ($condition['filter'] ?? false) {
             foreach ($condition['filter']['criteria'] as $criteria) {
+                // @codeCoverageIgnoreStart
                 if (!array_key_exists('data', $criteria) or !array_key_exists('condition', $criteria)) {
                     continue;
                 }
                 if (!in_array($criteria['origData'], $condition['columnSearch'])) {
                     continue;
                 }
+                // @codeCoverageIgnoreEnd
                 $cdn = $criteria['condition'];
                 $col = $criteria['origData'] ?? null;
                 switch ($cdn) {
                     case 'null':
+                        // @codeCoverageIgnoreStart
                         if ($criteria['type'] == 'date') {
                             if ($condition['filter']['logic'] == 'OR') {
                                 array_push($d['group'], ['orWhere', [$col => null]]);
@@ -224,8 +227,8 @@ class DatabaseManager extends Database
                                 array_push($d['group'], ['subgroup', $subgroup]);
                             }
                         }
-
                         break;
+                        // @codeCoverageIgnoreEnd
                     case 'contains':
                         if (!array_key_exists('value', $criteria)) continue 2;
                         if ($condition['filter']['logic'] == 'OR') {
@@ -284,10 +287,8 @@ class DatabaseManager extends Database
 
         ];
         if ($condition['limit'] >= 0) {
-            $d['query'] += [
-                'limit'  =>  $condition['limit'],
-                'offset' => $condition['offset']
-            ];
+            $d['query']['limit'] = $condition['limit'];
+            $d['query']['offset'] = $condition['offset'];
         }
         if (array_key_exists('group', $d)) {
             $d['query'] += ['group' => $d['group']];
@@ -306,7 +307,9 @@ class DatabaseManager extends Database
         if (!$retrieve_all) {
             if (array_key_exists('where', $data)) {
                 if (!is_array($data['where'])) {
+                    // @codeCoverageIgnoreStart
                     throw new Exception('Where clause must be an associative array!');
+                    // @codeCoverageIgnoreEnd
                 }
             }
             if (array_key_exists('join', $data)) {
@@ -318,10 +321,13 @@ class DatabaseManager extends Database
                 $data['where']['deleted_at'] = null;
             }
         }
+
         $this->builder = $this->db->table($data['table']);
+        // @codeCoverageIgnoreStart
         if (array_key_exists('groupBy', $data)) {
             $this->builder->groupBy($data['groupBy']);
         }
+        // @codeCoverageIgnoreEnd
 
         if (array_key_exists('group', $data)) {
             if ($data['group'] != null) {
@@ -330,10 +336,13 @@ class DatabaseManager extends Database
         }
         if (array_key_exists('where', $data)) {
             if (!is_array($data['where'])) {
+                // @codeCoverageIgnoreStart
                 throw new \Exception('Where clause must be an associative array!');
+                // @codeCoverageIgnoreEnd
             }
             $this->builder->where($data['where']);
         }
+        // @codeCoverageIgnoreStart
         if (array_key_exists('like', $data)) {
             if (!is_array($data['like'])) {
                 throw new \Exception('Like clause must be an associative array!');
@@ -341,20 +350,34 @@ class DatabaseManager extends Database
             $this->builder->like($data['like']);
         }
 
+        if (array_key_exists('orLike', $data)) {
+            if (!is_array($data['orLike'])) {
+                throw new \Exception('Or like clause must be an associative array!');
+            }
+            $this->builder->orLike($data['orLike'][0]);
+        }
+        // @codeCoverageIgnoreEnd
+
         if (array_key_exists('select', $data)) {
             $this->builder->select($data['select']);
         } else {
+            // @codeCoverageIgnoreStart
             $this->builder->select('*');
+            // @codeCoverageIgnoreEnd
         }
 
         if (array_key_exists('join', $data)) {
             if (!is_array($data['join'] ?? [])) {
+                // @codeCoverageIgnoreStart
                 throw new \Exception('Join parameter must be an associative array!');
+                // @codeCoverageIgnoreEnd
             }
 
             foreach ($data['join'] as $key) {
                 if ($key[3] ?? null) {
+                    // @codeCoverageIgnoreStart
                     $key[0] .= ' AS ' . $key[3];
+                    // @codeCoverageIgnoreEnd
                 }
                 $this->builder->join($key[0], $key[1], $key[2] ?? null);
             }
@@ -408,7 +431,9 @@ class DatabaseManager extends Database
         if (!$retrieveAll) {
             if (array_key_exists('where', $data)) {
                 if (!is_array($data['where'])) {
+                    // @codeCoverageIgnoreStart
                     throw new Exception('Where clause must be an associative array!');
+                    // @codeCoverageIgnoreEnd
                 }
             }
             if (array_key_exists('join', $data)) {
@@ -424,27 +449,36 @@ class DatabaseManager extends Database
         if (array_key_exists('select', $data)) {
             $this->builder->select($data['select']);
         } else {
+            // @codeCoverageIgnoreStart
             $this->builder->select('*');
+            // @codeCoverageIgnoreEnd
         }
 
         if (array_key_exists('where', $data)) {
             if (!is_array($data['where'])) {
+                // @codeCoverageIgnoreStart
                 throw new \Exception('Where clause must be an associative array!');
+                // @codeCoverageIgnoreEnd
             }
             $this->builder->where($data['where']);
         }
 
         if (array_key_exists('join', $data)) {
             if (!is_array($data['join'] ?? [])) {
+                // @codeCoverageIgnoreStart
                 throw new \Exception('Join parameter must be an associative array!');
+                // @codeCoverageIgnoreEnd
             }
             foreach ($data['join'] as $key) {
                 if ($key[3] ?? null) {
+                    // @codeCoverageIgnoreStart
                     $key[0] .= ' AS ' . $key[3];
+                    // @codeCoverageIgnoreEnd
                 }
                 $this->builder->join($key[0], $key[1], $key[2] ?? null);
             }
         }
+        // @codeCoverageIgnoreStart
         if (array_key_exists('like', $data)) {
             if (!is_array($data['like'])) {
                 throw new \Exception('Like clause must be an associative array!');
@@ -456,16 +490,19 @@ class DatabaseManager extends Database
             if (!is_array($data['orLike'])) {
                 throw new \Exception('Or like clause must be an associative array!');
             }
-            $this->builder->like($data['orLike'][0]);
+            $this->builder->orLike($data['orLike'][0]);
         }
+        // @codeCoverageIgnoreEnd
 
         if (array_key_exists('orderBy', $data)) {
             $this->builder->orderBy($data['orderBy']);
         }
 
+        // @codeCoverageIgnoreStart
         if (array_key_exists('groupBy', $data)) {
             $this->builder->groupBy($data['groupBy']);
         }
+        // @codeCoverageIgnoreEnd
 
         if (array_key_exists('group', $data)) {
             if ($data['group'] != null) {
@@ -477,7 +514,9 @@ class DatabaseManager extends Database
             if (array_key_exists('offset', $data)) {
                 $this->builder->limit($data['limit'], $data['offset']);
             } else {
+                // @codeCoverageIgnoreStart
                 $this->builder->limit($data['limit']);
+                // @codeCoverageIgnoreEnd
             }
         }
 
@@ -485,7 +524,9 @@ class DatabaseManager extends Database
             $result = 'get' . ucfirst($data['result']);
             $data = $this->builder->get()->$result();
         } else {
+            // @codeCoverageIgnoreStart
             $data = $this->builder->get();
+            // @codeCoverageIgnoreEnd
         }
 
         return filterOutput($data);

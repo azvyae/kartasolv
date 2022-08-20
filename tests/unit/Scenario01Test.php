@@ -2,6 +2,7 @@
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
+use CodeIgniter\Test\DOMParser;
 use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
@@ -57,7 +58,17 @@ class Scenario01Test extends CIUnitTestCase
         $result->assertSee("Data PMKS", 'h2');
         $result->assertSee("Data PSKS", 'h2');
         $result->assertSee("Pengurus Aktif", 'h2');
-        $this->tc['actual'] = "Menampilkan halaman dasbor";
+        $domParser = new DOMParser;
+        $domParser->withString(service('response')->getBody());
+        $checks = [
+            $domParser->see("Dasbor $roleName", 'h1'),
+            $domParser->see("Data PMKS", 'h2'),
+            $domParser->see("Data PSKS", 'h2'),
+            $domParser->see("Pengurus Aktif", 'h2'),
+        ];
+        if (!in_array(false, $checks)) {
+            $this->tc['actual'] = "Menampilkan halaman dasbor";
+        }
     }
 
     /**

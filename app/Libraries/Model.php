@@ -100,9 +100,7 @@ class Model extends OriginalModel
      */
     protected function setModifiedBy(array $data)
     {
-        $data['data'] += [
-            'modified_by' => checkAuth('userId')
-        ];
+        $data['data']['modified_by'] = checkAuth('userId');
         return $data;
     }
     /**
@@ -112,9 +110,7 @@ class Model extends OriginalModel
      */
     protected function setCreatedBy(array $data)
     {
-        $data['data'] += [
-            'created_by' => checkAuth('userId')
-        ];
+        $data['data']['created_by'] = checkAuth('userId');
         return $data;
     }
 

@@ -452,7 +452,9 @@ class Pmks extends BaseController
         // @codeCoverageIgnoreEnd
         $communityId = decode($this->request->getGet('uuid'), 'pmks');
         if (!$this->request->isAJAX() || !$communityId) {
+            // @codeCoverageIgnoreStart
             return redirect()->to('data/pmks');
+            // @codeCoverageIgnoreEnd
         }
         echo json_encode(array_map(function ($e) {
             return $e->pmpsks_img_loc ?? null;

@@ -41,7 +41,7 @@ class MembersModel extends Model
             'label' => 'Aktif',
             'rules' => 'in_list[Aktif,Nonaktif]|permit_empty',
             'errors' => [
-                'in_list' => 'Kamu Hanya Dapat Memilih Opsi Aktif/Nonaktif'
+                'in_list' => 'Kamu Hanya Dapat Memilih Opsi Aktif/Nonaktif.'
             ]
         ],
         'member_image' => [

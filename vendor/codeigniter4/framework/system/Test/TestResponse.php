@@ -132,7 +132,7 @@ class TestResponse extends TestCase
             return false;
         }
         // Empty bodies are not considered valid, unless in redirects
-        return ! ($status < 300 && empty($this->response->getBody()));
+        return !($status < 300 && empty($this->response->getBody()));
     }
 
     /**
@@ -203,8 +203,8 @@ class TestResponse extends TestCase
         $redirectUri = strtolower($this->getRedirectUrl());
 
         $matches = $uri === $redirectUri
-                   || strtolower(site_url($uri)) === $redirectUri
-                   || $uri === site_url($redirectUri);
+            || strtolower(site_url($uri)) === $redirectUri
+            || $uri === site_url($redirectUri);
 
         $this->assertTrue($matches, "Redirect URL `{$uri}` does not match `{$redirectUri}`");
     }
@@ -224,7 +224,7 @@ class TestResponse extends TestCase
      */
     public function getRedirectUrl(): ?string
     {
-        if (! $this->isRedirect()) {
+        if (!$this->isRedirect()) {
             return null;
         }
 

@@ -29,35 +29,35 @@ class HistoryModel extends Model
     protected $afterUpdate = ['setModifiedBy'];
     protected $validationRules = [
         'title_a' => [
-            'label' => 'Nama Kegiatan 1',
+            'label' => 'Judul 1',
             'rules' => 'required|max_length[64]|string',
         ],
         'desc_a' => [
-            'label' => 'Deskripsi Kegiatan 1',
+            'label' => 'Deskripsi 1',
             'rules' => 'required|max_length[512]|string',
         ],
         'title_b' => [
-            'label' => 'Nama Kegiatan 2',
+            'label' => 'Judul 2',
             'rules' => 'required|max_length[64]|string',
         ],
         'desc_b' => [
-            'label' => 'Deskripsi Kegiatan 2',
+            'label' => 'Deskripsi 2',
             'rules' => 'required|max_length[512]|string',
         ],
         'title_c' => [
-            'label' => 'Nama Kegiatan 3',
+            'label' => 'Judul 3',
             'rules' => 'required|max_length[64]|string',
         ],
         'desc_c' => [
-            'label' => 'Deskripsi Kegiatan 3',
+            'label' => 'Deskripsi 3',
             'rules' => 'required|max_length[512]|string',
         ],
         'title_d' => [
-            'label' => 'Nama Kegiatan 3',
+            'label' => 'Judul 3',
             'rules' => 'required|max_length[64]|string',
         ],
         'desc_d' => [
-            'label' => 'Deskripsi Kegiatan 3',
+            'label' => 'Deskripsi 3',
             'rules' => 'required|max_length[512]|string',
         ],
         'image_a' => [

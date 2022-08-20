@@ -145,9 +145,11 @@ function countTable($table, $param = '')
  */
 function parseTest($tc = [])
 {
+    // @codeCoverageIgnoreStart
     if (!$tc) {
         return null;
     }
+    // @codeCoverageIgnoreEnd
     print "> **START**\n>";
     print "\n> Test Step:\n";
     foreach ($tc['step'] as $i => $step) {

@@ -296,6 +296,10 @@ class OrganizationProfile extends BaseController
                 case 'delete':
                     return $this->_delete();
                     break;
+                default;
+                    // @codeCoverageIgnoreStart
+                    break;
+                    // @codeCoverageIgnoreEnd
             }
         }
         $data = [
@@ -378,11 +382,13 @@ class OrganizationProfile extends BaseController
                 setFlash($flash);
                 $response = $totalData;
             } else {
+                // @codeCoverageIgnoreStart
                 $flash = [
                     'message'   => "Data pengurus gagal dihapus",
                     'type'        => 'danger',
                 ];
                 setFlash($flash);
+                // @codeCoverageIgnoreEnd
             }
         }
         echo json_encode($response);
@@ -472,7 +478,7 @@ class OrganizationProfile extends BaseController
         ];
         // @codeCoverageIgnoreStart
         $savedImagePath = '';
-        if ($img->getSize() > 0) {
+        if ($img && $img->getSize() > 0) {
             $imageUploader = new ImageUploader;
             $opt = [
                 'upload_path' => 'members',

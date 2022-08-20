@@ -453,7 +453,9 @@ class Psks extends BaseController
         // @codeCoverageIgnoreEnd
         $communityId = decode($this->request->getGet('uuid'), 'psks');
         if (!$this->request->isAJAX() || !$communityId) {
+            // @codeCoverageIgnoreStart
             return redirect()->to('data/psks');
+            // @codeCoverageIgnoreEnd
         }
         echo json_encode(array_map(function ($e) {
             return $e->pmpsks_img_loc ?? null;

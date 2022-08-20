@@ -76,7 +76,7 @@
                         },
                         {
                             value: '3',
-                            text: 'Kegiatan Khusus'
+                            text: 'Kabid'
                         },
                         {
                             value: '4',

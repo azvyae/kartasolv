@@ -1,6 +1,5 @@
 <?php
 
-use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
@@ -183,20 +182,23 @@ class Scenario00Test extends CIUnitTestCase
      */
     public function testPrivateImageNotFound()
     {
-        $this->tc['expected'] = "Mendapatkan kode 404";
+        $this->tc['expected'] = "Menampilkan pesan Halaman Tidak Ditemukan";
         $this->tc['step'] =  ["Masuk ke halaman Gambar Privat"];
         $this->tc['data'] =  ["q: notfound.webp"];
-        $sessionData = [
-            'user' => objectify([
-                'userId' => 2,
-                'roleId' => 1,
-                'roleString' => 'admin',
-                'roleName' => 'Administrator',
-            ])
-        ];
-        $this->tc['actual'] = 'Mendapatkan kode 404';
-        $this->expectException(PageNotFoundException::class);
-        $this->withSession($sessionData)->call('get', 'gambar-privat?q=notfound.webp');
+        try {
+            $sessionData = [
+                'user' => objectify([
+                    'userId' => 2,
+                    'roleId' => 1,
+                    'roleString' => 'admin',
+                    'roleName' => 'Administrator',
+                ])
+            ];
+            $this->withSession($sessionData)->call('get', 'gambar-privat?q=notfound.webp');
+        } catch (\CodeIgniter\Exceptions\PageNotFoundException $e) {
+            $message = $e->getMessage();
+        }
+        $this->tc['actual'] = "Menampilkan pesan $message";
     }
 
     /**
