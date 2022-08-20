@@ -46,6 +46,10 @@ class Messages extends BaseController
                 case 'delete':
                     return $this->_delete();
                     break;
+                default:
+                    // @codeCoverageIgnoreStart
+                    break;
+                    // @codeCoverageIgnoreEnd
             }
         }
 
@@ -170,11 +174,13 @@ class Messages extends BaseController
                 setFlash($flash);
                 $response = $totalData;
             } else {
+                // @codeCoverageIgnoreStart
                 $flash = [
                     'message'   => "Data Pesan gagal dihapus",
                     'type'        => 'danger',
                 ];
                 setFlash($flash);
+                // @codeCoverageIgnoreEnd
             }
         }
         echo json_encode($response);

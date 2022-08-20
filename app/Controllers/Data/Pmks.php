@@ -61,6 +61,10 @@ class Pmks extends BaseController
                 case 'delete':
                     return $this->_delete();
                     break;
+                default:
+                    // @codeCoverageIgnoreStart
+                    break;
+                    // @codeCoverageIgnoreEnd
             }
         }
         $pmks_types = array_map(function ($e) {
@@ -190,11 +194,13 @@ class Pmks extends BaseController
                 setFlash($flash);
                 $response = $totalData;
             } else {
+                // @codeCoverageIgnoreStart
                 $flash = [
                     'message'   => "Data PMKS gagal dihapus",
                     'type'        => 'danger',
                 ];
                 setFlash($flash);
+                // @codeCoverageIgnoreEnd
             }
         }
         echo json_encode($response);
@@ -336,7 +342,6 @@ class Pmks extends BaseController
     private function _crud($communityId = '')
     {
         // @codeCoverageIgnoreStart
-
         if ($referrer = acceptFrom("data/pmks/$communityId", "data/pmks/tambah")) {
             return redirect()->to($referrer);
         }
@@ -353,14 +358,14 @@ class Pmks extends BaseController
             $rules['community_identifier']['rules'] .= '|is_unique[communities.community_identifier]';
         }
         // @codeCoverageIgnoreStart
-        if (($imgCount = count($img = $this->request->getFileMultiple('pmpsks_img_loc'))) > 0) {
+        if (($img = $this->request->getFileMultiple('pmpsks_img_loc')) && ($imgCount = count($img)) > 0) {
             if ($img[0]->getSize() > 0) {
                 $rules += $this->pim->getValidationRules();
             }
         }
         // @codeCoverageIgnoreEnd
         if (!$this->validate($rules)) {
-            return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'))->withInput();
+            return redirect()->to('data/pmks/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
         }
         /**
          * Base update data
@@ -380,7 +385,7 @@ class Pmks extends BaseController
         }
 
         // @codeCoverageIgnoreStart
-        if ($imgCount > 0) {
+        if ($img && $imgCount > 0) {
             if ($img[0]->getSize() > 0) {
                 $imageUploader = new ImageUploader;
                 $opt = [
@@ -427,7 +432,7 @@ class Pmks extends BaseController
                 'type' => 'success'
             ];
             setFlash($flash);
-            return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'));
+            return redirect()->to('data/pmks/' . (!empty($communityId) ? $communityId : 'tambah'));
         }
         // @codeCoverageIgnoreStart
         $flash = [
@@ -435,7 +440,7 @@ class Pmks extends BaseController
             'type' => 'danger'
         ];
         setFlash($flash);
-        return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'))->withInput();
+        return redirect()->to('data/pmks/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
         // @codeCoverageIgnoreEnd
     }
 

@@ -61,6 +61,10 @@ class Psks extends BaseController
                 case 'delete':
                     return $this->_delete();
                     break;
+                default:
+                    // @codeCoverageIgnoreStart
+                    break;
+                    // @codeCoverageIgnoreEnd
             }
         }
         $psks_types = array_map(function ($e) {
@@ -190,11 +194,13 @@ class Psks extends BaseController
                 setFlash($flash);
                 $response = $totalData;
             } else {
+                // @codeCoverageIgnoreStart
                 $flash = [
                     'message'   => "Data PSKS gagal dihapus",
                     'type'        => 'danger',
                 ];
                 setFlash($flash);
+                // @codeCoverageIgnoreEnd
             }
         }
         echo json_encode($response);
@@ -357,13 +363,13 @@ class Psks extends BaseController
             $rules['community_identifier']['rules'] .= '|is_unique[communities.community_identifier]';
         }
         // @codeCoverageIgnoreStart
-        if (($imgCount = count($img = $this->request->getFileMultiple('pmpsks_img_loc'))) > 0) {
+        if (($img = $this->request->getFileMultiple('pmpsks_img_loc')) && ($imgCount = count($img)) > 0) {
             if ($img[0]->getSize() > 0) {
                 $rules += $this->pim->getValidationRules();
             }
         }
         if (!$this->validate($rules)) {
-            return redirect()->to('data/psks/' . ($communityId ?? 'tambah'))->withInput();
+            return redirect()->to('data/psks/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
         }
         // @codeCoverageIgnoreEnd
         $data = [
@@ -381,7 +387,7 @@ class Psks extends BaseController
         }
 
         // @codeCoverageIgnoreStart
-        if ($imgCount > 0) {
+        if ($img && $imgCount > 0) {
             if ($img[0]->getSize() > 0) {
                 $imageUploader = new ImageUploader;
                 $opt = [
@@ -428,7 +434,7 @@ class Psks extends BaseController
                 'type' => 'success'
             ];
             setFlash($flash);
-            return redirect()->to('data/psks/' . ($communityId ?? 'tambah'));
+            return redirect()->to('data/psks/' . (!empty($communityId) ? $communityId : 'tambah'));
         }
         // @codeCoverageIgnoreStart
         $flash = [
@@ -436,7 +442,7 @@ class Psks extends BaseController
             'type' => 'danger'
         ];
         setFlash($flash);
-        return redirect()->to('data/psks/' . ($communityId ?? 'tambah'))->withInput();
+        return redirect()->to('data/psks/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
         // @codeCoverageIgnoreEnd
     }
 

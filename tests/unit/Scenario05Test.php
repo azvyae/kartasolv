@@ -53,7 +53,7 @@ class Scenario05Test extends CIUnitTestCase
     public function testIndexPageExternalCallToAction()
     {
         $this->tc['expected'] = "Menampilkan halaman utama dengan tombol Call to Action eksternal";
-        $this->tc['step'] = ["Mekakses halaman utama"];
+        $this->tc['step'] = ["Mengakses halaman utama"];
         $this->db->table('info_landing')->where('id', 1)->update(
             [
                 'cta_url' => 'https://www.google.com',
@@ -81,7 +81,7 @@ class Scenario05Test extends CIUnitTestCase
     public function testIndexPageLocalCallToAction()
     {
         $this->tc['expected'] = "Menampilkan halaman utama dengan tombol Call to Action lokal";
-        $this->tc['step'] = ["Mekakses halaman utama"];
+        $this->tc['step'] = ["Mengakses halaman utama"];
         $this->db->table('info_landing')->where('id', 1)->update(
             [
                 'cta_url' => 'https://kartasarijadi.test/hubungi-kami#kirim-pesan',
@@ -103,7 +103,7 @@ class Scenario05Test extends CIUnitTestCase
     public function testIndexNoCallToAction()
     {
         $this->tc['expected'] = "Menampilkan halaman utama tanpa Call to Action";
-        $this->tc['step'] = ["Mekakses halaman utama"];
+        $this->tc['step'] = ["Mengakses halaman utama"];
         $this->db->table('info_landing')->where('id', 1)->update(
             [
                 'cta_url' => '',

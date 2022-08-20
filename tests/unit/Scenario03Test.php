@@ -462,7 +462,8 @@ class Scenario03Test extends CIUnitTestCase
     {
         $this->tc['expected'] = "Menampilkan pesan Halaman Tidak Ditemukan";
         $this->tc['step'] = [
-            "Masuk ke halaman Ubah Data Pengurus"
+            "Isi panel alamat URL dengan konten/profil-karang-taruna/pengurus/xxx dengan id acak",
+            "Tekan Enter"
         ];
         $this->tc['data'] = [
             'member_id: notFoundId'
@@ -483,7 +484,8 @@ class Scenario03Test extends CIUnitTestCase
     {
         $this->tc['expected'] = "Menampilkan pesan Data Pengurus berhasil diperbarui.";
         $this->tc['step'] = [
-            'Masuk ke halaman Ubah Data Pengurus',
+            'Masuk ke halaman Data Pengurus',
+            "Klik salah satu tombol ubah pada tabel",
             "Ubah formulir data pengurus",
             "Tekan tombol simpan"
         ];
@@ -530,7 +532,7 @@ class Scenario03Test extends CIUnitTestCase
             "Tekan tombol hapus"
         ];
         $this->tc['data'] = [
-            "selections: $stringIds"
+            "selections: " . str_replace('"', '', $stringIds)
         ];
 
         $result = $this->withRoutes([

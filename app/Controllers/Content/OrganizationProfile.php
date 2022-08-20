@@ -467,7 +467,7 @@ class OrganizationProfile extends BaseController
         }
         // @codeCoverageIgnoreEnd
         if (!$this->validate($rules)) {
-            return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))->withInput();
+            return redirect()->to('konten/profil-karang-taruna/pengurus/' . (!empty($memberId) ? $memberId : 'tambah'))->withInput();
         }
 
         $data = [
@@ -514,7 +514,7 @@ class OrganizationProfile extends BaseController
                 }
             }
             // @codeCoverageIgnoreEnd
-            return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'));
+            return redirect()->to('konten/profil-karang-taruna/pengurus/' . (!empty($memberId) ? $memberId : 'tambah'));
         }
         // @codeCoverageIgnoreStart
         $flash = [
@@ -522,7 +522,7 @@ class OrganizationProfile extends BaseController
             'type' => 'danger'
         ];
         setFlash($flash);
-        return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))->withInput();
+        return redirect()->to('konten/profil-karang-taruna/pengurus/' . (!empty($memberId) ? $memberId : 'tambah'))->withInput();
         // @codeCoverageIgnoreEnd
     }
 }

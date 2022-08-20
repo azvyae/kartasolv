@@ -45,15 +45,19 @@ class PmpsksImgModel extends Model
      */
     public function deleteImages(array $communityIds)
     {
-        foreach ($this->getImages($communityIds) as $e) {
-            $img = explode(base_url('gambar-privat?q='), $e->pmpsks_img_loc);
-            $name = str_replace('%2F', '/', end($img));
-            $path = WRITEPATH . $name;
-            if (file_exists($path)) {
-                unlink($path);
+        foreach ($communityIds as $ci) {
+            foreach ($this->getImages($ci) as $e) {
+                $img = explode(base_url('gambar-privat?q='), $e->pmpsks_img_loc);
+                $name = str_replace('%2F', '/', end($img));
+                $path = WRITEPATH . $name;
+                if (file_exists($path)) {
+                    // @codeCoverageIgnoreStart
+                    unlink($path);
+                    // @codeCoverageIgnoreEnd
+                }
             }
+            $this->builder();
         }
-        $this->builder();
         foreach ($communityIds as $communityId) {
             $this->builder->orWhere('community_id', $communityId);
         }
