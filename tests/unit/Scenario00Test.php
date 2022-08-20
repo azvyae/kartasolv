@@ -132,8 +132,10 @@ class Scenario00Test extends CIUnitTestCase
     public function testAccessLoginPageAfterSessionIsSet()
     {
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('dasbor');
-        $this->tc['step'][0] =  "Masuk ke halaman dasbor";
-        $this->tc['step'][] =  "Mencoba masuk ke halaman login";
+        $this->tc['step'] =  [
+            "Masuk ke halaman dasbor",
+            "Mencoba masuk ke halaman login"
+        ];
         $result = $this->withSession($this->sessionData)->call('get', "masuk");
         $result->assertOK();
         $result->assertRedirectTo(base_url('dasbor'));
@@ -146,8 +148,11 @@ class Scenario00Test extends CIUnitTestCase
     public function testLogout()
     {
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('masuk');
-        $this->tc['step'][0] =  "Masuk ke halaman dasbor";
-        $this->tc['step'][] =  "Menekan tombol keluar";
+        $this->tc['step'] =
+            [
+                "Masuk ke halaman dasbor",
+                "Menekan tombol keluar"
+            ];
         $result = $this->withHeaders([
             "Content-Type" => 'multipart/form-data'
         ])->withRoutes([

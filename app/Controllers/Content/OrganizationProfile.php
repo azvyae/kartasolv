@@ -91,12 +91,18 @@ class OrganizationProfile extends BaseController
      */
     private function _updateMainInfo()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('konten/profil-karang-taruna/info-utama')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $rules = $this->lm->getValidationRules(['except' => ['landing_image']]);
-        if (($img = $this->request->getFile('landing_image'))->getSize() > 0) {
-            $rules += $this->lm->getValidationRules();
+        if (($img = $this->request->getFile('landing_image'))) {
+            // @codeCoverageIgnoreStart
+            if ($img->getSize() > 0) {
+                $rules += $this->lm->getValidationRules();
+            }
+            // @codeCoverageIgnoreEnd
         }
         if (!$this->validate($rules)) {
             return redirect()->to('konten/profil-karang-taruna/info-utama')->withInput();
@@ -120,8 +126,9 @@ class OrganizationProfile extends BaseController
             'mission' => $postData['mission']
         ];
 
+        // @codeCoverageIgnoreStart
         $savedImagePath = '';
-        if ($img->getSize() > 0) {
+        if ($img && $img->getSize() > 0) {
             $imageUploader = new ImageUploader;
             $opt = [
                 'upload_path' => 'organization-profile',
@@ -136,7 +143,7 @@ class OrganizationProfile extends BaseController
                 $savedImagePath = ROOTPATH . 'public_html/uploads/' . $opt['upload_path'] . "/$savedImageName";
             }
         }
-
+        // @codeCoverageIgnoreEnd
         if ($postData['cta_text']) {
             $updateData += [
                 'cta_text' => $postData['cta_text'],
@@ -150,19 +157,23 @@ class OrganizationProfile extends BaseController
                 'type' => 'success'
             ];
             setFlash($flash);
+            // @codeCoverageIgnoreStart
             if ($savedImagePath) {
                 if (file_exists($savedImagePath)) {
                     unlink($savedImagePath);
                 }
             }
+            // @codeCoverageIgnoreEnd
             return redirect()->to('konten/profil-karang-taruna/info-utama');
         }
+        // @codeCoverageIgnoreStart
         $flash = [
             'message' => 'Info utama gagal diperbarui.',
             'type' => 'danger'
         ];
         setFlash($flash);
         return redirect()->to('konten/profil-karang-taruna/info-utama')->withInput();
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -191,12 +202,15 @@ class OrganizationProfile extends BaseController
      */
     private function _updateOurActivities()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('konten/profil-karang-taruna/kegiatan-kami')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $rules = $this->am->getValidationRules(['except' => ['image_a', 'image_b', 'image_c']]);
-        $images = $this->request->getFiles();
         $postData = $this->request->getPost();
+        // @codeCoverageIgnoreStart
+        $images = $this->request->getFiles();
         foreach ($images as $field => $img) {
             if ($img->getSize() > 0) {
                 $rules += $this->am->getValidationRules(['only' => [$field]]);
@@ -204,6 +218,7 @@ class OrganizationProfile extends BaseController
                 unset($images[$field]);
             }
         }
+        // @codeCoverageIgnoreEnd
         if (!$this->validate($rules)) {
             return redirect()->to('konten/profil-karang-taruna/kegiatan-kami')->withInput();
         }
@@ -218,6 +233,7 @@ class OrganizationProfile extends BaseController
             'desc_c' => $postData['desc_c'],
         ];
 
+        // @codeCoverageIgnoreStart
         $savedImagePaths = [];
         foreach ($images as $field => $img) {
             if ($img->getSize() > 0) {
@@ -237,6 +253,7 @@ class OrganizationProfile extends BaseController
                 }
             }
         }
+        // @codeCoverageIgnoreEnd
 
         if ($this->am->skipValidation(true)->save($updateData)) {
             $flash = [
@@ -244,19 +261,23 @@ class OrganizationProfile extends BaseController
                 'type' => 'success'
             ];
             setFlash($flash);
+            // @codeCoverageIgnoreStart
             foreach ($savedImagePaths as $path) {
                 if (file_exists($path)) {
                     unlink($path);
                 }
             }
+            // @codeCoverageIgnoreEnd
             return redirect()->to('konten/profil-karang-taruna/kegiatan-kami');
         }
+        // @codeCoverageIgnoreStart
         $flash = [
             'message' => 'Kegiatan gagal diperbarui.',
             'type' => 'danger'
         ];
         setFlash($flash);
         return redirect()->to('konten/profil-karang-taruna/kegiatan-kami')->withInput();
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -291,9 +312,11 @@ class OrganizationProfile extends BaseController
      */
     private function _membersDatatable()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $condition = [
             'limit' => $this->request->getGet('length'),
             'offset' => $this->request->getGet('start'),
@@ -335,9 +358,11 @@ class OrganizationProfile extends BaseController
      */
     private function _delete()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $deleteData = $this->request->getPost('selections');
         $totalData = count($deleteData);
         $response = false;
@@ -419,18 +444,22 @@ class OrganizationProfile extends BaseController
      */
     private function _memberCrud($memberId = '')
     {
-        if ($referrer = acceptFrom('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))) {
+        // @codeCoverageIgnoreStart
+        if ($referrer = acceptFrom("konten/profil-karang-taruna/pengurus/$memberId", "konten/profil-karang-taruna/pengurus/tambah")) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $memberActive = $this->request->getPost('member_active');
         $decodedMemberId = decode($memberId, 'members');
         if (!$memberActive) {
             $memberActive = 'Nonaktif';
         }
         $rules = $this->mm->getValidationRules(['except' => ['member_image']]);
-        if (($img = $this->request->getFile('member_image'))->getSize() > 0) {
+        // @codeCoverageIgnoreStart
+        if (($img = $this->request->getFile('member_image')) && $img->getSize() > 0) {
             $rules += $this->mm->getValidationRules();
         }
+        // @codeCoverageIgnoreEnd
         if (!$this->validate($rules)) {
             return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))->withInput();
         }
@@ -441,7 +470,7 @@ class OrganizationProfile extends BaseController
             'member_type' => $this->request->getPost('member_type'),
             'member_active' => $memberActive
         ];
-
+        // @codeCoverageIgnoreStart
         $savedImagePath = '';
         if ($img->getSize() > 0) {
             $imageUploader = new ImageUploader;
@@ -460,6 +489,7 @@ class OrganizationProfile extends BaseController
                 ];
             }
         }
+        // @codeCoverageIgnoreEnd
         if ($decodedMemberId) {
             $data += [
                 'member_id' => $decodedMemberId
@@ -471,18 +501,22 @@ class OrganizationProfile extends BaseController
                 'type' => 'success'
             ];
             setFlash($flash);
+            // @codeCoverageIgnoreStart
             if ($savedImagePath) {
                 if (file_exists($savedImagePath)) {
                     unlink($savedImagePath);
                 }
             }
+            // @codeCoverageIgnoreEnd
             return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'));
         }
+        // @codeCoverageIgnoreStart
         $flash = [
             'message' => 'Data Pengurus gagal diperbarui.',
             'type' => 'danger'
         ];
         setFlash($flash);
         return redirect()->to('konten/profil-karang-taruna/pengurus/' . ($memberId ?? 'tambah'))->withInput();
+        // @codeCoverageIgnoreEnd
     }
 }

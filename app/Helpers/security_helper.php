@@ -216,12 +216,17 @@ function getMethod($method = null)
  * @return bool|string Return false or go to referrer
  * @package KartasolvHelpers\security
  */
-function acceptFrom($routes = '')
+function acceptFrom(...$routes)
 {
     // @codeCoverageIgnoreStart
     if (getenv('CI_ENVIRONMENT') !== 'testing') {
         $referrer = Services::request()->getUserAgent()->getReferrer();
-        if (!((base_url($routes) === $referrer) || (base_url("index.php/$routes") === $referrer))) {
+        $newRoute = [];
+        foreach ($routes as $r) {
+            $newRoute[] = base_url($r);
+            $newRoute[] = base_url("index.php/$r");
+        }
+        if (!in_array($referrer, $newRoute)) {
             $flash = [
                 'message' => 'Aksi tidak diperbolehkan!',
                 'type' => 'danger'

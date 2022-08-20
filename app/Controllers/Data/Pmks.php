@@ -84,9 +84,11 @@ class Pmks extends BaseController
      */
     private function _datatable()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/pmks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $condition = [
             'limit' => $this->request->getGet('length'),
             'offset' => $this->request->getGet('start'),
@@ -128,9 +130,11 @@ class Pmks extends BaseController
      */
     private function _updateStatus()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/pmks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
 
         $communityIds = array_map(function ($e) {
             return decode($e, 'pmks');
@@ -165,9 +169,11 @@ class Pmks extends BaseController
      */
     private function _delete()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/pmks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $deleteData = $this->request->getPost('selections');
         $totalData = count($deleteData);
         $response = false;
@@ -246,10 +252,12 @@ class Pmks extends BaseController
     /**
      * Create form view for creating
      * PMKS data with Spreadsheet.
+     * 
      * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
      */
     public function spreadsheetCrud()
     {
+        // @codeCoverageIgnoreStart
         if (getMethod('post')) {
             if (!$this->validate('spreadsheet')) {
                 return redirect()->to('data/pmks/tambah-spreadsheet')->withInput();
@@ -303,6 +311,7 @@ class Pmks extends BaseController
             }
             return redirect()->to('data/pmks/tambah-spreadsheet');
         }
+        // @codeCoverageIgnoreEnd
         $data = [
             'title' => 'Tambah Data Dengan Sheet | Karta Sarijadi',
         ];
@@ -323,9 +332,12 @@ class Pmks extends BaseController
      */
     private function _crud($communityId = '')
     {
-        if ($referrer = acceptFrom('data/pmks/' . ($communityId ?? 'tambah'))) {
+        // @codeCoverageIgnoreStart
+
+        if ($referrer = acceptFrom("data/pmks/$communityId", "data/pmks/tambah")) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $communityStatus = $this->request->getPost('community_status');
         $decodedCommunityID = decode($communityId, 'pmks');
         if (!$communityStatus) {
@@ -337,11 +349,13 @@ class Pmks extends BaseController
         } else {
             $rules['community_identifier']['rules'] .= '|is_unique[communities.community_identifier]';
         }
+        // @codeCoverageIgnoreStart
         if (($imgCount = count($img = $this->request->getFileMultiple('pmpsks_img_loc'))) > 0) {
             if ($img[0]->getSize() > 0) {
                 $rules += $this->pim->getValidationRules();
             }
         }
+        // @codeCoverageIgnoreEnd
         if (!$this->validate($rules)) {
             return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'))->withInput();
         }
@@ -362,9 +376,7 @@ class Pmks extends BaseController
             ];
         }
 
-        /**
-         * Image upload handler
-         */
+        // @codeCoverageIgnoreStart
         if ($imgCount > 0) {
             if ($img[0]->getSize() > 0) {
                 $imageUploader = new ImageUploader;
@@ -381,9 +393,11 @@ class Pmks extends BaseController
                 }
             }
         }
+        // @codeCoverageIgnoreEnd
 
         $result = $communityId === null ? $this->cm->skipValidation(true)->insert($data) : $this->cm->skipValidation(true)->save($data);
         if ($result) {
+            // @codeCoverageIgnoreStart
             if ($newImages ?? false) {
                 $imgs = [];
                 if (is_int($result)) {
@@ -404,6 +418,7 @@ class Pmks extends BaseController
                 }
                 $this->pim->skipValidation(true)->insertBatch($imgs);
             }
+            // @codeCoverageIgnoreEnd
             $flash = [
                 'message' => 'Data PMKS berhasil diperbarui.',
                 'type' => 'success'
@@ -411,12 +426,14 @@ class Pmks extends BaseController
             setFlash($flash);
             return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'));
         }
+        // @codeCoverageIgnoreStart
         $flash = [
             'message' => 'Data PMKS gagal diperbarui.',
             'type' => 'danger'
         ];
         setFlash($flash);
         return redirect()->to('data/pmks/' . ($communityId ?? 'tambah'))->withInput();
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -425,9 +442,11 @@ class Pmks extends BaseController
      */
     public function getImages()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/pmks')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $communityId = decode($this->request->getGet('uuid'), 'pmks');
         if (!$this->request->isAJAX() || !$communityId) {
             return redirect()->to('data/pmks');

@@ -328,9 +328,9 @@ class Psks extends BaseController
      * 
      * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
      */
-    private function _crud($communityId = null)
+    private function _crud($communityId = '')
     {
-        if ($referrer = acceptFrom('data/psks/' . ($communityId ?? 'tambah'))) {
+        if ($referrer = acceptFrom("data/psks/$communityId", "data/psks/tambah")) {
             return redirect()->to($referrer);
         }
         $communityStatus = $this->request->getPost('community_status');
@@ -432,7 +432,7 @@ class Psks extends BaseController
      */
     public function getImages()
     {
-        if ($referrer = acceptFrom('data/pmks')) {
+        if ($referrer = acceptFrom('data/psks')) {
             return redirect()->to($referrer);
         }
         $communityId = decode($this->request->getGet('uuid'), 'psks');

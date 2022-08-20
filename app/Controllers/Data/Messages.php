@@ -62,9 +62,11 @@ class Messages extends BaseController
      */
     private function _datatable()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/pesan')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
 
         $condition = [
             'limit' => $this->request->getGet('length'),
@@ -109,9 +111,11 @@ class Messages extends BaseController
      */
     private function _updateStatus()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/pesan')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
 
         $messageIds = array_map(function ($e) {
             return decode($e, 'messages');
@@ -146,9 +150,11 @@ class Messages extends BaseController
      */
     private function _delete()
     {
+        // @codeCoverageIgnoreStart
         if ($referrer = acceptFrom('data/pesan')) {
             return redirect()->to($referrer);
         }
+        // @codeCoverageIgnoreEnd
         $deleteData = $this->request->getPost('selections');
         $totalData = count($deleteData);
         $response = false;

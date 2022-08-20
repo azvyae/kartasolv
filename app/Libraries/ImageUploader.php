@@ -8,6 +8,9 @@ use CodeIgniter\Files\File;
  * ImageUploader that use Codeigniter 4's File Uploader Class
  * 
  * This class has procedure to compress images and convert them into webp.
+ * 
+ * @codeCoverageIgnore
+ * 
  * @author Azvya Erstevan I
  * @package KartasolvApp\Libraries
  */
