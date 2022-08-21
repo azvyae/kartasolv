@@ -243,21 +243,27 @@ class DatabaseManager extends Database
                             switch ($cdn) {
                                 case '=':
                                     if ($condition['filter']['logic'] == 'OR') {
+                                        // @codeCoverageIgnoreStart
                                         array_push($d['group'], ['orLike', [$col => $criteria['value1']]]);
+                                        // @codeCoverageIgnoreEnd
                                     } else {
                                         array_push($d['group'], ['like', [$col => $criteria['value1']]]);
                                     }
                                     break;
                                 case '>':
                                     if ($condition['filter']['logic'] == 'OR') {
+                                        // @codeCoverageIgnoreStart
                                         array_push($d['group'], ['orWhere', [$col . " >= " => $criteria['value1']]]);
+                                        // @codeCoverageIgnoreEnd
                                     } else {
                                         array_push($d['group'], ['where', [$col . " >= " => $criteria['value1']]]);
                                     }
                                     break;
                                 case '<':
                                     if ($condition['filter']['logic'] == 'OR') {
+                                        // @codeCoverageIgnoreStart
                                         array_push($d['group'], ['orWhere', [$col . " <= " => $criteria['value1']]]);
+                                        // @codeCoverageIgnoreEnd
                                     } else {
                                         array_push($d['group'], ['where', [$col . " <= " => $criteria['value1']]]);
                                     }

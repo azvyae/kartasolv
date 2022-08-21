@@ -25,6 +25,9 @@ class Scenario04Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'scenario' => 'TS-04',
+            'case_code' => '',
+            'case' => '',
             'step' => [],
             'data' => [],
             'expected' => '',

@@ -25,6 +25,9 @@ class Scenario00Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'scenario' => 'TS-00',
+            'case_code' => '',
+            'case' => '',
             'step' => [],
             'data' => [],
             'expected' => '',
@@ -54,10 +57,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-01 Log in dengan enkripsi kata sandi MD5
+     * @testdox TC-01 Masuk dengan enkripsi kata sandi MD5
      */
     public function testLoginMD5()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Masuk dengan enkripsi kata sandi MD5';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('dasbor');
         $data = [
             'user_id' => 2,
@@ -75,10 +80,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-02 Log in dengan enkripsi kata sandi KartaSarijadi
+     * @testdox TC-02 Masuk dengan enkripsi kata sandi KartaSarijadi
      */
     public function testLoginKartaSarijadiEncrypt()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Masuk dengan enkripsi kata sandi KartaSarijadi';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('dasbor');
         $this->tc['step'][] =  "Masukkan data email dan kata sandi";
         $this->tc['data'][] = "user_email: test@test.com";
@@ -90,10 +97,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-03 Log in dengan kata sandi yang salah
+     * @testdox TC-03 Masuk dengan kata sandi yang salah
      */
     public function testFalseCredentials()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Masuk dengan kata sandi yang salah';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('masuk') . ' dan menampilkan pesan Email atau Kata Sandi Salah!';
         $this->tc['step'][] =  "Masukkan data email dan kata sandi";
         $this->tc['data'][] = "user_email: test@test.com";
@@ -109,10 +118,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-04 Log in dengan gagal validasi email
+     * @testdox TC-04 Masuk dengan gagal validasi email
      */
     public function testFalseInput()
     {
+        $this->tc['case_code'] = 'TC-04';
+        $this->tc['case'] = 'Masuk dengan gagal validasi email';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('masuk') . ' dan menampilkan pesan Kolom Email harus berisi sebuah alamat surel yang valid.';
         $this->tc['step'][] =  "Masukkan data email dan kata sandi";
         $this->tc['data'][] = "user_email: a b c d e";
@@ -126,10 +137,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-05 Masuk ke halaman log in ketika sudah ada session.
+     * @testdox TC-05 Pergi ke halaman Masuk ketika sudah ada session
      */
     public function testAccessLoginPageAfterSessionIsSet()
     {
+        $this->tc['case_code'] = 'TC-05';
+        $this->tc['case'] = 'Pergi ke halaman Masuk ketika sudah ada session';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('dasbor');
         $this->tc['step'] =  [
             "Masuk ke halaman dasbor",

@@ -139,17 +139,19 @@ function countTable($table, $param = '')
 
 /**
  * Parsing test cases array. Use only for unit testing.
+ * 
+ * @codeCoverageIgnore
+ * 
  * @param array|null $tc Test Case Data.
  * @return void Prints to the console with MD Format.
  * @package KartasolvHelpers\string
  */
 function parseTest($tc = [])
 {
-    // @codeCoverageIgnoreStart
     if (!$tc) {
         return null;
     }
-    // @codeCoverageIgnoreEnd
+    dd($tc);
     print "> **START**\n>";
     print "\n> Test Step:\n";
     foreach ($tc['step'] as $i => $step) {

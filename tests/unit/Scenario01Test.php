@@ -26,6 +26,9 @@ class Scenario01Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'scenario' => 'TS-01',
+            'case_code' => '',
+            'case' => '',
             'step' => [],
             'data' => [],
             'expected' => '',
@@ -49,6 +52,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testDashboardPage()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Menampilkan halaman dasbor';
         $this->tc['expected'] = "Menampilkan halaman dasbor";
         $this->tc['step'][] = "Masuk ke halaman dasbor";
         $roleName = checkAuth('roleName');

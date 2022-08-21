@@ -28,7 +28,9 @@ class Model extends OriginalModel
         // ValidationRules can be either a string, which is the group name,
         // or an array of rules.
         if (is_string($rules)) {
+            // @codeCoverageIgnoreStart
             $rules = $this->validation->loadRuleGroup($rules);
+            // @codeCoverageIgnoreEnd
         }
 
         if (isset($options['except'])) {
@@ -71,7 +73,9 @@ class Model extends OriginalModel
             ]);
 
             if (!empty($eventData['returnData'])) {
+                // @codeCoverageIgnoreStart
                 return filterOutput($eventData['data']);
+                // @codeCoverageIgnoreEnd
             }
         }
 
