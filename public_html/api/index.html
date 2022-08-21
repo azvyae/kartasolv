@@ -1,1606 +1,1507 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-            <title>Kartasolv Documentation</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="icon" href="images/favicon.ico"/>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/base.css">
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/template.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
-                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
-        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
-        <script src="js/search.js"></script>
-        <script defer src="js/searchIndex.js"></script>
-    </head>
-<body id="top">
-    <header class="phpdocumentor-header phpdocumentor-section">
-    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Kartasolv Documentation</a></h1>
-    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
-    <label class="phpdocumentor-header__menu-icon" for="menu-button">
-        <i class="fas fa-bars"></i>
-    </label>
-    <section data-search-form class="phpdocumentor-search">
-    <label>
-        <span class="visually-hidden">Search for</span>
-        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
-            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
-        </svg>
-        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
-    </label>
-</section>
+  <head>
+    <meta charset="utf-8" />
+    <title>Kartasolv Documentation</title>
 
-    <nav class="phpdocumentor-topnav">
-    <ul class="phpdocumentor-topnav__menu">
-        </ul>
-</nav>
-</header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kartasolv Documentation latest version. This includes Controller, Custom Libraries, Helpers, Models and overrider function provided by Codeigniter 4."
+    />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/template.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"
+      integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css" />
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+    <script src="js/search.js"></script>
+    <script defer src="js/searchIndex.js"></script>
+  </head>
+  <body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+      <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Kartasolv Documentation</a></h1>
+      <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+      <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+      </label>
+      <section data-search-form class="phpdocumentor-search">
+        <label>
+          <span class="visually-hidden">Search for</span>
+          <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2" />
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3" />
+          </svg>
+          <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+        </label>
+      </section>
+
+      <nav class="phpdocumentor-topnav">
+        <ul class="phpdocumentor-topnav__menu"></ul>
+      </nav>
+    </header>
 
     <main class="phpdocumentor">
-        <div class="phpdocumentor-section">
-            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
-<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
-    Menu
-</label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+      <div class="phpdocumentor-section">
+        <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+        <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button"> Menu </label>
+        <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+          <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/config.html" class="">Config</a>
-</h4>
+            <h4 class="phpdocumentor-sidebar__root-namespace">
+              <a href="namespaces/config.html" class="">Config</a>
+            </h4>
 
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/app.html" class="">App</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
+            <h4 class="phpdocumentor-sidebar__root-namespace">
+              <a href="namespaces/app.html" class="">App</a>
+            </h4>
+            <ul class="phpdocumentor-list">
+              <li>
                 <a href="namespaces/app-controllers.html" class="">Controllers</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="namespaces/app-filters.html" class="">Filters</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="namespaces/app-libraries.html" class="">Libraries</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="namespaces/app-models.html" class="">Models</a>
-                
-            </li>
+              </li>
             </ul>
-
-                        </section>
-                <section class="phpdocumentor-sidebar__category">
+          </section>
+          <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/KartasolvApp.html" class="">KartasolvApp</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
+            <h4 class="phpdocumentor-sidebar__root-namespace">
+              <a href="packages/KartasolvApp.html" class="">KartasolvApp</a>
+            </h4>
+            <ul class="phpdocumentor-list">
+              <li>
                 <a href="packages/KartasolvApp-Config.html" class="">Config</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="packages/KartasolvApp-Controllers.html" class="">Controllers</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="packages/KartasolvApp-Filters.html" class="">Filters</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="packages/KartasolvApp-Libraries.html" class="">Libraries</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="packages/KartasolvApp-Models.html" class="">Models</a>
-                
-            </li>
+              </li>
             </ul>
 
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/KartasolvHelpers.html" class="">KartasolvHelpers</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
+            <h4 class="phpdocumentor-sidebar__root-namespace">
+              <a href="packages/KartasolvHelpers.html" class="">KartasolvHelpers</a>
+            </h4>
+            <ul class="phpdocumentor-list">
+              <li>
                 <a href="packages/KartasolvHelpers-security.html" class="">security</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="packages/KartasolvHelpers-string.html" class="">string</a>
-                
-            </li>
-                    <li>
+              </li>
+              <li>
                 <a href="packages/KartasolvHelpers-view.html" class="">view</a>
-                
-            </li>
+              </li>
             </ul>
+          </section>
 
-                        </section>
-            
-    <section class="phpdocumentor-sidebar__category">
-        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
-                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
-    </section>
+          <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+            <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+            <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+            <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+          </section>
 
-    <section class="phpdocumentor-sidebar__category">
-        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
-    </section>
-</aside>
+          <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+            <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+          </section>
+        </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <h2>Documentation</h2>
+        <div class="phpdocumentor-column -eight phpdocumentor-content">
+          <h2>Documentation</h2>
 
-    
-    <h3 id="packages">
-    Packages
-    <a href="#packages" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
+          <h3 id="packages">
+            Packages
+            <a href="#packages" class="headerlink"><i class="fas fa-link"></i></a>
+          </h3>
 
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/KartasolvApp.html"><abbr title="\KartasolvApp">KartasolvApp</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/KartasolvHelpers.html"><abbr title="\KartasolvHelpers">KartasolvHelpers</abbr></a></dt>
-    </dl>
+          <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -package">
+              <a href="packages/KartasolvApp.html"><abbr title="\KartasolvApp">KartasolvApp</abbr></a>
+            </dt>
+            <dt class="phpdocumentor-table-of-contents__entry -package">
+              <a href="packages/KartasolvHelpers.html"><abbr title="\KartasolvHelpers">KartasolvHelpers</abbr></a>
+            </dt>
+          </dl>
 
-<h3 id="namespaces">
-    Namespaces
-    <a href="#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
+          <h3 id="namespaces">
+            Namespaces
+            <a href="#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
+          </h3>
 
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/config.html"><abbr title="\Config">Config</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/app.html"><abbr title="\App">App</abbr></a></dt>
-    </dl>
+          <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -namespace">
+              <a href="namespaces/config.html"><abbr title="\Config">Config</abbr></a>
+            </dt>
+            <dt class="phpdocumentor-table-of-contents__entry -namespace">
+              <a href="namespaces/app.html"><abbr title="\App">App</abbr></a>
+            </dt>
+          </dl>
 
+          <h3 id="toc">
+            Table of Contents
+            <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+          </h3>
 
-
-<h3 id="toc">
-    Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
-
-<dl class="phpdocumentor-table-of-contents">
-                            <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_checkAuth">checkAuth()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Main authentication function for Kartasolv application.</dd>
+          <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+              <a href="namespaces/default.html#function_checkAuth">checkAuth()</a>
+              <span> &nbsp;: mixed </span>
+            </dt>
+            <dd>Main authentication function for Kartasolv application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_filterOutput">filterOutput()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Filters data from Object, Array, or String to be escaped.</dd>
+              <a href="namespaces/default.html#function_filterOutput">filterOutput()</a>
+              <span> &nbsp;: mixed </span>
+            </dt>
+            <dd>Filters data from Object, Array, or String to be escaped.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_htmlEscape">htmlEscape()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Returns HTML escaped variable.</dd>
+              <a href="namespaces/default.html#function_htmlEscape">htmlEscape()</a>
+              <span> &nbsp;: mixed </span>
+            </dt>
+            <dd>Returns HTML escaped variable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_encode">encode()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Encode data to random string. Useful for encode ID data.</dd>
+              <a href="namespaces/default.html#function_encode">encode()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Encode data to random string. Useful for encode ID data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_decode">decode()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Decode data to random string. Useful for decode ID data.</dd>
+              <a href="namespaces/default.html#function_decode">decode()</a>
+              <span> &nbsp;: mixed </span>
+            </dt>
+            <dd>Decode data to random string. Useful for decode ID data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_show404">show404()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Showing 404 page.</dd>
+              <a href="namespaces/default.html#function_show404">show404()</a>
+              <span> &nbsp;: mixed </span>
+            </dt>
+            <dd>Showing 404 page.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_getCaptchaSitekey">getCaptchaSitekey()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Retrieve Captcha Sitekey.</dd>
+              <a href="namespaces/default.html#function_getCaptchaSitekey">getCaptchaSitekey()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Retrieve Captcha Sitekey.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_kartaPasswordHash">kartaPasswordHash()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Hash raw string to a password.</dd>
+              <a href="namespaces/default.html#function_kartaPasswordHash">kartaPasswordHash()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Hash raw string to a password.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_kartaPasswordVerify">kartaPasswordVerify()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Verify string input to hashed password.</dd>
+              <a href="namespaces/default.html#function_kartaPasswordVerify">kartaPasswordVerify()</a>
+              <span> &nbsp;: bool </span>
+            </dt>
+            <dd>Verify string input to hashed password.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_getMethod">getMethod()</a>
-    <span>
-                                &nbsp;: bool|string    </span>
-</dt>
-<dd>Simplification retrieving method from Services.</dd>
+              <a href="namespaces/default.html#function_getMethod">getMethod()</a>
+              <span> &nbsp;: bool|string </span>
+            </dt>
+            <dd>Simplification retrieving method from Services.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_acceptFrom">acceptFrom()</a>
-    <span>
-                                &nbsp;: bool|string    </span>
-</dt>
-<dd>Redirection function when submitted form source/referrer is not from correct route.</dd>
+              <a href="namespaces/default.html#function_acceptFrom">acceptFrom()</a>
+              <span> &nbsp;: bool|string </span>
+            </dt>
+            <dd>Redirection function when submitted form source/referrer is not from correct route.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_removeProtocol">removeProtocol()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Removing protocol like http and https from url provided.</dd>
+              <a href="namespaces/default.html#function_removeProtocol">removeProtocol()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Removing protocol like http and https from url provided.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_addProtocol">addProtocol()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Add protocol to provided url string.</dd>
+              <a href="namespaces/default.html#function_addProtocol">addProtocol()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Add protocol to provided url string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_objectify">objectify()</a>
-    <span>
-                                &nbsp;: object    </span>
-</dt>
-<dd>Change associative array/string into PHP Object.</dd>
+              <a href="namespaces/default.html#function_objectify">objectify()</a>
+              <span> &nbsp;: object </span>
+            </dt>
+            <dd>Change associative array/string into PHP Object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_setFlash">setFlash()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>Set session flashdata with custom format according Codeigniter 4 session.</dd>
+              <a href="namespaces/default.html#function_setFlash">setFlash()</a>
+              <span> &nbsp;: void </span>
+            </dt>
+            <dd>Set session flashdata with custom format according Codeigniter 4 session.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_getFlash">getFlash()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|null|string    </span>
-</dt>
-<dd>Retrieve flash data.</dd>
+              <a href="namespaces/default.html#function_getFlash">getFlash()</a>
+              <span> &nbsp;: array&lt;string|int, mixed&gt;|null|string </span>
+            </dt>
+            <dd>Retrieve flash data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_parseMission">parseMission()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Parse mission string from the database into generated string for textarea input.</dd>
+              <a href="namespaces/default.html#function_parseMission">parseMission()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Parse mission string from the database into generated string for textarea input.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_setInvalid">setInvalid()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Sets an input to be invalid by returning is-invalid class to the input.</dd>
+              <a href="namespaces/default.html#function_setInvalid">setInvalid()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Sets an input to be invalid by returning is-invalid class to the input.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_showInvalidFeedback">showInvalidFeedback()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Retrieves error message from form validation input.</dd>
+              <a href="namespaces/default.html#function_showInvalidFeedback">showInvalidFeedback()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Retrieves error message from form validation input.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_countTable">countTable()</a>
-    <span>
-                                &nbsp;: int|string    </span>
-</dt>
-<dd>Data counter for certain table, currently the param only used for Communities table joined to PMPSKS Table.</dd>
+              <a href="namespaces/default.html#function_countTable">countTable()</a>
+              <span> &nbsp;: int|string </span>
+            </dt>
+            <dd>Data counter for certain table, currently the param only used for Communities table joined to PMPSKS Table.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_parseTest">parseTest()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>Parsing test cases array. Use only for unit testing.</dd>
+              <a href="namespaces/default.html#function_parseTest">parseTest()</a>
+              <span> &nbsp;: void </span>
+            </dt>
+            <dd>Parsing test cases array. Use only for unit testing.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_isSamePage">isSamePage()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Check wether same page or not for navigation bar.</dd>
+              <a href="namespaces/default.html#function_isSamePage">isSamePage()</a>
+              <span> &nbsp;: string </span>
+            </dt>
+            <dd>Check wether same page or not for navigation bar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_getSidebarMenu">getSidebarMenu()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Retrieve sidebar menus based on roles.</dd>
+              <a href="namespaces/default.html#function_getSidebarMenu">getSidebarMenu()</a>
+              <span> &nbsp;: mixed </span>
+            </dt>
+            <dd>Retrieve sidebar menus based on roles.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_isSameController">isSameController()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Check wether same controller or not for navigation bar.</dd>
+              <a href="namespaces/default.html#function_isSameController">isSameController()</a>
+              <span> &nbsp;: bool </span>
+            </dt>
+            <dd>Check wether same controller or not for navigation bar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_getCallToAction">getCallToAction()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|object|null|false    </span>
-</dt>
-<dd>Retrieve Call to Action url and text from database.</dd>
+              <a href="namespaces/default.html#function_getCallToAction">getCallToAction()</a>
+              <span> &nbsp;: array&lt;string|int, mixed&gt;|object|null|false </span>
+            </dt>
+            <dd>Retrieve Call to Action url and text from database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_getUserName">getUserName()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Retrieve Logged In User Name from database.</dd>
+              <a href="namespaces/default.html#function_getUserName">getUserName()</a>
+              <span> &nbsp;: mixed </span>
+            </dt>
+            <dd>Retrieve Logged In User Name from database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a href="namespaces/default.html#function_getMissions">getMissions()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Function for displaying missions on the landing page.</dd>
+              <a href="namespaces/default.html#function_getMissions">getMissions()</a>
+              <span> &nbsp;: array&lt;string|int, mixed&gt; </span>
+            </dt>
+            <dd>Function for displaying missions on the landing page.</dd>
+          </dl>
 
-    </dl>
+          <section class="phpdocumentor-functions">
+            <h3 class="phpdocumentor-elements__header" id="functions">
+              Functions
+              <a href="namespaces/default.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+            </h3>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_checkAuth">
+                checkAuth()
+                <a href="namespaces/default.html#function_checkAuth" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">13</span>
+              </aside>
 
-    
+              <p class="phpdocumentor-summary">Main authentication function for Kartasolv application.</p>
 
-        <section class="phpdocumentor-functions">
-        <h3 class="phpdocumentor-elements__header" id="functions">
-            Functions
-            <a href="namespaces/default.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
-        </h3>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_checkAuth">
-        checkAuth()
-        <a href="namespaces/default.html#function_checkAuth" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">checkAuth</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span
+                  ><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code
+              >
 
-    </aside>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$data</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span> = <span class="phpdocumentor-signature__argument__default-value">null</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Gather information from session.</p></section>
+                </dd>
+              </dl>
 
-        <p class="phpdocumentor-summary">Main authentication function for Kartasolv application.</p>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">mixed</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Could be redirection or session data.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_filterOutput">
+                filterOutput()
+                <a href="namespaces/default.html#function_filterOutput" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">78</span>
+              </aside>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">checkAuth</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+              <p class="phpdocumentor-summary">Filters data from Object, Array, or String to be escaped.</p>
 
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Gather information from session.</p>
-</section>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">filterOutput</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code
+              >
 
-            </dd>
-            </dl>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$data</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Data that would like filtered.</p></section>
+                </dd>
+              </dl>
 
-    
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">mixed</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Filtered data.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_htmlEscape">
+                htmlEscape()
+                <a href="namespaces/default.html#function_htmlEscape" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">103</span>
+              </aside>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Could be redirection or session data.</p>
-</section>
+              <p class="phpdocumentor-summary">Returns HTML escaped variable.</p>
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_filterOutput">
-        filterOutput()
-        <a href="namespaces/default.html#function_filterOutput" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">htmlEscape</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$var</span></span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$double_encode</span><span> = </span
+                  ><span class="phpdocumentor-signature__argument__default-value">TRUE</span><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code
+              >
 
-    </aside>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$var</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>The input string or array of strings to be escaped.</p></section>
+                </dd>
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$double_encode</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">bool</span> = <span class="phpdocumentor-signature__argument__default-value">TRUE</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>$double_encode set to FALSE prevents escaping twice.</p></section>
+                </dd>
+              </dl>
 
-        <p class="phpdocumentor-summary">Filters data from Object, Array, or String to be escaped.</p>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">mixed</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>The escaped string or array of strings as a result.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_encode">
+                encode()
+                <a href="namespaces/default.html#function_encode" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">128</span>
+              </aside>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">filterOutput</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+              <p class="phpdocumentor-summary">Encode data to random string. Useful for encode ID data.</p>
 
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data that would like filtered.</p>
-</section>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">encode</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span
+                  ><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
 
-            </dd>
-            </dl>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$data</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string|int</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Data to be encoded, only accept integers.</p></section>
+                </dd>
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$type</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span> = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>random key to be included when encoding data.</p></section>
+                </dd>
+              </dl>
 
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Filtered data.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_htmlEscape">
-        htmlEscape()
-        <a href="namespaces/default.html#function_htmlEscape" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">103</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns HTML escaped variable.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">htmlEscape</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$var</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$double_encode</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">TRUE</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$var</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The input string or array of strings to be escaped.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$double_encode</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">TRUE</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>$double_encode set to FALSE prevents escaping twice.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The escaped string or array of strings as a result.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_encode">
-        encode()
-        <a href="namespaces/default.html#function_encode" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">128</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Encode data to random string. Useful for encode ID data.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">encode</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|int</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data to be encoded, only accept integers.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$type</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>random key to be included when encoding data.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
+              <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                Tags
+                <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+              </h5>
+              <dl class="phpdocumentor-tag-list">
+                <dt class="phpdocumentor-tag-list__entry">
+                  <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://hashids.org/"><abbr title="https://hashids.org/">https://hashids.org/</abbr></a></span>
-                                        
-                                                 <section class="phpdocumentor-description"><p>for complete information.</p>
-</section>
+                  <span class="phpdocumentor-tag-link"
+                    ><a href="https://hashids.org/"><abbr title="https://hashids.org/">https://hashids.org/</abbr></a></span
+                  >
 
-                                    </dd>
-                        </dl>
+                  <section class="phpdocumentor-description"><p>for complete information.</p></section>
+                </dd>
+              </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Encoded data.</p>
-</section>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Encoded data.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_decode">
+                decode()
+                <a href="namespaces/default.html#function_decode" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">144</span>
+              </aside>
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_decode">
-        decode()
-        <a href="namespaces/default.html#function_decode" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+              <p class="phpdocumentor-summary">Decode data to random string. Useful for decode ID data.</p>
 
-    </aside>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">decode</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span
+                  ><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code
+              >
 
-        <p class="phpdocumentor-summary">Decode data to random string. Useful for decode ID data.</p>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$data</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Data to be decoded, only accept string.</p></section>
+                </dd>
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$type</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span> = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>random key to be included when encoding data.</p></section>
+                </dd>
+              </dl>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">decode</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data to be decoded, only accept string.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$type</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>random key to be included when encoding data.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
+              <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                Tags
+                <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+              </h5>
+              <dl class="phpdocumentor-tag-list">
+                <dt class="phpdocumentor-tag-list__entry">
+                  <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://hashids.org/"><abbr title="https://hashids.org/">https://hashids.org/</abbr></a></span>
-                                        
-                                                 <section class="phpdocumentor-description"><p>for complete information.</p>
-</section>
+                  <span class="phpdocumentor-tag-link"
+                    ><a href="https://hashids.org/"><abbr title="https://hashids.org/">https://hashids.org/</abbr></a></span
+                  >
 
-                                    </dd>
-                        </dl>
+                  <section class="phpdocumentor-description"><p>for complete information.</p></section>
+                </dd>
+              </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Decoded data.</p>
-</section>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">mixed</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Decoded data.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_show404">
+                show404()
+                <a href="namespaces/default.html#function_show404" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">157</span>
+              </aside>
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_show404">
-        show404()
-        <a href="namespaces/default.html#function_show404" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+              <p class="phpdocumentor-summary">Showing 404 page.</p>
 
-    </aside>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">show404</span><span>(</span><span>)</span><span> : </span
+                ><span class="phpdocumentor-signature__response_type">mixed</span></code
+              >
 
-        <p class="phpdocumentor-summary">Showing 404 page.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">show404</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
+              <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                Tags
+                <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+              </h5>
+              <dl class="phpdocumentor-tag-list">
+                <dt class="phpdocumentor-tag-list__entry">
+                  <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\CodeIgniter\Exceptions\PageNotFoundException">PageNotFoundException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>404 Not Found.</p>
-</section>
-
-                                    </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getCaptchaSitekey">
-        getCaptchaSitekey()
-        <a href="namespaces/default.html#function_getCaptchaSitekey" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">168</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Retrieve Captcha Sitekey.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getCaptchaSitekey</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Captcha Site Key.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_kartaPasswordHash">
-        kartaPasswordHash()
-        <a href="namespaces/default.html#function_kartaPasswordHash" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">180</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Hash raw string to a password.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">kartaPasswordHash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$password</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Password input to be hashed (saved on database).</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Hashed password.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_kartaPasswordVerify">
-        kartaPasswordVerify()
-        <a href="namespaces/default.html#function_kartaPasswordVerify" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">193</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Verify string input to hashed password.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">kartaPasswordVerify</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hash</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$password</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Raw string password input.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$hash</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Hashed password</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Returns TRUE if the password and hash match, or FALSE otherwise.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getMethod">
-        getMethod()
-        <a href="namespaces/default.html#function_getMethod" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">205</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Simplification retrieving method from Services.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getMethod</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$method</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Method to be verified, if set null, this function
-only retrieve HTTP Method sent.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Returns true/false if parameter provided, otherwise return method string.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_acceptFrom">
-        acceptFrom()
-        <a href="namespaces/default.html#function_acceptFrom" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">219</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Redirection function when submitted form source/referrer is not from correct route.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">acceptFrom</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$routes</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$routes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Route to be checked.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Return false or go to referrer</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_removeProtocol">
-        removeProtocol()
-        <a href="namespaces/default.html#function_removeProtocol" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">11</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Removing protocol like http and https from url provided.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">removeProtocol</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$url</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Url that would like to protocol removed.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Removed protocol url string.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_addProtocol">
-        addProtocol()
-        <a href="namespaces/default.html#function_addProtocol" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">29</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Add protocol to provided url string.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">addProtocol</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$protocol</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;https://&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$url</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Url that would like to protocol appended.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$protocol</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;https://&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Appended protocol, choose between https:// or http://.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Complete url string with its protocol.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_objectify">
-        objectify()
-        <a href="namespaces/default.html#function_objectify" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Change associative array/string into PHP Object.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">objectify</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Things that would like to objectified.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">object</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Objectified data.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_setFlash">
-        setFlash()
-        <a href="namespaces/default.html#function_setFlash" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">59</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Set session flashdata with custom format according Codeigniter 4 session.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">setFlash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flash</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$flash</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Flash data that would like to generated, better if use associative array with this kind of formatting:</p>
-<pre class="prettyprint"><code class="language-php">$flash = [
+                  <span class="phpdocumentor-tag-link"><abbr title="\CodeIgniter\Exceptions\PageNotFoundException">PageNotFoundException</abbr></span>
+
+                  <section class="phpdocumentor-description"><p>404 Not Found.</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">mixed</span>
+              &mdash;
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_getCaptchaSitekey">
+                getCaptchaSitekey()
+                <a href="namespaces/default.html#function_getCaptchaSitekey" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">168</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Retrieve Captcha Sitekey.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">getCaptchaSitekey</span><span>(</span><span>)</span><span> : </span
+                ><span class="phpdocumentor-signature__response_type">string</span></code
+              >
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Captcha Site Key.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_kartaPasswordHash">
+                kartaPasswordHash()
+                <a href="namespaces/default.html#function_kartaPasswordHash" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">180</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Hash raw string to a password.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">kartaPasswordHash</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$password</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Password input to be hashed (saved on database).</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Hashed password.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_kartaPasswordVerify">
+                kartaPasswordVerify()
+                <a href="namespaces/default.html#function_kartaPasswordVerify" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">193</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Verify string input to hashed password.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">kartaPasswordVerify</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$hash</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$password</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Raw string password input.</p></section>
+                </dd>
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$hash</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Hashed password</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">bool</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Returns TRUE if the password and hash match, or FALSE otherwise.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_getMethod">
+                getMethod()
+                <a href="namespaces/default.html#function_getMethod" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">205</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Simplification retrieving method from Services.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">getMethod</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span
+                  ><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$method</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span> = <span class="phpdocumentor-signature__argument__default-value">null</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Method to be verified, if set null, this function only retrieve HTTP Method sent.</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">bool|string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Returns true/false if parameter provided, otherwise return method string.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_acceptFrom">
+                acceptFrom()
+                <a href="namespaces/default.html#function_acceptFrom" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/security_helper.php"
+                  ><a href="files/app-helpers-security-helper.html"><abbr title="app/Helpers/security_helper.php">security_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">219</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Redirection function when submitted form source/referrer is not from correct route.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">acceptFrom</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span
+                  ><span class="phpdocumentor-signature__argument__name">$routes</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$routes</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Route to be checked.</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">bool|string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Return false or go to referrer</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_removeProtocol">
+                removeProtocol()
+                <a href="namespaces/default.html#function_removeProtocol" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">11</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Removing protocol like http and https from url provided.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">removeProtocol</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$url</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Url that would like to protocol removed.</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Removed protocol url string.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_addProtocol">
+                addProtocol()
+                <a href="namespaces/default.html#function_addProtocol" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">29</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Add protocol to provided url string.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">addProtocol</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$protocol</span><span> = </span
+                  ><span class="phpdocumentor-signature__argument__default-value">&#039;https://&#039;</span><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$url</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Url that would like to protocol appended.</p></section>
+                </dd>
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$protocol</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span> =
+                  <span class="phpdocumentor-signature__argument__default-value">&#039;https://&#039;</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Appended protocol, choose between https:// or http://.</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Complete url string with its protocol.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_objectify">
+                objectify()
+                <a href="namespaces/default.html#function_objectify" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">41</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Change associative array/string into PHP Object.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">objectify</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$data</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Things that would like to objectified.</p></section>
+                </dd>
+              </dl>
+
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">object</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Objectified data.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_setFlash">
+                setFlash()
+                <a href="namespaces/default.html#function_setFlash" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">59</span>
+              </aside>
+
+              <p class="phpdocumentor-summary">Set session flashdata with custom format according Codeigniter 4 session.</p>
+
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">setFlash</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flash</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code
+              >
+
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$flash</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description">
+                    <p>Flash data that would like to generated, better if use associative array with this kind of formatting:</p>
+                    <pre class="prettyprint"><code class="language-php">$flash = [
      'message' =&gt; 'Message Data',
      'type' =&gt; 'danger'|'warning'|'success' |'info'
 ];
 setFlash($flash);
 </code></pre>
-</section>
+                  </section>
+                </dd>
+              </dl>
 
-            </dd>
-            </dl>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">void</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Only sets flash data.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_getFlash">
+                getFlash()
+                <a href="namespaces/default.html#function_getFlash" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">73</span>
+              </aside>
 
-    
+              <p class="phpdocumentor-summary">Retrieve flash data.</p>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Only sets flash data.</p>
-</section>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">getFlash</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$onlyFlash</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span
+                  ><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null|string</span></code
+              >
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getFlash">
-        getFlash()
-        <a href="namespaces/default.html#function_getFlash" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">73</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Retrieve flash data.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getFlash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onlyFlash</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null|string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Better if use only 'message' to retrieve the data.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$onlyFlash</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Retrieve only flash data without formatting.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Returned formatted flash data.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_parseMission">
-        parseMission()
-        <a href="namespaces/default.html#function_parseMission" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">94</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Parse mission string from the database into generated string for textarea input.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">parseMission</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$string</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$string</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Mission data taken from database.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Parsed mission data to textarea.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_setInvalid">
-        setInvalid()
-        <a href="namespaces/default.html#function_setInvalid" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">111</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Sets an input to be invalid by returning is-invalid class to the input.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">setInvalid</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input name.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Returned string wether it is invalid or not after form validation input.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_showInvalidFeedback">
-        showInvalidFeedback()
-        <a href="namespaces/default.html#function_showInvalidFeedback" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">122</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Retrieves error message from form validation input.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">showInvalidFeedback</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input name.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>String wether error input message.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_countTable">
-        countTable()
-        <a href="namespaces/default.html#function_countTable" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">134</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Data counter for certain table, currently the param only used for Communities table joined to PMPSKS Table.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">countTable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|string</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$table</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Table name.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$param</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Only accepts PMKS or PSKS as a string.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Counted result.</p>
-</section>
-
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_parseTest">
-        parseTest()
-        <a href="namespaces/default.html#function_parseTest" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">151</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Parsing test cases array. Use only for unit testing.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">parseTest</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tc</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tc</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Test Case Data.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">codeCoverageIgnore</span>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$key</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                 </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                        </dl>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Better if use only 'message' to retrieve the data.</p></section>
+                </dd>
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$onlyFlash</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">bool</span> = <span class="phpdocumentor-signature__argument__default-value">false</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Retrieve only flash data without formatting.</p></section>
+                </dd>
+              </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Prints to the console with MD Format.</p>
-</section>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null|string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Returned formatted flash data.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_parseMission">
+                parseMission()
+                <a href="namespaces/default.html#function_parseMission" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">94</span>
+              </aside>
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_isSamePage">
-        isSamePage()
-        <a href="namespaces/default.html#function_isSamePage" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+              <p class="phpdocumentor-summary">Parse mission string from the database into generated string for textarea input.</p>
 
-    </aside>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">parseMission</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$string</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
 
-        <p class="phpdocumentor-summary">Check wether same page or not for navigation bar.</p>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$string</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Mission data taken from database.</p></section>
+                </dd>
+              </dl>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">isSamePage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pageToCheck</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Parsed mission data to textarea.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_setInvalid">
+                setInvalid()
+                <a href="namespaces/default.html#function_setInvalid" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">111</span>
+              </aside>
 
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$pageToCheck</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Route uri string</p>
-</section>
+              <p class="phpdocumentor-summary">Sets an input to be invalid by returning is-invalid class to the input.</p>
 
-            </dd>
-            </dl>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">setInvalid</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
 
-    
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$name</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Input name.</p></section>
+                </dd>
+              </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Active class for html.</p>
-</section>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Returned string wether it is invalid or not after form validation input.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_showInvalidFeedback">
+                showInvalidFeedback()
+                <a href="namespaces/default.html#function_showInvalidFeedback" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">122</span>
+              </aside>
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getSidebarMenu">
-        getSidebarMenu()
-        <a href="namespaces/default.html#function_getSidebarMenu" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+              <p class="phpdocumentor-summary">Retrieves error message from form validation input.</p>
 
-    </aside>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">showInvalidFeedback</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
 
-        <p class="phpdocumentor-summary">Retrieve sidebar menus based on roles.</p>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$name</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Input name.</p></section>
+                </dd>
+              </dl>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getSidebarMenu</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>String wether error input message.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_countTable">
+                countTable()
+                <a href="namespaces/default.html#function_countTable" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">134</span>
+              </aside>
 
-    
-    
-    
+              <p class="phpdocumentor-summary">Data counter for certain table, currently the param only used for Communities table joined to PMPSKS Table.</p>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Menu that could be accessed by certain role checked by checkAuth() function.</p>
-</section>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">countTable</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$param</span><span> = </span
+                  ><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|string</span></code
+              >
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_isSameController">
-        isSameController()
-        <a href="namespaces/default.html#function_isSameController" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$table</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Table name.</p></section>
+                </dd>
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$param</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span> = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Only accepts PMKS or PSKS as a string.</p></section>
+                </dd>
+              </dl>
 
-    </aside>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">int|string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Counted result.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_parseTest">
+                parseTest()
+                <a href="namespaces/default.html#function_parseTest" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/string_helper.php"
+                  ><a href="files/app-helpers-string-helper.html"><abbr title="app/Helpers/string_helper.php">string_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">151</span>
+              </aside>
 
-        <p class="phpdocumentor-summary">Check wether same controller or not for navigation bar.</p>
+              <p class="phpdocumentor-summary">Parsing test cases array. Use only for unit testing.</p>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">isSameController</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$controllerToCheck</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">parseTest</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$tc</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span
+                  ><span> ]</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code
+              >
 
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$controllerToCheck</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Route uri string.</p>
-</section>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$tc</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span> =
+                  <span class="phpdocumentor-signature__argument__default-value">[]</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Test Case Data.</p></section>
+                </dd>
+              </dl>
 
-            </dd>
-            </dl>
+              <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                Tags
+                <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+              </h5>
+              <dl class="phpdocumentor-tag-list">
+                <dt class="phpdocumentor-tag-list__entry">
+                  <span class="phpdocumentor-tag__name">codeCoverageIgnore</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition"></dd>
+              </dl>
 
-    
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">void</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Prints to the console with MD Format.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_isSamePage">
+                isSamePage()
+                <a href="namespaces/default.html#function_isSamePage" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"
+                  ><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">10</span>
+              </aside>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Returned boolean result after checking same controller or not.</p>
-</section>
+              <p class="phpdocumentor-summary">Check wether same page or not for navigation bar.</p>
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getCallToAction">
-        getCallToAction()
-        <a href="namespaces/default.html#function_getCallToAction" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">isSamePage</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pageToCheck</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code
+              >
 
-    </aside>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$pageToCheck</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Route uri string</p></section>
+                </dd>
+              </dl>
 
-        <p class="phpdocumentor-summary">Retrieve Call to Action url and text from database.</p>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">string</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Active class for html.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_getSidebarMenu">
+                getSidebarMenu()
+                <a href="namespaces/default.html#function_getSidebarMenu" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"
+                  ><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">21</span>
+              </aside>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getCallToAction</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object|null|false</span></code>
+              <p class="phpdocumentor-summary">Retrieve sidebar menus based on roles.</p>
 
-    
-    
-    
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">getSidebarMenu</span><span>(</span><span>)</span><span> : </span
+                ><span class="phpdocumentor-signature__response_type">mixed</span></code
+              >
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object|null|false</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Call to action data or nothing to return.</p>
-</section>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">mixed</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Menu that could be accessed by certain role checked by checkAuth() function.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_isSameController">
+                isSameController()
+                <a href="namespaces/default.html#function_isSameController" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"
+                  ><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">34</span>
+              </aside>
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getUserName">
-        getUserName()
-        <a href="namespaces/default.html#function_getUserName" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+              <p class="phpdocumentor-summary">Check wether same controller or not for navigation bar.</p>
 
-    </aside>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">isSameController</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span
+                  ><span class="phpdocumentor-signature__argument__name">$controllerToCheck</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code
+              >
 
-        <p class="phpdocumentor-summary">Retrieve Logged In User Name from database.</p>
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$controllerToCheck</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Route uri string.</p></section>
+                </dd>
+              </dl>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getUserName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">bool</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Returned boolean result after checking same controller or not.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_getCallToAction">
+                getCallToAction()
+                <a href="namespaces/default.html#function_getCallToAction" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"
+                  ><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">45</span>
+              </aside>
 
-    
-    
-    
+              <p class="phpdocumentor-summary">Retrieve Call to Action url and text from database.</p>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>User Name.</p>
-</section>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">getCallToAction</span><span>(</span><span>)</span><span> : </span
+                ><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object|null|false</span></code
+              >
 
-    
-</article>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getMissions">
-        getMissions()
-        <a href="namespaces/default.html#function_getMissions" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object|null|false</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Call to action data or nothing to return.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_getUserName">
+                getUserName()
+                <a href="namespaces/default.html#function_getUserName" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"
+                  ><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">65</span>
+              </aside>
 
-    </aside>
+              <p class="phpdocumentor-summary">Retrieve Logged In User Name from database.</p>
 
-        <p class="phpdocumentor-summary">Function for displaying missions on the landing page.</p>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">getUserName</span><span>(</span><span>)</span><span> : </span
+                ><span class="phpdocumentor-signature__response_type">mixed</span></code
+              >
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getMissions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">mixed</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>User Name.</p></section>
+            </article>
+            <article class="phpdocumentor-element -function -">
+              <h4 class="phpdocumentor-element__name" id="function_getMissions">
+                getMissions()
+                <a href="namespaces/default.html#function_getMissions" class="headerlink"><i class="fas fa-link"></i></a>
+              </h4>
+              <aside class="phpdocumentor-element-found-in">
+                <abbr class="phpdocumentor-element-found-in__file" title="app/Helpers/view_helper.php"
+                  ><a href="files/app-helpers-view-helper.html"><abbr title="app/Helpers/view_helper.php">view_helper.php</abbr></a></abbr
+                >
+                :
+                <span class="phpdocumentor-element-found-in__line">77</span>
+              </aside>
 
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Mission data taken from database.</p>
-</section>
+              <p class="phpdocumentor-summary">Function for displaying missions on the landing page.</p>
 
-            </dd>
-            </dl>
+              <code class="phpdocumentor-code phpdocumentor-signature">
+                <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__name">getMissions</span><span>(</span
+                ><span class="phpdocumentor-signature__argument"
+                  ><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span
+                ><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code
+              >
 
-    
+              <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+              <dl class="phpdocumentor-argument-list">
+                <dt class="phpdocumentor-argument-list__entry">
+                  <span class="phpdocumentor-signature__argument__name">$data</span>
+                  : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                </dt>
+                <dd class="phpdocumentor-argument-list__definition">
+                  <section class="phpdocumentor-description"><p>Mission data taken from database.</p></section>
+                </dd>
+              </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Mission and its description.</p>
-</section>
+              <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+              <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+              &mdash;
+              <section class="phpdocumentor-description"><p>Mission and its description.</p></section>
+            </article>
+          </section>
 
-    
-</article>
+          <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+            <section class="phpdocumentor-search-results__dialog">
+              <header class="phpdocumentor-search-results__header">
+                <h2 class="phpdocumentor-search-results__title">Search results</h2>
+                <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+              </header>
+              <section class="phpdocumentor-search-results__body">
+                <ul class="phpdocumentor-search-results__entries"></ul>
+              </section>
             </section>
-
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
-    <section class="phpdocumentor-search-results__dialog">
-        <header class="phpdocumentor-search-results__header">
-            <h2 class="phpdocumentor-search-results__title">Search results</h2>
-            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
-        </header>
-        <section class="phpdocumentor-search-results__body">
-            <ul class="phpdocumentor-search-results__entries"></ul>
-        </section>
-    </section>
-</section>
-            </div>
+          </section>
         </div>
-        <a href="index.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
-
+      </div>
+      <a href="index.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
     </main>
 
     <script>
-        cssVars({});
+      cssVars({});
     </script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
-</body>
+  </body>
 </html>

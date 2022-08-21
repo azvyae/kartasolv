@@ -26,6 +26,8 @@ class Scenario11Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi melihat data PSKS',
+
             'scenario' => 'TS-11',
             'case_code' => '',
             'case' => '',

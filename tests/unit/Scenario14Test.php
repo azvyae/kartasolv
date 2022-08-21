@@ -26,6 +26,8 @@ class Scenario14Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi hapus data PSKS',
+
             'scenario' => 'TS-14',
             'case_code' => '',
             'case' => '',

@@ -28,6 +28,8 @@ class Scenario06Test extends CIUnitTestCase
         ];
         $this->tc = [
             'scenario' => 'TS-06',
+            'test_scenario' => 'Cek fungsi melihat sejarah Karang Taruna',
+
             'case_code' => '',
             'case' => '',
             'step' => [],

@@ -1,4 +1,6 @@
 <main class="my-auto">
     <?= $this->renderSection('main'); ?>
 </main>
-<?= $this->include('layout/footer'); ?>
+<?php if (!isSameController(['Test'])) : ?>
+    <?= $this->include('layout/footer'); ?>
+<?php endif ?>

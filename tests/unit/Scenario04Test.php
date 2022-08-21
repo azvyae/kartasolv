@@ -25,6 +25,7 @@ class Scenario04Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi mengubah isi informasi sejarah Karang Taruna',
             'scenario' => 'TS-04',
             'case_code' => '',
             'case' => '',

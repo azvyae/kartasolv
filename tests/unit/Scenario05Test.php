@@ -29,6 +29,7 @@ class Scenario05Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi melihat profil Karang Taruna',
             'scenario' => 'TS-05',
             'case_code' => '',
             'case' => '',

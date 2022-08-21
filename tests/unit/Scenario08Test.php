@@ -27,6 +27,8 @@ class Scenario08Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi menambahkan data PMKS',
+
             'scenario' => 'TS-08',
             'case_code' => '',
             'case' => '',

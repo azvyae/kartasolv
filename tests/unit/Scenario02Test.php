@@ -26,6 +26,7 @@ class Scenario02Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi mengatur ulang kata sandi',
             'scenario' => 'TS-02',
             'case_code' => '',
             'case' => '',

@@ -156,13 +156,14 @@ function parseTest($tc = [])
 
     $builder = Database::connect()->table('db_test_cases');
     $data = [
+        'test_scenario' => $tc['test_scenario'],
         'test_scenario_code' => $tc['scenario'],
         'test_case_code' => $tc['case_code'],
         'test_case' => $tc['case'],
         'test_step' => json_encode($tc['step']),
         'test_data' => json_encode($tc['data']),
-        'test_expected' => $tc['expected'],
-        'test_actual' => $tc['actual'],
+        'test_expected' => str_replace(base_url(), '', $tc['expected']),
+        'test_actual' => str_replace(base_url(), '', $tc['actual']),
         'test_status' => ($tc['expected'] === $tc['actual']) ? 'Lulus' : 'Gagal',
     ];
     $builder->insert($data);

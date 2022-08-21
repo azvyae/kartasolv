@@ -26,6 +26,7 @@ class Scenario01Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi Mengubah akun/profil',
             'scenario' => 'TS-01',
             'case_code' => '',
             'case' => '',

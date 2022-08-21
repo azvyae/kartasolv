@@ -23,7 +23,9 @@
 
 <body class="d-flex flex-column min-vh-100">
     <header>
-        <?= $this->include('layout/navbar'); ?>
+        <?php if (!isSameController(['Test'])) : ?>
+            <?= $this->include('layout/navbar'); ?>
+        <?php endif ?>
     </header>
     <?php if ($sidebar ?? false) : ?>
         <?= $this->include('layout/sidebar_layout'); ?>
