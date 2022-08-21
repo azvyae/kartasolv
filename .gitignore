@@ -2,7 +2,6 @@
 # Operating Specific Junk Files
 #-------------------------
 
-sql/
 # OS X
 .DS_Store
 .AppleDouble
