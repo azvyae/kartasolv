@@ -6,7 +6,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-04 Cek fungsi mengubah isi informasi sejarah Karang Taruna
+ * @testdox TS-04 Cek fungsi mengubah isi informasi sejarah Karang Taruna
  */
 class Scenario04Test extends CIUnitTestCase
 {
@@ -51,6 +51,8 @@ class Scenario04Test extends CIUnitTestCase
      */
     public function testHistory()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Mengubah isi sejarah Karang Taruna';
         $this->tc['expected'] = "Menampilkan pesan Info Sejarah berhasil diperbarui.";
         $this->tc['step'] = [
             'Masuk ke halaman Ubah Info Sejarah',
@@ -109,6 +111,8 @@ class Scenario04Test extends CIUnitTestCase
      */
     public function testHistoryInvalid()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Mengubah isi sejarah Karang Taruna gagal validasi';
         $this->tc['expected'] = "Menampilkan pesan Kolom Judul 1 tidak bisa melebihi 64 panjang karakter.";
         $this->tc['step'] = [
             'Masuk ke halaman Ubah Info Sejarah',

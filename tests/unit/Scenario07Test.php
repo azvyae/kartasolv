@@ -7,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-07 Cek fungsi melihat data PMKS
+ * @testdox TS-07 Cek fungsi melihat data PMKS
  */
 class Scenario07Test extends CIUnitTestCase
 {
@@ -52,6 +52,8 @@ class Scenario07Test extends CIUnitTestCase
      */
     public function testRetrievePMKSData()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Melihat data PMKS';
         $this->tc['expected'] = "Menampilkan 41 data dengan kategori: Anak yang memerlukan perlindungan khusus dan Korban kekerasan";
         $this->tc['step'] = [
             'Masuk ke halaman Data PMKS',
@@ -173,6 +175,8 @@ class Scenario07Test extends CIUnitTestCase
      */
     public function testGetPMKSImage()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Menampilkan gambar PMKS yang diprivat';
         $id = $this->db->table('communities')
             ->where('pmpsks_type', 1)
             ->notLike('community_name', "Test")

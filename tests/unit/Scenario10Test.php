@@ -7,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-10 Cek fungsi hapus data PMKS
+ * @testdox TS-10 Cek fungsi hapus data PMKS
  */
 class Scenario10Test extends CIUnitTestCase
 {
@@ -52,6 +52,8 @@ class Scenario10Test extends CIUnitTestCase
      */
     public function testDeletePMKS()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Menghapus data PMKS';
         $builder = $this->db->table('communities');
         $countField = $builder->where('deleted_at', null)->like('community_identifier', 'pmks')->like("community_name", 'test')->countAllResults();
         $ids = $builder->where('deleted_at', null)->like("community_name", 'test')->like('community_identifier', 'pmks')->select('community_id')->get()->getResult();

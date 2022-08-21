@@ -8,7 +8,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-05 Cek fungsi melihat profil Karang Taruna
+ * @testdox TS-05 Cek fungsi melihat profil Karang Taruna
  */
 class Scenario05Test extends CIUnitTestCase
 {
@@ -55,6 +55,8 @@ class Scenario05Test extends CIUnitTestCase
      */
     public function testIndexPageExternalCallToAction()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Menampilkan halaman utama dengan eksternal Call to Action';
         $this->tc['expected'] = "Menampilkan halaman utama dengan tombol Call to Action eksternal";
         $this->tc['step'] = ["Mengakses halaman utama"];
         $this->db->table('info_landing')->where('id', 1)->update(
@@ -83,6 +85,8 @@ class Scenario05Test extends CIUnitTestCase
      */
     public function testIndexPageLocalCallToAction()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Menampilkan halaman utama dengan tautan lokal Call to Action';
         $this->tc['expected'] = "Menampilkan halaman utama dengan tombol Call to Action lokal";
         $this->tc['step'] = ["Mengakses halaman utama"];
         $this->db->table('info_landing')->where('id', 1)->update(
@@ -105,6 +109,8 @@ class Scenario05Test extends CIUnitTestCase
      */
     public function testIndexNoCallToAction()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Menampilkan halaman utama tanpa Call to Action';
         $this->tc['expected'] = "Menampilkan halaman utama tanpa Call to Action";
         $this->tc['step'] = ["Mengakses halaman utama"];
         $this->db->table('info_landing')->where('id', 1)->update(
@@ -127,6 +133,8 @@ class Scenario05Test extends CIUnitTestCase
      */
     public function testAccessSitemap()
     {
+        $this->tc['case_code'] = 'TC-04';
+        $this->tc['case'] = 'Menampilkan Sitemap';
         $this->tc['expected'] = "Menampilkan XML sitemap";
         $this->tc['step'] = ["Akses ke halaman sitemap"];
         $result = $this->call('get', 'sitemap');

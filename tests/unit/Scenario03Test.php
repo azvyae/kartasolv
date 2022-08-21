@@ -9,7 +9,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-03 Cek fungsi mengubah isi profil Karang Taruna
+ * @testdox TS-03 Cek fungsi mengubah isi profil Karang Taruna
  */
 class Scenario03Test extends CIUnitTestCase
 {
@@ -55,6 +55,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testIndex()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Mengakses halaman pengaturan profil Karang Taruna';
         $this->tc['expected'] = "Menampilkan halaman Pengaturan Profil Karta";
         $this->tc['step'] = [
             "Masuk ke halaman pengaturan Profil Karta"
@@ -83,6 +85,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testMainInfo()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Mengubah isi informasi utama';
         $this->tc['expected'] = "Menampilkan pesan Info utama berhasil diperbarui.";
         $this->tc['step'] = [
             'Masuk ke halaman Ubah Informasi Utama',
@@ -134,6 +138,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testMainInfoInvalid()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Mengubah isi informasi utama dengan format url salah';
         $this->tc['expected'] = "Menampilkan pesan Kolom Url Call to Action harus berisi sebuah URL yang valid.";
         $this->tc['step'] = [
             'Masuk ke halaman Ubah Informasi Utama',
@@ -177,6 +183,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testOurActivities()
     {
+        $this->tc['case_code'] = 'TC-04';
+        $this->tc['case'] = 'Mengubah isi Kegiatan Kami';
         $this->tc['expected'] = "Menampilkan pesan Kegiatan berhasil diperbarui.";
         $this->tc['step'] = [
             'Masuk ke halaman Ubah Kegiatan Kami',
@@ -230,6 +238,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testOurActivitiesInvalid()
     {
+        $this->tc['case_code'] = 'TC-05';
+        $this->tc['case'] = 'Mengubah isi Kegiatan Kami dengan format judul melebihi 64 karakter';
         $this->tc['expected'] = "Menampilkan pesan Kolom Nama Kegiatan 1 tidak bisa melebihi 64 panjang karakter.";
         $this->tc['step'] = [
             'Masuk ke halaman Ubah Kegiatan Kami',
@@ -273,6 +283,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testMembers()
     {
+        $this->tc['case_code'] = 'TC-06';
+        $this->tc['case'] = 'Menampilkan Data Pengurus';
         $this->tc['expected'] = "Menampilkan 1 baris data dengan nama M Taufan Z";
         $this->tc['step'] = [
             'Masuk ke halaman Data Pengurus',
@@ -388,6 +400,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testMemberCreateInvalid()
     {
+        $this->tc['case_code'] = 'TC-07';
+        $this->tc['case'] = 'Menambahkan data pengurus validasi gagal';
         $this->tc['expected'] = "Menampilkan pesan Kamu Hanya Dapat Memilih Opsi Aktif/Nonaktif.";
         $this->tc['step'] = [
             'Masuk ke halaman Tambah Data Pengurus',
@@ -430,6 +444,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testMemberCreate()
     {
+        $this->tc['case_code'] = 'TC-08';
+        $this->tc['case'] = 'Menambahkan data Pengurus';
         $this->tc['expected'] = "Menampilkan pesan Data Pengurus berhasil diperbarui.";
         $this->tc['step'] = [
             'Masuk ke halaman Tambah Data Pengurus',
@@ -463,6 +479,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testMemberUpdateNotFound()
     {
+        $this->tc['case_code'] = 'TC-09';
+        $this->tc['case'] = 'Mencari data pengurus dengan ID acak';
         $this->tc['expected'] = "Menampilkan pesan Halaman Tidak Ditemukan";
         $this->tc['step'] = [
             "Isi panel alamat URL dengan konten/profil-karang-taruna/pengurus/xxx dengan id acak",
@@ -485,6 +503,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testMemberUpdateFound()
     {
+        $this->tc['case_code'] = 'TC-10';
+        $this->tc['case'] = 'Mengubah data pengurus, menonaktifkan pengurus';
         $this->tc['expected'] = "Menampilkan pesan Data Pengurus berhasil diperbarui.";
         $this->tc['step'] = [
             'Masuk ke halaman Data Pengurus',
@@ -521,6 +541,8 @@ class Scenario03Test extends CIUnitTestCase
      */
     public function testDeleteMemberData()
     {
+        $this->tc['case_code'] = 'TC-11';
+        $this->tc['case'] = 'Menghapus data pengurus';
         $builder = $this->db->table('members');
         $countField = $builder->like("member_name", 'test')->countAllResults();
         $ids = $builder->like("member_name", 'test')->select('member_id')->get()->getResult();

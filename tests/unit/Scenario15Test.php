@@ -7,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-15 Cek fungsi mengirimkan pesan aduan
+ * @testdox TS-15 Cek fungsi mengirimkan pesan aduan
  */
 class Scenario15Test extends CIUnitTestCase
 {
@@ -48,10 +48,12 @@ class Scenario15Test extends CIUnitTestCase
     }
 
     /**
-     * TC-01 Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan 08..
+     * @testdox TC-01 Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan 08..
      */
     public function testContactUsPage()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan 08..';
         $this->tc['expected'] = "Menampilkan pesan Berhasil mengirimkan pesan.";
         $this->tc['step'] = [
             'Masuk ke halaman Hubungi Kami',
@@ -79,10 +81,12 @@ class Scenario15Test extends CIUnitTestCase
     }
 
     /**
-     * TC-02 Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan 8..
+     * @testdox TC-02 Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan 8..
      */
     public function testSendMessageWhatsappLeadingEight()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan 8..';
         $this->tc['expected'] = "Menampilkan pesan Berhasil mengirimkan pesan.";
         $this->tc['step'] = [
             'Masuk ke halaman Hubungi Kami',
@@ -102,10 +106,12 @@ class Scenario15Test extends CIUnitTestCase
     }
 
     /**
-     * TC-03 Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan +62
+     * @testdox TC-03 Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan +62
      */
     public function testSendMessageWhatsappPlusNumber()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Mengirimkan Pesan Aduan dengan no Whatsapp diawali dengan +62';
         $this->tc['expected'] = "Menampilkan pesan Berhasil mengirimkan pesan.";
         $this->tc['step'] = [
             'Masuk ke halaman Hubungi Kami',
@@ -125,10 +131,12 @@ class Scenario15Test extends CIUnitTestCase
     }
 
     /**
-     * TC-04 Mengirimkan Pesan Aduan dengan format no Whatsapp salah
+     * @testdox TC-04 Mengirimkan Pesan Aduan dengan format no Whatsapp salah
      */
     public function testSendMessageWrongWhatsappFormat()
     {
+        $this->tc['case_code'] = 'TC-04';
+        $this->tc['case'] = 'Mengirimkan Pesan Aduan dengan format no Whatsapp salah';
         $this->tc['expected'] = "Menampilkan pesan Nomor Whatsapp Salah!";
         $this->tc['step'] = [
             'Masuk ke halaman Hubungi Kami',

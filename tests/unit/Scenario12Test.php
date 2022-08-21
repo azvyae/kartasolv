@@ -8,7 +8,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-12 Cek fungsi menambahkan data PSKS
+ * @testdox TS-12 Cek fungsi menambahkan data PSKS
  */
 class Scenario12Test extends CIUnitTestCase
 {
@@ -53,6 +53,8 @@ class Scenario12Test extends CIUnitTestCase
      */
     public function testAddPSKSDataInvalid()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Menambahkan data PSKS validasi gagal';
         $this->tc['expected'] = "Menampilkan pesan Kamu hanya dapat memilih kategori PSKS yang ada";
         $this->tc['step'] = [
             'Masuk ke halaman Tambah Data PSKS',
@@ -98,6 +100,8 @@ class Scenario12Test extends CIUnitTestCase
      */
     public function testAddPSKSData()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Menambahkan data PSKS';
         $identifier = uniqid("psks-add-");
         $this->tc['expected'] = "Menampilkan pesan Data PSKS berhasil diperbarui.";
         $this->tc['step'] = [
@@ -141,6 +145,8 @@ class Scenario12Test extends CIUnitTestCase
      */
     public function testXLSXPSKSAdd()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Menampilkan halaman tambah data dengan spreadsheet';
         $this->tc['expected'] = "Menampilkan kolom unggah file Spreadsheet";
         $this->tc['step'] = ["Mengakses halaman tambah data PSKS dengan Spreadsheet"];
         $result = $this->withSession(

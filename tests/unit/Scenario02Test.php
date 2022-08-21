@@ -6,7 +6,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-02 Cek fungsi mengatur ulang kata sandi
+ * @testdox TS-02 Cek fungsi mengatur ulang kata sandi
  */
 class Scenario02Test extends CIUnitTestCase
 {
@@ -52,6 +52,8 @@ class Scenario02Test extends CIUnitTestCase
      */
     public function testForgetPasswordValidationFails()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Mengirim formulir lupa kata sandi tanpa data yang diinput';
         $this->tc['expected'] = "Menampilkan pesan Kolom Email harus diisi.";
         $result = $this->call('get', "lupa-kata-sandi");
         $result->assertOK();
@@ -70,10 +72,12 @@ class Scenario02Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-02 Mengirim formulir lupa kata sandi tanpa data yang diinput
+     * @testdox TC-02 Mengirim formulir lupa kata sandi dengan email yang salah
      */
     public function testForgetPasswordWithWrongEmail()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Mengirim formulir lupa kata sandi dengan email yang salah';
         $this->tc['expected'] = "Menampilkan pesan Email yang kamu tulis tidak ditemukan!";
         $this->tc['step'] = [
             'Masuk ke halaman lupa kata sandi',
@@ -93,6 +97,8 @@ class Scenario02Test extends CIUnitTestCase
      */
     public function testForgetPasswordWithCorrectEmail()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Mengisi formulir lupa kata sandi dengan benar';
         $this->tc['expected'] = "Menampilkan pesan Silakan cek emailmu untuk melanjutkan.";
         $this->tc['step'] = [
             'Masuk ke halaman lupa kata sandi',
@@ -112,6 +118,8 @@ class Scenario02Test extends CIUnitTestCase
      */
     public function testForgetPasswordWithRecentlyRequestedAttempt()
     {
+        $this->tc['case_code'] = 'TC-04';
+        $this->tc['case'] = 'Meminta perubahan kata sandi berulang kali';
         $this->tc['expected'] = "Menampilkan pesan Kamu baru saja melakukan permintaan atur ulang kata sandi, tunggu 5 menit lagi.";
         $this->tc['step'] = [
             'Masuk ke halaman lupa kata sandi',
@@ -137,6 +145,8 @@ class Scenario02Test extends CIUnitTestCase
      */
     public function testResetPasswordUserNotFound()
     {
+        $this->tc['case_code'] = 'TC-05';
+        $this->tc['case'] = 'Masuk ke halaman atur ulang kata sandi, pengguna tidak ditemukan';
         $this->tc['expected'] = "Menampilkan pesan Pengguna tidak ditemukan.";
         $this->tc['step'] = [
             'Masuk ke halaman atur ulang kata sandi',
@@ -156,6 +166,8 @@ class Scenario02Test extends CIUnitTestCase
      */
     public function testExpiredResetPassword()
     {
+        $this->tc['case_code'] = 'TC-06';
+        $this->tc['case'] = 'Masuk ke halaman atur ulang kata sandi, kadaluarsa';
         $this->tc['expected'] = "Menampilkan pesan Link tidak valid/kadaluarsa.";
         $this->tc['step'] = [
             'Masuk ke halaman atur ulang kata sandi',
@@ -180,6 +192,8 @@ class Scenario02Test extends CIUnitTestCase
      */
     public function testResetPasswordValidationFails()
     {
+        $this->tc['case_code'] = 'TC-07';
+        $this->tc['case'] = 'Gagal atur ulang kata sandi';
         $this->tc['expected'] = "Menampilkan pesan Kolom Kata Sandi Baru harus diisi.";
         $this->tc['step'] = [
             'Masuk ke halaman atur ulang kata sandi',
@@ -216,6 +230,8 @@ class Scenario02Test extends CIUnitTestCase
      */
     public function testResetPassword()
     {
+        $this->tc['case_code'] = 'TC-08';
+        $this->tc['case'] = 'Atur ulang kata sandi';
         $this->tc['expected'] = "Menampilkan pesan Berhasil mengubah kata sandi.";
         $date = date('Y-m-d H:i:s', strtotime('+15 minutes', time()));
         $updateData = [

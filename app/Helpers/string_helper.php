@@ -1,5 +1,7 @@
 <?php
 
+use Config\Database;
+
 /**
  * Removing protocol like http and https from url provided.
  * @param string $url Url that would like to protocol removed.
@@ -151,22 +153,17 @@ function parseTest($tc = [])
     if (!$tc) {
         return null;
     }
-    dd($tc);
-    print "> **START**\n>";
-    print "\n> Test Step:\n";
-    foreach ($tc['step'] as $i => $step) {
-        print "> " . ($i + 1) . ". $step\n";
-    }
-    print ">";
-    print "\n> Test Data:\n";
-    print "> ``` \n";
-    foreach ($tc['data'] as $data) {
-        print "> $data\n";
-    }
-    print "> ``` \n";
-    print ">";
-    print "\n> Result:\n";
-    print "> * Expected : " . $tc['expected'] . "\n";
-    print "> * Actual : " . $tc['actual'] . "\n";
-    print ">\n> **END**\n\n";
+
+    $builder = Database::connect()->table('db_test_cases');
+    $data = [
+        'test_scenario_code' => $tc['scenario'],
+        'test_case_code' => $tc['case_code'],
+        'test_case' => $tc['case'],
+        'test_step' => json_encode($tc['step']),
+        'test_data' => json_encode($tc['data']),
+        'test_expected' => $tc['expected'],
+        'test_actual' => $tc['actual'],
+        'test_status' => ($tc['expected'] === $tc['actual']) ? 'Lulus' : 'Gagal',
+    ];
+    $builder->insert($data);
 }

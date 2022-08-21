@@ -7,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-11 Cek fungsi melihat data PSKS
+ * @testdox TS-11 Cek fungsi melihat data PSKS
  */
 class Scenario11Test extends CIUnitTestCase
 {
@@ -52,6 +52,8 @@ class Scenario11Test extends CIUnitTestCase
      */
     public function testRetrievePSKSData()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Melihat data PSKS';
         $this->tc['expected'] = "Menampilkan 3 data dengan nama: Abigail Hubbard, Abigail Perkins, Beck Ford";
         $this->tc['step'] = [
             'Masuk ke halaman Data PSKS',
@@ -176,6 +178,8 @@ class Scenario11Test extends CIUnitTestCase
      */
     public function testGetPSKSImage()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Menampilkan gambar PSKS yang diprivat';
         $id = $this->db->table('communities')
             ->where('pmpsks_type', 27)
             ->notLike('community_name', "Test")

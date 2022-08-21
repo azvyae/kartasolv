@@ -13,7 +13,6 @@
                 <path>app/Config/CustomRules.php</path>
                 <path>app/Config/Services.php</path>
                 <path>app/Config/Validation.php</path>
-                <path>app/Config/Routes.php</path>
                 <path>app/Controllers</path>
                 <path>app/Filters</path>
                 <path>app/Helpers</path>
@@ -21,8 +20,7 @@
                 <path>app/Models</path>
             </source>
             <ignore hidden="true" symlinks="true">
-                <path>app/Controllers/Sandbox/**/*</path>
-
+                <path>app/Controllers/Test.php</path>
             </ignore>
         </api>
     </version>

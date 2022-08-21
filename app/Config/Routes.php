@@ -157,3 +157,5 @@ $routes->group('data', static function ($routes) {
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
+$routes->get('test', 'Test::index');

@@ -2,12 +2,13 @@
 
 use CodeIgniter\Test\CIUnitTestCase;
 use Config\App;
+use Config\Database;
 use Config\Services;
 use Tests\Support\Libraries\ConfigReader;
 
 /**
  * @internal
- * @testdox #### Uji Kesehatan Aplikasi
+ * @testdox Uji Kesehatan Aplikasi
  */
 final class HealthTest extends CIUnitTestCase
 {
@@ -61,5 +62,7 @@ final class HealthTest extends CIUnitTestCase
             $validation->check($reader->baseURL, 'valid_url'),
             'baseURL "' . $reader->baseURL . '" in app/Config/App.php is not valid URL'
         );
+        $builder = Database::connect()->table('db_test_cases');
+        $builder->truncate();
     }
 }

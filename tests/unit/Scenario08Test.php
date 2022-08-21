@@ -8,7 +8,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-08 Cek fungsi menambahkan data PMKS
+ * @testdox TS-08 Cek fungsi menambahkan data PMKS
  */
 class Scenario08Test extends CIUnitTestCase
 {
@@ -53,6 +53,8 @@ class Scenario08Test extends CIUnitTestCase
      */
     public function testAddPMKSDataInvalid()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Menambahkan data PMKS validasi gagal';
         $this->tc['expected'] = "Menampilkan pesan Kamu hanya dapat memilih kategori PMKS yang ada";
         $this->tc['step'] = [
             'Masuk ke halaman Tambah Data PMKS',
@@ -98,8 +100,9 @@ class Scenario08Test extends CIUnitTestCase
      */
     public function testAddPMKSData()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Menambahkan data PMKS';
         $identifier = uniqid("pmks-add-");
-
         $this->tc['expected'] = "Menampilkan pesan Data PMKS berhasil diperbarui.";
         $this->tc['step'] = [
             'Masuk ke halaman Tambah Data PMKS',
@@ -143,6 +146,8 @@ class Scenario08Test extends CIUnitTestCase
      */
     public function testXLSXPMKSAdd()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Menampilkan halaman tambah data dengan spreadsheet';
         $this->tc['expected'] = "Menampilkan kolom unggah file Spreadsheet";
         $this->tc['step'] = ["Mengakses halaman tambah data PMKS dengan Spreadsheet"];
         $result = $this->withSession(

@@ -626,6 +626,11 @@ Search.appendIndex(
             "summary": "Data\u0020counter\u0020for\u0020certain\u0020table,\u0020currently\u0020the\u0020param\u0020only\u0020used\u0020for\u0020Communities\u0020table\u0020joined\u0020to\u0020PMPSKS\u0020Table.",
             "url": "namespaces/default.html#function_countTable"
         },                {
+            "fqsen": "\\parseTest\u0028\u0029",
+            "name": "parseTest",
+            "summary": "Parsing\u0020test\u0020cases\u0020array.\u0020Use\u0020only\u0020for\u0020unit\u0020testing.",
+            "url": "namespaces/default.html#function_parseTest"
+        },                {
             "fqsen": "\\isSamePage\u0028\u0029",
             "name": "isSamePage",
             "summary": "Check\u0020wether\u0020same\u0020page\u0020or\u0020not\u0020for\u0020navigation\u0020bar.",

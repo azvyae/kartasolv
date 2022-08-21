@@ -28,6 +28,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+app/Controllers/Test.php
+app/Views/test
+
 # Linux
 *~
 

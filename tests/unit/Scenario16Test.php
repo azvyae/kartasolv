@@ -7,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-16 Cek fungsi melihat pesan aduan
+ * @testdox TS-16 Cek fungsi melihat pesan aduan
  */
 class Scenario16Test extends CIUnitTestCase
 {
@@ -52,6 +52,8 @@ class Scenario16Test extends CIUnitTestCase
      */
     public function testRetrieveMessages()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Melihat pesan aduan pada tanggal hari ini';
         $date = date('Y-m-d');
         $count = $this->db->table('messages')->where('deleted_at', null)->like('created_at', $date)->countAllResults();
         $this->tc['expected'] = "Menampilkan $count data pesan";
@@ -165,6 +167,8 @@ class Scenario16Test extends CIUnitTestCase
      */
     public function testRetrieveMessagesRange()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Melihat pesan Aduan dalam rentang tanggal';
         $date0 = '2022-01-01';
         $date1 = date('Y-m-d');
         $count = $this->db->table('messages')->where(['created_at >=' => $date0, 'deleted_at' => null, 'created_at <=' => $date1])->countAllResults();
@@ -286,6 +290,8 @@ class Scenario16Test extends CIUnitTestCase
      */
     public function testUpdateMessagetatus()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Memperbarui status pesan dibaca/belum dibaca';
         $builder = $this->db->table('messages');
         $countField = $builder->like("message_sender", 'test')->where('deleted_at', null)->countAllResults();
         $ids = $builder->where('deleted_at', null)->like("message_sender", 'test')->select('message_id')->get()->getResult();
@@ -325,6 +331,8 @@ class Scenario16Test extends CIUnitTestCase
      */
     public function testDeleteMessages()
     {
+        $this->tc['case_code'] = 'TC-04';
+        $this->tc['case'] = 'Menghapus pesan';
         $builder = $this->db->table('messages');
         $countField = $builder->like("message_sender", 'test')->where('deleted_at', null)->countAllResults();
         $ids = $builder->where('deleted_at', null)->like("message_sender", 'test')->select('message_id')->get()->getResult();

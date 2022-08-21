@@ -7,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-01 Cek fungsi Mengubah akun/profil
+ * @testdox TS-01 Cek fungsi Mengubah akun/profil
  */
 class Scenario01Test extends CIUnitTestCase
 {
@@ -81,6 +81,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testChangeBasicProfileData()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Mengubah data nama';
         $this->tc['expected'] = "Menampilkan pesan Berhasil melakukan perubahan.";
         $this->tc['step'][] = "Masuk ke halaman profil";
         $result = $this->withSession($this->sessionData)->call('get', 'profil');
@@ -119,6 +121,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testValidationFails()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Mengubah data email dengan validasi gagal';
         $this->tc['expected'] = "Menampilkan pesan Kolom Email harus berisi sebuah alamat surel yang valid.";
         $this->tc['step'][] = "Masuk ke halaman profil";
         $this->tc['step'][] = "Ubah data pada kolom email";
@@ -150,6 +154,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testNewEmail()
     {
+        $this->tc['case_code'] = 'TC-04';
+        $this->tc['case'] = 'Mengubah data email';
         $this->tc['expected'] = "Menampilkan pesan Berhasil melakukan perubahan. Silakan cek emailmu untuk verifikasi perubahan email.";
         $this->tc['step'][] = "Masuk ke halaman profil";
         $this->tc['step'][] = "Ubah data pada kolom email";
@@ -181,6 +187,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testVerifyEmail()
     {
+        $this->tc['case_code'] = 'TC-05';
+        $this->tc['case'] = 'Verifikasi email ketika sudah log in';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('profil') . " dengan menampilkan pesan Berhasil mengubah email.";
         $time = date('Y-m-d H:i:s', strtotime('+30 minutes', time()));
         $attempt = encode(strtotime($time), 'changeEmail');
@@ -203,6 +211,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testCancelVerifyEmail()
     {
+        $this->tc['case_code'] = 'TC-06';
+        $this->tc['case'] = 'Verifikasi email ketika belum log in dan membatalkannya';
         $time = date('Y-m-d H:i:s', strtotime('+30 minutes', time()));
         $attempt = encode(strtotime($time), 'changeEmail');
         $uuid = encode(2, 'changeEmail');
@@ -233,6 +243,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testExpiredVerifyEmail()
     {
+        $this->tc['case_code'] = 'TC-07';
+        $this->tc['case'] = 'Mencoba verifikasi email yang kadaluarsa';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('profil') . " dengan menampilkan pesan Link tidak valid/kadaluarsa.";
         $time = '2022-01-18 22:22:48';
         $attempt = encode(strtotime($time), 'changeEmail');
@@ -255,6 +267,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testUnknownVerifyEmail()
     {
+        $this->tc['case_code'] = 'TC-08';
+        $this->tc['case'] = 'Verifikasi email pengguna yang tidak terdaftar';
         $this->tc['expected'] = "Menampilkan pesan Pengguna tidak ditemukan.";
         $time = '2022-01-18 22:22:48';
         $attempt = encode(strtotime($time), 'changeEmail');
@@ -274,6 +288,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testChangePassword()
     {
+        $this->tc['case_code'] = 'TC-09';
+        $this->tc['case'] = 'Mengubah kata sandi';
         $this->tc['expected'] = "Menampilkan pesan Berhasil melakukan perubahan. Kata sandi berhasil diubah.";
         $this->tc['step'] = [
             'Masuk ke halaman profil',
@@ -314,6 +330,8 @@ class Scenario01Test extends CIUnitTestCase
      */
     public function testChangePasswordWithWrongPassword()
     {
+        $this->tc['case_code'] = 'TC-10';
+        $this->tc['case'] = 'Mengubah kata sandi dengan kata sandi salah';
         $this->tc['expected'] = "Menampilkan pesan Kata sandi salah.";
         $this->tc['step'] = [
             'Masuk ke halaman profil',

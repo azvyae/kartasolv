@@ -7,7 +7,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-13 Cek fungsi mengubah data PSKS
+ * @testdox TS-13 Cek fungsi mengubah data PSKS
  */
 class Scenario13Test extends CIUnitTestCase
 {
@@ -52,6 +52,8 @@ class Scenario13Test extends CIUnitTestCase
      */
     public function testFindInvalidPSKSData()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Mencari data PSKS dengan id acak';
         $this->tc['expected'] = "Menampilkan pesan Halaman Tidak Ditemukan";
         $this->tc['step'] = [
             "Isi panel alamat URL dengan data/psks/xxx dengan id acak",
@@ -74,6 +76,8 @@ class Scenario13Test extends CIUnitTestCase
      */
     public function testUpdatePSKS()
     {
+        $this->tc['case_code'] = 'TC-02';
+        $this->tc['case'] = 'Mengubah data PSKS';
         $identifier = uniqid("psks-change-");
         $community_id = $this->db->table('communities')->select('community_id')->where('deleted_at', null)->like('community_identifier', 'psks')->like("community_name", "Test")->get(1)->getRow()->community_id;
         $encodedId = encode($community_id, 'psks');
@@ -117,6 +121,8 @@ class Scenario13Test extends CIUnitTestCase
      */
     public function testUpdatePSKSStatus()
     {
+        $this->tc['case_code'] = 'TC-03';
+        $this->tc['case'] = 'Memperbarui status PSKS';
         $builder = $this->db->table('communities');
         $countField = $builder->like("community_name", 'test')->where('deleted_at', null)->like('community_identifier', 'psks')->countAllResults();
         $ids = $builder->where('deleted_at', null)->like("community_name", 'test')->like('community_identifier', 'psks')->select('community_id')->get()->getResult();

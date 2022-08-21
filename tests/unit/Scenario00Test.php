@@ -5,7 +5,7 @@ use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
 
 /**
- * @testdox #### TS-00 Cek fungsi log in
+ * @testdox TS-00 Cek fungsi log in
  */
 class Scenario00Test extends CIUnitTestCase
 {
@@ -25,6 +25,7 @@ class Scenario00Test extends CIUnitTestCase
             ])
         ];
         $this->tc = [
+            'test_scenario' => 'Cek fungsi log in',
             'scenario' => 'TS-00',
             'case_code' => '',
             'case' => '',
@@ -155,10 +156,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-06 Melakukan Logout
+     * @testdox TC-06 Melakukan aksi keluar
      */
     public function testLogout()
     {
+        $this->tc['case_code'] = 'TC-06';
+        $this->tc['case'] = 'Melakukan aksi keluar';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('masuk');
         $this->tc['step'] =
             [
@@ -176,10 +179,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-07 Masuk ke dasbor tanpa log in
+     * @testdox TC-07 Masuk ke dasbor tanpa ada sesi aktif
      */
     public function testRestrictAccessIfNotLoggedIn()
     {
+        $this->tc['case_code'] = 'TC-07';
+        $this->tc['case'] = 'Masuk ke dasbor tanpa ada sesi aktif';
         $this->tc['expected'] = "Menampilkan pesan Kamu tidak dapat mengakses halaman tersebut!";
         $this->tc['step'] =  ["Masuk ke halaman dasbor"];
 
@@ -195,6 +200,8 @@ class Scenario00Test extends CIUnitTestCase
      */
     public function testPrivateImageNotFound()
     {
+        $this->tc['case_code'] = 'TC-08';
+        $this->tc['case'] = 'Akses gambar privat tidak ditemukan';
         $this->tc['expected'] = "Menampilkan pesan Halaman Tidak Ditemukan";
         $this->tc['step'] =  ["Masuk ke halaman Gambar Privat"];
         $this->tc['data'] =  ["q: notfound.webp"];
@@ -215,10 +222,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-08 Akses gambar privat
+     * @testdox TC-09 Akses gambar privat
      */
     public function testLoadPrivateImages()
     {
+        $this->tc['case_code'] = 'TC-09';
+        $this->tc['case'] = 'Akses gambar privat';
         $this->tc['expected'] = "Mendapatkan header dengan tipe image/webp";
         $this->tc['step'] =  ["Masuk ke halaman Gambar Privat"];
         $this->tc['data'] =  ["q: default.webp"];
@@ -229,10 +238,12 @@ class Scenario00Test extends CIUnitTestCase
     }
 
     /**
-     * @testdox TC-08 Akses gambar privat dengan mencoba akses direktori terkunci
+     * @testdox TC-10 Akses gambar privat dengan mencoba akses direktori terkunci
      */
     public function testRestrictAccessingPrivateDirectory()
     {
+        $this->tc['case_code'] = 'TC-10';
+        $this->tc['case'] = 'Akses gambar privat dengan mencoba akses direktori terkunci';
         $this->tc['expected'] = "Diarahkan ke halaman " . base_url('gambar-privat?q=%2fuploads%2fdefault.webp');
         $this->tc['step'] =  ["Masuk ke halaman Gambar Privat"];
         $this->tc['data'] =  ["q: ../../uploads/default.webp"];

@@ -8,7 +8,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 use Config\Services;
 
 /**
- * @testdox #### TS-06 Cek fungsi melihat sejarah Karang Taruna
+ * @testdox TS-06 Cek fungsi melihat sejarah Karang Taruna
  */
 class Scenario06Test extends CIUnitTestCase
 {
@@ -49,10 +49,12 @@ class Scenario06Test extends CIUnitTestCase
     }
 
     /**
-     * TC-01 Mengakses halaman Sejarah Karang Taruna
+     * @testdox TC-01 Mengakses halaman Sejarah Karang Taruna
      */
     public function testHistoryPage()
     {
+        $this->tc['case_code'] = 'TC-01';
+        $this->tc['case'] = 'Mengakses halaman Sejarah Karang Taruna';
         $this->tc['expected'] = "Menampilkan halaman sejarah Karang Taruna";
         $this->tc['step'][] = "Masuk ke halaman sejarah Karang Taruna";
         $result = $this->call('get', "sejarah");
