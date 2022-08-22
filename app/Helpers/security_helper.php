@@ -1,5 +1,6 @@
 <?php
 
+use Config\Database;
 use Config\Services;
 use Hashids\Hashids;
 
@@ -16,16 +17,18 @@ function checkAuth($data = null)
     if ($data) {
         return $session->user->$data ?? null;
     } else {
-        $menuModel = model('App\Models\MenuModel');
+        $db = Database::connect();
         $router = service('router');
         $controllerName = str_replace("\App\Controllers\\", '', $router->controllerName());
         $methodName =  $router->methodName();
         $roleId = checkAuth('roleId');
-        $thisMenu = $menuModel->getMenuId($controllerName)->menu_id ?? NULL;
+        $thisMenu = $db->table('menu')->where('menu_string', $controllerName)->get()->getRow()->menu_id ?? NULL;
         $isGranted = TRUE;
         if ($thisMenu) {
-            $roleAccessModel = model('App\Models\RoleAccessModel');
-            $isGranted = $roleAccessModel->getRoleAccessId($roleId, $thisMenu) !== NULL;
+            $isGranted = $db->table('role_access')->where([
+                'role_id' => $roleId,
+                'menu_id' => $thisMenu
+            ])->get()->getRow() !== NULL;
         }
         if ($session->user) {
             if ($controllerName === "Auth" && "$methodName::" . getMethod() !== 'index::delete') {

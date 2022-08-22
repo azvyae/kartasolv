@@ -1,5 +1,7 @@
 <?php
 
+use Config\Database;
+
 /**
  * Check wether same page or not for navigation bar.
  * @param mixed $pageToCheck Route uri string
@@ -20,9 +22,23 @@ function isSamePage($pageToCheck)
  */
 function getSidebarMenu()
 {
+    $db = Database::connect()->table('role_access');
     $roleId = checkAuth('roleId');
-    $ram = new \App\Models\RoleAccessModel();
-    return $ram->getPageByRole($roleId);
+    return $db
+        ->join(
+            'menu',
+            'menu.menu_id = role_access.menu_id',
+        )
+        ->join(
+            'pages',
+            'menu.menu_id = pages.menu_id',
+
+        )
+        ->where([
+            'role_id' => $roleId
+        ])
+        ->orderBy('pages.page_id', 'asc')
+        ->get()->getResult();
 }
 
 /**

@@ -4,6 +4,7 @@ namespace App\Controllers\Data;
 
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
+use Config\Database;
 
 /**
  * This controller shows PMKS data.
@@ -27,12 +28,6 @@ class Pmks extends BaseController
      */
     protected $pim;
 
-    /** 
-     * PmpsksModel initiator.
-     * @var \App\Models\PmpsksModel $pm
-     */
-    protected $pm;
-
     /**
      * Constructor provided to prepare every model.
      */
@@ -40,7 +35,6 @@ class Pmks extends BaseController
     {
         $this->cm = new \App\Models\CommunitiesModel();
         $this->pim = new \App\Models\PmpsksImgModel();
-        $this->pm = new \App\Models\PmpsksModel();
     }
 
     /**
@@ -72,7 +66,7 @@ class Pmks extends BaseController
                 'value' => $e->pmpsks_name,
                 'text' => $e->pmpsks_name,
             ];
-        }, $this->pm->select('pmpsks_name')->where('pmpsks_type', 'PMKS')->find());
+        }, Database::connect()->table('pmpsks_types')->select('pmpsks_name')->where('pmpsks_type', 'PMKS')->get()->getResult());
 
         $data = [
             'title' => "Data PMKS | Karta Sarijadi",
@@ -249,7 +243,7 @@ class Pmks extends BaseController
             ];
         }
         $data += [
-            'pmksTypes' => $this->pm->select(['pmpsks_id', 'pmpsks_name'])->where('pmpsks_type', 'PMKS')->findAll(),
+            'pmksTypes' => Database::connect()->table('pmpsks_types')->select(['pmpsks_id', 'pmpsks_name'])->where('pmpsks_type', 'PMKS')->get()->getResult(),
             'sidebar' => true
         ];
         return view('data/pmks/crud', $data);

@@ -326,11 +326,6 @@ Search.appendIndex(
             "summary": "PmpsksImgModel\u0020initiator.",
             "url": "classes/App-Controllers-Data-Pmks.html#property_pim"
         },                {
-            "fqsen": "\\App\\Controllers\\Data\\Pmks\u003A\u003A\u0024pm",
-            "name": "pm",
-            "summary": "PmpsksModel\u0020initiator.",
-            "url": "classes/App-Controllers-Data-Pmks.html#property_pm"
-        },                {
             "fqsen": "\\App\\Controllers\\Data\\Psks",
             "name": "Psks",
             "summary": "This\u0020controller\u0020shows\u0020PSKS\u0020data.",
@@ -390,11 +385,6 @@ Search.appendIndex(
             "name": "pim",
             "summary": "PmpsksImgModel\u0020initiator.",
             "url": "classes/App-Controllers-Data-Psks.html#property_pim"
-        },                {
-            "fqsen": "\\App\\Controllers\\Data\\Psks\u003A\u003A\u0024pm",
-            "name": "pm",
-            "summary": "PmpsksModel\u0020initiator.",
-            "url": "classes/App-Controllers-Data-Psks.html#property_pm"
         },                {
             "fqsen": "\\App\\Controllers\\Home",
             "name": "Home",
@@ -1011,36 +1001,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Models-MembersModel.html#property_validationRules"
         },                {
-            "fqsen": "\\App\\Models\\MenuModel",
-            "name": "MenuModel",
-            "summary": "Table\u0020Menu\u0020model.",
-            "url": "classes/App-Models-MenuModel.html"
-        },                {
-            "fqsen": "\\App\\Models\\MenuModel\u003A\u003AgetMenuId\u0028\u0029",
-            "name": "getMenuId",
-            "summary": "Retrieve\u0020menu\u0020id\u0020based\u0020on\u0020controller\u0020name.",
-            "url": "classes/App-Models-MenuModel.html#method_getMenuId"
-        },                {
-            "fqsen": "\\App\\Models\\MenuModel\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/App-Models-MenuModel.html#property_table"
-        },                {
-            "fqsen": "\\App\\Models\\MenuModel\u003A\u003A\u0024primaryKey",
-            "name": "primaryKey",
-            "summary": "",
-            "url": "classes/App-Models-MenuModel.html#property_primaryKey"
-        },                {
-            "fqsen": "\\App\\Models\\MenuModel\u003A\u003A\u0024allowedFields",
-            "name": "allowedFields",
-            "summary": "",
-            "url": "classes/App-Models-MenuModel.html#property_allowedFields"
-        },                {
-            "fqsen": "\\App\\Models\\MenuModel\u003A\u003A\u0024returnType",
-            "name": "returnType",
-            "summary": "",
-            "url": "classes/App-Models-MenuModel.html#property_returnType"
-        },                {
             "fqsen": "\\App\\Models\\MessagesModel",
             "name": "MessagesModel",
             "summary": "Table\u0020Messages\u0020model.",
@@ -1135,61 +1095,6 @@ Search.appendIndex(
             "name": "validationRules",
             "summary": "",
             "url": "classes/App-Models-PmpsksImgModel.html#property_validationRules"
-        },                {
-            "fqsen": "\\App\\Models\\PmpsksModel",
-            "name": "PmpsksModel",
-            "summary": "Table\u0020Pmpsks_types\u0020model.",
-            "url": "classes/App-Models-PmpsksModel.html"
-        },                {
-            "fqsen": "\\App\\Models\\PmpsksModel\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/App-Models-PmpsksModel.html#property_table"
-        },                {
-            "fqsen": "\\App\\Models\\PmpsksModel\u003A\u003A\u0024primaryKey",
-            "name": "primaryKey",
-            "summary": "",
-            "url": "classes/App-Models-PmpsksModel.html#property_primaryKey"
-        },                {
-            "fqsen": "\\App\\Models\\PmpsksModel\u003A\u003A\u0024returnType",
-            "name": "returnType",
-            "summary": "",
-            "url": "classes/App-Models-PmpsksModel.html#property_returnType"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel",
-            "name": "RoleAccessModel",
-            "summary": "Table\u0020Role_access\u0020model.",
-            "url": "classes/App-Models-RoleAccessModel.html"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetRoleAccessId\u0028\u0029",
-            "name": "getRoleAccessId",
-            "summary": "Retrieve\u0020role\u0020access\u0020id,\u0020used\u0020for\u0020checkAuth\u0028\u0029\u0020functon.",
-            "url": "classes/App-Models-RoleAccessModel.html#method_getRoleAccessId"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003AgetPageByRole\u0028\u0029",
-            "name": "getPageByRole",
-            "summary": "Retrieve\u0020page\u0020menu\u0020on\u0020the\u0020sidebar\u0020based\u0020on\u0020roles.",
-            "url": "classes/App-Models-RoleAccessModel.html#method_getPageByRole"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_table"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024primaryKey",
-            "name": "primaryKey",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_primaryKey"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024allowedFields",
-            "name": "allowedFields",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_allowedFields"
-        },                {
-            "fqsen": "\\App\\Models\\RoleAccessModel\u003A\u003A\u0024returnType",
-            "name": "returnType",
-            "summary": "",
-            "url": "classes/App-Models-RoleAccessModel.html#property_returnType"
         },                {
             "fqsen": "\\App\\Models\\UsersModel",
             "name": "UsersModel",
