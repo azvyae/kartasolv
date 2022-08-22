@@ -55,7 +55,7 @@ class ImageUploader
                 return FALSE;
             }
             $unConverted = WRITEPATH . 'uploads' . $img->store($options['upload_path'] ?? '', $img->getRandomName());
-            $filepath = $this->convertToWebp($unConverted);
+            $filepath = $this->_convertToWebp($unConverted);
             if (!$filepath) {
                 return FALSE;
             }
@@ -82,7 +82,7 @@ class ImageUploader
      * @param	object	$file Filepath.
      * @return	File Converted File.
      */
-    private function convertToWebp($filePath)
+    private function _convertToWebp($filePath)
     {
         $file = new File($filePath, true);
         if (!$file) {
