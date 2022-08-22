@@ -701,10 +701,10 @@ Search.appendIndex(
             "summary": "Upload\u0020method.",
             "url": "classes/App-Libraries-ImageUploader.html#method_upload"
         },                {
-            "fqsen": "\\App\\Libraries\\ImageUploader\u003A\u003AconvertToWebp\u0028\u0029",
-            "name": "convertToWebp",
+            "fqsen": "\\App\\Libraries\\ImageUploader\u003A\u003A_convertToWebp\u0028\u0029",
+            "name": "_convertToWebp",
             "summary": "Convert\u0020file\u0020in\u0020addressed\u0020filepath\u0020into\u0020webp.",
-            "url": "classes/App-Libraries-ImageUploader.html#method_convertToWebp"
+            "url": "classes/App-Libraries-ImageUploader.html#method__convertToWebp"
         },                {
             "fqsen": "\\App\\Libraries\\Model",
             "name": "Model",
