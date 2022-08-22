@@ -876,10 +876,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Models-HistoryModel.html#property_allowedFields"
         },                {
-            "fqsen": "\\App\\Models\\HistoryModel\u003A\u003A\u0024afterUpdate",
-            "name": "afterUpdate",
+            "fqsen": "\\App\\Models\\HistoryModel\u003A\u003A\u0024beforeUpdate",
+            "name": "beforeUpdate",
             "summary": "",
-            "url": "classes/App-Models-HistoryModel.html#property_afterUpdate"
+            "url": "classes/App-Models-HistoryModel.html#property_beforeUpdate"
         },                {
             "fqsen": "\\App\\Models\\HistoryModel\u003A\u003A\u0024validationRules",
             "name": "validationRules",
