@@ -26,7 +26,7 @@ class HistoryModel extends Model
         'image_a',
         'image_b',
     ];
-    protected $afterUpdate = ['setModifiedBy'];
+    protected $beforeUpdate = ['setModifiedBy'];
     protected $validationRules = [
         'title_a' => [
             'label' => 'Judul 1',
