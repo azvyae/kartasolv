@@ -103,7 +103,7 @@ class Scenario13Test extends CIUnitTestCase
         $result = $this->withHeaders([
             "Content-Type" => 'multipart/form-data'
         ])->withRoutes([
-            ['post', "data/psks/(:alphanum)", "Data\Psks::crud/$1"],
+            ['post', "data/psks/(:alphanum)", "Data\Pmpsks::crud/$1"],
         ])->withSession(
             $this->sessionData
         )->call('post', "data/psks/$encodedId", [
@@ -143,7 +143,7 @@ class Scenario13Test extends CIUnitTestCase
         ];
 
         $result = $this->withRoutes([
-            ['post', "data/psks", "Data\Psks::index"],
+            ['post', "data/psks", "Data\Pmpsks::index"],
         ])->withSession(
             $this->sessionData
         )->withBodyFormat(

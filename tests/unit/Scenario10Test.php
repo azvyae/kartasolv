@@ -74,7 +74,7 @@ class Scenario10Test extends CIUnitTestCase
         ];
 
         $result = $this->withRoutes([
-            ['post', "data/pmks", "Data\Pmks::index"],
+            ['post', "data/pmks", "Data\Pmpsks::index"],
         ])->withSession(
             $this->sessionData
         )->withBodyFormat(

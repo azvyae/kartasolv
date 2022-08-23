@@ -4,17 +4,18 @@ namespace App\Controllers\Data;
 
 use App\Controllers\BaseController;
 use App\Libraries\ImageUploader;
+use CodeIgniter\HTTP\URI;
 use Config\Database;
 
 /**
- * This controller shows PSKS data.
+ * This controller shows PMKS/PSKS data.
  * 
  * This controller basicly shows messages data with Datatables, this controller also have some
  * procedure to delete and toggle Community Status shown in the Datatables.
  * 
  * @package KartasolvApp\Controllers\Data
  */
-class Psks extends BaseController
+class Pmpsks extends BaseController
 {
     /**
      * CommunitiesModel initiator.
@@ -31,14 +32,19 @@ class Psks extends BaseController
     /**
      * Constructor provided to prepare every model.
      */
+
+
+    protected $uri;
     public function __construct()
     {
+        $this->uri = new URI(current_url());
+        $this->uri = $this->uri->getSegment(3);
         $this->cm = new \App\Models\CommunitiesModel();
         $this->pim = new \App\Models\PmpsksImgModel();
     }
 
     /**
-     * Prepare basic view for PSKS table.
+     * Prepare basic view for PMKS/PSKS table.
      * It can also accept get, put and delete HTTP method.
      * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void View, Redirection, or AJAX Response.
      */
@@ -61,29 +67,30 @@ class Psks extends BaseController
                     // @codeCoverageIgnoreEnd
             }
         }
-        $psks_types = array_map(function ($e) {
+        $type = strtoupper($this->uri);
+        $func = $this->uri . '_types';
+        ${$func} = array_map(function ($e) {
             return [
                 'value' => $e->pmpsks_name,
                 'text' => $e->pmpsks_name,
             ];
-        },  Database::connect()->table('pmpsks_types')->select('pmpsks_name')->where('pmpsks_type', 'PSKS')->get()->getResult());
-
+        }, Database::connect()->table('pmpsks_types')->select('pmpsks_name')->where('pmpsks_type', $type)->get()->getResult());
         $data = [
-            'title' => "Data PSKS | Karta Sarijadi",
+            'title' => "Data $type | Karta Sarijadi",
+            $func => json_encode(${$func}),
             'sidebar' => true,
-            'psks_types' => json_encode($psks_types)
         ];
-        return view('data/psks/index', $data);
+        return view('data/' . $this->uri . '/index', $data);
     }
 
     /**
-     * PSKS Datatables generator.
+     * PMKS/PSKS Datatables generator.
      * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
      */
     private function _datatable()
     {
         // @codeCoverageIgnoreStart
-        if ($referrer = acceptFrom('data/psks')) {
+        if ($referrer = acceptFrom('data/' . $this->uri)) {
             return redirect()->to($referrer);
         }
         // @codeCoverageIgnoreEnd
@@ -96,10 +103,11 @@ class Psks extends BaseController
             'columnSearch' => $this->request->getGet('searchable'),
             "orderable" => $this->request->getGet('orderable')
         ];
-        $communities = $this->cm->getPSKSDatatable($condition);
+        $func = "get" . strtoupper($this->uri) . "Datatable";
+        $communities = $this->cm->$func($condition);
         $data = $ids = [];
         foreach ($communities->result as $field) {
-            $community_id = encode($field->community_id, 'psks');
+            $community_id = encode($field->community_id, $this->uri);
             $ids[] = $community_id;
             $row = [
                 'unique_id' => $community_id,
@@ -123,19 +131,19 @@ class Psks extends BaseController
     }
 
     /**
-     * PSKS update read/unread ajax call.
+     * PMKS/PSKS update read/unread ajax call.
      * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
      */
     private function _updateStatus()
     {
         // @codeCoverageIgnoreStart
-        if ($referrer = acceptFrom('data/psks')) {
+        if ($referrer = acceptFrom('data/' . $this->uri)) {
             return redirect()->to($referrer);
         }
         // @codeCoverageIgnoreEnd
 
         $communityIds = array_map(function ($e) {
-            return decode($e, 'psks');
+            return decode($e, $this->uri);
         }, $this->request->getPost('selections'));
         foreach ($communityIds as $id) {
             $data = ['community_id' => $id];
@@ -151,7 +159,7 @@ class Psks extends BaseController
             $this->cm->save($data);
         }
         $flash = [
-            'message' => count($communityIds) . ' Data PSKS Berhasil Diperbarui',
+            'message' => count($communityIds) . ' Data ' . strtoupper($this->uri) . ' Berhasil Diperbarui',
             'type' => 'success'
         ];
         setFlash($flash);
@@ -162,13 +170,13 @@ class Psks extends BaseController
     }
 
     /**
-     * Delete PSKS data ajax call.
+     * Delete PMKS/PSKS data ajax call.
      * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
      */
     private function _delete()
     {
         // @codeCoverageIgnoreStart
-        if ($referrer = acceptFrom('data/psks')) {
+        if ($referrer = acceptFrom('data/' . $this->uri)) {
             return redirect()->to($referrer);
         }
         // @codeCoverageIgnoreEnd
@@ -176,13 +184,13 @@ class Psks extends BaseController
         $totalData = count($deleteData);
         $response = false;
         $data = array_map(function ($e) {
-            return decode($e, 'psks');
+            return decode($e, $this->uri);
         }, $deleteData);
         if ($data) {
             if ($this->cm->delete($data)) {
                 $this->pim->deleteImages($data);
                 $flash = [
-                    'message'   => "$totalData data PSKS berhasil dihapus",
+                    'message'   => "$totalData data " . strtoupper($this->uri) . " berhasil dihapus",
                     'type'        => 'success',
                 ];
                 setFlash($flash);
@@ -190,7 +198,7 @@ class Psks extends BaseController
             } else {
                 // @codeCoverageIgnoreStart
                 $flash = [
-                    'message'   => "Data PSKS gagal dihapus",
+                    'message'   => "Data " . strtoupper($this->uri) . " gagal dihapus",
                     'type'        => 'danger',
                 ];
                 setFlash($flash);
@@ -202,10 +210,10 @@ class Psks extends BaseController
 
     /**
      * Create form view for creating
-     * and updating PSKS data.
+     * and updating PMKS/PSKS data.
      * 
      * @param string $communityId If no parameter provided, this method will show
-     * create PSKS data form view, otherwise it will show existing PSKS data.
+     * create PMKS/PSKS data form view, otherwise it will show existing PMKS/PSKS data.
      * 
      * @throws \CodeIgniter\Exceptions\PageNotFoundException 404 Not Found
      * 
@@ -216,53 +224,54 @@ class Psks extends BaseController
         helper('form');
         switch (getMethod()) {
             case 'post':
-                $this->_crud();
+                return $this->_crud();
                 break;
             case 'put':
-                $this->_crud($communityId);
+                return $this->_crud($communityId);
                 break;
             default:
                 break;
         }
         $data = [
-            'title' => 'Tambah Data PSKS | Karta Sarijadi',
-            'crudType' => 'Tambah Data PSKS'
+            'title' => 'Tambah Data ' . strtoupper($this->uri) . ' | Karta Sarijadi',
+            'crudType' => 'Tambah Data ' . strtoupper($this->uri)
         ];
         if ($communityId) {
-            $id = decode($communityId, 'psks');
+            $id = decode($communityId, $this->uri);
             $community = $this->cm->find($id, true);
             if (!$community) {
                 return show404();
             }
             $data = [
-                'title' => 'Ubah Data PSKS | Karta Sarijadi',
-                'crudType' => 'Ubah Data PSKS',
+                'title' => 'Ubah Data ' . strtoupper($this->uri) . ' | Karta Sarijadi',
+                'crudType' => 'Ubah Data ' . strtoupper($this->uri),
                 'community' => $community,
                 'communityId' => $communityId,
                 'pmpsksImg' => $this->pim->getImages($id)
             ];
         }
         $data += [
-            'psksTypes' => Database::connect()->table('pmpsks_types')->select(['pmpsks_id', 'pmpsks_name'])->where('pmpsks_type', 'PSKS')->get()->getResult(),
+            $this->uri . 'Types' => Database::connect()->table('pmpsks_types')->select(['pmpsks_id', 'pmpsks_name'])->where('pmpsks_type', strtoupper($this->uri))->get()->getResult(),
             'sidebar' => true
         ];
-        return view('data/psks/crud', $data);
+        return view('data/' . $this->uri . '/crud', $data);
     }
 
     /**
      * Create form view for creating
-     * PSKS data with Spreadsheet.
+     * PMKS/PSKS data with Spreadsheet.
+     * 
      * @return \CodeIgniter\HTTP\RedirectResponse|string View or Redirection.
      */
     public function spreadsheetCrud()
     {
         // @codeCoverageIgnoreStart
         if (getMethod('post')) {
-            if ($referrer = acceptFrom("data/psks/tambah-spreadsheet")) {
+            if ($referrer = acceptFrom("data/" . $this->uri . "/tambah-spreadsheet")) {
                 return redirect()->to($referrer);
             }
             if (!$this->validate('spreadsheet')) {
-                return redirect()->to('data/psks/tambah-spreadsheet')->withInput();
+                return redirect()->to("data/" . $this->uri . "/tambah-spreadsheet")->withInput();
             }
             $excelFile = $this->request->getFile('file_excel');
             $ext = $excelFile->getClientExtension();
@@ -289,7 +298,7 @@ class Psks extends BaseController
                 if ($this->cm->find($identifier, true)) {
                     continue;
                 } else {
-                    if (empty($name) || empty($address) || empty($type) || $type < 27 || $type >= 38 || ($status != 'Disetujui' && $status != 'Belum Disetujui')) {
+                    if (empty($name) || empty($address) || empty($type) || $type < 1 || $type >= 26 || ($status != 'Disetujui' && $status != 'Belum Disetujui')) {
                         continue;
                     }
                     $data = [
@@ -310,14 +319,8 @@ class Psks extends BaseController
                     'type' => 'success'
                 ];
                 setFlash($flash);
-            } else {
-                $flash = [
-                    'message' => "Ada kegagalan saat menambahkan data.",
-                    'type' => 'danger'
-                ];
-                setFlash($flash);
             }
-            return redirect()->to('data/psks/tambah-spreadsheet');
+            return redirect()->to('data/' . $this->uri . '/tambah-spreadsheet');
         }
         // @codeCoverageIgnoreEnd
         $data = [
@@ -326,7 +329,7 @@ class Psks extends BaseController
         $data += [
             'sidebar' => true
         ];
-        return view('data/psks/spreadsheet_crud', $data);
+        return view('data/' . $this->uri . '/spreadsheet_crud', $data);
     }
 
     /**
@@ -334,23 +337,28 @@ class Psks extends BaseController
      * to save data with PmpsksModel.
      * 
      * @param string $communityId If no parameter provided, this method will show
-     * create PSKS data form view, otherwise it will show existing PSKS data.
+     * create PMKS/PSKS data form view, otherwise it will show existing PMKS/PSKS data.
      * 
      * @return \CodeIgniter\HTTP\RedirectResponse Redirection.
      */
     private function _crud($communityId = '')
     {
         // @codeCoverageIgnoreStart
-        if ($referrer = acceptFrom("data/psks/$communityId", "data/psks/tambah")) {
+        if ($referrer = acceptFrom("data/" . $this->uri . "/$communityId", "data/" . $this->uri . "/tambah")) {
             return redirect()->to($referrer);
         }
         // @codeCoverageIgnoreEnd
         $communityStatus = $this->request->getPost('community_status');
-        $decodedCommunityID = decode($communityId, 'psks');
+        $decodedCommunityID = decode($communityId, $this->uri);
         if (!$communityStatus) {
             $communityStatus = 'Belum Disetujui';
         }
-        $rules = $this->cm->getValidationRules(['except' => ['pmks_type']]);
+        if ($this->uri == 'psks') {
+            $type  = 'pmks_type';
+        } else {
+            $type  = 'psks_type';
+        }
+        $rules = $this->cm->getValidationRules(['except' => [$type]]);
         if ($decodedCommunityID) {
             $rules['community_identifier']['rules'] .= '|is_unique[communities.community_identifier,community_identifier,{community_identifier}]';
         } else {
@@ -362,15 +370,18 @@ class Psks extends BaseController
                 $rules += $this->pim->getValidationRules();
             }
         }
-        if (!$this->validate($rules)) {
-            return redirect()->to('data/psks/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
-        }
         // @codeCoverageIgnoreEnd
+        if (!$this->validate($rules)) {
+            return redirect()->to('data/' . $this->uri . '/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
+        }
+        /**
+         * Base update data
+         */
         $data = [
             'community_name' => $this->request->getPost('community_name'),
             'community_address' => $this->request->getPost('community_address'),
             'community_identifier' => !empty($identifier = trim($this->request->getPost('community_identifier'))) ? $identifier : null,
-            'pmpsks_type' => $this->request->getPost('psks_type'),
+            'pmpsks_type' => $this->request->getPost($this->uri . '_type'),
             'community_status' => $communityStatus,
         ];
 
@@ -385,7 +396,7 @@ class Psks extends BaseController
             if ($img[0]->getSize() > 0) {
                 $imageUploader = new ImageUploader;
                 $opt = [
-                    'upload_path' => 'psks',
+                    'upload_path' => $this->uri,
                     'name' => 'pmpsks_img_loc',
                     'multi' => true,
                     'private' => true
@@ -424,37 +435,37 @@ class Psks extends BaseController
             }
             // @codeCoverageIgnoreEnd
             $flash = [
-                'message' => 'Data PSKS berhasil diperbarui.',
+                'message' => 'Data ' . strtoupper($this->uri) . ' berhasil diperbarui.',
                 'type' => 'success'
             ];
             setFlash($flash);
-            return redirect()->to('data/psks/' . (!empty($communityId) ? $communityId : 'tambah'));
+            return redirect()->to('data/' . $this->uri . '/' . (!empty($communityId) ? $communityId : 'tambah'));
         }
         // @codeCoverageIgnoreStart
         $flash = [
-            'message' => 'Data PSKS gagal diperbarui.',
+            'message' => 'Data ' . strtoupper($this->uri) . ' gagal diperbarui.',
             'type' => 'danger'
         ];
         setFlash($flash);
-        return redirect()->to('data/psks/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
+        return redirect()->to('data/' . $this->uri . '/' . (!empty($communityId) ? $communityId : 'tambah'))->withInput();
         // @codeCoverageIgnoreEnd
     }
 
     /**
-     * Get PSKS data images ajax call.
+     * Get PMKS/PSKS data images ajax call.
      * @return string|\CodeIgniter\HTTP\RedirectResponse|false|void AJAX Response or Redirection.
      */
     public function getImages()
     {
         // @codeCoverageIgnoreStart
-        if ($referrer = acceptFrom('data/psks')) {
+        if ($referrer = acceptFrom('data/' . $this->uri)) {
             return redirect()->to($referrer);
         }
         // @codeCoverageIgnoreEnd
-        $communityId = decode($this->request->getGet('uuid'), 'psks');
+        $communityId = decode($this->request->getGet('uuid'), $this->uri);
         if (!$this->request->isAJAX() || !$communityId) {
             // @codeCoverageIgnoreStart
-            return redirect()->to('data/psks');
+            return redirect()->to('data/' . $this->uri);
             // @codeCoverageIgnoreEnd
         }
         echo json_encode(array_map(function ($e) {
