@@ -409,8 +409,7 @@ class Pmpsks extends BaseController
             }
         }
         // @codeCoverageIgnoreEnd
-
-        $result = $communityId === null ? $this->cm->skipValidation(true)->insert($data) : $this->cm->skipValidation(true)->save($data);
+        $result = empty($communityId) ? $this->cm->skipValidation(true)->insert($data) : $this->cm->skipValidation(true)->save($data);
         if ($result) {
             // @codeCoverageIgnoreStart
             if ($newImages ?? false) {
