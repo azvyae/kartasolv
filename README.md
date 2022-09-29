@@ -27,7 +27,7 @@ Those tech stacks listed below:
 | [Recaptcha V3](https://developers.google.com/recaptcha/docs/v3) | This web application also have spam prevention based on Recaptcha Score. |
 | [Datatables](https://datatables.net/) | Datatables used for displaying table data seamlessly in one page, with server side processing through Ajax requests. |
 
-## Features latest v.1.3.4
+## Features latest v.1.3.5
 
 Here are lists of implemented features through this Kartasolv Web Application.
 
