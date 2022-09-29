@@ -184,7 +184,7 @@ class Home extends BaseController
         $email->setFrom('no-reply@kartasarijadi.com', 'No Reply - Karang Taruna Sarijadi');
         $email->setTo($admin->user_email);
 
-        $email->setSubject('Verifikasi Proses Atur Ulang Kata Sandi');
+        $email->setSubject('Ada Pesan Baru!');
         $data = [
             'name' => $admin->user_name,
             'message_sender' => $data['message_sender'],
