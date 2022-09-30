@@ -29,7 +29,7 @@
                 }
             },
             // Configure buttons
-            defaultOrder: [2, 'asc'],
+            defaultOrder: [3, 'asc'],
             buttons: {
                 add: {
                     url: baseUrl('konten/profil-karang-taruna/pengurus/tambah')
@@ -40,6 +40,15 @@
                 },
             },
             columns: [{
+                    title: "No",
+                    name: "no",
+                    data: "no",
+                    className: 'text-center',
+                    render: function(data) {
+                        return data;
+                    },
+
+                }, {
                     title: "Nama",
                     name: "member_name",
                     data: "member_name",

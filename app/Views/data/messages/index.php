@@ -28,7 +28,7 @@
                     searchable: ['message_sender', 'message_type', 'message_whatsapp', 'message_status', 'created_at']
                 }
             },
-            defaultOrder: [4, 'desc'],
+            defaultOrder: [5, 'desc'],
             // Configure buttons
             buttons: {
                 delete: {
@@ -43,6 +43,15 @@
                 },
             },
             columns: [{
+                    title: "No",
+                    name: "no",
+                    data: "no",
+                    className: 'text-center',
+                    render: function(data) {
+                        return data;
+                    },
+
+                }, {
                     title: "Nama Pengirim",
                     name: "message_sender",
                     data: "message_sender",

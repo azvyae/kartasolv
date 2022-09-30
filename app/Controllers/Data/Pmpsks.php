@@ -106,10 +106,12 @@ class Pmpsks extends BaseController
         $func = "get" . strtoupper($this->uri) . "Datatable";
         $communities = $this->cm->$func($condition);
         $data = $ids = [];
+        $no = 1 + $condition['offset'];
         foreach ($communities->result as $field) {
             $community_id = encode($field->community_id, $this->uri);
             $ids[] = $community_id;
             $row = [
+                'no' => $no++,
                 'unique_id' => $community_id,
                 'community_name' => $field->community_name,
                 'community_identifier' => $field->community_identifier ?? '',
@@ -295,10 +297,21 @@ class Pmpsks extends BaseController
                 $type = trim($row[3]);
                 $status = trim($row[4]);
 
-                if ($this->cm->find($identifier, true)) {
+                if ($this->cm->where(['community_identifier' => $identifier])->get()->getRow()) {
                     continue;
                 } else {
-                    if (empty($name) || empty($address) || empty($type) || $type < 1 || $type >= 26 || ($status != 'Disetujui' && $status != 'Belum Disetujui')) {
+                    switch ($this->uri) {
+                        case 'pmks':
+                            $cond = !($type >= 1 && $type <= 26);
+                            break;
+                        case 'psks':
+                            $cond = !($type >= 27 && $type <= 38);
+                            break;
+                        default:
+                            $cond = true;
+                            break;
+                    }
+                    if (empty($name) || empty($address) || empty($type) || $cond || ($status != 'Disetujui' && $status != 'Belum Disetujui')) {
                         continue;
                     }
                     $data = [

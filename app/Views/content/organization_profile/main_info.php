@@ -11,7 +11,7 @@
                 <?= getFlash('message'); ?>
                 <h2>Perubahan Info Dasar</h2>
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('landing_title', $landing->landing_title); ?>" name="landing_title" type="text" id="landing_title" class="form-control <?= setInvalid('landing_title'); ?>" placeholder="Judul di Halaman Utama" aria-label="Judul di Halaman Utama">
                             <label for="landing_title">Judul di Halaman Utama</label>
@@ -20,9 +20,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                </div>
+                <div class="row ">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('landing_tagline', $landing->landing_tagline); ?>" name="landing_tagline" type="text" id="landing_tagline" class="form-control <?= setInvalid('landing_tagline'); ?>" placeholder="Tagline" aria-label="Tagline">
+                            <textarea style="height: 100px;" required name="landing_tagline" type="text" id="landing_tagline" class="form-control <?= setInvalid('landing_tagline'); ?>" placeholder="Tagline" aria-label="Tagline"><?= old('landing_tagline', $landing->landing_tagline); ?></textarea>
                             <label for="landing_tagline">Tagline</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('landing_tagline'); ?>

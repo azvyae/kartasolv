@@ -11,7 +11,7 @@
                 <?= getFlash('message'); ?>
                 <h2>Info Kegiatan 1</h2>
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('title_a', $activities->title_a); ?>" name="title_a" type="text" id="title_a" class="form-control <?= setInvalid('title_a'); ?>" placeholder="Nama Kegiatan 1" aria-label="Nama Kegiatan 1">
                             <label for="title_a">Nama Kegiatan 1</label>
@@ -20,9 +20,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('desc_a', $activities->desc_a); ?>" name="desc_a" type="text" id="desc_a" class="form-control <?= setInvalid('desc_a'); ?>" placeholder="Deskripsi Kegiatan 1" aria-label="Deskripsi Kegiatan 1">
+                            <textarea style="height: 100px;" required name="desc_a" type="text" id="desc_a" class="form-control <?= setInvalid('desc_a'); ?>" placeholder="Deskripsi Kegiatan 1" aria-label="Deskripsi Kegiatan 1"><?= old('desc_a', $activities->desc_a); ?></textarea>
                             <label for="desc_a">Deskripsi Kegiatan 1</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('desc_a'); ?>
@@ -49,7 +52,7 @@
                 <h2>Info Kegiatan 2</h2>
 
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('title_b', $activities->title_b); ?>" name="title_b" type="text" id="title_b" class="form-control <?= setInvalid('title_b'); ?>" placeholder="Nama Kegiatan 2" aria-label="Nama Kegiatan 2">
                             <label for="title_b">Nama Kegiatan 2</label>
@@ -58,9 +61,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('desc_b', $activities->desc_b); ?>" name="desc_b" type="text" id="desc_b" class="form-control <?= setInvalid('desc_b'); ?>" placeholder="Deskripsi Kegiatan 2" aria-label="Deskripsi Kegiatan 2">
+                            <textarea style="height: 100px;" required name="desc_b" type="text" id="desc_b" class="form-control <?= setInvalid('desc_b'); ?>" placeholder="Deskripsi Kegiatan 2" aria-label="Deskripsi Kegiatan 2"><?= old('desc_b', $activities->desc_b); ?></textarea>
                             <label for="desc_b">Deskripsi Kegiatan 2</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('desc_b'); ?>
@@ -87,7 +92,7 @@
                 <h2>Info Kegiatan 3</h2>
 
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('title_c', $activities->title_c); ?>" name="title_c" type="text" id="title_c" class="form-control <?= setInvalid('title_c'); ?>" placeholder="Nama Kegiatan 3" aria-label="Nama Kegiatan 3">
                             <label for="title_c">Nama Kegiatan 3</label>
@@ -96,9 +101,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('desc_c', $activities->desc_c); ?>" name="desc_c" type="text" id="desc_c" class="form-control <?= setInvalid('desc_c'); ?>" placeholder="Deskripsi Kegiatan 3" aria-label="Deskripsi Kegiatan 3">
+                            <textarea style="height: 100px;" required name="desc_c" type="text" id="desc_c" class="form-control <?= setInvalid('desc_c'); ?>" placeholder="Deskripsi Kegiatan 3" aria-label="Deskripsi Kegiatan 3"><?= old('desc_c', $activities->desc_c); ?></textarea>
                             <label for="desc_c">Deskripsi Kegiatan 3</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('desc_c'); ?>

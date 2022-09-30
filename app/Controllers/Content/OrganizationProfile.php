@@ -332,10 +332,12 @@ class OrganizationProfile extends BaseController
         ];
         $members = $this->mm->getDatatable($condition);
         $data = $ids = [];
+        $no = 1 + $condition['offset'];
         foreach ($members->result as $field) {
             $member_id = encode($field->member_id, 'members');
             $ids[] = $member_id;
             $row = [
+                'no' => $no++,
                 'unique_id' => $member_id,
                 'member_name' => $field->member_name,
                 'member_image' => $field->member_image,

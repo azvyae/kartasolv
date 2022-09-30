@@ -28,6 +28,7 @@
                     searchable: ['community_identifier', 'community_name', 'community_address', 'pmpsks_name', 'community_status']
                 }
             },
+            defaultOrder: [1, 'asc'],
             // Configure buttons
             buttons: {
                 add: {
@@ -53,6 +54,15 @@
                 }
             },
             columns: [{
+                    title: "No",
+                    name: "no",
+                    data: "no",
+                    className: 'text-center',
+                    render: function(data) {
+                        return data;
+                    },
+
+                }, {
                     title: "Nama",
                     name: "community_name",
                     data: "community_name",

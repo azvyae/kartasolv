@@ -10,7 +10,7 @@
                 <?= csrf_field(); ?>
                 <?= getFlash('message'); ?>
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('title_a', $history->title_a); ?>" name="title_a" type="text" id="title_a" class="form-control <?= setInvalid('title_a'); ?>" placeholder="Judul Bagian 1" aria-label="Judul Bagian 1">
                             <label for="title_a">Judul Bagian 1</label>
@@ -19,9 +19,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('desc_a', $history->desc_a); ?>" name="desc_a" type="text" id="desc_a" class="form-control <?= setInvalid('desc_a'); ?>" placeholder="Deskripsi Bagian 1" aria-label="Deskripsi Bagian 1">
+                            <textarea style="height: 200px;" required name="desc_a" type="text" id="desc_a" class="form-control <?= setInvalid('desc_a'); ?>" placeholder="Deskripsi Bagian 1" aria-label="Deskripsi Bagian 1"><?= old('desc_a', $history->desc_a); ?></textarea>
                             <label for="desc_a">Deskripsi Bagian 1</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('desc_a'); ?>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('title_b', $history->title_b); ?>" name="title_b" type="text" id="title_b" class="form-control <?= setInvalid('title_b'); ?>" placeholder="Judul Bagian 2" aria-label="Judul Bagian 2">
                             <label for="title_b">Judul Bagian 2</label>
@@ -39,9 +39,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('desc_b', $history->desc_b); ?>" name="desc_b" type="text" id="desc_b" class="form-control <?= setInvalid('desc_b'); ?>" placeholder="Deskripsi Bagian 2" aria-label="Deskripsi Bagian 2">
+                            <textarea style="height: 200px;" required name="desc_b" type="text" id="desc_b" class="form-control <?= setInvalid('desc_b'); ?>" placeholder="Deskripsi Bagian 2" aria-label="Deskripsi Bagian 2"><?= old('desc_b', $history->desc_b); ?></textarea>
                             <label for="desc_b">Deskripsi Bagian 2</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('desc_b'); ?>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('title_c', $history->title_c); ?>" name="title_c" type="text" id="title_c" class="form-control <?= setInvalid('title_c'); ?>" placeholder="Judul Bagian 3" aria-label="Judul Bagian 3">
                             <label for="title_c">Judul Bagian 3</label>
@@ -59,9 +59,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('desc_c', $history->desc_c); ?>" name="desc_c" type="text" id="desc_c" class="form-control <?= setInvalid('desc_c'); ?>" placeholder="Deskripsi Bagian 3" aria-label="Deskripsi Bagian 3">
+                            <textarea style="height: 200px;" required name="desc_c" type="text" id="desc_c" class="form-control <?= setInvalid('desc_c'); ?>" placeholder="Deskripsi Bagian 3" aria-label="Deskripsi Bagian 3"><?= old('desc_c', $history->desc_c); ?></textarea>
                             <label for="desc_c">Deskripsi Bagian 3</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('desc_c'); ?>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
                             <input required value="<?= old('title_d', $history->title_d); ?>" name="title_d" type="text" id="title_d" class="form-control <?= setInvalid('title_d'); ?>" placeholder="Judul Bagian 4" aria-label="Judul Bagian 4">
                             <label for="title_d">Judul Bagian 4</label>
@@ -79,9 +79,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <div class="form-floating has-validation">
-                            <input required value="<?= old('desc_d', $history->desc_d); ?>" name="desc_d" type="text" id="desc_d" class="form-control <?= setInvalid('desc_d'); ?>" placeholder="Deskripsi Bagian 4" aria-label="Deskripsi Bagian 4">
+                            <textarea style="height: 200px;" required name="desc_d" type="text" id="desc_d" class="form-control <?= setInvalid('desc_d'); ?>" placeholder="Deskripsi Bagian 4" aria-label="Deskripsi Bagian 4"><?= old('desc_d', $history->desc_d); ?></textarea>
                             <label for="desc_d">Deskripsi Bagian 4</label>
                             <div class="invalid-feedback">
                                 <?= showInvalidFeedback('desc_d'); ?>

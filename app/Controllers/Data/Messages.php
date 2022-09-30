@@ -84,10 +84,12 @@ class Messages extends BaseController
         $messages = $this->msm->getDatatable($condition);
         $data = $ids = [];
         setlocale(LC_ALL, 'IND');
+        $no = 1 + $condition['offset'];
         foreach ($messages->result as $field) {
             $message_id = encode($field->message_id, 'messages');
             $ids[] = $message_id;
             $row = [
+                'no' => $no++,
                 'unique_id' => $message_id,
                 'message_sender' => $field->message_sender,
                 'message_whatsapp' => $field->message_whatsapp,
