@@ -191,6 +191,7 @@ class DatabaseManager extends Database
     {
         $d = null;
         if ($condition['order']) {
+            $condition['order']['column']--;
             $order = $condition['orderable'][$condition['order']['column']] . ' ' . $condition['order']['dir'];
         }
         $d['orderBy'] = $order ?? $condition['orderable'][0] . ' ASC';

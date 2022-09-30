@@ -1,4 +1,4 @@
-# Kartasolv v.1.3.6
+# Kartasolv v.1.3.7
 
 Kartasolv is an Social Welfare Development Web Application that focused on helping social organization to help and organize data, especially in Sarijadi Urban Village. This particular web application will be used for my campus final project and developed for Karang Taruna Sarijadi themself, to provide information, and manage PMKS & PSKS data in Sarijadi with real time control 🙏.
 
@@ -27,7 +27,7 @@ Those tech stacks listed below:
 | [Recaptcha V3](https://developers.google.com/recaptcha/docs/v3) | This web application also have spam prevention based on Recaptcha Score. |
 | [Datatables](https://datatables.net/) | Datatables used for displaying table data seamlessly in one page, with server side processing through Ajax requests. |
 
-## Features latest v.1.3.6
+## Features latest v.1.3.7
 
 Here are lists of implemented features through this Kartasolv Web Application.
 
