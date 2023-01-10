@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://www.phpdoc.org" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/phpDocumentor/phpDocumentor/master/data/xsd/phpdoc.xsd">
     <paths>
-        <output>public_html/api</output>
-        <cache>build/cache</cache>
+        <output>../kartasolv-docs/</output>
+        <cache>../kartasolv-docs/build/cache</cache>
     </paths>
     <version number="1.2.2">
         <api format="php">
