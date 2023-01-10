@@ -1,4 +1,4 @@
-# Kartasolv v.1.3.7
+# Kartasolv v.1.3.8
 
 Kartasolv is an Social Welfare Development Web Application that focused on helping social organization to help and organize data, especially in Sarijadi Urban Village. This particular web application will be used for my campus final project and developed for Karang Taruna Sarijadi themself, to provide information, and manage PMKS & PSKS data in Sarijadi with real time control 🙏.
 
@@ -12,22 +12,22 @@ https://kartasarijadi.com/api
 This project made with some third party tech stack other than [PHP](https://php.net) and [Codeigniter 4](https://codeigniter.com/).
 Those tech stacks listed below:
 
-| Tech Name | Description |
-|:---------:|-------------|
-| [Composer](https://getcomposer.org/) | Main dependency manager for PHP and installing Codeigniter 4, also this package manager is used for running tests, and import some third party libraries. |
-| [NPM](https://www.npmjs.com/) | Basicly this is used for importing Bootstrap 5 Node Modules to be customized with using SASS. |
-| [MySQL](https://www.mysql.com/) | MySQL used for developing through localhost function, but when it comes to deployment to the server, it uses MariaDB. But still, it's the same with different license. |
-| [Bootstrap 5](https://getbootstrap.com) | Is used for main framework of basic HTML, CSS, JS display and design templates. |
-| [Jquery](https://api.jquery.com/) | Basicly I didn't use much of Jquery because most of the time, i use native Javascript functions to manipulate html objects. So, Jquery is used for AJAX call and it's Datatables dependency, so I still need that. |
-| [SwiperJS](https://swiperjs.com/) | Touch and automatic slider, used for displaying scrolling Organization members/personel on the landing page. |
-| [PHPDocumentor](https://docs.phpdoc.org/) | Generating documentation |
-| [PHPUnit](https://phpunit.readthedocs.io/) | Actually, Codeigniter 4 has imported PHPUnit properties and methods for asserting data. Codeigniter 4 also have full documentation for Unit Testing. This PHPUnit itself is used for HTTP Call unit testing by asserting main MVC functions |
-| [HashIds](https://hashids.org/) | Hashids is used for generate encoded and decoded ID shown in the Web Application |
-| [PHPOffice](https://phpspreadsheet.readthedocs.io/en/latest/) | PHPOffice, or mainly PHPSpreadsheet is used for importing xls and xlsx file to the PMKS and PSKS table. |
-| [Recaptcha V3](https://developers.google.com/recaptcha/docs/v3) | This web application also have spam prevention based on Recaptcha Score. |
-| [Datatables](https://datatables.net/) | Datatables used for displaying table data seamlessly in one page, with server side processing through Ajax requests. |
+|                            Tech Name                            | Description                                                                                                                                                                                                                                 |
+| :-------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              [Composer](https://getcomposer.org/)               | Main dependency manager for PHP and installing Codeigniter 4, also this package manager is used for running tests, and import some third party libraries.                                                                                   |
+|                  [NPM](https://www.npmjs.com/)                  | Basicly this is used for importing Bootstrap 5 Node Modules to be customized with using SASS.                                                                                                                                               |
+|                 [MySQL](https://www.mysql.com/)                 | MySQL used for developing through localhost function, but when it comes to deployment to the server, it uses MariaDB. But still, it's the same with different license.                                                                      |
+|             [Bootstrap 5](https://getbootstrap.com)             | Is used for main framework of basic HTML, CSS, JS display and design templates.                                                                                                                                                             |
+|                [Jquery](https://api.jquery.com/)                | Basicly I didn't use much of Jquery because most of the time, i use native Javascript functions to manipulate html objects. So, Jquery is used for AJAX call and it's Datatables dependency, so I still need that.                          |
+|                [SwiperJS](https://swiperjs.com/)                | Touch and automatic slider, used for displaying scrolling Organization members/personel on the landing page.                                                                                                                                |
+|            [PHPDocumentor](https://docs.phpdoc.org/)            | Generating documentation                                                                                                                                                                                                                    |
+|           [PHPUnit](https://phpunit.readthedocs.io/)            | Actually, Codeigniter 4 has imported PHPUnit properties and methods for asserting data. Codeigniter 4 also have full documentation for Unit Testing. This PHPUnit itself is used for HTTP Call unit testing by asserting main MVC functions |
+|                 [HashIds](https://hashids.org/)                 | Hashids is used for generate encoded and decoded ID shown in the Web Application                                                                                                                                                            |
+|  [PHPOffice](https://phpspreadsheet.readthedocs.io/en/latest/)  | PHPOffice, or mainly PHPSpreadsheet is used for importing xls and xlsx file to the PMKS and PSKS table.                                                                                                                                     |
+| [Recaptcha V3](https://developers.google.com/recaptcha/docs/v3) | This web application also have spam prevention based on Recaptcha Score.                                                                                                                                                                    |
+|              [Datatables](https://datatables.net/)              | Datatables used for displaying table data seamlessly in one page, with server side processing through Ajax requests.                                                                                                                        |
 
-## Features latest v.1.3.7
+## Features latest v.1.3.8
 
 Here are lists of implemented features through this Kartasolv Web Application.
 
