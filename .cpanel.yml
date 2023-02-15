@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/cp -fR /home/kartasar/repositories/kartasolv /home/kartasar
+    - /bin/cp -R /home/kartasar/repositories/kartasolv /home/kartasar
