@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\I18n\Time;
+
 /**
  * Main Landing Page Controller.
  *
@@ -60,11 +62,33 @@ class Home extends BaseController
      */
     public function index()
     {
+        $client = \Config\Services::curlrequest();
+        try {
+            $posts = json_decode($client->get('https://kartasarijadi.com/artikel/wp-json/wp/v2/posts?_embed&per_page=3&orderby=date&order=asc')->getBody());
+        } catch (\Exception $e) {
+            $posts = json_decode('[]');
+        }
+        $posts = objectify(array_map(function ($post) {
+            $time = Time::parse($post->date, 'Asia/Jakarta');
+            $featuredMedia = 'wp:featuredmedia';
+            return [
+                'id' => $post->id,
+                'date' => $time->humanize(),
+                'title' => strip_tags($post->title->rendered),
+                'excerpt' => strip_tags($post->excerpt->rendered),
+                'media' => $post->_embedded->$featuredMedia[0]
+                    ->media_details->sizes->medium_large
+                    ->source_url ?? base_url('img/default.webp'),
+                'link' => $post->link
+            ];
+        }, $posts));
+
         $data = [
             'title' => 'Halaman Utama | Karta Sarijadi',
             'landingInfo' => $this->lm->find(1, true),
             'activitiesInfo' => $this->am->find(1, true),
-            'members' => $this->mm->getMembers()
+            'members' => $this->mm->getMembers(),
+            'posts' => $posts
         ];
         return view('home/index', $data);
     }
