@@ -47,6 +47,8 @@ app/Views/test
 .env
 .vagrant
 Vagrantfile
+laradock
+.gitmodules
 
 #-------------------------
 # Temporary Files
@@ -80,7 +82,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # Test Files
 #-------------------------
 tests/coverage*
-
 
 #-------------------------
 # IDE / Development Files
