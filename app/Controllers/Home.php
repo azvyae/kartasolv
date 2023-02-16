@@ -77,7 +77,7 @@ class Home extends BaseController
                 'title' => strip_tags($post->title->rendered),
                 'excerpt' => strip_tags($post->excerpt->rendered),
                 'media' => $post->_embedded->$featuredMedia[0]
-                    ->media_details->sizes->medium_large
+                    ->media_details->sizes->full
                     ->source_url ?? base_url('img/default.webp'),
                 'link' => $post->link
             ];
